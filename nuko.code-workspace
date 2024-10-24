@@ -1,0 +1,119 @@
+{
+  "folders": [
+    {
+      "name": "root",
+      "path": "."
+    },
+    {
+      "name": "⚙️ config",
+      "path": "./config"
+    },
+    {
+      "name": "-------",
+      "path": "a"
+    },
+    {
+      "name": "📦 core",
+      "path": "packages/core"
+    },
+
+    {
+      "name": "-------",
+      "path": "b"
+    },
+    {
+      "name": "-------",
+      "path": "c"
+    },
+    {
+      "name": "📃 docs",
+      "path": "docs"
+    }
+  ],
+  "settings": {
+    "prettier.enable": false,
+    "biome.enabled": false,
+    "stylelint.enable": false,
+
+    "editor.formatOnSave": false,
+
+    // Auto fix
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+      "source.organizeImports": "never"
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.codeActionsOnSave": {
+        "source.addMissingImports": "explicit"
+      }
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+      "editor.codeActionsOnSave": {
+        "source.addMissingImports": "explicit"
+      }
+    },
+
+    "eslint.options": {
+      "flags": ["unstable_ts_config"]
+    },
+
+    "eslint.runtime": "node",
+
+    // Silent the stylistic rules in you IDE, but still auto fix them
+    "eslint.rules.customizations": [
+      { "rule": "style/*", "severity": "off", "fixable": true },
+      { "rule": "*-indent", "severity": "off", "fixable": true },
+      { "rule": "*-spacing", "severity": "off", "fixable": true },
+      { "rule": "*-spaces", "severity": "off", "fixable": true },
+      { "rule": "*-order", "severity": "off", "fixable": true },
+      { "rule": "*-dangle", "severity": "off", "fixable": true },
+      { "rule": "*-newline", "severity": "off", "fixable": true },
+      { "rule": "*quotes", "severity": "off", "fixable": true },
+      { "rule": "*semi", "severity": "off", "fixable": true }
+    ],
+
+    // Enable eslint for all supported languages
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+      "vue",
+      "html",
+      "markdown",
+      "json",
+      "json5",
+      "jsonc",
+      "yaml",
+      "toml",
+      "xml"
+    ],
+
+    "pair-diff.patterns": [
+      {
+        "source": "./fixtures/output/**/*.*",
+        "target": "./fixtures/input/<base>"
+      }
+    ],
+
+    "typescript.preferences.importModuleSpecifier": "non-relative",
+    "javascript.preferences.importModuleSpecifier": "non-relative",
+    "emmet.triggerExpansionOnTab": true,
+
+    "cSpell.words": [
+      "antfu",
+      "Nuko"
+    ],
+
+    "terminal.integrated.cwd": "${workspaceFolder}"
+  },
+  "extensions": {
+    "unwantedRecommendations": []
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": []
+  }
+}

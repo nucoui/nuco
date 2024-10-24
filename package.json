@@ -1,0 +1,19 @@
+{
+  "name": "@nuko/workspace",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "cfg": "pnpm -C config",
+    "p:core": "pnpm -C packages/core"
+  },
+  "devDependencies": {
+    "turbo": "^2.2.3"
+  },
+  "volta": {
+    "node": "22.10.0",
+    "pnpm": "9.12.2"
+  }
+}

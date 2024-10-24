@@ -1,0 +1,25 @@
+{
+  "name": "core",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "vue": "^3.5.12"
+  },
+  "devDependencies": {
+    "@nuko/config": "workspace:*",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "@vitejs/plugin-vue-jsx": "^4.0.1",
+    "@vue-macros/volar": "^0.30.5",
+    "typescript": "~5.6.2",
+    "unplugin-vue-macros": "^2.13.0",
+    "vite": "^5.4.9",
+    "vue-tsc": "^2.1.6"
+  }
+}
