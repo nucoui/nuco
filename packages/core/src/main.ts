@@ -1,5 +1,5 @@
 import { defineCustomElement } from "vue";
-import NukoButtonCe from "./components/NukoButton.ce.vue";
+import NukoButtonCe from "./components/NukoButton/NukoButton.ce.vue";
 
 const NukoButton = defineCustomElement(NukoButtonCe);
 
@@ -12,7 +12,14 @@ const resisterElement = (name: ElementNames) => {
   if (customElements.get(name)) {
     return;
   }
-  customElements.define(name, Elements[name]);
+  try {
+    customElements.define(name, Elements[name]);
+    // eslint-disable-next-line no-console
+    console.info(`Element "${name}" is resistered.`);
+  }
+  catch (error) {
+    console.error(error);
+  }
 };
 
 const resister = () => {
