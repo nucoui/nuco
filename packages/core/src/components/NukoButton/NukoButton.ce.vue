@@ -1,5 +1,6 @@
 <script setup lang="tsx">
 import type { ButtonHTMLAttributes } from "vue";
+import "@nuko/variable/css/variable.css";
 
 interface Props {
   type: ButtonHTMLAttributes["type"];
@@ -14,4 +15,8 @@ defineRender(() => (
 </script>
 
 <style lang="scss" scoped>
+.nuko-button {
+  background-color: var(--p-natural-900);
+  color: var(--p-natural-200);
+}
 </style>

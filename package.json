@@ -7,7 +7,8 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "cfg": "pnpm -C config",
-    "p:core": "pnpm -C packages/core"
+    "p:core": "pnpm -C packages/core",
+    "p:variable": "pnpm -C packages/variable"
   },
   "devDependencies": {
     "turbo": "^2.2.3"

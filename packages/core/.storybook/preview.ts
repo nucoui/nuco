@@ -1,5 +1,4 @@
 import type { Preview } from "@storybook/web-components";
-import { resister } from "../src/main";
 
 const preview: Preview = {
   parameters: {

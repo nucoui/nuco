@@ -1,0 +1,30 @@
+{
+  "name": "@nuko/variable",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.js",
+      "require": "./dist/main.cjs"
+    },
+    "./css/*": {
+      "types": "./dist/css/index.d.ts",
+      "import": "./dist/css/index.js",
+      "require": "./dist/css/index.js"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup"
+  },
+  "devDependencies": {
+    "@nuko/config": "workspace:*",
+    "@types/node": "^22.7.9",
+    "consola": "^3.2.3",
+    "ts-morph": "^24.0.0",
+    "tsup": "^8.3.4",
+    "typescript": "catalog:"
+  }
+}

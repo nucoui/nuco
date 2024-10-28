@@ -16,7 +16,10 @@
       "name": "📦 core",
       "path": "packages/core"
     },
-
+    {
+      "name": "📦 variable",
+      "path": "packages/variable"
+    },
     {
       "name": "-------",
       "path": "b"

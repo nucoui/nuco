@@ -3,6 +3,13 @@
   "type": "module",
   "version": "0.0.0",
   "private": true,
+  "contributes": {
+    "css": {
+      "customData": [
+        "./node_modules/@nuko/variable/dist/css/variables.json"
+      ]
+    }
+  },
   "scripts": {
     "dev": "storybook dev -p 5222 --no-open",
     "build": "vue-tsc -b && vite build",
@@ -18,6 +25,7 @@
   "devDependencies": {
     "@chromatic-com/storybook": "^1.9.0",
     "@nuko/config": "workspace:*",
+    "@nuko/variable": "workspace:*",
     "@storybook/addon-essentials": "^8.3.6",
     "@storybook/addon-interactions": "^8.3.6",
     "@storybook/addon-links": "^8.3.6",
