@@ -6,7 +6,7 @@
   "contributes": {
     "css": {
       "customData": [
-        "./node_modules/@nuko/variable/dist/css/variables.json"
+        "./node_modules/@nuko/variable/dist/css/variables.css-data.json"
       ]
     }
   },

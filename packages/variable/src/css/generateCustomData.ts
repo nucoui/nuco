@@ -6,7 +6,7 @@ export const generateCustomData = () => {
   const cssFilePath = path.resolve(__dirname, "../../dist/css/variables.css");
 
   // Custom Data Extensionファイルのパス
-  const customDataFilePath = path.resolve(__dirname, "../../dist/css/variables.json");
+  const customDataFilePath = path.resolve(__dirname, "../../dist/css/variables.css-data.json");
 
   // CSSファイルを読み込む
   const cssContent = fs.readFileSync(cssFilePath, "utf-8");
