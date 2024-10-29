@@ -1,30 +1,51 @@
 <script setup lang="tsx">
 import clsx from "clsx";
-import { type ButtonHTMLAttributes, useId } from "vue";
+import { type AnchorHTMLAttributes, type ButtonHTMLAttributes, useId } from "vue";
 import "@nuko/variable/css/variable.css";
 
-interface Props {
-  type?: ButtonHTMLAttributes["type"];
+type Props = {
   variant?: "primary" | "secondary" | "error";
   disabled?: boolean;
-}
-const { type = "button", variant = "primary", disabled } = defineProps<Props>();
+} & ({
+  type?: "anchor";
+  href?: string;
+  target?: AnchorHTMLAttributes["target"];
+} | {
+  type?: ButtonHTMLAttributes["type"];
+  href?: never;
+  target?: never;
+});
+
+const { type = "button", variant = "primary", disabled, href, target } = defineProps<Props>();
 
 const id = useId();
 
 defineRender(() => (
-  <button
-    part={id}
-    type={type}
-    class={clsx("nuko-button", `-${variant}`)}
-    disabled={disabled}
-  >
-    <span
-      class="contents"
-    >
-      <slot />
-    </span>
-  </button>
+  type === "anchor"
+    ? (
+        <a
+          part={id}
+          class={clsx("nuko-button", "-anchor", `-${variant}`)}
+          href={href}
+          target={target}
+        >
+          <span class="contents">
+            <slot />
+          </span>
+        </a>
+      )
+    : (
+        <button
+          part={id}
+          type={type}
+          class={clsx("nuko-button", `-${variant}`)}
+          disabled={disabled}
+        >
+          <span class="contents">
+            <slot />
+          </span>
+        </button>
+      )
 ));
 </script>
 
@@ -69,6 +90,10 @@ defineRender(() => (
 
   &:not([disabled]):active {
     transform: scale(0.98);
+  }
+
+  &.-anchor {
+    text-decoration: underline dashed;
   }
 
   &.-primary {

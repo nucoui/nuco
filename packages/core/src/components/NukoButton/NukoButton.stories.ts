@@ -9,7 +9,7 @@ const meta: Meta = {
   argTypes: {
     type: {
       control: "select",
-      options: ["button", "submit", "reset"],
+      options: ["button", "submit", "reset", "anchor"],
     },
     variant: {
       control: "select",
@@ -18,11 +18,20 @@ const meta: Meta = {
     disabled: {
       control: "boolean",
     },
+    href: {
+      control: "text",
+    },
+    target: {
+      control: "select",
+      options: ["_blank", "_self", "_parent", "_top"],
+    },
   },
   args: {
     type: "button",
     variant: "primary",
     disabled: false,
+    href: "https://google.com",
+    target: "_self",
   },
   render: (attr) => {
     resisterElement("nuko-button");
