@@ -45,14 +45,13 @@
       "source.fixAll.eslint": "explicit",
       "source.organizeImports": "never"
     },
+
     "[javascript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode",
       "editor.codeActionsOnSave": {
         "source.addMissingImports": "explicit"
       }
     },
     "[typescript]": {
-      "editor.defaultFormatter": "dbaeumer.vscode-eslint",
       "editor.codeActionsOnSave": {
         "source.addMissingImports": "explicit"
       }
@@ -87,11 +86,19 @@
       "html",
       "markdown",
       "json",
-      "json5",
       "jsonc",
       "yaml",
       "toml",
-      "xml"
+      "xml",
+      "gql",
+      "graphql",
+      "astro",
+      "svelte",
+      "css",
+      "less",
+      "scss",
+      "pcss",
+      "postcss"
     ],
 
     "pair-diff.patterns": [

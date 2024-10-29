@@ -10,6 +10,8 @@ const getNestObjectLiteralValue = (objectLiteralExpression: ObjectLiteralExpress
         return "p";
       case "semanticColor":
         return "s";
+      case "numeric":
+        return "n";
       default:
         return "v";
     }
@@ -55,7 +57,7 @@ const getNestObjectLiteralValue = (objectLiteralExpression: ObjectLiteralExpress
         console.groupEnd(); */
 
         return values?.push({
-          key: keyName ? `--${variablesSymbol}-${keyName}-${propertyName}` : `--${propertyName}`,
+          key: keyName ? `--${variablesSymbol}-${keyName}-${propertyName}` : `--${variablesSymbol}-${propertyName}`,
           value: `var(--${arrayParentName}-${arrayName}-${index})`,
         });
       }
@@ -70,9 +72,11 @@ const getNestObjectLiteralValue = (objectLiteralExpression: ObjectLiteralExpress
         });
         console.groupEnd(); */
 
+        const value = propertyAssignmentInitializer.getText().replace(/"/g, "");
+
         return values?.push({
-          key: keyName ? `--${variablesSymbol}-${keyName}-${propertyName}` : `--${propertyName}`,
-          value: propertyAssignmentInitializer.getText().replace(/"/g, ""),
+          key: keyName ? `--${variablesSymbol}-${keyName}-${propertyName}` : `--${variablesSymbol}-${propertyName}`,
+          value,
         });
       }
     }
