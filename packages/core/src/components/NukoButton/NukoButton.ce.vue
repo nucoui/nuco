@@ -1,6 +1,6 @@
 <script setup lang="tsx">
 import clsx from "clsx";
-import { type AnchorHTMLAttributes, type ButtonHTMLAttributes, useId } from "vue";
+import { type AnchorHTMLAttributes, type ButtonHTMLAttributes, useHost, useId } from "vue";
 import "@nuko/variable/css/variable.css";
 
 type Props = {
@@ -15,10 +15,16 @@ type Props = {
   href?: never;
   target?: never;
 });
-
 const { type = "button", variant = "primary", disabled, href, target } = defineProps<Props>();
 
 const id = useId();
+const host = useHost();
+
+const handleClick = () => {
+  if (type === "submit") {
+    host?.closest("form")?.submit();
+  }
+};
 
 defineRender(() => (
   type === "anchor"
@@ -40,6 +46,7 @@ defineRender(() => (
           type={type}
           class={clsx("nuko-button", `-${variant}`)}
           disabled={disabled}
+          onClick={handleClick}
         >
           <span class="contents">
             <slot />
@@ -54,33 +61,33 @@ defineRender(() => (
 @import url("/src/styles/base.css");
 
 :host {
-  width: fit-content;
+  box-sizing: border-box;
+  display: inline-block;
+  width: auto;
 }
 
 .nuko-button {
   position: relative;
-  line-height: 1.25;
-  padding: var(--n-3) var(--n-4);
-  border-radius: var(--n-2);
-  cursor: pointer;
-  background-color: transparent;
-  transition: all 0.1s ease-in-out;
-  user-select: none;
-  border: none;
-  outline: none;
-  display: inline-block;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
+  display: inline-block;
+  padding: var(--n-3) var(--n-4);
+  line-height: 1.25;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  border: none;
+  border-radius: var(--n-2);
+  outline: none;
+  transition: all 0.1s ease-in-out;
 
   &:not([disabled]):focus,
   &:not([disabled]):hover {
     &::after {
       position: absolute;
-      content: "";
-      height: 100%;
-      width: 100%;
       inset: 0;
+      width: 100%;
+      height: 100%;
+      content: "";
       border-radius: var(--n-2);
       outline: 2px solid var(--p-natural-400);
       outline-offset: 2px;
@@ -97,13 +104,13 @@ defineRender(() => (
   }
 
   &.-primary {
-    background-color: var(--p-natural-900);
     color: var(--p-natural-100);
+    background-color: var(--p-natural-900);
 
     &[disabled] {
-      background-color: var(--p-natural-400);
       color: var(--p-natural-600);
       cursor: not-allowed;
+      background-color: var(--p-natural-400);
     }
 
     &:not([disabled]):hover {
@@ -112,14 +119,14 @@ defineRender(() => (
   }
 
   &.-secondary {
-    background-color: rgba(var(--p-natural-900), 0);
     color: var(--p-natural-900);
+    background-color: rgba(var(--p-natural-900), 0);
     outline: 1px solid var(--p-natural-400);
 
     &[disabled] {
-      background-color: var(--p-natural-100);
       color: var(--p-natural-400);
       cursor: not-allowed;
+      background-color: var(--p-natural-100);
     }
 
     &:not([disabled]):hover {
@@ -128,13 +135,13 @@ defineRender(() => (
   }
 
   &.-error {
-    background-color: var(--p-red-600);
     color: var(--p-natural-100);
+    background-color: var(--p-red-600);
 
     &[disabled] {
-      background-color: var(--p-red-400);
       color: var(--p-red-200);
       cursor: not-allowed;
+      background-color: var(--p-red-400);
     }
 
     &:not([disabled]):hover {
@@ -145,6 +152,7 @@ defineRender(() => (
   > .contents {
     display: flex;
     gap: var(--n-1);
+    justify-content: center;
     font-weight: 500;
   }
 }

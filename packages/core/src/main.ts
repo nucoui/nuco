@@ -1,10 +1,13 @@
 import { defineCustomElement } from "vue";
 import NukoButtonCe from "./components/NukoButton/NukoButton.ce.vue";
+import NukoInputCe from "./components/NukoInput/NukoInput.ce.vue";
 
 const NukoButton = defineCustomElement(NukoButtonCe);
+const NukoInput = defineCustomElement(NukoInputCe);
 
 const Elements = {
   "nuko-button": NukoButton,
+  "nuko-input": NukoInput,
 } as const;
 type ElementNames = keyof typeof Elements;
 

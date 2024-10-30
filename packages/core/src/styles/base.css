@@ -1,3 +1,4 @@
 :host {
-  font-family: "Poppins", serif;
+  display: flex;
+  font-family: Poppins, serif;
 }

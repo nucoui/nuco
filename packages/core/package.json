@@ -1,5 +1,5 @@
 {
-  "name": "core",
+  "name": "@nuko/core",
   "type": "module",
   "version": "0.0.0",
   "private": true,
@@ -14,7 +14,7 @@
     "dev": "storybook dev -p 5222 --no-open",
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview",
-    "lint": "eslint .",
+    "lint": "eslint . && stylelint \"**/*.vue\" \"**/*.css\" \"**/*.scss\"",
     "sb:init": "storybook init",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"

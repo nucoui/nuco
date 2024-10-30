@@ -36,13 +36,14 @@
   "settings": {
     "prettier.enable": false,
     "biome.enabled": false,
-    "stylelint.enable": false,
+    "stylelint.enable": true,
 
     "editor.formatOnSave": false,
 
     // Auto fix
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": "explicit",
+      "source.fixAll.stylelint": "explicit",
       "source.organizeImports": "never"
     },
 
@@ -99,6 +100,13 @@
       "scss",
       "pcss",
       "postcss"
+    ],
+
+    "stylelint.configFile": "./config/stylelint/main.mjs",
+    "stylelint.validate": [
+      "css",
+      "scss",
+      "vue"
     ],
 
     "pair-diff.patterns": [
