@@ -1,9 +1,5 @@
-import { defineCustomElement } from "vue";
-import NukoButtonCe from "./components/NukoButton/NukoButton.ce.vue";
-import NukoInputCe from "./components/NukoInput/NukoInput.ce.vue";
-
-const NukoButton = defineCustomElement(NukoButtonCe);
-const NukoInput = defineCustomElement(NukoInputCe);
+import { NukoButton } from "./components/NukoButton/NukoButton.ce";
+import { NukoInput } from "./components/NukoInput/NukoInput.ce";
 
 const Elements = {
   "nuko-button": NukoButton,

@@ -1,14 +1,31 @@
-import type { Preview } from "@storybook/web-components";
+import { semanticColor } from "@nuko/variable";
+import { themes } from "@storybook/theming";
 
-const preview: Preview = {
-  parameters: {
-    controls: {
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/i,
-      },
+export const parameters = {
+  actions: { argTypesRegex: "^on[A-Z].*" },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
     },
+  },
+  docs: {
+    theme: themes.dark,
+  },
+  backgrounds: {
+    default: "light",
+    values: [
+      { name: "light", value: semanticColor.light.background.secondary },
+      { name: "dark", value: semanticColor.dark.background.secondary },
+    ],
   },
 };
 
-export default preview;
+const withTheme = (StoryFn, context) => {
+  const theme = context.globals.backgrounds.value === semanticColor.light.background.secondary ? "light" : "dark";
+  document.documentElement.setAttribute("data-color-scheme", theme);
+
+  return StoryFn();
+};
+
+export const decorators = [withTheme];

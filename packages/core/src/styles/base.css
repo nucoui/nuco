@@ -1,4 +1,5 @@
 :host {
-  display: flex;
+  box-sizing: border-box;
+  width: auto;
   font-family: Poppins, serif;
 }

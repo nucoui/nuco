@@ -55,49 +55,74 @@ export default meta;
 type Story = StoryObj<InstanceType<typeof NukoInputCe>["$props"]>;
 
 export const Primary: Story = {
+  argTypes: {
+    name: {
+      control: "text",
+    },
+    placeholder: {
+      control: "text",
+    },
+    value: {
+      control: "text",
+    },
+  },
   args: {
+    name: "name",
+    placeholder: "Placeholder",
   },
 };
 
 export const Playground: Story = {
+  args: {
+    name: "name",
+    placeholder: "Please enter your name",
+  },
   render: (attr) => {
-    resisterElement("nuko-button");
     resisterElement("nuko-input");
+    resisterElement("nuko-button");
 
     const form = document.createElement("form");
     form.style.display = "flex";
     form.style.flexDirection = "column";
     form.style.gap = "8px";
-    form.action = "";
-    form.method = "";
-    form.addEventListener("submit", (event) => {
-      // eslint-disable-next-line no-alert
-      if (!window.confirm("本当に送信しますか?")) {
-        event.stopPropagation();
-        event.preventDefault();
-      }
-    });
-    form.addEventListener("formdata", (event) => {
-      // eslint-disable-next-line no-console
-      console.log(event.formData);
-    });
 
-    const input = form.appendChild(document.createElement("nuko-input"));
-
+    const nukoInput = document.createElement("nuko-input");
+    nukoInput.setAttribute("maxlength", "10");
     for (const key in attr) {
-      input.setAttribute(key, (attr as Record<string, any>)[key]);
+      nukoInput.setAttribute(key, (attr as Record<string, any>)[key]);
     }
 
-    const button = form.appendChild(document.createElement("nuko-button"));
-    button.innerHTML = "Submit";
-    button.setAttribute("type", "submit");
-    button.addEventListener("click", (event) => {
-      // eslint-disable-next-line no-alert
-      if (!window.confirm("本当に送信しますか?")) {
-        event.stopPropagation();
-        event.preventDefault();
+    const submitButton = document.createElement("nuko-button");
+    (submitButton as HTMLInputElement).type = "submit";
+    submitButton.textContent = "Submit";
+
+    form.appendChild(nukoInput);
+    form.appendChild(submitButton);
+
+    // フォームの送信イベントハンドラ
+    form.onsubmit = (e: Event) => {
+      e.preventDefault(); // フォームのデフォルト動作をキャンセル
+
+      const formData = new FormData(form);
+
+      // 名前と年齢の値を取得
+      const name = formData.get("name")?.toString();
+
+      // 入力チェック
+      if (!name) {
+        // eslint-disable-next-line no-alert
+        alert("名前を入力してください");
+        return;
       }
-    });
+
+      // 確認ダイアログ
+      const confirmationMessage = `名前: ${name}\nこの情報でよろしいですか？`;
+      // eslint-disable-next-line no-alert
+      if (confirm(confirmationMessage)) {
+        // eslint-disable-next-line no-alert
+        alert("フォームが送信されました！");
+      }
+    };
 
     return form;
   },

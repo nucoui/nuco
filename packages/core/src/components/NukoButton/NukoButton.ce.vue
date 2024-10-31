@@ -15,14 +15,20 @@ type Props = {
   href?: never;
   target?: never;
 });
-const { type = "button", variant = "primary", disabled, href, target } = defineProps<Props>();
+const {
+  type = "button",
+  variant = "primary",
+  disabled,
+  href,
+  target,
+} = defineProps<Props>();
 
 const id = useId();
 const host = useHost();
 
 const handleClick = () => {
   if (type === "submit") {
-    host?.closest("form")?.submit();
+    host?.closest("form")?.requestSubmit();
   }
 };
 
@@ -56,20 +62,19 @@ defineRender(() => (
 ));
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import url("/src/styles/reset.css");
 @import url("/src/styles/base.css");
 
 :host {
   box-sizing: border-box;
-  display: inline-block;
   width: auto;
 }
 
 .nuko-button {
   position: relative;
   box-sizing: border-box;
-  display: inline-block;
+  width: 100%;
   padding: var(--n-3) var(--n-4);
   line-height: 1.25;
   cursor: pointer;
@@ -78,7 +83,7 @@ defineRender(() => (
   border: none;
   border-radius: var(--n-2);
   outline: none;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.2s ease-in-out;
 
   &:not([disabled]):focus,
   &:not([disabled]):hover {
@@ -89,7 +94,7 @@ defineRender(() => (
       height: 100%;
       content: "";
       border-radius: var(--n-2);
-      outline: 2px solid var(--p-natural-400);
+      outline: 2px solid var(--cs-border-primary);
       outline-offset: 2px;
       transition: all 0.1s ease-in-out;
     }
@@ -104,38 +109,38 @@ defineRender(() => (
   }
 
   &.-primary {
-    color: var(--p-natural-100);
-    background-color: var(--p-natural-900);
+    color: var(--cs-neutral-100);
+    background-color: var(--cs-neutral-900);
 
     &[disabled] {
-      color: var(--p-natural-600);
+      color: var(--cs-neutral-600);
       cursor: not-allowed;
-      background-color: var(--p-natural-400);
+      background-color: var(--cs-neutral-400);
     }
 
     &:not([disabled]):hover {
-      background-color: var(--p-natural-800);
+      background-color: var(--cs-neutral-800);
     }
   }
 
   &.-secondary {
-    color: var(--p-natural-900);
-    background-color: rgba(var(--p-natural-900), 0);
-    outline: 1px solid var(--p-natural-400);
+    color: var(--cs-neutral-900);
+    background-color: rgba(var(--cs-neutral-900), 0);
+    outline: 1px solid var(--cs-neutral-400);
 
     &[disabled] {
-      color: var(--p-natural-400);
+      color: var(--cs-neutral-400);
       cursor: not-allowed;
-      background-color: var(--p-natural-100);
+      background-color: var(--cs-neutral-100);
     }
 
     &:not([disabled]):hover {
-      background-color: color-mix(in srgb, var(--p-natural-900) 5%, transparent);
+      background-color: color-mix(in srgb, var(--cs-neutral-900) 5%, transparent);
     }
   }
 
   &.-error {
-    color: var(--p-natural-100);
+    color: var(--p-neutral-100);
     background-color: var(--p-red-600);
 
     &[disabled] {
