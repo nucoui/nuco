@@ -83,7 +83,9 @@ const getNestObjectLiteralValue = (objectLiteralExpression: ObjectLiteralExpress
   });
 };
 
-export const generateCssVariables = (file: string, variableName: string) => {
+export type CssVariablesValue = Array<Record<string, string>>;
+
+export const generateCssVariables = (file: string, variableName: string): CssVariablesValue => {
   const project = new Project({
     tsConfigFilePath: "tsconfig.json",
   });
@@ -97,22 +99,16 @@ export const generateCssVariables = (file: string, variableName: string) => {
     throw new Error("Root CSS Variables initializer is missing");
   }
 
-  const rootCssVariablesObjectExpression = rootCssVariablesInitializer.asKindOrThrow(SyntaxKind.SatisfiesExpression).getExpressionIfKindOrThrow(SyntaxKind.AsExpression).getExpressionIfKindOrThrow(SyntaxKind.ObjectLiteralExpression);
+  const rootCssVariablesObjectExpression = rootCssVariablesInitializer
+    .asKindOrThrow(SyntaxKind.SatisfiesExpression)
+    .getExpressionIfKindOrThrow(SyntaxKind.AsExpression)
+    .getExpressionIfKindOrThrow(SyntaxKind.ObjectLiteralExpression);
 
-  const values: Array<Record<string, string>> = [];
+  const values: CssVariablesValue = [];
 
   getNestObjectLiteralValue(rootCssVariablesObjectExpression, variableName, undefined, values);
 
   /* console.log("Values:", values); */
-
-  const outputDir = path.resolve(__dirname, "../../dist/css");
-  if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir, { recursive: true });
-  }
-
-  const permissibleColorCssVariablesText = `:root {\n${values.map(({ key, value }) => `  ${key}: ${value};\n`).join("")}}\n`;
-
-  fs.writeFileSync(path.join(outputDir, `${variableName}.css`), permissibleColorCssVariablesText);
 
   return values;
 };

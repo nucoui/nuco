@@ -5,28 +5,28 @@ type SemanticColorRule = Record<"light" | "dark", Partial<Record<"background" | 
 export const semanticColor = {
   light: {
     background: {
-      primary: permissibleColor.natural[200],
-      secondary: permissibleColor.natural[100],
+      primary: permissibleColor.neutral[200],
+      secondary: permissibleColor.neutral[100],
     },
     text: {
-      primary: permissibleColor.natural[900],
-      secondary: permissibleColor.natural[500],
+      primary: permissibleColor.neutral[900],
+      secondary: permissibleColor.neutral[500],
     },
     border: {
-      primary: permissibleColor.natural[600],
+      primary: permissibleColor.neutral[600],
     },
   },
   dark: {
     background: {
-      primary: permissibleColor.natural[900],
-      secondary: permissibleColor.natural[800],
+      primary: permissibleColor.neutral[900],
+      secondary: permissibleColor.neutral[800],
     },
     text: {
-      primary: permissibleColor.natural[100],
-      secondary: permissibleColor.natural[500],
+      primary: permissibleColor.neutral[100],
+      secondary: permissibleColor.neutral[500],
     },
     border: {
-      primary: permissibleColor.natural[600],
+      primary: permissibleColor.neutral[600],
     },
   },
 } as const satisfies SemanticColorRule;

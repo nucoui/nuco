@@ -1,7 +1,7 @@
 type PermissibleColorRule = Record<string, Record<100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900, `#${string}`>>;
 
 export const permissibleColor = {
-  natural: {
+  neutral: {
     100: "#F6F6F6",
     200: "#EEEEEE",
     300: "#D4D4D4",
