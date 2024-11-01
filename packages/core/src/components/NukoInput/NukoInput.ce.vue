@@ -1,6 +1,7 @@
 <script lang="tsx" setup>
 import type { InputHTMLAttributes } from "vue";
 import { defineEmits, onMounted, ref, useHost, watch } from "vue";
+import "@nuko/variable/css/variable.css";
 
 type Props = InputHTMLAttributes;
 
@@ -64,17 +65,19 @@ defineRender(() => (
   position: relative;
   padding: var(--n-2) var(--n-4);
   font-size: var(--n-4);
-  border: 1px solid var(--p-natural-300);
+  color: var(--cs-text-primary);
+  background: transparent;
+  border: 2px solid var(--cs-neutral-400);
   border-radius: var(--n-1);
 
   &:not([disabled]):focus {
-    outline: 2px solid var(--p-natural-400);
+    outline: 1px solid var(--cs-neutral-400);
     outline-offset: 2px;
     transition: all 0.1s ease-in-out;
   }
 
   &::placeholder {
-    color: var(--p-natural-300);
+    color: var(--cs-neutral-300);
   }
 }
 
@@ -83,6 +86,6 @@ defineRender(() => (
   flex-direction: column;
   gap: var(--n-1);
   font-size: var(--n-3);
-  color: var(--p-natural-500);
+  color: var(--cs-neutral-500);
 }
 </style>

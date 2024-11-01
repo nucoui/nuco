@@ -94,7 +94,7 @@ defineRender(() => (
       height: 100%;
       content: "";
       border-radius: var(--n-2);
-      outline: 2px solid var(--cs-border-primary);
+      outline: 1px solid var(--cs-border-primary);
       outline-offset: 2px;
       transition: all 0.1s ease-in-out;
     }

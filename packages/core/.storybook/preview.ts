@@ -22,8 +22,10 @@ export const parameters = {
 };
 
 const withTheme = (StoryFn, context) => {
-  const theme = context.globals.backgrounds.value === semanticColor.light.background.secondary ? "light" : "dark";
-  document.documentElement.setAttribute("data-color-scheme", theme);
+  if (context.globals.backgrounds) {
+    const theme = context.globals.backgrounds.value === semanticColor.light.background.secondary ? "light" : "dark";
+    document.documentElement.setAttribute("data-color-scheme", theme);
+  }
 
   return StoryFn();
 };

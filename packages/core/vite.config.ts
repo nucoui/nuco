@@ -13,7 +13,7 @@ export default defineConfig({
         vueJsx: VueJsx(),
       },
     }),
-    /* Unfonts({
+    Unfonts({
       google: {
         families: [
           {
@@ -23,7 +23,7 @@ export default defineConfig({
           },
         ],
       },
-    }), */
+    }),
   ],
 
   build: {
