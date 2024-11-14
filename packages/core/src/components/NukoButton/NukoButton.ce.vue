@@ -1,7 +1,7 @@
 <script setup lang="tsx">
 import clsx from "clsx";
-import { type AnchorHTMLAttributes, type ButtonHTMLAttributes, useHost, useId } from "vue";
-import "@nuko/variable/css/variable.css";
+import { type AnchorHTMLAttributes, type ButtonHTMLAttributes, computed, ref, useId } from "vue";
+import { useCe } from "../../composables/useCe";
 
 type Props = {
   variant?: "primary" | "secondary" | "error";
@@ -11,7 +11,7 @@ type Props = {
   href?: string;
   target?: AnchorHTMLAttributes["target"];
 } | {
-  type?: ButtonHTMLAttributes["type"];
+  type?: ButtonHTMLAttributes["type"] | "toggle";
   href?: never;
   target?: never;
 });
@@ -23,8 +23,10 @@ const {
   target,
 } = defineProps<Props>();
 
+const buttonRef = ref<HTMLButtonElement | null>(null);
+
 const id = useId();
-const host = useHost();
+const { host } = useCe(buttonRef);
 
 const handleClick = () => {
   if (type === "submit") {
@@ -32,12 +34,30 @@ const handleClick = () => {
   }
 };
 
-defineRender(() => (
-  type === "anchor"
-    ? (
+const handleKeydown = (e: KeyboardEvent) => {
+  if (e.key === "Enter") {
+    handleClick();
+  }
+};
+
+const commonAttrs = computed(() => ({
+  "ref": buttonRef,
+  "part": id,
+  "class": clsx("nuko-button", `-${variant}`, {
+    "-anchor": type === "anchor",
+    "-toggle": type === "toggle",
+  }),
+  "aria-disabled": disabled,
+  "onKeydown": handleKeydown,
+}));
+
+defineRender(() => {
+  switch (type) {
+    case "anchor": {
+      return (
         <a
-          part={id}
-          class={clsx("nuko-button", "-anchor", `-${variant}`)}
+          {...commonAttrs.value}
+          tabindex={disabled ? -1 : 0}
           href={href}
           target={target}
         >
@@ -45,12 +65,26 @@ defineRender(() => (
             <slot />
           </span>
         </a>
-      )
-    : (
+      );
+    }
+    case "toggle": {
+      return (
         <button
-          part={id}
+          {...commonAttrs.value}
+          type="button"
+          disabled={disabled}
+        >
+          <span class="contents">
+            <slot />
+          </span>
+        </button>
+      );
+    }
+    default: {
+      return (
+        <button
+          {...commonAttrs.value}
           type={type}
-          class={clsx("nuko-button", `-${variant}`)}
           disabled={disabled}
           onClick={handleClick}
         >
@@ -58,14 +92,13 @@ defineRender(() => (
             <slot />
           </span>
         </button>
-      )
-));
+      );
+    }
+  }
+});
 </script>
 
-<style lang="scss">
-@import url("/src/styles/reset.css");
-@import url("/src/styles/base.css");
-
+<style scoped lang="scss">
 :host {
   box-sizing: border-box;
   width: auto;
@@ -94,7 +127,7 @@ defineRender(() => (
       height: 100%;
       content: "";
       border-radius: var(--n-2);
-      outline: 1px solid var(--cs-border-primary);
+      outline: 1px solid var(--cs-neutral-600);
       outline-offset: 2px;
       transition: all 0.1s ease-in-out;
     }
@@ -105,6 +138,7 @@ defineRender(() => (
   }
 
   &.-anchor {
+    display: inline-block;
     text-decoration: underline dashed;
   }
 

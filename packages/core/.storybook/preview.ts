@@ -1,5 +1,6 @@
 import { semanticColor } from "@nuko/variable";
 import { themes } from "@storybook/theming";
+import "@nuko/variable/css";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -13,7 +14,7 @@ export const parameters = {
     theme: themes.dark,
   },
   backgrounds: {
-    default: "light",
+    default: "dark",
     values: [
       { name: "light", value: semanticColor.light.background.secondary },
       { name: "dark", value: semanticColor.dark.background.secondary },

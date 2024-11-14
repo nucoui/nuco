@@ -40,7 +40,10 @@ const meta: Meta = {
     element.innerHTML = "Button";
 
     for (const key in attr) {
-      if (key === "disabled" && attr[key] === false) {
+      if (typeof attr[key] === "boolean") {
+        if (attr[key]) {
+          element.setAttribute(key, "");
+        }
         continue;
       }
       element.setAttribute(key, (attr as Record<string, any>)[key]);
