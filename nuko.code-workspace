@@ -25,6 +25,10 @@
       "path": "b"
     },
     {
+      "name": "🎮 vue",
+      "path": "playgrounds/vue"
+    },
+      {
       "name": "-------",
       "path": "c"
     },

@@ -3,3 +3,8 @@
   width: auto;
   font-family: Poppins, serif;
 }
+
+:where(:not([disabled]):focus-visible, :not([disabled]):focus) {
+  outline: 1px solid var(--cs-neutral-600);
+  outline-offset: 2px;
+}

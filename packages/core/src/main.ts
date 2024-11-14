@@ -7,7 +7,7 @@ const Elements = {
 } as const;
 type ElementNames = keyof typeof Elements;
 
-const resisterElement = (name: ElementNames) => {
+export const resisterElement = (name: ElementNames) => {
   if (customElements.get(name)) {
     return;
   }
@@ -21,10 +21,8 @@ const resisterElement = (name: ElementNames) => {
   }
 };
 
-const resister = () => {
+export const resister = () => {
   for (const name in Elements) {
     resisterElement(name as ElementNames);
   }
 };
-
-export { NukoButton, resister, resisterElement };

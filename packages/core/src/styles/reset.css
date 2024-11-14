@@ -79,17 +79,11 @@
   display: none !important;
 }
 
-:where(:focus-visible) {
-  outline: 3px solid CanvasText;
-  outline-offset: 1px;
-  box-shadow: 0 0 0 5px Canvas;
-}
-
-:where(:focus-visible, :target) {
+/* :where(:focus-visible, :target) {
   scroll-margin-block: 8vh;
-}
+} */
 
-:where(.visually-hidden:not(:focus-within, :active)) {
+/* :where(.visually-hidden:not(:focus-within, :active)) {
   position: absolute !important;
   width: 1px !important;
   height: 1px !important;
@@ -97,4 +91,4 @@
   clip-path: inset(50%) !important;
   white-space: nowrap !important;
   border: 0 !important;
-}
+} */

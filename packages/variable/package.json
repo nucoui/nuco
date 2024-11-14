@@ -9,7 +9,7 @@
       "import": "./dist/main.js",
       "require": "./dist/main.cjs"
     },
-    "./css/*": {
+    "./css": {
       "types": "./dist/css/index.d.ts",
       "import": "./dist/css/index.js",
       "require": "./dist/css/index.js"

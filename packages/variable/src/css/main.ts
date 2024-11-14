@@ -48,11 +48,36 @@ const genCssVariables = () => {
   );
   fs.writeFileSync(
     path.join(outputDir, "index.js"),
-    `import "./variables.css";`,
+    `import * as permissibleColor from "./permissibleColor.css";
+import * as semanticColor from "./semanticColor.css";
+import * as numeric from "./numeric.css";
+import * as prefersColorSchema from "./prefersColorSchema.css";
+import * as variables from "./variables.css";
+
+export {
+  permissibleColor,
+  semanticColor,
+  numeric,
+  prefersColorSchema,
+  variables,
+};\n`,
   );
   fs.writeFileSync(
     path.join(outputDir, "index.d.ts"),
-    `export * from "./variables.css";`,
+    `declare module '*.css' {}
+import * as permissibleColor from "./permissibleColor.css";
+import * as semanticColor from "./semanticColor.css";
+import * as numeric from "./numeric.css";
+import * as prefersColorSchema from "./prefersColorSchema.css";
+import * as variables from "./variables.css";
+
+export {
+  permissibleColor,
+  semanticColor,
+  numeric,
+  prefersColorSchema,
+  variables,
+};\n`,
   );
 
   generatePrefersColorSchemeCssVariables(semanticColorValues);
