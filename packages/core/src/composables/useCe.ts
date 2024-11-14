@@ -1,7 +1,6 @@
 import type { Ref } from "vue";
 import { onMounted, ref, useHost, useShadowRoot } from "vue";
-import base from "../styles/base.css?inline";
-import reset from "../styles/reset.css?inline";
+import { baseAdoptedStyleSheets, resetAdoptedStyleSheets } from "../utils/adoptedStyleSheets";
 
 export const useCe = (mainRef: Ref<HTMLElement | null>) => {
   const host = useHost();
@@ -16,12 +15,6 @@ export const useCe = (mainRef: Ref<HTMLElement | null>) => {
       }
 
       if (shadowRoot) {
-        const baseAdoptedStyleSheets = new CSSStyleSheet();
-        baseAdoptedStyleSheets.replaceSync(base);
-
-        const resetAdoptedStyleSheets = new CSSStyleSheet();
-        resetAdoptedStyleSheets.replaceSync(reset);
-
         shadowRoot.adoptedStyleSheets = [
           resetAdoptedStyleSheets,
           baseAdoptedStyleSheets,
