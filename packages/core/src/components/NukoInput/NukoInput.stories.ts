@@ -34,9 +34,24 @@ const meta: Meta = {
         "week",
       ],
     },
+    name: {
+      control: "text",
+    },
+    placeholder: {
+      control: "text",
+    },
+    value: {
+      control: "text",
+    },
+    required: {
+      control: "boolean",
+    },
+    maxlength: {
+      control: "number",
+    },
   },
   args: {
-
+    required: false,
   },
   render: (attr) => {
     resisterElement("nuko-input");
@@ -44,6 +59,15 @@ const meta: Meta = {
     const input = document.createElement("nuko-input");
 
     for (const key in attr) {
+      if (typeof attr[key] === "boolean") {
+        if (attr[key]) {
+          input.setAttribute(key, "");
+        }
+        else {
+          input.removeAttribute(key);
+        }
+        continue;
+      }
       input.setAttribute(key, (attr as Record<string, any>)[key]);
     }
 
@@ -55,18 +79,8 @@ export default meta;
 type Story = StoryObj<InstanceType<typeof NukoInputCe>["$props"]>;
 
 export const Primary: Story = {
-  argTypes: {
-    name: {
-      control: "text",
-    },
-    placeholder: {
-      control: "text",
-    },
-    value: {
-      control: "text",
-    },
-  },
   args: {
+    type: "text",
     name: "name",
     placeholder: "Placeholder",
   },
@@ -74,6 +88,7 @@ export const Primary: Story = {
 
 export const Playground: Story = {
   args: {
+    type: "text",
     name: "name",
     placeholder: "Please enter your name",
   },

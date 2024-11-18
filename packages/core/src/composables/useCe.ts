@@ -7,6 +7,8 @@ export const useCe = (mainRef: Ref<HTMLElement | null>) => {
   const shadowRoot = useShadowRoot();
   const internals = ref<ElementInternals | null>(null);
 
+  const propsInjectionKey = Symbol("propsInjectionKey");
+
   onMounted(() => {
     if (mainRef.value) {
       const attachedInternals = host?.attachInternals();
@@ -23,5 +25,10 @@ export const useCe = (mainRef: Ref<HTMLElement | null>) => {
     }
   });
 
-  return { host, shadowRoot, internals };
+  return {
+    host,
+    shadowRoot,
+    internals,
+    propsInjectionKey,
+  };
 };

@@ -1,7 +1,7 @@
 :host {
   box-sizing: border-box;
   width: auto;
-  font-family: Poppins, serif;
+  font-family: Poppins, "Noto Sans JP", sans-serif;
 }
 
 :where(:not([disabled]):focus-visible, :not([disabled]):focus) {
