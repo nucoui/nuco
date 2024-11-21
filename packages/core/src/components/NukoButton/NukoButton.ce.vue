@@ -15,21 +15,20 @@ type Props = {
   href?: never;
   target?: never;
 });
-const {
-  type = "button",
-  variant = "primary",
-  disabled,
-  href,
-  target,
-} = defineProps<Props>();
+
+const definedProps = withDefaults(defineProps<Props>(), {
+  type: "button",
+  variant: "primary",
+  disabled: false,
+});
 
 const buttonRef = ref<HTMLButtonElement | null>(null);
 
 const id = useId();
-const { host } = useCe(buttonRef);
+const { host, props } = useCe(buttonRef, definedProps);
 
 const handleClick = () => {
-  if (type === "submit") {
+  if (props.value.type === "submit") {
     host?.closest("form")?.requestSubmit();
   }
 };
@@ -43,23 +42,23 @@ const handleKeydown = (e: KeyboardEvent) => {
 const commonAttrs = computed(() => ({
   "ref": buttonRef,
   "part": id,
-  "class": clsx("nuko-button", `-${variant}`, {
-    "-anchor": type === "anchor",
-    "-toggle": type === "toggle",
+  "class": clsx("nuko-button", `-${props.value.variant}`, {
+    "-anchor": props.value.type === "anchor",
+    "-toggle": props.value.type === "toggle",
   }),
-  "aria-disabled": disabled,
+  "aria-disabled": props.value.disabled,
   "onKeydown": handleKeydown,
 }));
 
 defineRender(() => {
-  switch (type) {
+  switch (props.value.type) {
     case "anchor": {
       return (
         <a
           {...commonAttrs.value}
-          tabindex={disabled ? -1 : 0}
-          href={href}
-          target={target}
+          tabindex={props.value.disabled ? -1 : 0}
+          href={props.value.href}
+          target={props.value.target}
         >
           <span class="contents">
             <slot />
@@ -72,7 +71,7 @@ defineRender(() => {
         <button
           {...commonAttrs.value}
           type="button"
-          disabled={disabled}
+          disabled={props.value.disabled}
         >
           <span class="contents">
             <slot />
@@ -84,8 +83,8 @@ defineRender(() => {
       return (
         <button
           {...commonAttrs.value}
-          type={type}
-          disabled={disabled}
+          type={props.value.type}
+          disabled={props.value.disabled}
           onClick={handleClick}
         >
           <span class="contents">

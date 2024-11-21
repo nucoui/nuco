@@ -5,7 +5,10 @@ import { useCe } from "../../composables/useCe";
 /* @vue-ignore */
 type Props = InputHTMLAttributes;
 
-const definedProps = defineProps<Props>();
+const definedProps = withDefaults(defineProps<Props>(), {
+  type: "text",
+  required: false,
+});
 
 const emit = defineEmits(["update:value"]);
 
