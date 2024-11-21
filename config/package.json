@@ -17,6 +17,7 @@
     "@antfu/eslint-config": "^3.8.0",
     "eslint": "^9.12.0",
     "eslint-plugin-format": "^0.1.2",
+    "eslint-plugin-unused-imports": "^4.1.4",
     "stylelint": "^16.10.0",
     "stylelint-config-recess-order": "^5.1.1",
     "stylelint-config-recommended-scss": "^14.1.0",

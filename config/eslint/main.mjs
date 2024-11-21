@@ -1,4 +1,5 @@
 import antfu from '@antfu/eslint-config'
+import unusedImports from 'eslint-plugin-unused-imports'
 
 function mainConfig(
   /** @type {Parameters<typeof antfu>[0]} */
@@ -17,6 +18,7 @@ function mainConfig(
     rules: {
       'antfu/top-level-function': 'off',
       'ts/explicit-function-return-type': 'off',
+      'unused-imports/no-unused-imports': 'error',
     },
     formatters: {
       html: true,
@@ -24,6 +26,9 @@ function mainConfig(
       markdown: true,
     },
     ignores: ['**/dist/**/*'],
+    plugins: {
+      'unused-imports': unusedImports,
+    },
 
     ...options,
   }, ...userConfigs)

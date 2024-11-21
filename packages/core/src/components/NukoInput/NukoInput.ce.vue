@@ -1,94 +1,79 @@
 <script lang="tsx" setup>
-import { toRefs } from "@vueuse/core";
-import { computed, type InputHTMLAttributes, provide, ref, watch } from "vue";
+import { type InputHTMLAttributes, ref } from "vue";
 import { useCe } from "../../composables/useCe";
 
 /* @vue-ignore */
 type Props = InputHTMLAttributes;
 
-const props = defineProps<Props>();
-const emit = defineEmits(["update:value"]);
-const {
-  value,
-  name,
-  required,
-  type,
-  maxlength,
-} = props;
+const definedProps = defineProps<Props>();
 
-const propsRef = toRefs(props);
+const emit = defineEmits(["update:value"]);
+
 const inputRef = ref<HTMLInputElement | null>(null);
-const valueRef = ref(value);
-const valueLength = computed(() => {
-  if (!valueRef.value) {
+const { internals, props } = useCe(inputRef, definedProps);
+
+const getValueLength = (value: Props["value"]) => {
+  if (!value) {
     return 0;
   }
 
-  switch (type) {
+  switch (props.value.type) {
     case "text": {
-      return valueRef.value.length;
+      return value.length;
     }
     case "number": {
-      return valueRef.value;
+      return value;
     }
     default: {
-      if (typeof valueRef.value === "string") {
-        return valueRef.value.length;
+      if (typeof value === "string") {
+        return value.length;
       }
-      else if (!Number.isNaN(Number(valueRef.value))) {
-        return valueRef.value;
+      else if (!Number.isNaN(Number(value))) {
+        return value;
       }
 
       return 0;
     }
   }
-});
+};
 
-const { internals, propsInjectionKey } = useCe(inputRef);
-
-provide(propsInjectionKey, propsRef);
+const valueLength = ref<number>(0);
 
 const handleInput = (e: Event) => {
   const target = e.target as HTMLInputElement;
 
-  valueRef.value = target.value;
+  valueLength.value = getValueLength(target.value);
   if (internals.value) {
     internals.value.setFormValue(target.value);
   }
+
   emit("update:value", target.value);
 };
-
-watch(() => value, (newValue) => {
-  if (newValue && inputRef.value && inputRef.value.value !== newValue) {
-    inputRef.value.value = newValue;
-  }
-});
 
 defineRender(() => (
   <label class="nuko-label">
     <div class="info">
       <span class="label">
         <slot name="label">
-          {name}
+          {props.value.name}
         </slot>
-        {required && <span class="required">*</span>}
+        {props.value.required && <span class="required">*</span>}
       </span>
       <span class="options">
         {valueLength.value}
         {
-          maxlength
+          props.value.maxlength
           && (
             <span class="max-length">
               <span>{"<="}</span>
-              {maxlength}
+              {props.value.maxlength}
             </span>
           )
         }
       </span>
     </div>
     <input
-      {...props}
-      value={valueRef.value}
+      {...props.value}
       ref={inputRef}
       onInput={handleInput}
       class="nuko-input"

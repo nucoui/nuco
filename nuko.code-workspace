@@ -53,12 +53,17 @@
 
     "[javascript]": {
       "editor.codeActionsOnSave": {
-        "source.addMissingImports": "explicit"
+        "source.addMissingImports": "explicit",
       }
     },
     "[typescript]": {
       "editor.codeActionsOnSave": {
-        "source.addMissingImports": "explicit"
+        "source.addMissingImports": "explicit",
+      }
+    },
+    "[vue]": {
+      "editor.codeActionsOnSave": {
+        "source.addMissingImports": "explicit",
       }
     },
 
