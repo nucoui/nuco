@@ -1,8 +1,10 @@
+import { resolve } from "node:path";
 import vue from "@vitejs/plugin-vue";
 import VueJsx from "@vitejs/plugin-vue-jsx";
 import Unfonts from "unplugin-fonts/vite";
 import VueMacros from "unplugin-vue-macros/vite";
 import { defineConfig } from "vite";
+import dts from "vite-plugin-dts";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -29,6 +31,7 @@ export default defineConfig({
         ],
       },
     }),
+    dts({ tsconfigPath: resolve(__dirname, "tsconfig.app.json") }),
   ],
 
   css: {
@@ -37,6 +40,12 @@ export default defineConfig({
         api: "modern-compiler",
       },
     },
+  },
+
+  define: {
+    __VUE_OPTIONS_API__: "false",
+    __VUE_PROD_DEVTOOLS__: "false",
+    __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: "false",
   },
 
   build: {
@@ -49,7 +58,7 @@ export default defineConfig({
       formats: ["es", "cjs", "umd"],
     },
     rollupOptions: {
-      external: ["vue"],
+      // external: ["vue"],
       output: {
         exports: "named",
         manualChunks: undefined,

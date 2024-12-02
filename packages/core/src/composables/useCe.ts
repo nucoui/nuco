@@ -10,9 +10,12 @@ export const useCe = <Props extends ReturnType<typeof defineProps>>(mainRef: Ref
       }),
     );
 
+    // console.log(rest);
+
     return rest as Props;
   });
 
+  // const ceSymbol = Symbol("") as InjectionKey<typeof parsedProps>;
   const host = useHost();
   const shadowRoot = useShadowRoot();
   const internals = ref<ElementInternals | null>(null);
@@ -33,7 +36,10 @@ export const useCe = <Props extends ReturnType<typeof defineProps>>(mainRef: Ref
     }
   });
 
+  // provide(ceSymbol, parsedProps);
+
   return {
+    // ceSymbol,
     host,
     shadowRoot,
     internals,

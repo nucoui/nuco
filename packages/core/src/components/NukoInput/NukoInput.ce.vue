@@ -1,19 +1,61 @@
 <script lang="tsx" setup>
-import { type InputHTMLAttributes, ref } from "vue";
+import type { ClipboardEventEmit } from "../../types/emit/ClipboardEventEmit";
+import type { FocusEventEmit } from "../../types/emit/FocusEventEmit";
+import type { InputEventEmit } from "../../types/emit/InputEventEmit";
+import type { KeyboardEventEmit } from "../../types/emit/KeyboardEventEmit";
+import type { MouseEventEmit } from "../../types/emit/MouseEventEmit";
+import { computed, type InputHTMLAttributes, ref } from "vue";
 import { useCe } from "../../composables/useCe";
 
-/* @vue-ignore */
-type Props = InputHTMLAttributes;
+interface Props {
+  value?: InputHTMLAttributes["value"];
+  type: InputHTMLAttributes["type"];
+  name: InputHTMLAttributes["name"];
+  placeholder?: InputHTMLAttributes["placeholder"];
+  required?: InputHTMLAttributes["required"];
+  minlength?: InputHTMLAttributes["minlength"];
+  maxlength?: InputHTMLAttributes["maxlength"];
+}
+
+type Emit = {
+  (e: "update:value", value: string): void;
+} & InputEventEmit & FocusEventEmit & KeyboardEventEmit & MouseEventEmit & ClipboardEventEmit;
 
 const definedProps = withDefaults(defineProps<Props>(), {
   type: "text",
   required: false,
 });
-
-const emit = defineEmits(["update:value"]);
+const emit = defineEmits<Emit>();
 
 const inputRef = ref<HTMLInputElement | null>(null);
+const valueLength = ref<number>(0);
+
 const { internals, props } = useCe(inputRef, definedProps);
+
+const maxlengthElement = computed(() => {
+  const isMinlength = props.value.minlength !== undefined;
+  const isMaxlength = props.value.maxlength !== undefined;
+
+  if (!isMinlength && !isMaxlength) {
+    return null;
+  }
+
+  return (
+    <span class="length">
+      {isMinlength && <span>{`${props.value.minlength} <= `}</span>}
+      {valueLength.value}
+      {isMaxlength && <span>{` <= ${props.value.maxlength}`}</span>}
+    </span>
+  );
+});
+
+const requiredElement = computed(() => {
+  if (props.value.required === undefined) {
+    return null;
+  }
+
+  return <span class="required">*</span>;
+});
 
 const getValueLength = (value: Props["value"]) => {
   if (!value) {
@@ -40,8 +82,6 @@ const getValueLength = (value: Props["value"]) => {
   }
 };
 
-const valueLength = ref<number>(0);
-
 const handleInput = (e: Event) => {
   const target = e.target as HTMLInputElement;
 
@@ -51,34 +91,32 @@ const handleInput = (e: Event) => {
   }
 
   emit("update:value", target.value);
+  emit("onInput", { bubbles: true, composed: true }, e);
+};
+
+const handleChange = (e: Event) => {
+  emit("onChange", { bubbles: true, composed: true }, e);
 };
 
 defineRender(() => (
   <label class="nuko-label">
-    <div class="info">
+    <div class="header">
       <span class="label">
         <slot name="label">
           {props.value.name}
         </slot>
-        {props.value.required && <span class="required">*</span>}
+        {requiredElement.value}
       </span>
       <span class="options">
-        {valueLength.value}
-        {
-          props.value.maxlength
-          && (
-            <span class="max-length">
-              <span>{"<="}</span>
-              {props.value.maxlength}
-            </span>
-          )
-        }
+        {maxlengthElement.value}
       </span>
     </div>
     <input
       {...props.value}
       ref={inputRef}
+      required={props.value.required}
       onInput={handleInput}
+      onChange={handleChange}
       class="nuko-input"
     />
   </label>
@@ -93,7 +131,7 @@ defineRender(() => (
   font-size: var(--n-3);
   color: var(--cs-text-secondary);
 
-  > .info {
+  > .header {
     display: flex;
     justify-content: space-between;
 
@@ -129,6 +167,11 @@ defineRender(() => (
 
   &::placeholder {
     color: var(--cs-neutral-300);
+  }
+
+  &:invalid {
+    color: var(--p-red-400);
+    border-color: var(--p-red-400);
   }
 }
 </style>

@@ -2,30 +2,33 @@ import type { Meta, StoryObj } from "@storybook/web-components";
 import type NukoButtonCe from "./NukoButton.ce.vue";
 import { resisterElement } from "../../main";
 
+const dynamicArgTypes = {
+  type: {
+    control: "select",
+    options: ["button", "submit", "reset", "anchor", "toggle"],
+  },
+  variant: {
+    control: "select",
+    options: ["primary", "secondary", "error"],
+  },
+  disabled: {
+    control: "boolean",
+  },
+  href: {
+    control: "text",
+    if: { arg: "type", eq: "anchor" }, // typeがanchorのときのみ表示
+  },
+  target: {
+    control: "text",
+    if: { arg: "type", eq: "anchor" }, // typeがanchorのときのみ表示
+  },
+} as const satisfies Meta["argTypes"];
+
 // This default export determines where your story goes in the story list
 const meta: Meta = {
   component: "nuko-button",
   tags: ["autodocs"],
-  argTypes: {
-    type: {
-      control: "select",
-      options: ["button", "submit", "reset", "anchor"],
-    },
-    variant: {
-      control: "select",
-      options: ["primary", "secondary", "error"],
-    },
-    disabled: {
-      control: "boolean",
-    },
-    href: {
-      control: "text",
-    },
-    target: {
-      control: "select",
-      options: ["_blank", "_self", "_parent", "_top"],
-    },
-  },
+  argTypes: dynamicArgTypes,
   args: {
     type: "button",
     variant: "primary",

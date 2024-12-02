@@ -1,3 +1,4 @@
+import type { NukoInputProps } from "./components/NukoInput/NukoInput.ce";
 import { NukoButton } from "./components/NukoButton/NukoButton.ce";
 import { NukoInput } from "./components/NukoInput/NukoInput.ce";
 
@@ -7,7 +8,7 @@ const Elements = {
 } as const;
 type ElementNames = keyof typeof Elements;
 
-export const resisterElement = (name: ElementNames) => {
+const resisterElement = (name: ElementNames) => {
   if (customElements.get(name)) {
     return;
   }
@@ -21,8 +22,12 @@ export const resisterElement = (name: ElementNames) => {
   }
 };
 
-export const resister = () => {
+const resister = () => {
   for (const name in Elements) {
     resisterElement(name as ElementNames);
   }
 };
+
+export { resister, resisterElement };
+
+export type { ElementNames, NukoInputProps };

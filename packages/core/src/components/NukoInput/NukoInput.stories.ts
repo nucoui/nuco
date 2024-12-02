@@ -49,6 +49,9 @@ const meta: Meta = {
     maxlength: {
       control: "number",
     },
+    minlength: {
+      control: "number",
+    },
   },
   args: {
     required: false,
@@ -57,6 +60,14 @@ const meta: Meta = {
     resisterElement("nuko-input");
 
     const input = document.createElement("nuko-input");
+
+    // input.addEventListener("input", () => {
+    //   console.log("onInput");
+    // });
+
+    // input.addEventListener("change", () => {
+    //   console.log("onChange");
+    // });
 
     for (const key in attr) {
       if (typeof attr[key] === "boolean") {
@@ -102,6 +113,8 @@ export const Playground: Story = {
     form.style.gap = "8px";
 
     const nukoInput = document.createElement("nuko-input");
+    nukoInput.setAttribute("type", "text");
+    nukoInput.setAttribute("minlength", "3");
     nukoInput.setAttribute("maxlength", "10");
     for (const key in attr) {
       nukoInput.setAttribute(key, (attr as Record<string, any>)[key]);
