@@ -9,7 +9,8 @@
     "cfg": "pnpm -C config",
     "p:core": "pnpm -C packages/core",
     "p:variable": "pnpm -C packages/variable",
-    "pg:vue": "pnpm -C playgrounds/vue"
+    "pg:vue": "pnpm -C playgrounds/vue",
+    "pg:react-rhf": "pnpm -C playgrounds/react-rhf"
   },
   "devDependencies": {
     "turbo": "^2.2.3"

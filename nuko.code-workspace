@@ -28,7 +28,11 @@
       "name": "🎮 vue",
       "path": "playgrounds/vue"
     },
-      {
+    {
+      "name": "🎮 react",
+      "path": "playgrounds/react-rhf"
+    },
+    {
       "name": "-------",
       "path": "c"
     },
