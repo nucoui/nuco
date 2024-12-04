@@ -1,13 +1,10 @@
 <script lang="tsx" setup>
-import type { ClipboardEventEmit } from "../../types/emit/ClipboardEventEmit";
-import type { FocusEventEmit } from "../../types/emit/FocusEventEmit";
-import type { InputEventEmit } from "../../types/emit/InputEventEmit";
-import type { KeyboardEventEmit } from "../../types/emit/KeyboardEventEmit";
-import type { MouseEventEmit } from "../../types/emit/MouseEventEmit";
+import type { EventEmitHelper } from "../../types/emit/EventEmit/EventEmits";
+import type { ClipboardEventNames, InputEventNames } from "../../types/emit/EventEmit/EventNames";
 import { computed, type InputHTMLAttributes, ref } from "vue";
 import { useCe } from "../../composables/useCe";
 
-interface Props {
+export type Props = {
   value?: InputHTMLAttributes["value"];
   type: InputHTMLAttributes["type"];
   name: InputHTMLAttributes["name"];
@@ -15,17 +12,16 @@ interface Props {
   required?: InputHTMLAttributes["required"];
   minlength?: InputHTMLAttributes["minlength"];
   maxlength?: InputHTMLAttributes["maxlength"];
-}
+};
 
-type Emit = {
-  (e: "update:value", value: string): void;
-} & InputEventEmit & FocusEventEmit & KeyboardEventEmit & MouseEventEmit & ClipboardEventEmit;
+export type Emits = ClipboardEventNames | InputEventNames;
 
 const definedProps = withDefaults(defineProps<Props>(), {
   type: "text",
   required: false,
 });
-const emit = defineEmits<Emit>();
+
+const emit = defineEmits<EventEmitHelper<Emits>>();
 
 const inputRef = ref<HTMLInputElement | null>(null);
 const valueLength = ref<number>(0);
@@ -90,7 +86,6 @@ const handleInput = (e: Event) => {
     internals.value.setFormValue(target.value);
   }
 
-  emit("update:value", target.value);
   emit("onInput", { bubbles: true, composed: true }, e);
 };
 

@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { type AnchorHTMLAttributes, type ButtonHTMLAttributes, computed, ref, useId } from "vue";
 import { useCe } from "../../composables/useCe";
 
-type Props = {
+export type Props = {
   variant?: "primary" | "secondary" | "error";
   disabled?: boolean;
 } & ({
@@ -15,6 +15,8 @@ type Props = {
   href?: never;
   target?: never;
 });
+
+export type Emits = never;
 
 const definedProps = withDefaults(defineProps<Props>(), {
   type: "button",

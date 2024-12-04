@@ -18,6 +18,7 @@ function mainConfig(
     rules: {
       'antfu/top-level-function': 'off',
       'ts/explicit-function-return-type': 'off',
+      'ts/consistent-type-definitions': 'off',
       'unused-imports/no-unused-imports': 'error',
     },
     formatters: {
