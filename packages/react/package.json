@@ -1,0 +1,44 @@
+{
+  "name": "react",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "sb:dev": "storybook dev -p 6006",
+    "sb:build": "storybook build"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "catalog:",
+    "@nuko/config": "workspace:*",
+    "@nuko/core": "workspace:*",
+    "@nuko/variable": "workspace:*",
+    "@storybook/addon-essentials": "catalog:",
+    "@storybook/addon-interactions": "catalog:",
+    "@storybook/addon-links": "catalog:",
+    "@storybook/addon-onboarding": "catalog:",
+    "@storybook/blocks": "catalog:",
+    "@storybook/manager-api": "catalog:",
+    "@storybook/react": "8.4.6",
+    "@storybook/react-vite": "8.4.6",
+    "@storybook/test": "catalog:",
+    "@storybook/theming": "catalog:",
+    "@types/node": "^22.7.9",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "globals": "^15.12.0",
+    "storybook": "catalog:",
+    "storybook-dark-mode": "catalog:",
+    "typescript": "catalog:",
+    "typescript-eslint": "^8.15.0",
+    "vite": "catalog:"
+  }
+}

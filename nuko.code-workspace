@@ -17,6 +17,10 @@
       "path": "packages/core"
     },
     {
+      "name": "📦 react",
+      "path": "packages/react"
+    },
+    {
       "name": "📦 variable",
       "path": "packages/variable"
     },

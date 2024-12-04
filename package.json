@@ -8,6 +8,7 @@
     "lint": "turbo lint",
     "cfg": "pnpm -C config",
     "p:core": "pnpm -C packages/core",
+    "p:react": "pnpm -C packages/react",
     "p:variable": "pnpm -C packages/variable",
     "pg:vue": "pnpm -C playgrounds/vue",
     "pg:react-rhf": "pnpm -C playgrounds/react-rhf"
