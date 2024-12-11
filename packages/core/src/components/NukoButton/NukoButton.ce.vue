@@ -100,15 +100,19 @@ defineRender(() => {
 </script>
 
 <style scoped lang="scss">
-:host {
+/* :host {
   box-sizing: border-box;
-  width: auto;
-}
+  width: -moz-available;
+  width: -webkit-fill-available;
+  width: stretch;
+} */
 
 .nuko-button {
   position: relative;
   box-sizing: border-box;
-  width: 100%;
+  width: -moz-available;
+  width: -webkit-fill-available;
+  width: stretch;
   padding: var(--n-3) var(--n-4);
   line-height: 1.25;
   cursor: pointer;
@@ -117,30 +121,36 @@ defineRender(() => {
   border: none;
   border-radius: var(--n-2);
   outline: none;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 
   &:not([disabled]):focus,
   &:not([disabled]):hover {
     &::after {
       position: absolute;
       inset: 0;
-      width: 100%;
-      height: 100%;
       content: "";
       border-radius: var(--n-2);
       outline: 1px solid var(--cs-neutral-600);
       outline-offset: 2px;
-      transition: all 0.1s ease-in-out;
+      transition: all 0.1s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
   }
 
   &:not([disabled]):active {
-    transform: scale(0.98);
+    transform: scale(0.99);
   }
 
   &.-anchor {
     display: inline-block;
     text-decoration: underline dashed;
+  }
+
+  &.-primary,
+  &.-secondary,
+  &.-error {
+    &[disabled] {
+      cursor: not-allowed;
+    }
   }
 
   &.-primary {
@@ -149,7 +159,6 @@ defineRender(() => {
 
     &[disabled] {
       color: var(--cs-neutral-600);
-      cursor: not-allowed;
       background-color: var(--cs-neutral-400);
     }
 
@@ -165,12 +174,16 @@ defineRender(() => {
 
     &[disabled] {
       color: var(--cs-neutral-400);
-      cursor: not-allowed;
       background-color: var(--cs-neutral-100);
     }
 
     &:not([disabled]):hover {
       background-color: color-mix(in srgb, var(--cs-neutral-900) 5%, transparent);
+    }
+
+    &:not([disabled]):focus-visible,
+    :not([disabled]):focus {
+      outline-offset: 0;
     }
   }
 
@@ -180,7 +193,6 @@ defineRender(() => {
 
     &[disabled] {
       color: var(--p-red-200);
-      cursor: not-allowed;
       background-color: var(--p-red-400);
     }
 
