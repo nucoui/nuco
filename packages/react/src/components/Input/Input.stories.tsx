@@ -16,9 +16,9 @@ export const Primary: Story = {
     type: "text",
     placeholder: "Placeholder",
     maxlength: 100,
-    onInput: (event) => {
+    onChange: (event) => {
       // eslint-disable-next-line no-console
-      console.log(event?.target?.value);
+      console.log((event.target as HTMLInputElement)?.value);
     },
   },
 };
