@@ -123,16 +123,22 @@ defineRender(() => {
   outline: none;
   transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 
+  &::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    border-radius: var(--n-2);
+    outline: 1px solid var(--cs-neutral-600);
+    outline-offset: 0;
+    opacity: 0;
+    transition: all 0.1s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
   &:not([disabled]):focus,
   &:not([disabled]):hover {
     &::after {
-      position: absolute;
-      inset: 0;
-      content: "";
-      border-radius: var(--n-2);
-      outline: 1px solid var(--cs-neutral-600);
       outline-offset: 2px;
-      transition: all 0.1s cubic-bezier(0.34, 1.56, 0.64, 1);
+      opacity: 1;
     }
   }
 

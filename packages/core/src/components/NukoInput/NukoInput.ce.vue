@@ -129,6 +129,7 @@ defineRender(() => (
   > .header {
     display: flex;
     justify-content: space-between;
+    padding: 0 var(--n-2);
 
     > .label {
       display: flex;
@@ -148,16 +149,18 @@ defineRender(() => (
 
 .nuko-input {
   position: relative;
-  padding: var(--n-2) var(--n-4);
+  box-sizing: border-box;
+  padding: var(--n-3) var(--n-5);
   font-size: var(--n-4);
   color: var(--cs-text-primary);
   background: transparent;
   border: none;
-  border: 1px solid var(--cs-neutral-400);
   border-radius: var(--n-1);
+  outline: 1px solid var(--cs-neutral-400);
+  outline-offset: -1.5px;
 
   &:not([value=""], :placeholder-shown) {
-    border-color: var(--cs-text-primary);
+    outline-color: var(--cs-text-primary);
   }
 
   &::placeholder {
@@ -166,7 +169,31 @@ defineRender(() => (
 
   &:invalid {
     color: var(--p-red-400);
-    border-color: var(--p-red-400);
+    background-color: color-mix(in srgb, var(--p-red-400) 20%, transparent);
+    outline-color: var(--p-red-400);
+
+    &::placeholder {
+      color: var(--p-red-300);
+    }
+  }
+
+  &::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    border-radius: var(--n-2);
+    outline: 1px solid var(--cs-neutral-600);
+    outline-offset: 0;
+    opacity: 0;
+    transition: all 0.1s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &:not([disabled]):focus,
+  &:not([disabled]):hover {
+    &::after {
+      outline-offset: 2px;
+      opacity: 1;
+    }
   }
 }
 </style>

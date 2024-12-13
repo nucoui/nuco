@@ -1,10 +1,14 @@
 :host {
   box-sizing: border-box;
-  width: auto;
+  width: -moz-available;
+  width: -webkit-fill-available;
+  width: stretch;
   font-family: Poppins, "Noto Sans JP", sans-serif;
+  font-weight: 300;
 }
 
-:where(:not([disabled]):focus-visible, :not([disabled]):focus) {
+/* :where(:not([disabled]):focus-visible, :not([disabled]):focus) {
   outline: 1px solid var(--cs-neutral-600);
   outline-offset: 2px;
-}
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+} */
