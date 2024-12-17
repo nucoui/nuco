@@ -1,6 +1,7 @@
 <script lang="tsx" setup>
 import type { EventEmitHelper } from "../../types/emit/EventEmit/EventEmits";
 import type { ClipboardEventNames, InputEventNames } from "../../types/emit/EventEmit/EventNames";
+import clsx from "clsx";
 import { computed, type InputHTMLAttributes, ref } from "vue";
 import { useCe } from "../../composables/useCe";
 
@@ -12,6 +13,7 @@ export type Props = {
   required?: InputHTMLAttributes["required"];
   minlength?: InputHTMLAttributes["minlength"];
   maxlength?: InputHTMLAttributes["maxlength"];
+  invalid?: boolean;
 };
 
 export type Emits = ClipboardEventNames | InputEventNames;
@@ -19,6 +21,7 @@ export type Emits = ClipboardEventNames | InputEventNames;
 const definedProps = withDefaults(defineProps<Props>(), {
   type: "text",
   required: false,
+  invalid: false,
 });
 
 const emit = defineEmits<EventEmitHelper<Emits>>();
@@ -112,8 +115,11 @@ defineRender(() => (
       required={props.value.required}
       onInput={handleInput}
       onChange={handleChange}
-      class="nuko-input"
+      class={clsx("nuko-input", { "-invalid": props.value.invalid })}
     />
+    <div v-if={props.value.invalid} class="error">
+      <slot name="error" />
+    </div>
   </label>
 ));
 </script>
@@ -167,7 +173,7 @@ defineRender(() => (
     color: var(--cs-neutral-300);
   }
 
-  &:invalid {
+  &.-invalid {
     color: var(--p-red-400);
     background-color: color-mix(in srgb, var(--p-red-400) 20%, transparent);
     outline-color: var(--p-red-400);

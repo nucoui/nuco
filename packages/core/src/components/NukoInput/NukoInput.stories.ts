@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
 import type NukoInputCe from "./NukoInput.ce.vue";
+import { renderElement } from "../../../.storybook/renderElement";
 import { resisterElement } from "../../main";
 
 // This default export determines where your story goes in the story list
@@ -52,37 +53,16 @@ const meta: Meta = {
     minlength: {
       control: "number",
     },
+    invalid: {
+      control: "boolean",
+    },
   },
   args: {
     required: false,
+    invalid: false,
   },
   render: (attr) => {
-    resisterElement("nuko-input");
-
-    const input = document.createElement("nuko-input");
-
-    // input.addEventListener("input", () => {
-    //   console.log("onInput");
-    // });
-
-    // input.addEventListener("change", () => {
-    //   console.log("onChange");
-    // });
-
-    for (const key in attr) {
-      if (typeof attr[key] === "boolean") {
-        if (attr[key]) {
-          input.setAttribute(key, "");
-        }
-        else {
-          input.removeAttribute(key);
-        }
-        continue;
-      }
-      input.setAttribute(key, (attr as Record<string, any>)[key]);
-    }
-
-    return input;
+    return renderElement("nuko-input", attr);
   },
 };
 
@@ -94,6 +74,43 @@ export const Primary: Story = {
     type: "text",
     name: "name",
     placeholder: "Placeholder",
+  },
+};
+
+export const Invalid: Story = {
+  args: {
+    type: "text",
+    name: "name",
+    placeholder: "Placeholder",
+    invalid: true,
+  },
+};
+
+export const CustomLabel: Story = {
+  args: {
+    type: "text",
+    name: "name",
+    placeholder: "Placeholder",
+  },
+  render: (attr) => {
+    const nukoInput = renderElement("nuko-input", attr);
+
+    const label = document.createElement("span");
+    label.textContent = "Custom Label";
+    label.slot = "label";
+    label.style.display = "flex";
+    label.style.gap = "4px";
+    label.style.alignItems = "center";
+
+    const labelContent = document.createElement("span");
+    labelContent.textContent = "Name";
+    labelContent.style.fontWeight = "bold";
+    labelContent.style.fontSize = "1.2em";
+    label.appendChild(labelContent);
+
+    nukoInput.appendChild(label);
+
+    return nukoInput;
   },
 };
 
@@ -112,13 +129,10 @@ export const Playground: Story = {
     form.style.flexDirection = "column";
     form.style.gap = "8px";
 
-    const nukoInput = document.createElement("nuko-input");
+    const nukoInput = renderElement("nuko-input", attr);
     nukoInput.setAttribute("type", "text");
     nukoInput.setAttribute("minlength", "3");
     nukoInput.setAttribute("maxlength", "10");
-    for (const key in attr) {
-      nukoInput.setAttribute(key, (attr as Record<string, any>)[key]);
-    }
 
     const submitButton = document.createElement("nuko-button");
     (submitButton as HTMLInputElement).type = "submit";
