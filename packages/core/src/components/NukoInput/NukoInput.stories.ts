@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
 import type NukoInputCe from "./NukoInput.ce.vue";
-import { renderElement } from "../../../.storybook/renderElement";
+import { renderElement } from "../../../.storybook/utils/renderElement";
 import { resisterElement } from "../../main";
 
 // This default export determines where your story goes in the story list
@@ -83,6 +83,17 @@ export const Invalid: Story = {
     name: "name",
     placeholder: "Placeholder",
     invalid: true,
+  },
+  render: (attr) => {
+    const nukoInput = renderElement("nuko-input", attr);
+
+    const nukoError = renderElement("nuko-error", {});
+    nukoError.textContent = "This is an error message.";
+    nukoError.slot = "error";
+
+    nukoInput.appendChild(nukoError);
+
+    return nukoInput;
   },
 };
 

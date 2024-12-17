@@ -151,6 +151,10 @@ defineRender(() => (
       display: flex;
     }
   }
+
+  > .error {
+    margin-top: var(--n-2);
+  }
 }
 
 .nuko-input {

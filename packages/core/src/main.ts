@@ -1,12 +1,18 @@
-import type { NukoButtonEmits, NukoButtonProps } from "./components/NukoButton/NukoButton.ce";
-import type { NukoInputEmits, NukoInputProps } from "./components/NukoInput/NukoInput.ce";
-import { NukoButton } from "./components/NukoButton/NukoButton.ce";
-import { NukoInput } from "./components/NukoInput/NukoInput.ce";
+import type { NukoButtonEmits, NukoButtonProps } from "@/components/NukoButton/NukoButton.ce";
+import type { NukoInputEmits, NukoInputProps } from "@/components/NukoInput/NukoInput.ce";
+import { NukoButton } from "@/components/NukoButton/NukoButton.ce";
+import { NukoError } from "@/components/NukoError/NukoError.ce";
+import { NukoInput } from "@/components/NukoInput/NukoInput.ce";
+import { NukoUl } from "@/components/NukoUl/NukoUl.ce";
 
 const Elements = {
   "nuko-button": NukoButton,
   "nuko-input": NukoInput,
-} as const;
+  "nuko-error": NukoError,
+  "nuko-ul": NukoUl,
+} as const satisfies {
+  [key: `nuko-${string}`]: typeof HTMLElement;
+};
 
 type ElementNames = keyof typeof Elements;
 
