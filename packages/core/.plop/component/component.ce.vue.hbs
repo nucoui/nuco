@@ -1,0 +1,30 @@
+<script lang="tsx" setup>
+import type { EventEmitHelper } from "../../types/emit/EventEmit/EventEmits";
+import { ref } from "vue";
+import { useCe } from "../../composables/useCe";
+
+export type Props = {};
+
+export type Emits = never;
+
+const definedProps = withDefaults(defineProps<Props>(), {
+  type: "text",
+  required: false,
+  invalid: false,
+});
+const emit = defineEmits<EventEmitHelper<Emits>>();
+const hostRef = ref<HTMLInputElement | null>(null);
+const {
+  host,
+  shadowRoot,
+  internals,
+  props,
+} = useCe(hostRef, definedProps);
+
+defineRender(() => (
+  <div ref={hostRef}></div>
+));
+</script>
+
+<style lang="scss">
+</style>

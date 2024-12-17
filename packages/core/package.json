@@ -32,7 +32,8 @@
     "lint": "eslint . && stylelint \"**/*.vue\" \"**/*.css\" \"**/*.scss\"",
     "sb:init": "storybook init",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "gen:component": "plop component --plopfile .plop/component/index.mjs"
   },
   "dependencies": {
     "@nuko/variable": "workspace:*",
@@ -56,6 +57,7 @@
     "@vitejs/plugin-vue": "^5.1.4",
     "@vitejs/plugin-vue-jsx": "^4.0.1",
     "@vue-macros/volar": "^0.30.5",
+    "plop": "^4.0.1",
     "storybook": "catalog:",
     "storybook-dark-mode": "catalog:",
     "typescript": "catalog:",

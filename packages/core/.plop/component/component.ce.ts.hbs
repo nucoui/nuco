@@ -1,0 +1,9 @@
+import { defineCustomElement } from "vue";
+import {{pascalCase name}}Ce from "./{{pascalCase name}}.ce.vue";
+
+const Define{{pascalCase name}} = defineCustomElement({{pascalCase name}}Ce);
+
+export class {{pascalCase name}} extends Define{{pascalCase name}} {}
+
+export type { Props as {{pascalCase name}}Props } from "./{{pascalCase name}}.ce.vue";
+export type { Emits as {{pascalCase name}}Emits } from "./{{pascalCase name}}.ce.vue";
