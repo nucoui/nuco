@@ -1,4 +1,4 @@
-import { semanticColor } from "@nuko/variable";
+import { css } from "@nuko/variable";
 import { themes } from "@storybook/theming";
 import "@nuko/variable/css";
 
@@ -16,15 +16,15 @@ export const parameters = {
   backgrounds: {
     default: "dark",
     values: [
-      { name: "light", value: semanticColor.light.background.secondary },
-      { name: "dark", value: semanticColor.dark.background.secondary },
+      { name: "light", value: css.semanticColor.light.background.secondary },
+      { name: "dark", value: css.semanticColor.dark.background.secondary },
     ],
   },
 };
 
 const withTheme = (StoryFn, context) => {
   if (context.globals.backgrounds) {
-    const theme = context.globals.backgrounds.value === semanticColor.light.background.secondary ? "light" : "dark";
+    const theme = context.globals.backgrounds.value === css.semanticColor.light.background.secondary ? "light" : "dark";
     document.documentElement.setAttribute("data-color-scheme", theme);
   }
 

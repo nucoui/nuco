@@ -4,7 +4,7 @@ import path from "node:path";
 
 export const generateCustomData = (cssVariables: CssVariablesValue) => {
   // Custom Data Extensionファイルのパス
-  const customDataFilePath = path.resolve(__dirname, "../../dist/css/variables.css-data.json");
+  const customDataFilePath = path.resolve(__dirname, "../../../dist/css/variables.css-data.json");
 
   const properties = cssVariables.map(({ key }) => ({
     name: key,

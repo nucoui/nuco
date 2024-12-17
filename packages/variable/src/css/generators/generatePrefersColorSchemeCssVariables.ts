@@ -69,7 +69,7 @@ export const generatePrefersColorSchemeCssVariables = (cssVariables: CssVariable
 
   const values = [...mappedPrefersColorSchemeCssVariables, ...mappedNeutralCssVariables];
 
-  const outputDir = path.resolve(__dirname, "../../dist/css");
+  const outputDir = path.resolve(__dirname, "../../../dist/css");
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
   }

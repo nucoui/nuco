@@ -1,9 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
-import { generateCssVariables } from "./generateCssVariables";
-
-import { generateCustomData } from "./generateCustomData";
-import { generatePrefersColorSchemeCssVariables } from "./generatePrefersColorSchemeCssVariables";
+import { generateCssVariables } from "./generators/generateCssVariables";
+import { generateCustomData } from "./generators/generateCustomData";
+import { generatePrefersColorSchemeCssVariables } from "./generators/generatePrefersColorSchemeCssVariables";
 
 const mergeFiles = (inputFiles: string[], outputFile: string) => {
   const outputDir = path.dirname(outputFile);
@@ -25,9 +24,9 @@ const mergeFiles = (inputFiles: string[], outputFile: string) => {
 };
 
 const genCssVariables = () => {
-  const permissibleColorValues = generateCssVariables("src/permissibleColor.ts", "permissibleColor");
-  const semanticColorValues = generateCssVariables("src/semanticColor.ts", "semanticColor");
-  const numericValues = generateCssVariables("src/numeric.ts", "numeric");
+  const permissibleColorValues = generateCssVariables("src/css/permissibleColor.ts", "permissibleColor");
+  const semanticColorValues = generateCssVariables("src/css/semanticColor.ts", "semanticColor");
+  const numericValues = generateCssVariables("src/css/numeric.ts", "numeric");
 
   const outputDir = path.resolve(__dirname, "../../dist/css");
   if (!fs.existsSync(outputDir)) {

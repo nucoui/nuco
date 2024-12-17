@@ -1,6 +1,4 @@
 import type { ObjectLiteralExpression } from "ts-morph";
-import fs from "node:fs";
-import path from "node:path";
 import { Project, SyntaxKind } from "ts-morph";
 
 const getNestObjectLiteralValue = (objectLiteralExpression: ObjectLiteralExpression, variableName: string, keyName?: string, values?: Array<Record<string, string>>) => {
@@ -44,34 +42,12 @@ const getNestObjectLiteralValue = (objectLiteralExpression: ObjectLiteralExpress
         const arrayName = arrayNameList.filter(name => !name.match("permissibleColor")).join(".");
         const index = elementAccessExpression.getArgumentExpressionOrThrow().getText();
 
-        /* console.group("Property");
-        console.log("Kind:", propertyAssignmentInitializer.getKindName());
-        console.log("Name:", keyName ? `--${keyName}-${propertyName}` : `--${propertyName}`);
-        console.log("Array Parent Name:", arrayParentName);
-        console.log("Array Name:", arrayName);
-        console.log("Index:", index);
-        console.dir({
-          key: keyName ? `--${keyName}-${propertyName}` : `--${propertyName}`,
-          value: `var(--${arrayParentName}-${arrayName}-${index})`,
-        });
-        console.groupEnd(); */
-
         return values?.push({
           key: keyName ? `--${variablesSymbol}-${keyName}-${propertyName}` : `--${variablesSymbol}-${propertyName}`,
           value: `var(--${arrayParentName}-${arrayName}-${index})`,
         });
       }
       else {
-        /* console.group("Property");
-        console.log("Kind:", propertyAssignmentInitializer.getKindName());
-        console.log("Name:", keyName ? `--p-${keyName}-${propertyName}` : `--p-${propertyName}`);
-        console.log("Assignment Initializer Value:", propertyAssignmentInitializer.getText());
-        console.dir({
-          key: keyName ? `--p-${keyName}-${propertyName}` : `--${propertyName}`,
-          value: propertyAssignmentInitializer.getText(),
-        });
-        console.groupEnd(); */
-
         const value = propertyAssignmentInitializer.getText().replace(/"/g, "");
 
         return values?.push({

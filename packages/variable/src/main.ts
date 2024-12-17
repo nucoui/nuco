@@ -1,9 +1,13 @@
-import { numeric } from "./numeric";
-import { permissibleColor } from "./permissibleColor";
-import { semanticColor } from "./semanticColor";
+import { numeric } from "./css/numeric";
+import { permissibleColor } from "./css/permissibleColor";
+import { semanticColor } from "./css/semanticColor";
 
-export {
-  numeric,
+const css = {
   permissibleColor,
   semanticColor,
+  numeric,
+};
+
+export {
+  css,
 };
