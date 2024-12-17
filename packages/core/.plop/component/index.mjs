@@ -8,7 +8,7 @@ export default (
       {
         type: "input",
         name: "atomic",
-        message: "Where is the component located ?\n※ Path is `src/components{{ atomic }}`\n※ Path must start with `/` and end with `/`\n\x1B[92m>>\x1B[39m",
+        message: "\x1B[92m{{ atomic }}\x1B[39m Where is the component located ?\n※ Path is `src/components{{ atomic }}`\n※ Path must start with `/` and end with `/`\n\x1B[92m>>\x1B[39m",
         /** @type {(value: string) => boolean | string} */
         validate: (value) => {
           if (!value.startsWith("/"))
@@ -23,7 +23,7 @@ export default (
       {
         type: "input",
         name: "name",
-        message: "What is component name ?\n※ Please start with `Nuko`\n\x1B[92m>>\x1B[39m",
+        message: "\x1B[92m{{ name }}\x1B[39m What is component name ?\n※ Please start with `Nuko`\n\x1B[92m>>\x1B[39m",
         validate: (value) => {
           if (!value)
             return "name is required";

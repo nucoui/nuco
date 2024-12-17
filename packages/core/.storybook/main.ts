@@ -1,5 +1,5 @@
 import type { StorybookConfig } from "@storybook/web-components-vite";
-import { dirname, join } from "node:path";
+import { dirname, join, resolve } from "node:path";
 import Unfonts from "unplugin-fonts/vite";
 
 /**
@@ -39,6 +39,14 @@ const config: StorybookConfig = {
         ],
       },
     }));
+
+    if (config.resolve && config.resolve.alias) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        "@": resolve(__dirname, "../src"),
+        "@root": resolve(__dirname, "../"),
+      };
+    }
 
     return config;
   },

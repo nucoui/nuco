@@ -1,5 +1,5 @@
-import type { ElementNames } from "../src/main";
-import { resisterElement } from "../src/main";
+import type { ElementNames } from "@/main";
+import { resisterElement } from "@/main";
 
 export const renderElement = (name: ElementNames, attr: Record<string, any>) => {
   resisterElement(name);

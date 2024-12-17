@@ -5,6 +5,7 @@ import Unfonts from "unplugin-fonts/vite";
 import VueMacros from "unplugin-vue-macros/vite";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -32,6 +33,7 @@ export default defineConfig({
       },
     }),
     dts({ tsconfigPath: resolve(__dirname, "tsconfig.app.json") }),
+    tsconfigPaths(),
   ],
 
   css: {
