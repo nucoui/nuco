@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import type NukoButtonCe from "./NukoButton.ce.vue";
+import type NButtonCe from "./NButton.ce.vue";
 import { resisterElement } from "../../main";
 
 const dynamicArgTypes = {
@@ -26,7 +26,7 @@ const dynamicArgTypes = {
 
 // This default export determines where your story goes in the story list
 const meta: Meta = {
-  component: "nuko-button",
+  component: "n-button",
   tags: ["autodocs"],
   argTypes: dynamicArgTypes,
   args: {
@@ -37,9 +37,9 @@ const meta: Meta = {
     target: "_self",
   },
   render: (attr) => {
-    resisterElement("nuko-button");
+    resisterElement("n-button");
 
-    const element = document.createElement("nuko-button");
+    const element = document.createElement("n-button");
     element.innerHTML = "Button";
 
     for (const key in attr) {
@@ -57,7 +57,7 @@ const meta: Meta = {
 };
 
 export default meta;
-type Story = StoryObj<InstanceType<typeof NukoButtonCe>["$props"]>;
+type Story = StoryObj<InstanceType<typeof NButtonCe>["$props"]>;
 
 export const Primary: Story = {
   args: {

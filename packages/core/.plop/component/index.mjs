@@ -23,13 +23,20 @@ export default (
       {
         type: "input",
         name: "name",
-        message: "\x1B[92m{{ name }}\x1B[39m What is component name ?\n※ Please start with `Nuko`\n\x1B[92m>>\x1B[39m",
+        message: "\x1B[92m{{ name }}\x1B[39m What is component name ?\n※ Please start with `N`\n※ The next letter after `N' must be a Pascal case. Example: `Nhoge` is incorrect. `Nhoge` is correct.\n\x1B[92m>>\x1B[39m",
         validate: (value) => {
           if (!value)
             return "name is required";
 
-          if (!value.startsWith("Nuko"))
-            return "name must start with `Nuko`";
+          if (value.length < 2)
+            return "name must be at least 2 characters long";
+
+          if (!value.startsWith("N"))
+            return "name must start with `N`";
+
+          const pascalPattern = /^N[A-Z][a-zA-Z0-9]*$/;
+          if (!pascalPattern.test(value))
+            return "name must be PascalCase";
 
           return true;
         },

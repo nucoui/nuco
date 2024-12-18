@@ -97,7 +97,7 @@ const handleChange = (e: Event) => {
 };
 
 defineRender(() => (
-  <label class="nuko-label">
+  <label class="n-label">
     <div class="header">
       <span class="label">
         <slot name="label">
@@ -115,7 +115,7 @@ defineRender(() => (
       required={props.value.required}
       onInput={handleInput}
       onChange={handleChange}
-      class={clsx("nuko-input", { "-invalid": props.value.invalid })}
+      class={clsx("n-input", { "-invalid": props.value.invalid })}
     />
     <div v-if={props.value.invalid} class="error">
       <slot name="error" />
@@ -125,7 +125,7 @@ defineRender(() => (
 </script>
 
 <style lang="scss">
-.nuko-label {
+.n-label {
   display: flex;
   flex-direction: column;
   gap: var(--n-1);
@@ -157,7 +157,7 @@ defineRender(() => (
   }
 }
 
-.nuko-input {
+.n-input {
   position: relative;
   box-sizing: border-box;
   padding: var(--n-3) var(--n-5);

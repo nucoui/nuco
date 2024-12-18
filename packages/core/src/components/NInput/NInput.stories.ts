@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import type NukoInputCe from "./NukoInput.ce.vue";
+import type NInputCe from "./NInput.ce.vue";
 import { renderElement } from "../../../.storybook/utils/renderElement";
 import { resisterElement } from "../../main";
 
 // This default export determines where your story goes in the story list
 const meta: Meta = {
-  component: "nuko-input",
+  component: "n-input",
   tags: ["autodocs"],
   argTypes: {
     type: {
@@ -62,12 +62,12 @@ const meta: Meta = {
     invalid: false,
   },
   render: (attr) => {
-    return renderElement("nuko-input", attr);
+    return renderElement("n-input", attr);
   },
 };
 
 export default meta;
-type Story = StoryObj<InstanceType<typeof NukoInputCe>["$props"]>;
+type Story = StoryObj<InstanceType<typeof NInputCe>["$props"]>;
 
 export const Primary: Story = {
   args: {
@@ -85,15 +85,15 @@ export const Invalid: Story = {
     invalid: true,
   },
   render: (attr) => {
-    const nukoInput = renderElement("nuko-input", attr);
+    const nInput = renderElement("n-input", attr);
 
-    const nukoError = renderElement("nuko-error", {});
-    nukoError.textContent = "This is an error message.";
-    nukoError.slot = "error";
+    const nError = renderElement("n-error", {});
+    nError.textContent = "This is an error message.";
+    nError.slot = "error";
 
-    nukoInput.appendChild(nukoError);
+    nInput.appendChild(nError);
 
-    return nukoInput;
+    return nInput;
   },
 };
 
@@ -104,7 +104,7 @@ export const CustomLabel: Story = {
     placeholder: "Placeholder",
   },
   render: (attr) => {
-    const nukoInput = renderElement("nuko-input", attr);
+    const nukoInput = renderElement("n-input", attr);
 
     const label = document.createElement("span");
     label.textContent = "Custom Label";
@@ -132,24 +132,24 @@ export const Playground: Story = {
     placeholder: "Please enter your name",
   },
   render: (attr) => {
-    resisterElement("nuko-input");
-    resisterElement("nuko-button");
+    resisterElement("n-input");
+    resisterElement("n-button");
 
     const form = document.createElement("form");
     form.style.display = "flex";
     form.style.flexDirection = "column";
     form.style.gap = "8px";
 
-    const nukoInput = renderElement("nuko-input", attr);
-    nukoInput.setAttribute("type", "text");
-    nukoInput.setAttribute("minlength", "3");
-    nukoInput.setAttribute("maxlength", "10");
+    const nInput = renderElement("n-input", attr);
+    nInput.setAttribute("type", "text");
+    nInput.setAttribute("minlength", "3");
+    nInput.setAttribute("maxlength", "10");
 
-    const submitButton = document.createElement("nuko-button");
+    const submitButton = document.createElement("n-button");
     (submitButton as HTMLInputElement).type = "submit";
     submitButton.textContent = "Submit";
 
-    form.appendChild(nukoInput);
+    form.appendChild(nInput);
     form.appendChild(submitButton);
 
     // フォームの送信イベントハンドラ

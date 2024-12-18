@@ -1,17 +1,17 @@
-import type { NukoButtonEmits, NukoButtonProps } from "@/components/NukoButton/NukoButton.ce";
-import type { NukoInputEmits, NukoInputProps } from "@/components/NukoInput/NukoInput.ce";
-import { NukoButton } from "@/components/NukoButton/NukoButton.ce";
-import { NukoError } from "@/components/NukoError/NukoError.ce";
-import { NukoInput } from "@/components/NukoInput/NukoInput.ce";
-import { NukoUl } from "@/components/NukoUl/NukoUl.ce";
+import type { NButtonEmits, NButtonProps } from "@/components/NButton/NButton.ce";
+import type { NInputEmits, NInputProps } from "@/components/NInput/NInput.ce";
+import { NButton } from "@/components/NButton/NButton.ce";
+import { NError } from "@/components/NError/NError.ce";
+import { NInput } from "@/components/NInput/NInput.ce";
+import { NUl } from "@/components/NUl/NUl.ce";
 
 const Elements = {
-  "nuko-button": NukoButton,
-  "nuko-input": NukoInput,
-  "nuko-error": NukoError,
-  "nuko-ul": NukoUl,
+  "n-button": NButton,
+  "n-input": NInput,
+  "n-error": NError,
+  "n-ul": NUl,
 } as const satisfies {
-  [key: `nuko-${string}`]: typeof HTMLElement;
+  [key: `n-${string}`]: typeof HTMLElement;
 };
 
 type ElementNames = keyof typeof Elements;
@@ -44,9 +44,9 @@ export {
 export type {
   ElementNames,
 
-  NukoButtonEmits,
-  NukoButtonProps,
+  NButtonEmits,
+  NButtonProps,
 
-  NukoInputEmits,
-  NukoInputProps,
+  NInputEmits,
+  NInputProps,
 };

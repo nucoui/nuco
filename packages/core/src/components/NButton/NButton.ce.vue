@@ -44,7 +44,7 @@ const handleKeydown = (e: KeyboardEvent) => {
 const commonAttrs = computed(() => ({
   "ref": buttonRef,
   "part": id,
-  "class": clsx("nuko-button", `-${props.value.variant}`, {
+  "class": clsx("n-button", `-${props.value.variant}`, {
     "-anchor": props.value.type === "anchor",
     "-toggle": props.value.type === "toggle",
   }),
@@ -107,7 +107,7 @@ defineRender(() => {
   width: stretch;
 } */
 
-.nuko-button {
+.n-button {
   position: relative;
   box-sizing: border-box;
   width: -moz-available;
