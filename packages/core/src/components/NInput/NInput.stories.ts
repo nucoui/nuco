@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
 import type NInputCe from "./NInput.ce.vue";
-import { renderElement } from "../../../.storybook/utils/renderElement";
-import { resisterElement } from "../../main";
+import { resisterElement } from "@/main";
+import { renderElement } from "@root/.storybook/utils/renderElement";
 
 // This default export determines where your story goes in the story list
 const meta: Meta = {
@@ -87,9 +87,17 @@ export const Invalid: Story = {
   render: (attr) => {
     const nInput = renderElement("n-input", attr);
 
-    const nError = renderElement("n-error", {});
-    nError.textContent = "This is an error message.";
+    const nError = renderElement("n-error", attr);
     nError.slot = "error";
+
+    const nUl = renderElement("n-ul", {});
+
+    const nLi = renderElement("n-li", {});
+    nLi.appendChild(document.createTextNode("Error message"));
+
+    nUl?.appendChild(nLi);
+
+    nError.appendChild(nUl);
 
     nInput.appendChild(nError);
 
@@ -104,7 +112,7 @@ export const CustomLabel: Story = {
     placeholder: "Placeholder",
   },
   render: (attr) => {
-    const nukoInput = renderElement("n-input", attr);
+    const nInput = renderElement("n-input", attr);
 
     const label = document.createElement("span");
     label.textContent = "Custom Label";
@@ -119,9 +127,9 @@ export const CustomLabel: Story = {
     labelContent.style.fontSize = "1.2em";
     label.appendChild(labelContent);
 
-    nukoInput.appendChild(label);
+    nInput.appendChild(label);
 
-    return nukoInput;
+    return nInput;
   },
 };
 

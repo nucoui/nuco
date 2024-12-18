@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
 import type NButtonCe from "./NButton.ce.vue";
-import { resisterElement } from "../../main";
+import { resisterElement } from "@/main";
 
 const dynamicArgTypes = {
   type: {

@@ -6,10 +6,24 @@ import { renderElement } from "@root/.storybook/utils/renderElement";
 const meta: Meta = {
   component: "n-ul",
   tags: ["autodocs"],
-  argTypes: {},
+  argTypes: {
+    type: {
+      control: "select",
+      options: [
+        "disc",
+        "decimal",
+        "none",
+      ],
+    },
+  },
   args: {},
   render: (attr) => {
-    return renderElement("n-ul", attr);
+    const element = renderElement("n-ul", attr);
+    const nLi = renderElement("n-li", {});
+    nLi.appendChild(document.createTextNode("List item"));
+    element.appendChild(nLi);
+
+    return element;
   },
 };
 

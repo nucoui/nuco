@@ -1,5 +1,5 @@
-import base from "../styles/base.css?inline";
-import reset from "../styles/reset.css?inline";
+import base from "@/styles/base.css?inline";
+import reset from "@/styles/reset.css?inline";
 
 const baseAdoptedStyleSheets = new CSSStyleSheet();
 baseAdoptedStyleSheets.replaceSync(base);

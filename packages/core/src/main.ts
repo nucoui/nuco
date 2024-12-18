@@ -3,6 +3,7 @@ import type { NInputEmits, NInputProps } from "@/components/NInput/NInput.ce";
 import { NButton } from "@/components/NButton/NButton.ce";
 import { NError } from "@/components/NError/NError.ce";
 import { NInput } from "@/components/NInput/NInput.ce";
+import { NLi } from "@/components/NLi/NLi.ce";
 import { NUl } from "@/components/NUl/NUl.ce";
 
 const Elements = {
@@ -10,6 +11,7 @@ const Elements = {
   "n-input": NInput,
   "n-error": NError,
   "n-ul": NUl,
+  "n-li": NLi,
 } as const satisfies {
   [key: `n-${string}`]: typeof HTMLElement;
 };

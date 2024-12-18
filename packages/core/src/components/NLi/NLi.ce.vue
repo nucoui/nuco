@@ -12,19 +12,15 @@ const hostRef = ref<HTMLInputElement | null>(null);
 useCe(hostRef, definedProps);
 
 defineRender(() => (
-  <div ref={hostRef} class="n-error">
+  <li ref={hostRef}>
     <slot />
-  </div>
+  </li>
 ));
 </script>
 
 <style lang="scss">
-.n-error {
-  padding: var(--n-1) var(--n-2);
-  font-size: var(--n-3);
-  font-weight: 500;
-  color: var(--p-red-100);
-  background-color: color-mix(in srgb, var(--p-red-500) 70%, transparent);
-  border-radius: var(--n-2);
+li {
+  padding-inline-start: 0.5ch;
+  color: var(--cs-text-primary);
 }
 </style>

@@ -1,7 +1,7 @@
 <script setup lang="tsx">
+import { useCe } from "@/composables/useCe";
 import clsx from "clsx";
 import { type AnchorHTMLAttributes, type ButtonHTMLAttributes, computed, ref, useId } from "vue";
-import { useCe } from "../../composables/useCe";
 
 export type Props = {
   variant?: "primary" | "secondary" | "error";

@@ -1,5 +1,5 @@
 import type { defineProps, Ref } from "vue";
-import { baseAdoptedStyleSheets, resetAdoptedStyleSheets } from "src/utils/adoptedStyleSheets";
+import { baseAdoptedStyleSheets, resetAdoptedStyleSheets } from "@/utils/adoptedStyleSheets";
 import { computed, onMounted, ref, useHost, useShadowRoot } from "vue";
 
 export const useCe = <Props extends ReturnType<typeof defineProps>>(mainRef: Ref<HTMLElement | null>, props: Props) => {
