@@ -33,7 +33,9 @@ export default defineConfig({
       },
     }),
     dts({ tsconfigPath: resolve(__dirname, "tsconfig.app.json") }),
-    tsconfigPaths(),
+    tsconfigPaths({
+      configNames: ["tsconfig.app.json"],
+    }),
   ],
 
   css: {

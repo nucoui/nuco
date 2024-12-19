@@ -4,7 +4,6 @@
   width: -webkit-fill-available;
   width: stretch;
   font-family: Poppins, "Noto Sans JP", sans-serif;
-  font-weight: 300;
 }
 
 /* :where(:not([disabled]):focus-visible, :not([disabled]):focus) {

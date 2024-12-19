@@ -1,8 +1,23 @@
 {
-  "name": "react",
+  "name": "@nuko/react",
   "type": "module",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/react.js",
+      "require": "./dist/react.cjs"
+    }
+  },
+  "main": "./dist/react.umd.cjs",
+  "module": "./dist/react.js",
+  "types": "./dist/main.d.ts",
+  "files": [
+    "LICENSE.md",
+    "README.md",
+    "dist/*"
+  ],
   "scripts": {
     "dev": "storybook dev -p 5223 --no-open",
     "build": "tsc -b && vite build",
@@ -10,10 +25,6 @@
     "preview": "vite preview",
     "sb:dev": "storybook dev -p 6006",
     "sb:build": "storybook build"
-  },
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "catalog:",
@@ -31,14 +42,17 @@
     "@storybook/test": "catalog:",
     "@storybook/theming": "catalog:",
     "@types/node": "^22.7.9",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^4.3.4",
     "globals": "^15.12.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "storybook": "catalog:",
     "storybook-dark-mode": "catalog:",
     "typescript": "catalog:",
     "typescript-eslint": "^8.15.0",
-    "vite": "catalog:"
+    "vite": "catalog:",
+    "vite-plugin-dts": "^4.3.0"
   }
 }

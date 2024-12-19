@@ -10,7 +10,6 @@
 
     /* Bundler mode */
     "moduleResolution": "Bundler",
-    "types": ["./src/vite-env.d.ts"],
     "allowImportingTsExtensions": true,
 
     /* Linting */

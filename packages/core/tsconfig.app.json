@@ -17,6 +17,7 @@
     },
     "types": ["unplugin-vue-macros/macros-global"],
     "allowImportingTsExtensions": true,
+    "allowJs": true,
 
     /* Linting */
     "strict": true,

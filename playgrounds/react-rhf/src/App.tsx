@@ -1,8 +1,8 @@
 import type { SubmitHandler } from "react-hook-form";
+import { Button, Input } from "@nuko/react";
 import { version } from "react";
 import { Controller, useForm } from "react-hook-form";
 import reactLogo from "./assets/react.svg";
-import { Input } from "./components/Input";
 import "./App.css";
 import viteLogo from "/vite.svg";
 
@@ -74,14 +74,14 @@ function App() {
                   type="text"
                   placeholder={field.name}
                   onInput={(e) => {
-                    setValue("example", e.target.value);
+                    setValue("example", (e.target as HTMLInputElement)?.value);
                   }}
                 />
                 {fieldState.error && <p>{fieldState.error.message}</p>}
               </div>
             )}
           />
-          <input type="submit" />
+          <Button type="submit">Submit</Button>
         </form>
       </div>
       <p className="read-the-docs">

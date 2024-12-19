@@ -5,14 +5,14 @@
   "private": false,
   "exports": {
     ".": {
-      "types": "./dist/main.d.ts",
+      "types": "./dist/src/main.d.ts",
       "import": "./dist/core.js",
       "require": "./dist/core.cjs"
     }
   },
   "main": "./dist/core.umd.cjs",
   "module": "./dist/core.js",
-  "types": "./dist/core.d.ts",
+  "types": "./dist/src/core.d.ts",
   "files": [
     "LICENSE.md",
     "README.md",
