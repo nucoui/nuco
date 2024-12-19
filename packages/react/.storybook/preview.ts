@@ -1,5 +1,5 @@
 import { css } from "@nuko/variable";
-import { themes } from "@storybook/theming";
+import { theme } from "./utils/theme";
 import "@nuko/variable/css";
 
 export const parameters = {
@@ -11,7 +11,7 @@ export const parameters = {
     },
   },
   docs: {
-    theme: themes.dark,
+    theme,
   },
   backgrounds: {
     default: "dark",
