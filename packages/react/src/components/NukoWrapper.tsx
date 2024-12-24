@@ -1,5 +1,5 @@
 import type { ElementNames } from "@nuko/core";
-import type { PropsWithChildren, SyntheticEvent } from "react";
+import type { JSX, ReactNode, SyntheticEvent } from "react";
 import { resisterElement } from "@nuko/core";
 import { useEffect, useMemo, useRef } from "react";
 import { jsx as _jsx } from "react/jsx-runtime";
@@ -10,7 +10,7 @@ type EventHandlers<RefType extends HTMLElement, ElementEmits extends string | ne
   [K in Upper<ElementEmits>]?: (e: SyntheticEvent<RefType>) => void;
 };
 
-export type Props<RefType extends HTMLElement, ElementProps extends Record<string, unknown>, ElementEmits extends string> = PropsWithChildren<ElementProps & EventHandlers<RefType, ElementEmits>>;
+export type Props<RefType extends HTMLElement, ElementProps extends Record<string, unknown>, ElementEmits extends string> = ElementProps & EventHandlers<RefType, ElementEmits> & { children?: ReactNode | undefined };
 
 type WrapperProps<RefType extends HTMLElement, ElementProps extends Record<string, unknown>, ElementEmits extends string> = {
   elementName: ElementNames;
@@ -72,5 +72,5 @@ export const NukoWrapper = <RefType extends HTMLElement, ElementProps extends Re
       ref,
     },
     void 0,
-  );
+  ) as JSX.Element;
 };

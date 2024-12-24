@@ -9,6 +9,10 @@
       "path": "./config"
     },
     {
+      "name": "📃 docs",
+      "path": "./docs"
+    },
+    {
       "name": "-------",
       "path": "a"
     },

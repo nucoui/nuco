@@ -28,9 +28,9 @@ export const theme = create({
   textInverseColor: css.semanticColor.dark.background.secondary,
 
   // Toolbar default and active colors
-  barTextColor: css.semanticColor.dark.text.secondary,
-  barSelectedColor: css.semanticColor.dark.text.primary,
-  barHoverColor: css.semanticColor.dark.text.primary,
+  barTextColor: css.permissibleColor.app[600],
+  barSelectedColor: css.permissibleColor.app[300],
+  barHoverColor: css.permissibleColor.app[500],
   barBg: css.semanticColor.dark.background.primary,
 
   // Form colors

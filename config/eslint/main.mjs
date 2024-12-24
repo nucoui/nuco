@@ -20,6 +20,7 @@ function mainConfig(
       'ts/explicit-function-return-type': 'off',
       'ts/consistent-type-definitions': 'off',
       'unused-imports/no-unused-imports': 'error',
+      'eslint-comments/no-unlimited-disable': 'off',
     },
     formatters: {
       html: true,

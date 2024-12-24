@@ -24,7 +24,7 @@ defineRender(() => (
   font-size: var(--n-3);
   font-weight: 500;
   color: var(--p-red-100);
-  background-color: color-mix(in srgb, var(--p-red-500) 70%, transparent);
-  border-radius: var(--n-2);
+  background-color: color-mix(in srgb, var(--p-red-400) 20%, transparent);
+  border-radius: var(--n-1);
 }
 </style>

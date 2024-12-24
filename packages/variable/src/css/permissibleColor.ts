@@ -2,15 +2,15 @@ type PermissibleColorRule = Record<string, Record<100 | 200 | 300 | 400 | 500 | 
 
 export const permissibleColor = {
   app: {
-    100: "#E5F4EE",
-    200: "#C7E8DC",
-    300: "#A3DBC9",
-    400: "#76CDB3",
-    500: "#22BF9A",
-    600: "#008E6C",
-    700: "#005F41",
-    800: "#00331A",
-    900: "#001600",
+    100: "#E7EEF3",
+    200: "#CCDBE6",
+    300: "#ACC7D8",
+    400: "#86B1CA",
+    500: "#4F97BA",
+    600: "#0F698A",
+    700: "#003E5D",
+    800: "#001933",
+    900: "#00000E",
   },
   neutral: {
     100: "#F6F6F6",
