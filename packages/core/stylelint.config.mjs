@@ -1,4 +1,4 @@
-import config from "@nuko/config/stylelint/main.mjs";
+import config from "@nuco/config/stylelint/main.mjs";
 
 export default {
   extends: [

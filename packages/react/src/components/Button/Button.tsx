@@ -1,9 +1,9 @@
-import type { NButtonEmits, NButtonProps } from "@nuko/core";
-import type { Props } from "../NukoWrapper";
-import { NukoWrapper } from "../NukoWrapper";
+import type { NButtonEmits, NButtonProps } from "@nuco/core";
+import type { Props } from "../NucoWrapper";
+import { NucoWrapper } from "../NucoWrapper";
 
 type ElementType = HTMLButtonElement;
 
 export const Button = (props: Props<ElementType, NButtonProps, NButtonEmits>) => {
-  return NukoWrapper<ElementType, NButtonProps, NButtonEmits>({ elementName: "n-button", props });
+  return NucoWrapper<ElementType, NButtonProps, NButtonEmits>({ elementName: "n-button", props });
 };

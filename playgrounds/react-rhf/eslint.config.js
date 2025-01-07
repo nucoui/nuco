@@ -1,3 +1,3 @@
-import config from "@nuko/config/eslint/react.mjs";
+import config from "@nuco/config/eslint/react.mjs";
 
 export default config();

@@ -1,5 +1,5 @@
 {
-  "name": "@nuko/react",
+  "name": "@nuco/react",
   "type": "module",
   "version": "0.0.0",
   "private": false,
@@ -28,9 +28,9 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "catalog:",
-    "@nuko/config": "workspace:*",
-    "@nuko/core": "workspace:*",
-    "@nuko/variable": "workspace:*",
+    "@nuco/config": "workspace:*",
+    "@nuco/core": "workspace:*",
+    "@nuco/variable": "workspace:*",
     "@storybook/addon-essentials": "catalog:",
     "@storybook/addon-interactions": "catalog:",
     "@storybook/addon-links": "catalog:",

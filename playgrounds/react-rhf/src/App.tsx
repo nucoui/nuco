@@ -1,5 +1,5 @@
 import type { SubmitHandler } from "react-hook-form";
-import { Button, Input } from "@nuko/react";
+import { Button, Input } from "@nuco/react";
 import { version } from "react";
 import { Controller, useForm } from "react-hook-form";
 import reactLogo from "./assets/react.svg";

@@ -1,4 +1,4 @@
-import { css } from "@nuko/variable";
+import { css } from "@nuco/variable";
 import { create } from "@storybook/theming/create";
 
 export const theme = create({
@@ -7,7 +7,7 @@ export const theme = create({
   fontBase: "Poppins, \"Noto Sans JP\", sans-serif",
   fontCode: "monospace",
 
-  brandTitle: "@nuko/core",
+  brandTitle: "@nuco/core",
   // brandUrl: "",
   // brandImage: "https://storybook.js.org/images/placeholders/350x150.png",
   brandTarget: "_self",

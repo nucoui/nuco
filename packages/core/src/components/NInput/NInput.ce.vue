@@ -190,7 +190,6 @@ defineRender(() => (
   &::after {
     position: absolute;
     inset: 0;
-    content: "";
     border-radius: var(--n-2);
     outline: 1px solid var(--cs-neutral-600);
     outline-offset: 0;

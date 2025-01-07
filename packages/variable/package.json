@@ -1,5 +1,5 @@
 {
-  "name": "@nuko/variable",
+  "name": "@nuco/variable",
   "type": "module",
   "version": "0.0.0",
   "private": true,
@@ -20,7 +20,7 @@
     "build": "tsup"
   },
   "devDependencies": {
-    "@nuko/config": "workspace:*",
+    "@nuco/config": "workspace:*",
     "@types/node": "^22.7.9",
     "consola": "^3.2.3",
     "ts-morph": "^24.0.0",

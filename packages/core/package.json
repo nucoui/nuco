@@ -1,5 +1,5 @@
 {
-  "name": "@nuko/core",
+  "name": "@nuco/core",
   "type": "module",
   "version": "0.0.0",
   "private": false,
@@ -21,7 +21,7 @@
   "contributes": {
     "css": {
       "customData": [
-        "./node_modules/@nuko/variable/dist/css/variables.css-data.json"
+        "./node_modules/@nuco/variable/dist/css/variables.css-data.json"
       ]
     }
   },
@@ -36,14 +36,14 @@
     "gen:component": "plop component --plopfile .plop/component/index.mjs"
   },
   "dependencies": {
-    "@nuko/variable": "workspace:*",
+    "@nuco/variable": "workspace:*",
     "@vueuse/core": "^11.2.0",
     "clsx": "^2.1.1",
     "vue": "^3.5.12"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "catalog:",
-    "@nuko/config": "workspace:*",
+    "@nuco/config": "workspace:*",
     "@storybook/addon-essentials": "catalog:",
     "@storybook/addon-interactions": "catalog:",
     "@storybook/addon-links": "catalog:",

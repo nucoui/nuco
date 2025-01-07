@@ -1,3 +1,3 @@
 {
-  "css.customData": ["./node_modules/@nuko/variable/dist/css/variables.css-data.json"]
+  "css.customData": ["./node_modules/@nuco/variable/dist/css/variables.css-data.json"]
 }

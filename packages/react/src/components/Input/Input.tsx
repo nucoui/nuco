@@ -1,9 +1,9 @@
-import type { NInputEmits, NInputProps } from "@nuko/core";
-import type { Props } from "../NukoWrapper";
-import { NukoWrapper } from "../NukoWrapper";
+import type { NInputEmits, NInputProps } from "@nuco/core";
+import type { Props } from "../NucoWrapper";
+import { NucoWrapper } from "../NucoWrapper";
 
 type ElementType = HTMLInputElement;
 
 export const Input = (props: Props<ElementType, NInputProps, NInputEmits>) => {
-  return NukoWrapper<ElementType, NInputProps, NInputEmits>({ elementName: "n-input", props });
+  return NucoWrapper<ElementType, NInputProps, NInputEmits>({ elementName: "n-input", props });
 };

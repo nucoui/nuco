@@ -1,6 +1,6 @@
-import type { ElementNames } from "@nuko/core";
+import type { ElementNames } from "@nuco/core";
 import type { JSX, ReactNode, SyntheticEvent } from "react";
-import { resisterElement } from "@nuko/core";
+import { resisterElement } from "@nuco/core";
 import { useEffect, useMemo, useRef } from "react";
 import { jsx as _jsx } from "react/jsx-runtime";
 
@@ -35,7 +35,7 @@ function splitProps<RefType extends HTMLElement, ElementProps extends Record<str
   return { emits, props };
 }
 
-export const NukoWrapper = <RefType extends HTMLElement, ElementProps extends Record<string, unknown>, ElementEmits extends string>({ elementName, props }: WrapperProps<RefType, ElementProps, ElementEmits>) => {
+export const NucoWrapper = <RefType extends HTMLElement, ElementProps extends Record<string, unknown>, ElementEmits extends string>({ elementName, props }: WrapperProps<RefType, ElementProps, ElementEmits>) => {
   resisterElement(elementName);
 
   const ref = useRef<RefType | null>(null);
