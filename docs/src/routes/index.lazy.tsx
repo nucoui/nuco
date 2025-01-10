@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import { Button, Input } from "@nuko/react";
+import { Button, Input } from "@nuco/react";
 import { createLazyFileRoute } from "@tanstack/react-router";
 import styles from "./index.lazy.module.css";
 
@@ -19,6 +19,24 @@ function RouteComponent(): ReactElement {
         className={styles.form}
       >
         <Input name="test" type="text" placeholder="test" />
+        <Input name="test" type="text" placeholder="test" />
+        <Input name="test" type="text" placeholder="test" />
+        <Input name="test" type="text" placeholder="test" />
+        <Input name="test" type="text" placeholder="test" />
+        <Input name="test" type="text" placeholder="test" />
+        <Input name="test" type="text" placeholder="test" />
+        <Input name="test" type="text" placeholder="test" />
+        <Input name="test" type="text" placeholder="test" />
+        <Input name="test" type="text" placeholder="test" />
+        <Input name="test" type="text" placeholder="test" />
+        <Input name="test" type="text" placeholder="test" />
+        <Input name="test" type="text" placeholder="test" />
+        <Input name="test" type="text" placeholder="test" />
+        <Input name="test" type="text" placeholder="test" />
+        <Input name="test" type="text" placeholder="test" />
+        <Input name="test" type="text" placeholder="test" />
+        <Input name="test" type="text" placeholder="test" />
+
         <Button type="submit">Submit</Button>
       </form>
     </>

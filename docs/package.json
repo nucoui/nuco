@@ -10,14 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@nuko/react": "workspace:*",
-    "@nuko/variable": "workspace:*",
+    "@nuco/react": "workspace:*",
+    "@nuco/variable": "workspace:*",
     "@tanstack/react-router": "^1.91.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@nuko/config": "workspace:*",
+    "@nuco/config": "workspace:*",
     "@tanstack/router-devtools": "^1.91.3",
     "@tanstack/router-plugin": "^1.91.1",
     "@types/react": "^19.0.0",
