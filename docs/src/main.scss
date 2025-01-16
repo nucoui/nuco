@@ -48,10 +48,11 @@ body {
   grid-template-columns: auto 1fr;
   grid-template-areas: "NAV MAIN";
   gap: var(--n-4);
-  padding: 0 var(--n-6);
+  padding: var(--n-4) var(--n-6);
 
   @media (max-width: 768px) {
     grid-template-areas: "MAIN MAIN";
+    padding: var(--n-8) var(--n-6);
   }
 }
 
@@ -59,7 +60,7 @@ body {
   position: fixed;
   width: 100%;
   top: 0;
-  padding: var(--n-4) var(--n-6);
+  padding: var(--n-4) var(--n-8);
   z-index: 100;
 
   @media (max-width: 768px) {
@@ -71,7 +72,7 @@ body {
 #nav {
   grid-area: NAV;
   position: sticky;
-  top: calc(64px + var(--n-4) + var(--n-4));
+  top: calc(64px + var(--n-4) + var(--n-4) + var(--n-4));
   width: 240px;
   height: calc(100dvh - 64px - var(--n-4) - var(--n-4) - var(--n-4));
 

@@ -30,7 +30,7 @@ export const semanticColor = {
     },
     border: {
       primary: permissibleColor.neutral[600],
-      secondary: permissibleColor.neutral[800],
+      secondary: permissibleColor.neutral[700],
     },
   },
 } as const satisfies SemanticColorRule;

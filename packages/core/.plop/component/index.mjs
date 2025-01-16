@@ -23,7 +23,7 @@ export default (
       {
         type: "input",
         name: "name",
-        message: "\x1B[92m{{ name }}\x1B[39m What is component name ?\n※ Please start with `N`\n※ The next letter after `N' must be a Pascal case. Example: `Nhoge` is incorrect. `Nhoge` is correct.\n\x1B[92m>>\x1B[39m",
+        message: "\x1B[92m{{ name }}\x1B[39m What is component name ?\n※ Please start with `n-`\n※ The next letter after `n-' must be a Pascal case. Example: `n-hoge` is incorrect. `n-hoge` is correct.\n\x1B[92m>>\x1B[39m",
         validate: (value) => {
           if (!value)
             return "name is required";
@@ -31,12 +31,12 @@ export default (
           if (value.length < 2)
             return "name must be at least 2 characters long";
 
-          if (!value.startsWith("N"))
-            return "name must start with `N`";
+          if (!value.startsWith("n-"))
+            return "name must start with `n-`";
 
-          const pascalPattern = /^N[A-Z][a-zA-Z0-9]*$/;
-          if (!pascalPattern.test(value))
-            return "name must be PascalCase";
+          const kebabPattern = /^n-[a-z0-9]+(?:-[a-z0-9]+)*$/;
+          if (!kebabPattern.test(value))
+            return "name must be Kebab case";
 
           return true;
         },
