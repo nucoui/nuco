@@ -8,15 +8,15 @@ const hostRef = ref<HTMLInputElement | null>(null);
 useCe(hostRef, {});
 
 defineRender(() => (
-  <h2 ref={hostRef}>
+  <h5 ref={hostRef}>
     <slot />
-  </h2>
+  </h5>
 ));
 </script>
 
 <style lang="scss">
-h2 {
-  font-size: var(--n-7);
+h5 {
+  font-size: var(--n-4);
   line-height: 1.75;
 }
 </style>

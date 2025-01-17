@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import { Button, H1, H2, Input } from "@nuco/react";
+import { Button, H1, H2, H3, H4, H5, H6, Input } from "@nuco/react";
 import { createLazyFileRoute } from "@tanstack/react-router";
 import styles from "./index.lazy.module.css";
 
@@ -12,6 +12,11 @@ function RouteComponent(): ReactElement {
     <>
       <H1>Path : /</H1>
       <H2>Heading 2</H2>
+      <H3>Heading 3</H3>
+      <H4>Heading 4</H4>
+      <H5>Heading 5</H5>
+      <H6>Heading 6</H6>
+      <p>p</p>
       <form
         action={(formData) => {
           // eslint-disable-next-line no-console
