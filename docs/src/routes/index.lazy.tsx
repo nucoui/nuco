@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
 import { Button, H1, H2, H3, H4, H5, H6, Input } from "@nuco/react";
 import { createLazyFileRoute } from "@tanstack/react-router";
-import styles from "./index.lazy.module.css";
+import styles from "./index.lazy.module.scss";
 
 export const Route = createLazyFileRoute("/")({
   component: RouteComponent,
