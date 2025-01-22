@@ -2,11 +2,12 @@ import type { ComponentProps } from "react";
 import { Header } from "@nuco/react";
 import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
 import { Anchor } from "../components/Anchor/Anchor";
+import { NotFound } from "../components/layouts/NotFound/NotFound";
 import styles from "./__root.module.scss";
 
 export const Route = createRootRoute({
   errorComponent: () => <div>error</div>,
-  notFoundComponent: () => <div>not found</div>,
+  notFoundComponent: NotFound,
   component: () => {
     const middleAnchorLinks = [
       {
