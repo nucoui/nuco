@@ -6,6 +6,10 @@ import { type AnchorHTMLAttributes, type ButtonHTMLAttributes, computed, ref, us
 export type Props = {
   variant?: "primary" | "secondary" | "error";
   disabled?: boolean;
+  /**
+   * @default "stretch"
+   */
+  width?: "auto" | "stretch";
 } & ({
   type?: "anchor";
   href?: string;
@@ -22,6 +26,7 @@ const definedProps = withDefaults(defineProps<Props>(), {
   type: "button",
   variant: "primary",
   disabled: false,
+  width: "stretch",
 });
 
 const buttonRef = ref<HTMLButtonElement | null>(null);
@@ -47,6 +52,7 @@ const commonAttrs = computed(() => ({
   "class": clsx("n-button", `-${props.value.variant}`, {
     "-anchor": props.value.type === "anchor",
     "-toggle": props.value.type === "toggle",
+    "-auto": props.value.width === "auto",
   }),
   "aria-disabled": props.value.disabled,
   "onKeydown": handleKeydown,
@@ -144,6 +150,10 @@ defineRender(() => {
 
   &:not([disabled]):active {
     transform: scale(0.99);
+  }
+
+  &.-auto {
+    width: auto;
   }
 
   &.-anchor {
