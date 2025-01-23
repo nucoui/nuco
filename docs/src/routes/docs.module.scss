@@ -9,7 +9,7 @@
 
   @media (max-width: 768px) {
     grid-template-areas: "MAIN MAIN";
-    min-height: 100dvh;
+    min-height: 100vh;
     padding: var(--n-8) var(--n-6);
   }
 
@@ -18,7 +18,7 @@
     position: sticky;
     top: calc(64px + var(--n-4) + var(--n-4) + var(--n-4));
     width: 240px;
-    height: calc(100dvh - 64px - var(--n-4) - var(--n-4) - var(--n-4));
+    height: calc(100vh - 64px - var(--n-4) - var(--n-4) - var(--n-4));
 
     @media (max-width: 768px) {
       display: none;

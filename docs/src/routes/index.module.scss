@@ -3,7 +3,7 @@
   min-height: calc(100vh - 64px - var(--n-4) - var(--n-4) - var(--n-4));
 
   @media (max-width: 768px) {
-    min-height: 100dvh;
+    min-height: 100vh;
     padding: var(--n-8) var(--n-6);
   }
 }
@@ -24,6 +24,6 @@
   }
 
   @media (max-width: 768px) {
-    min-height: calc(100dvh - var(--n-4));
+    min-height: calc(100vh - var(--n-4));
   }
 }
