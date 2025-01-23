@@ -1,6 +1,7 @@
+import type { NButtonProps } from "@/main";
 import type { Meta, StoryObj } from "@storybook/web-components";
 import type NButtonCe from "./NButton.ce.vue";
-import { resisterElement } from "@/main";
+import { renderElement } from "@root/.storybook/utils/renderElement";
 
 const dynamicArgTypes = {
   type: {
@@ -10,6 +11,10 @@ const dynamicArgTypes = {
   variant: {
     control: "select",
     options: ["primary", "secondary", "error"],
+  },
+  width: {
+    control: "select",
+    options: ["auto", "stretch"],
   },
   disabled: {
     control: "boolean",
@@ -25,7 +30,7 @@ const dynamicArgTypes = {
 } as const satisfies Meta["argTypes"];
 
 // This default export determines where your story goes in the story list
-const meta: Meta = {
+const meta: Meta<NButtonProps> = {
   component: "n-button",
   tags: ["autodocs"],
   argTypes: dynamicArgTypes,
@@ -33,24 +38,13 @@ const meta: Meta = {
     type: "button",
     variant: "primary",
     disabled: false,
-    href: "https://google.com",
-    target: "_self",
+    width: "stretch",
+    href: undefined,
+    target: undefined,
   },
   render: (attr) => {
-    resisterElement("n-button");
-
-    const element = document.createElement("n-button");
+    const element = renderElement("n-button", attr);
     element.innerHTML = "Button";
-
-    for (const key in attr) {
-      if (typeof attr[key] === "boolean") {
-        if (attr[key]) {
-          element.setAttribute(key, "");
-        }
-        continue;
-      }
-      element.setAttribute(key, (attr as Record<string, any>)[key]);
-    }
 
     return element;
   },

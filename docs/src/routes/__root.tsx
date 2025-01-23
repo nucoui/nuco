@@ -2,11 +2,12 @@ import type { ComponentProps } from "react";
 import { Header } from "@nuco/react";
 import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
 import { Anchor } from "../components/Anchor/Anchor";
+import { Error } from "../components/layouts/Error/Error";
 import { NotFound } from "../components/layouts/NotFound/NotFound";
 import styles from "./__root.module.scss";
 
 export const Route = createRootRoute({
-  errorComponent: () => <div>error</div>,
+  errorComponent: Error,
   notFoundComponent: NotFound,
   component: () => {
     const middleAnchorLinks = [
@@ -33,14 +34,8 @@ export const Route = createRootRoute({
           </Header>
         </div>
 
-        <div id="contents">
-          <nav id="nav">
-            nav
-          </nav>
-          <main>
-            <Outlet />
-          </main>
-        </div>
+        <Outlet />
+
         <footer>
           footer
         </footer>

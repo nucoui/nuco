@@ -119,7 +119,7 @@ defineRender(() => {
   width: -moz-available;
   width: -webkit-fill-available;
   width: stretch;
-  padding: var(--n-3) var(--n-4);
+  padding: var(--n-3) var(--n-6);
   line-height: 1.25;
   cursor: pointer;
   user-select: none;
@@ -159,6 +159,8 @@ defineRender(() => {
   &.-anchor {
     display: inline-block;
     text-decoration: underline dashed;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--cs-text-secondary);
   }
 
   &.-primary,

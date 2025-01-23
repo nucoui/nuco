@@ -1,0 +1,31 @@
+.contents-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "NAV MAIN";
+  gap: var(--n-4);
+  padding: var(--n-4) var(--n-6);
+  min-height: calc(100vh - 64px - var(--n-4) - var(--n-4) - var(--n-4));
+
+  @media (max-width: 768px) {
+    grid-template-areas: "MAIN MAIN";
+    min-height: 100dvh;
+    padding: var(--n-8) var(--n-6);
+  }
+
+  > .nav {
+    grid-area: NAV;
+    position: sticky;
+    top: calc(64px + var(--n-4) + var(--n-4) + var(--n-4));
+    width: 240px;
+    height: calc(100dvh - 64px - var(--n-4) - var(--n-4) - var(--n-4));
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  > .main {
+    grid-area: MAIN;
+  }
+}

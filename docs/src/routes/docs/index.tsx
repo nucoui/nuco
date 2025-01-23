@@ -1,13 +1,11 @@
-import type { ReactElement } from "react";
 import { Button, H1, H2, H3, H4, H5, H6, Input } from "@nuco/react";
-import { createLazyFileRoute } from "@tanstack/react-router";
-import styles from "./index.lazy.module.scss";
+import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createLazyFileRoute("/")({
+export const Route = createFileRoute("/docs/")({
   component: RouteComponent,
 });
 
-function RouteComponent(): ReactElement {
+function RouteComponent() {
   return (
     <>
       <H1>Path : /</H1>
@@ -22,15 +20,15 @@ function RouteComponent(): ReactElement {
           // eslint-disable-next-line no-console
           console.log(formData.get("test"));
         }}
-        className={styles.form}
       >
         <Input name="test" type="text" placeholder="test" />
         <Button type="submit">Submit</Button>
       </form>
-      <div style={{
-        height: "200dvh",
-        backgroundColor: "var(--cs-background-secondary)",
-      }}
+      <div
+        style={{
+          height: "200dvh",
+          backgroundColor: "var(--cs-background-secondary)",
+        }}
       >
       </div>
     </>
