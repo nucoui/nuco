@@ -1,6 +1,6 @@
 import type { NHeaderEmits, NHeaderProps } from "@nuco/core";
-import type { Props } from "../NucoWrapper";
-import { NucoWrapper } from "../NucoWrapper";
+import type { Props } from "../../NucoWrapper";
+import { NucoWrapper } from "../../NucoWrapper";
 
 type ElementType = HTMLHeadElement;
 
