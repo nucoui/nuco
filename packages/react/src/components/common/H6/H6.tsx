@@ -1,6 +1,6 @@
+import type { Props } from "@/components/NucoWrapper";
 import type { NH6Emits } from "@nuco/core";
-import type { Props } from "../../NucoWrapper";
-import { NucoWrapper } from "../../NucoWrapper";
+import { NucoWrapper } from "@/components/NucoWrapper";
 
 type ElementType = HTMLHeadingElement;
 
