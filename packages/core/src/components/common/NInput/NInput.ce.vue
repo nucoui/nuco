@@ -1,9 +1,9 @@
 <script lang="tsx" setup>
-import type { EventEmitHelper } from "../../types/emit/EventEmit/EventEmits";
-import type { ClipboardEventNames, InputEventNames } from "../../types/emit/EventEmit/EventNames";
+import type { EventEmitHelper } from "../../../types/emit/EventEmit/EventEmits";
+import type { ClipboardEventNames, InputEventNames } from "../../../types/emit/EventEmit/EventNames";
 import clsx from "clsx";
 import { computed, type InputHTMLAttributes, ref } from "vue";
-import { useCe } from "../../composables/useCe";
+import { useCe } from "../../../composables/useCe";
 
 export type Props = {
   value?: InputHTMLAttributes["value"];
