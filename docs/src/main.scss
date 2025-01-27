@@ -52,6 +52,7 @@ body {
   @media (max-width: 768px) {
     top: auto;
     bottom: 0;
+    margin-bottom: env(safe-area-inset-bottom);
   }
 }
 
