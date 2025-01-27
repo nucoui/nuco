@@ -20,7 +20,8 @@ const emit = defineEmits<EventEmitHelper<Emits>>();
 const hostRef = ref<HTMLInputElement | null>(null);
 const {
   props,
-} = useCe(hostRef, definedProps);
+  customEventEmit,
+} = useCe(hostRef, definedProps, emit);
 
 defineRender(() => (
   <header ref={hostRef}>
@@ -40,7 +41,7 @@ defineRender(() => (
 
     {props.value.isNavToggle && (
       <div>
-        <button onClick={e => emit("onClickNav", { bubbles: true, composed: true }, e)}>
+        <button onClick={e => customEventEmit("onClickNav", e)}>
           <slot name="nav-toggle-icon" />
         </button>
       </div>

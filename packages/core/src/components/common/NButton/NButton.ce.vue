@@ -1,4 +1,6 @@
 <script setup lang="tsx">
+import type { EventEmitHelper } from "@/types/emit/EventEmit/EventEmits";
+import type { ExtractEventName } from "@/types/emit/EventEmit/EventNames";
 import { useCe } from "@/composables/useCe";
 import clsx from "clsx";
 import { type AnchorHTMLAttributes, type ButtonHTMLAttributes, computed, ref, useId } from "vue";
@@ -20,7 +22,7 @@ export type Props = {
   target?: never;
 });
 
-export type Emits = never;
+export type Emits = ExtractEventName<"click">;
 
 const definedProps = withDefaults(defineProps<Props>(), {
   type: "button",
@@ -29,12 +31,15 @@ const definedProps = withDefaults(defineProps<Props>(), {
   width: "stretch",
 });
 
+const emit = defineEmits<EventEmitHelper<Emits>>();
+
 const buttonRef = ref<HTMLButtonElement | null>(null);
 
 const id = useId();
-const { host, props } = useCe(buttonRef, definedProps);
+const { host, props, customEventEmit } = useCe(buttonRef, definedProps, emit);
 
-const handleClick = () => {
+const handleClick = (e: Event) => {
+  customEventEmit("onClick", e);
   if (props.value.type === "submit") {
     host?.closest("form")?.requestSubmit();
   }
@@ -42,7 +47,7 @@ const handleClick = () => {
 
 const handleKeydown = (e: KeyboardEvent) => {
   if (e.key === "Enter") {
-    handleClick();
+    handleClick(e);
   }
 };
 
@@ -67,6 +72,7 @@ defineRender(() => {
           tabindex={props.value.disabled ? -1 : 0}
           href={props.value.href}
           target={props.value.target}
+          onClick={handleClick}
         >
           <span class="contents">
             <slot />
@@ -80,6 +86,7 @@ defineRender(() => {
           {...commonAttrs.value}
           type="button"
           disabled={props.value.disabled}
+          onClick={handleClick}
         >
           <span class="contents">
             <slot />

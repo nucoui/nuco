@@ -1,3 +1,4 @@
+// import component
 import { NButton } from "@/components/common/NButton/NButton.ce";
 import { NH1 } from "@/components/common/NH1/NH1.ce";
 import { NH2 } from "@/components/common/NH2/NH2.ce";
@@ -9,8 +10,10 @@ import { NHeader } from "@/components/common/NHeader/NHeader.ce";
 import { NInput } from "@/components/common/NInput/NInput.ce";
 import { NLi } from "@/components/common/NLi/NLi.ce";
 import { NUl } from "@/components/common/NUl/NUl.ce";
+import { NBreadcrumb } from "@/components/composite/NBreadcrumb/NBreadcrumb.ce";
 import { NError } from "@/components/composite/NError/NError.ce";
 
+// export component type
 export type { NButtonEmits, NButtonProps } from "@/components/common/NButton/NButton.ce";
 export type { NH1Emits } from "@/components/common/NH1/NH1.ce";
 export type { NH2Emits } from "@/components/common/NH2/NH2.ce";
@@ -22,9 +25,11 @@ export type { NHeaderEmits, NHeaderProps } from "@/components/common/NHeader/NHe
 export type { NInputEmits, NInputProps } from "@/components/common/NInput/NInput.ce";
 export type { NLiEmits, NLiProps } from "@/components/common/NLi/NLi.ce";
 export type { NUlEmits, NUlProps } from "@/components/common/NUl/NUl.ce";
+export type { NBreadcrumbProps } from "@/components/composite/NBreadcrumb/NBreadcrumb.ce";
 export type { NErrorEmits, NErrorProps } from "@/components/composite/NError/NError.ce";
 
 const Elements = {
+  "n-breadcrumb": NBreadcrumb,
   "n-button": NButton,
   "n-input": NInput,
   "n-error": NError,

@@ -12,7 +12,7 @@ const definedProps = withDefaults(defineProps<Props>(), {
   type: "disc",
 });
 const hostRef = ref<HTMLInputElement | null>(null);
-const { props } = useCe(hostRef, definedProps);
+const { props } = useCe(hostRef, definedProps, () => {});
 
 const listStyleType = computed(() => {
   switch (props.value.type) {

@@ -5,7 +5,7 @@ import { ref } from "vue";
 export type Emits = never;
 
 const hostRef = ref<HTMLInputElement | null>(null);
-useCe(hostRef, {});
+useCe(hostRef, {}, () => {});
 
 defineRender(() => (
   <h4 ref={hostRef}>

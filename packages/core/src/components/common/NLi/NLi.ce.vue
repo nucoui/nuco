@@ -9,7 +9,7 @@ export type Emits = never;
 
 const definedProps = withDefaults(defineProps<Props>(), {});
 const hostRef = ref<HTMLInputElement | null>(null);
-useCe(hostRef, definedProps);
+useCe(hostRef, definedProps, () => {});
 
 defineRender(() => (
   <li ref={hostRef}>

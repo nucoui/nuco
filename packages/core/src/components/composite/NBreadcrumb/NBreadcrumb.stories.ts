@@ -1,22 +1,23 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import type { {{pascalCase name}}Props } from "./{{pascalCase name}}.ce";
+import type { NBreadcrumbProps } from "./NBreadcrumb.ce";
 import { renderElement } from "@root/.storybook/utils/renderElement";
 
 // This default export determines where your story goes in the story list
 const meta: Meta = {
-  component: "{{kebabCase name}}",
+  component: "n-breadcrumb",
   tags: ["autodocs"],
   argTypes: {},
   args: {},
   render: (attr) => {
-    const elm = renderElement("{{kebabCase name}}", attr);
+    const elm = renderElement("n-breadcrumb", attr);
+    elm.innerHTML = "slot";
 
     return elm;
   },
 };
 
 export default meta;
-type Story = StoryObj<{{pascalCase name}}Props>;
+type Story = StoryObj<NBreadcrumbProps>;
 
 export const Primary: Story = {
   args: {},

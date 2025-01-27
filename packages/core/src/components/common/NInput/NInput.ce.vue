@@ -29,7 +29,7 @@ const emit = defineEmits<EventEmitHelper<Emits>>();
 const inputRef = ref<HTMLInputElement | null>(null);
 const valueLength = ref<number>(0);
 
-const { internals, props } = useCe(inputRef, definedProps);
+const { internals, props, customEventEmit } = useCe(inputRef, definedProps, emit);
 
 const maxlengthElement = computed(() => {
   const isMinlength = props.value.minlength !== undefined;
@@ -89,11 +89,11 @@ const handleInput = (e: Event) => {
     internals.value.setFormValue(target.value);
   }
 
-  emit("onInput", { bubbles: true, composed: true }, e);
+  customEventEmit("onInput", e);
 };
 
 const handleChange = (e: Event) => {
-  emit("onChange", { bubbles: true, composed: true }, e);
+  customEventEmit("onChange", e);
 };
 
 defineRender(() => (

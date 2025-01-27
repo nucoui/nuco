@@ -21,3 +21,7 @@ export type MouseEventNames =
   | "mouseOut"
   | "mouseOver"
   | "mouseUp";
+
+export type EventNames = ClipboardEventNames | FocusEventNames | InputEventNames | KeyboardEventNames | MouseEventNames;
+
+export type ExtractEventName<T extends EventNames> = Extract<EventNames, T>;

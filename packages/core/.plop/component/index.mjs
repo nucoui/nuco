@@ -44,7 +44,9 @@ export default (
     ],
     actions: (data) => {
       const path = `../../src/components${data.atomic}`;
-      const actions = [
+      const mainPath = "../../src/main.ts";
+
+      return [
         {
           type: "add",
           path: `${path}{{pascalCase name}}/{{pascalCase name}}.ce.vue`,
@@ -60,9 +62,25 @@ export default (
           path: `${path}{{pascalCase name}}/{{pascalCase name}}.stories.ts`,
           templateFile: "./component.stories.ts.hbs",
         },
+        {
+          type: "modify",
+          path: mainPath,
+          pattern: /(const Elements = \{)/g,
+          template: `$1\n  "{{kebabCase name}}": {{pascalCase name}},`,
+        },
+        {
+          type: "modify",
+          path: mainPath,
+          pattern: /(\/\/ import component)/g,
+          template: `$1\n\nimport { {{pascalCase name}} } from "@/components{{atomic}}{{pascalCase name}}/{{pascalCase name}}.ce";`,
+        },
+        {
+          type: "modify",
+          path: mainPath,
+          pattern: /(\/\/ export component type)/g,
+          template: `$1\n\nexport type { {{pascalCase name}}Emits, {{pascalCase name}}Props } from "@/components{{atomic}}{{pascalCase name}}/{{pascalCase name}}.ce";`,
+        },
       ];
-
-      return actions;
     },
   });
 };
