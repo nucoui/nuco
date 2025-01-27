@@ -8,6 +8,27 @@
   }
 }
 
+.background-cover {
+  display: grid;
+  overflow: hidden;
+
+  img {
+    position: relative;
+    grid-area: 1/1;
+    user-select: none;
+    width: 600px;
+    z-index: 0;
+    opacity: 0.1;
+    top: 0%;
+    left: -10%;
+  }
+
+  div {
+    grid-area: 1/1;
+    z-index: 1;
+  }
+}
+
 .hero-container {
   display: flex;
   flex-direction: column;

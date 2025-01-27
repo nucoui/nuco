@@ -1,5 +1,5 @@
-import { Button, H1, H3 } from "@nuco/react";
-
+import { H1, H3 } from "@nuco/react";
+import { LinkButton } from "../../LinkButton/LinkButton";
 import styles from "./NotFound.module.scss";
 
 export const NotFound = () => {
@@ -10,9 +10,9 @@ export const NotFound = () => {
         <H3>Page Not Found</H3>
         <p>Sorry, the page you are looking for does not exist.</p>
 
-        <Button type="anchor" href="/" width="auto">
+        <LinkButton href="/" variant="primary" width="auto">
           Back to Home
-        </Button>
+        </LinkButton>
       </div>
     </div>
   );
