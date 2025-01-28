@@ -12,7 +12,7 @@ export const Route = createRootRoute({
   component: () => {
     const middleAnchorLinks = [
       {
-        to: "/docs/getting-started",
+        to: "/docs/",
         children: "Docs",
       },
     ] as const satisfies Array<ComponentProps<typeof Anchor>>;

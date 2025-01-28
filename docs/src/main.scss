@@ -6,6 +6,7 @@ html {
   background-color: var(--cs-background-primary);
   color: var(--cs-text-primary);
   box-sizing: border-box;
+  overscroll-behavior-x: none;
 
   font-family:
     Poppins,

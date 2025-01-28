@@ -9,18 +9,63 @@
 }
 
 .background-cover {
+  position: relative;
   display: grid;
-  overflow: hidden;
 
-  img {
-    position: relative;
+  .gradient {
+    position: absolute;
     grid-area: 1/1;
     user-select: none;
-    width: 600px;
-    z-index: 0;
-    opacity: 0.1;
-    top: 0%;
-    left: -10%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background: linear-gradient(
+      -45deg,
+      #ee7752,
+      #e73c7e,
+      var(--cs-background-primary),
+      var(--cs-background-primary),
+      #23a6d5,
+      #23d5ab
+    );
+    background-size: 400% 400%;
+    animation: gradient 30s ease-in-out infinite;
+    filter: blur(64px);
+    height: 320px;
+    width: 320px;
+    border-radius: 50%;
+    will-change: filter;
+
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+      }
+      25% {
+        top: 55%;
+        transform: translateY(-50%) translateX(-5%);
+        left: -5%;
+      }
+      50% {
+        background-position: 100% 50%;
+        top: 45%;
+        transform: translateY(-50%) translateX(5%);
+        left: 5%;
+      }
+      75% {
+        top: 55%;
+        transform: translateY(-50%) translateX(-5%);
+        left: -5%;
+      }
+      100% {
+        background-position: 0% 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+      }
+    }
   }
 
   div {
@@ -39,8 +84,9 @@
   min-height: calc(100vh - 64px - var(--n-4) - var(--n-4) - var(--n-4));
 
   > .links {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    width: 100%;
+    justify-items: end;
     gap: var(--n-2);
   }
 

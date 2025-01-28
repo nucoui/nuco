@@ -12,7 +12,7 @@ function RouteComponent(): ReactElement {
   return (
     <div className={styles["contents-container"]}>
       <div className={styles["background-cover"]}>
-        {/* <img src="/icon-dark-transparent.svg" /> */}
+        <div className={styles.gradient}></div>
         <div className={styles["hero-container"]}>
           <div>
             <H1>@nuco/core</H1>
