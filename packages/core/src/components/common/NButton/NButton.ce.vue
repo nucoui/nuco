@@ -123,6 +123,7 @@ defineRender(() => {
 .n-button {
   position: relative;
   box-sizing: border-box;
+  display: block;
   width: -moz-available;
   width: -webkit-fill-available;
   width: stretch;

@@ -1,8 +1,6 @@
 :host {
   box-sizing: border-box;
-  width: -moz-available;
-  width: -webkit-fill-available;
-  width: stretch;
+  width: fit-content;
   font-family: Poppins, "Noto Sans JP", sans-serif;
   color: var(--cs-text-primary);
 }
