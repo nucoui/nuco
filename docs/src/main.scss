@@ -3,20 +3,16 @@
 }
 
 html {
-  background-color: var(--cs-background-primary);
-  color: var(--cs-text-primary);
   box-sizing: border-box;
   overscroll-behavior-x: none;
-
-  font-family:
-    Poppins,
-    Noto Sans JP,
-    sans-serif;
+  font-family: Poppins, "Noto Sans JP", sans-serif;
+  color: var(--cs-text-primary);
+  background-color: var(--cs-background-primary);
 }
 
 body {
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
 ::-webkit-scrollbar {
@@ -29,15 +25,15 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background-color: var(--cs-border-primary);
+  background-clip: content-box;
   border: 5px solid transparent;
   border-radius: 100px;
-  background-clip: content-box;
 }
 
 #root {
   padding-top: calc(64px + var(--n-4) + var(--n-4));
 
-  @media (max-width: 768px) {
+  @media (width <= 768px) {
     padding-top: 0;
     padding-bottom: calc(64px + var(--n-4) + var(--n-4));
   }
@@ -45,12 +41,12 @@ body {
 
 #header {
   position: fixed;
-  width: 100%;
   top: 0;
-  padding: var(--n-4) var(--n-8);
   z-index: 100;
+  width: 100%;
+  padding: var(--n-4) var(--n-8);
 
-  @media (max-width: 768px) {
+  @media (width <= 768px) {
     top: auto;
     bottom: 0;
     margin-bottom: env(safe-area-inset-bottom);

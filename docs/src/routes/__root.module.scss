@@ -16,8 +16,8 @@
 
 .middle-container {
   display: flex;
+  flex: 1;
+  gap: var(--n-2);
   align-items: center;
   justify-content: end;
-  gap: var(--n-2);
-  flex: 1;
 }

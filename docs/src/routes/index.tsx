@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import { H1, H3 } from "@nuco/react";
+import { H1, H2, H3, H4 } from "@nuco/react";
 import { createFileRoute } from "@tanstack/react-router";
 import { LinkButton } from "../components/LinkButton/LinkButton";
 import styles from "./index.module.scss";
@@ -9,6 +9,34 @@ export const Route = createFileRoute("/")({
 });
 
 function RouteComponent(): ReactElement {
+  const links = [
+    {
+      title: "with Web Components",
+      href: "/docs/getting-started/web-components",
+      isSupported: true,
+    },
+    {
+      title: "with Vue.js",
+      href: "/docs/getting-started/vue",
+      isSupported: false,
+    },
+    {
+      title: "with React",
+      href: "/docs/getting-started/react",
+      isSupported: true,
+    },
+    {
+      title: "with Angular",
+      href: "/docs/getting-started/angular",
+      isSupported: false,
+    },
+    {
+      title: "with Svelte",
+      href: "/docs/getting-started/svelte",
+      isSupported: false,
+    },
+  ] as const satisfies Array<{ title: string; href: `/${string}`; isSupported?: boolean }>;
+
   return (
     <div className={styles["contents-container"]}>
       <div className={styles["background-cover"]}>
@@ -23,19 +51,19 @@ function RouteComponent(): ReactElement {
             </H3>
           </div>
           <div className={styles.links}>
-            <LinkButton href="/docs/getting-started/web-components" variant="primary" width="auto">
-              Get Started with Web Components
-            </LinkButton>
-            <LinkButton href="/docs/getting-started/vue" variant="primary" width="auto">
-              Get Started with Vue.js
-            </LinkButton>
-            <LinkButton href="/docs/getting-started/react" variant="primary" width="auto">
-              Get Started with React
-            </LinkButton>
+            <H4>Get Started</H4>
+            {links.map(({ title, href, isSupported }) => (
+              <LinkButton key={href} href={href} disabled={!isSupported}>
+                {title}
+              </LinkButton>
+            ))}
           </div>
         </div>
       </div>
-      index
+      <div>
+        <H2>Features</H2>
+        index
+      </div>
     </div>
   );
 }
