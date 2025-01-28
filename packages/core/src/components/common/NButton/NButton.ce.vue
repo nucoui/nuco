@@ -59,8 +59,10 @@ const commonAttrs = computed(() => ({
     "-toggle": props.value.type === "toggle",
     "-auto": props.value.width === "auto",
   }),
+  "disabled": props.value.disabled,
   "aria-disabled": props.value.disabled,
-  "onKeydown": handleKeydown,
+  "onKeydown": props.value.disabled ? undefined : handleKeydown,
+  "onClick": props.value.disabled ? undefined : handleClick,
 }));
 
 defineRender(() => {
@@ -70,9 +72,8 @@ defineRender(() => {
         <a
           {...commonAttrs.value}
           tabindex={props.value.disabled ? -1 : 0}
-          href={props.value.href}
+          href={props.value.disabled ? undefined : props.value.href}
           target={props.value.target}
-          onClick={handleClick}
         >
           <span class="contents">
             <slot />
@@ -85,8 +86,6 @@ defineRender(() => {
         <button
           {...commonAttrs.value}
           type="button"
-          disabled={props.value.disabled}
-          onClick={handleClick}
         >
           <span class="contents">
             <slot />
@@ -99,8 +98,6 @@ defineRender(() => {
         <button
           {...commonAttrs.value}
           type={props.value.type}
-          disabled={props.value.disabled}
-          onClick={handleClick}
         >
           <span class="contents">
             <slot />
@@ -200,7 +197,7 @@ defineRender(() => {
 
     &[disabled] {
       color: var(--cs-neutral-400);
-      background-color: var(--cs-neutral-100);
+      background-color: color-mix(in srgb, var(--cs-neutral-900) 5%, transparent);
     }
 
     &:not([disabled]):hover {

@@ -2,6 +2,7 @@
 import { useCe } from "@/composables/useCe";
 import { ref } from "vue";
 
+// eslint-disable-next-line ts/no-empty-object-type
 export type Props = {};
 
 const definedProps = withDefaults(defineProps<Props>(), {});

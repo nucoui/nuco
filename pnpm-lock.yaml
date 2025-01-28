@@ -130,6 +130,9 @@ importers:
       globals:
         specifier: ^15.13.0
         version: 15.13.0
+      stylelint:
+        specifier: ^16.10.0
+        version: 16.10.0(typescript@5.6.3)
       typescript:
         specifier: ~5.6.2
         version: 5.6.3
@@ -157,7 +160,7 @@ importers:
     devDependencies:
       '@chromatic-com/storybook':
         specifier: 'catalog:'
-        version: 3.2.2(react@19.0.0)(storybook@8.4.6(prettier@3.4.2))
+        version: 3.2.2(react@18.3.1)(storybook@8.4.6(prettier@3.4.2))
       '@nuco/config':
         specifier: workspace:*
         version: link:../../config
@@ -169,13 +172,13 @@ importers:
         version: 8.4.6(storybook@8.4.6(prettier@3.4.2))
       '@storybook/addon-links':
         specifier: 'catalog:'
-        version: 8.4.6(react@19.0.0)(storybook@8.4.6(prettier@3.4.2))
+        version: 8.4.6(react@18.3.1)(storybook@8.4.6(prettier@3.4.2))
       '@storybook/addon-onboarding':
         specifier: 'catalog:'
-        version: 8.4.6(react@19.0.0)(storybook@8.4.6(prettier@3.4.2))
+        version: 8.4.6(react@18.3.1)(storybook@8.4.6(prettier@3.4.2))
       '@storybook/blocks':
         specifier: 'catalog:'
-        version: 8.4.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.4.6(prettier@3.4.2))
+        version: 8.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(prettier@3.4.2))
       '@storybook/manager-api':
         specifier: 'catalog:'
         version: 8.4.6(storybook@8.4.6(prettier@3.4.2))
@@ -208,7 +211,7 @@ importers:
         version: 8.4.6(prettier@3.4.2)
       storybook-dark-mode:
         specifier: 'catalog:'
-        version: 4.0.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.4.6(prettier@3.4.2))
+        version: 4.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(prettier@3.4.2))
       typescript:
         specifier: 'catalog:'
         version: 5.6.3
@@ -217,7 +220,7 @@ importers:
         version: 1.1.1(vite@5.4.10(@types/node@22.7.9)(sass-embedded@1.80.4))
       unplugin-vue-macros:
         specifier: ^2.13.0
-        version: 2.13.0(@vueuse/core@11.2.0(vue@3.5.12(typescript@5.6.3)))(esbuild@0.23.1)(rollup@4.24.0)(typescript@5.6.3)(vite@5.4.10(@types/node@22.7.9)(sass-embedded@1.80.4))(vue-tsc@2.1.6(typescript@5.6.3))(vue@3.5.12(typescript@5.6.3))
+        version: 2.13.0(@vueuse/core@11.2.0(vue@3.5.12(typescript@5.6.3)))(esbuild@0.24.0)(rollup@4.24.0)(typescript@5.6.3)(vite@5.4.10(@types/node@22.7.9)(sass-embedded@1.80.4))(vue-tsc@2.1.6(typescript@5.6.3))(vue@3.5.12(typescript@5.6.3))
       vite:
         specifier: ^5.4.9
         version: 5.4.10(@types/node@22.7.9)(sass-embedded@1.80.4)
@@ -5869,6 +5872,19 @@ snapshots:
   '@bufbuild/protobuf@2.2.0':
     optional: true
 
+  '@chromatic-com/storybook@3.2.2(react@18.3.1)(storybook@8.4.6(prettier@3.4.2))':
+    dependencies:
+      chromatic: 11.15.0
+      filesize: 10.1.6
+      jsonfile: 6.1.0
+      react-confetti: 6.1.0(react@18.3.1)
+      storybook: 8.4.6(prettier@3.4.2)
+      strip-ansi: 7.1.0
+    transitivePeerDependencies:
+      - '@chromatic-com/cypress'
+      - '@chromatic-com/playwright'
+      - react
+
   '@chromatic-com/storybook@3.2.2(react@19.0.0)(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
       chromatic: 11.15.0
@@ -6630,6 +6646,15 @@ snapshots:
       storybook: 8.4.6(prettier@3.4.2)
       ts-dedent: 2.2.0
 
+  '@storybook/addon-links@8.4.6(react@18.3.1)(storybook@8.4.6(prettier@3.4.2))':
+    dependencies:
+      '@storybook/csf': 0.1.11
+      '@storybook/global': 5.0.0
+      storybook: 8.4.6(prettier@3.4.2)
+      ts-dedent: 2.2.0
+    optionalDependencies:
+      react: 18.3.1
+
   '@storybook/addon-links@8.4.6(react@19.0.0)(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
       '@storybook/csf': 0.1.11
@@ -6644,6 +6669,13 @@ snapshots:
       '@storybook/global': 5.0.0
       storybook: 8.4.6(prettier@3.4.2)
       tiny-invariant: 1.3.3
+
+  '@storybook/addon-onboarding@8.4.6(react@18.3.1)(storybook@8.4.6(prettier@3.4.2))':
+    dependencies:
+      react-confetti: 6.1.0(react@18.3.1)
+      storybook: 8.4.6(prettier@3.4.2)
+    transitivePeerDependencies:
+      - react
 
   '@storybook/addon-onboarding@8.4.6(react@19.0.0)(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
@@ -10289,6 +10321,11 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
+  react-confetti@6.1.0(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+      tween-functions: 1.2.0
+
   react-confetti@6.1.0(react@19.0.0):
     dependencies:
       react: 19.0.0
@@ -10670,6 +10707,21 @@ snapshots:
   stable-hash@0.0.4: {}
 
   stdin-discarder@0.2.2: {}
+
+  storybook-dark-mode@4.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(prettier@3.4.2)):
+    dependencies:
+      '@storybook/components': 8.4.6(storybook@8.4.6(prettier@3.4.2))
+      '@storybook/core-events': 8.3.6(storybook@8.4.6(prettier@3.4.2))
+      '@storybook/global': 5.0.0
+      '@storybook/icons': 1.2.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@storybook/manager-api': 8.4.6(storybook@8.4.6(prettier@3.4.2))
+      '@storybook/theming': 8.4.6(storybook@8.4.6(prettier@3.4.2))
+      fast-deep-equal: 3.1.3
+      memoizerific: 1.11.3
+    transitivePeerDependencies:
+      - react
+      - react-dom
+      - storybook
 
   storybook-dark-mode@4.0.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.4.6(prettier@3.4.2)):
     dependencies:
@@ -11122,12 +11174,12 @@ snapshots:
 
   universalify@2.0.1: {}
 
-  unplugin-combine@1.0.3(esbuild@0.23.1)(rollup@4.24.0)(vite@5.4.10(@types/node@22.7.9)(sass-embedded@1.80.4)):
+  unplugin-combine@1.0.3(esbuild@0.24.0)(rollup@4.24.0)(vite@5.4.10(@types/node@22.7.9)(sass-embedded@1.80.4)):
     dependencies:
       '@antfu/utils': 0.7.10
       unplugin: 1.14.1
     optionalDependencies:
-      esbuild: 0.23.1
+      esbuild: 0.24.0
       rollup: 4.24.0
       vite: 5.4.10(@types/node@22.7.9)(sass-embedded@1.80.4)
     transitivePeerDependencies:
@@ -11159,7 +11211,7 @@ snapshots:
       - vue
       - webpack-sources
 
-  unplugin-vue-macros@2.13.0(@vueuse/core@11.2.0(vue@3.5.12(typescript@5.6.3)))(esbuild@0.23.1)(rollup@4.24.0)(typescript@5.6.3)(vite@5.4.10(@types/node@22.7.9)(sass-embedded@1.80.4))(vue-tsc@2.1.6(typescript@5.6.3))(vue@3.5.12(typescript@5.6.3)):
+  unplugin-vue-macros@2.13.0(@vueuse/core@11.2.0(vue@3.5.12(typescript@5.6.3)))(esbuild@0.24.0)(rollup@4.24.0)(typescript@5.6.3)(vite@5.4.10(@types/node@22.7.9)(sass-embedded@1.80.4))(vue-tsc@2.1.6(typescript@5.6.3))(vue@3.5.12(typescript@5.6.3)):
     dependencies:
       '@vue-macros/better-define': 1.9.2(rollup@4.24.0)(vue@3.5.12(typescript@5.6.3))
       '@vue-macros/boolean-prop': 0.5.2(rollup@4.24.0)(vue@3.5.12(typescript@5.6.3))
@@ -11191,7 +11243,7 @@ snapshots:
       '@vue-macros/short-vmodel': 1.5.2(rollup@4.24.0)(vue@3.5.12(typescript@5.6.3))
       '@vue-macros/volar': 0.30.5(rollup@4.24.0)(typescript@5.6.3)(vue-tsc@2.1.6(typescript@5.6.3))(vue@3.5.12(typescript@5.6.3))
       unplugin: 1.14.1
-      unplugin-combine: 1.0.3(esbuild@0.23.1)(rollup@4.24.0)(vite@5.4.10(@types/node@22.7.9)(sass-embedded@1.80.4))
+      unplugin-combine: 1.0.3(esbuild@0.24.0)(rollup@4.24.0)(vite@5.4.10(@types/node@22.7.9)(sass-embedded@1.80.4))
       unplugin-vue-define-options: 1.5.2(rollup@4.24.0)(vue@3.5.12(typescript@5.6.3))
       vue: 3.5.12(typescript@5.6.3)
     transitivePeerDependencies:
