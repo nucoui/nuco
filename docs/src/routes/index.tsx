@@ -16,7 +16,11 @@ function RouteComponent(): ReactElement {
         <div className={styles["hero-container"]}>
           <div>
             <H1>@nuco/core</H1>
-            <H3>Design system for All Frameworks</H3>
+            <H3>
+              Design system library
+              <br />
+              that Transcends Framework boundaries
+            </H3>
           </div>
           <div className={styles.links}>
             <LinkButton href="/docs/getting-started/web-components" variant="primary" width="auto">
