@@ -19,15 +19,7 @@
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    background: linear-gradient(
-      -45deg,
-      #ee7752,
-      #ff3482,
-      var(--cs-background-primary),
-      var(--cs-background-primary),
-      #1fb2e7,
-      #23d5ab
-    );
+    background: linear-gradient(-45deg, #ee7752, #cf326e, #28a1cd, #23d5ab);
     background-size: 400% 400%;
     animation: gradient 30s ease-in-out infinite;
     filter: blur(64px);
@@ -85,7 +77,7 @@
 
   > .links {
     display: grid;
-    width: 100%;
+    width: min(100%, 800px);
     justify-items: end;
     gap: var(--n-2);
   }
