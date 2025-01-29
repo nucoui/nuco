@@ -1,8 +1,9 @@
 :host {
   box-sizing: border-box;
-  width: fit-content;
   font-family: Poppins, "Noto Sans JP", sans-serif;
   color: var(--cs-text-primary);
+
+  /* width: fit-content; */
 }
 
 /* :where(:not([disabled]):focus-visible, :not([disabled]):focus) {

@@ -41,6 +41,8 @@ function RouteComponent(): ReactElement {
     <div className={styles["contents-container"]}>
       <div className={styles["background-cover"]}>
         <div className={styles.gradient}></div>
+        <div className={styles.gradient2}></div>
+
         <div className={styles["hero-container"]}>
           <div>
             <H1>@nuco/core</H1>
@@ -53,7 +55,7 @@ function RouteComponent(): ReactElement {
           <div className={styles.links}>
             <H4>Get Started</H4>
             {links.map(({ title, href, isSupported }) => (
-              <LinkButton key={href} href={href} disabled={!isSupported}>
+              <LinkButton key={href} href={href} variant={isSupported ? "primary" : "secondary"} disabled={!isSupported} width="auto">
                 {title}
               </LinkButton>
             ))}
