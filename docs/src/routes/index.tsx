@@ -39,12 +39,12 @@ function RouteComponent(): ReactElement {
 
   return (
     <div className={styles["contents-container"]}>
-      <div className={styles["background-cover"]}>
-        <div className={styles.gradient}></div>
-        <div className={styles.gradient2}></div>
+      <div className={styles["hero-container"]}>
+        <div className={styles.title}>
+          <div className={styles.gradient1}></div>
+          <div className={styles.gradient2}></div>
 
-        <div className={styles["hero-container"]}>
-          <div>
+          <div className={styles.text}>
             <H1>@nuco/core</H1>
             <H3>
               Design system library
@@ -52,14 +52,14 @@ function RouteComponent(): ReactElement {
               that Transcends Framework boundaries
             </H3>
           </div>
-          <div className={styles.links}>
-            <H4>Get Started</H4>
-            {links.map(({ title, href, isSupported }) => (
-              <LinkButton key={href} href={href} variant={isSupported ? "primary" : "secondary"} disabled={!isSupported} width="auto">
-                {title}
-              </LinkButton>
-            ))}
-          </div>
+        </div>
+        <div className={styles.links}>
+          <H4>Get Started</H4>
+          {links.map(({ title, href, isSupported }) => (
+            <LinkButton key={href} href={href} variant={isSupported ? "primary" : "secondary"} disabled={!isSupported} width="auto">
+              {title}
+            </LinkButton>
+          ))}
         </div>
       </div>
       <div>
