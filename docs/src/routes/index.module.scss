@@ -24,7 +24,6 @@
     height: 320px;
     user-select: none;
     filter: blur(72px);
-    background-size: 400% 400%;
     border-radius: 50%;
     transform: translateY(-50%);
     animation-duration: 30s;
@@ -35,6 +34,7 @@
 
   .gradient {
     background: linear-gradient(-45deg, #ee7752, #cf326e, #6632cf, #28a1cd, #23d5ab);
+    background-size: 400% 400%;
     animation-name: gradient;
 
     @keyframes gradient {
@@ -74,7 +74,8 @@
   }
 
   .gradient2 {
-    background: linear-gradient(45deg, #23d5ab, #28a1cd, #6632cf, #cf326e, #ee7752);
+    background: linear-gradient(-45deg, #23d5ab, #28a1cd, #6632cf, #cf326e, #ee7752);
+    background-size: 400% 400%;
     animation-name: gradient2;
 
     @keyframes gradient2 {
