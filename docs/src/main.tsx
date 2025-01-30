@@ -1,9 +1,10 @@
+import { defineColorScheme } from "@nuco/variable";
 import { createRouter, RouterProvider } from "@tanstack/react-router";
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import "@nuco/variable/css";
-import "./main.scss";
 
+import "./main.scss";
 // Import the generated route tree
 import { routeTree } from "./routeTree.gen";
 
@@ -16,6 +17,8 @@ declare module "@tanstack/react-router" {
     router: typeof router;
   }
 }
+
+defineColorScheme();
 
 // Render the app
 const rootElement = document.getElementById("root")!;
