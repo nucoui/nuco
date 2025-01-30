@@ -74,7 +74,7 @@ body {
     padding-bottom: calc(64px + var(--n-4) + var(--n-4));
 
     &::before {
-      height: calc(var(--n-4) * 2);
+      height: calc(var(--n-4) * 3);
     }
   }
 }
