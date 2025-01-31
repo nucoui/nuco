@@ -48,35 +48,35 @@
       @keyframes gradient1 {
         0% {
           top: 50%;
-          left: 0;
+          left: 10%;
           background-position: 0% 50%;
-          transform: translateY(-50%);
+          transform: translateY(-50%) translateX(-10%);
         }
 
         25% {
           top: 55%;
-          left: -5%;
+          left: 5%;
           transform: translateY(-55%) translateX(-5%);
         }
 
         50% {
           top: 50%;
-          left: 5%;
+          left: 15%;
           background-position: 100% 50%;
-          transform: translateY(-50%) translateX(5%);
+          transform: translateY(-50%) translateX(-15%);
         }
 
         75% {
           top: 55%;
-          left: -5%;
+          left: 5%;
           transform: translateY(-55%) translateX(-5%);
         }
 
         100% {
           top: 50%;
-          left: 0;
+          left: 10%;
           background-position: 0% 50%;
-          transform: translateY(-50%);
+          transform: translateY(-50%) translateX(-10%);
         }
       }
     }
@@ -97,20 +97,20 @@
         25% {
           top: 35%;
           left: 25%;
-          transform: translateY(-35%) translateX(-15%);
+          transform: translateY(-35%) translateX(-25%);
         }
 
         50% {
           top: 30%;
           left: 15%;
           background-position: 100% 50%;
-          transform: translateY(-30%) translateX(25%);
+          transform: translateY(-30%) translateX(-15%);
         }
 
         75% {
           top: 35%;
           left: 25%;
-          transform: translateY(-35%) translateX(-15%);
+          transform: translateY(-35%) translateX(-25%);
         }
 
         100% {
