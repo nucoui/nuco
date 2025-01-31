@@ -1,3 +1,5 @@
+"use client";
+
 import type { ElementNames } from "@nuco/core";
 import type { JSX, ReactNode, SyntheticEvent } from "react";
 import { resisterElement } from "@nuco/core";
