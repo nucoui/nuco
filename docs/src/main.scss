@@ -54,7 +54,7 @@ body {
       color-mix(in srgb, var(--cs-background-primary) 100%, transparent) 100%
     );
     // background: color-mix(in srgb, var(--cs-background-primary) 80%, transparent);
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(4px);
     mask-image: linear-gradient(
       to top,
       rgb(0 0 0 / 0%) 0%,
