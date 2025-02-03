@@ -8,7 +8,7 @@ const css = {
   numeric,
 };
 
-export { defineColorScheme } from "./scripts/defineColorScheme";
+export * from "./scripts/colorScheme/main";
 export {
   css,
 };

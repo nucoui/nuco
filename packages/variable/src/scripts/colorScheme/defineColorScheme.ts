@@ -1,5 +1,8 @@
 /**
  * Functions for defining and automatically detecting changes to the `data-color-scheme` attribute needed to determine the value of the applied css variable
+ *
+ * @annotation
+ * Only use client side. Can not be used in server side rendering.
  */
 export const defineColorScheme = () => {
   const htmlElement = document.documentElement;
