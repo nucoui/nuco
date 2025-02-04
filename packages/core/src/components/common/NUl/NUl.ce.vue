@@ -39,5 +39,10 @@ ul {
   padding-left: 2ch;
   margin: 1ch 0;
   list-style-type: v-bind("listStyleType");
+
+  ::slotted(n-li) {
+    /* padding-inline-start: 0.1ch; */
+    color: var(--cs-text-primary);
+  }
 }
 </style>

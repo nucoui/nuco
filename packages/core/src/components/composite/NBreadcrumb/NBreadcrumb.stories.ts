@@ -10,7 +10,22 @@ const meta: Meta = {
   args: {},
   render: (attr) => {
     const elm = renderElement("n-breadcrumb", attr);
-    elm.innerHTML = "slot";
+
+    const first = renderElement("n-li", {});
+    first.innerHTML = "First";
+    elm.appendChild(first);
+
+    const second = renderElement("n-li", {});
+    second.innerHTML = "Second";
+    elm.appendChild(second);
+
+    const third = renderElement("n-li", {});
+    third.innerHTML = "Third";
+    elm.appendChild(third);
+
+    const fourth = renderElement("n-li", {});
+    fourth.innerHTML = "Fourth";
+    elm.appendChild(fourth);
 
     return elm;
   },

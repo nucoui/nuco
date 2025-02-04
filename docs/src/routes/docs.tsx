@@ -1,3 +1,4 @@
+import { Breadcrumb, Li } from "@nuco/react";
 import { createFileRoute, ErrorComponent, Outlet } from "@tanstack/react-router";
 import { NotFound } from "../components/layouts/NotFound/NotFound";
 import styles from "./docs.module.scss";
@@ -15,6 +16,10 @@ function RouteComponent() {
         nav
       </nav>
       <main className={styles.main}>
+        <Breadcrumb>
+          <Li>Top</Li>
+          <Li>Docs</Li>
+        </Breadcrumb>
         <Outlet />
       </main>
     </div>

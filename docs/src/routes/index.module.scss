@@ -3,6 +3,7 @@
   gap: var(--n-8);
   min-height: calc(100vh - 64px - var(--n-4) - var(--n-4) - var(--n-4));
   padding: var(--n-4) var(--n-8);
+  overflow-x: hidden;
 
   @media (width <= 768px) {
     min-height: 100vh;

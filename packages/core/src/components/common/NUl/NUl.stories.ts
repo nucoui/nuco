@@ -19,9 +19,14 @@ const meta: Meta = {
   args: {},
   render: (attr) => {
     const element = renderElement("n-ul", attr);
-    const nLi = renderElement("n-li", {});
-    nLi.appendChild(document.createTextNode("List item"));
-    element.appendChild(nLi);
+
+    const nLi1 = renderElement("n-li", {});
+    nLi1.appendChild(document.createTextNode("List item"));
+    element.appendChild(nLi1);
+
+    const nLi2 = renderElement("n-li", {});
+    nLi2.appendChild(document.createTextNode("List item"));
+    element.appendChild(nLi2);
 
     return element;
   },

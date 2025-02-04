@@ -16,8 +16,8 @@ export const parameters = {
   backgrounds: {
     default: "dark",
     values: [
-      { name: "light", value: css.semanticColor.light.background.secondary },
-      { name: "dark", value: css.semanticColor.dark.background.secondary },
+      { name: "light", value: css.semanticColor.light.background.primary },
+      { name: "dark", value: css.semanticColor.dark.background.primary },
     ],
   },
 };

@@ -25,7 +25,7 @@ export type { NHeaderEmits, NHeaderProps } from "@/components/common/NHeader/NHe
 export type { NInputEmits, NInputProps } from "@/components/common/NInput/NInput.ce";
 export type { NLiEmits, NLiProps } from "@/components/common/NLi/NLi.ce";
 export type { NUlEmits, NUlProps } from "@/components/common/NUl/NUl.ce";
-export type { NBreadcrumbProps } from "@/components/composite/NBreadcrumb/NBreadcrumb.ce";
+export type { NBreadcrumbEmits, NBreadcrumbProps } from "@/components/composite/NBreadcrumb/NBreadcrumb.ce";
 export type { NErrorEmits, NErrorProps } from "@/components/composite/NError/NError.ce";
 
 const Elements = {

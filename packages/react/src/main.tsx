@@ -7,8 +7,11 @@ import { H5 } from "@/components/common/H5/H5";
 import { H6 } from "@/components/common/H6/H6";
 import { Header } from "@/components/common/Header/Header";
 import { Input } from "@/components/common/Input/Input";
+import { Li } from "@/components/common/Li/Li";
+import { Breadcrumb } from "@/components/composite/Breadcrumb";
 
 export {
+  Breadcrumb,
   Button,
   H1,
   H2,
@@ -18,4 +21,5 @@ export {
   H6,
   Header,
   Input,
+  Li,
 };

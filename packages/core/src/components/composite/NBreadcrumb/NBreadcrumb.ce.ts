@@ -6,3 +6,4 @@ const DefineNBreadcrumb = defineCustomElement(NBreadcrumbCe);
 export class NBreadcrumb extends DefineNBreadcrumb {}
 
 export type { Props as NBreadcrumbProps } from "./NBreadcrumb.ce.vue";
+export type { Emits as NBreadcrumbEmits } from "./NBreadcrumb.ce.vue";

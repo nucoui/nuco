@@ -5,6 +5,8 @@ import { ref } from "vue";
 // eslint-disable-next-line ts/no-empty-object-type
 export type Props = {};
 
+export type Emits = never;
+
 const definedProps = withDefaults(defineProps<Props>(), {});
 const hostRef = ref<HTMLInputElement | null>(null);
 
@@ -20,9 +22,35 @@ defineRender(() => (
 <style lang="scss">
 ol {
   display: flex;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  list-style: none;
+  gap: var(--n-2);
+  align-items: center;
+
+  ::slotted(n-li) {
+    display: flex;
+    align-items: baseline;
+
+    &::before {
+      display: inline-block;
+      margin-right: var(--n-2);
+      color: var(--cs-text-secondary);
+      content: ">";
+    }
+  }
+
+  ::slotted(n-li:first-child) {
+    color: var(--cs-text-secondary) !important;
+
+    &::before {
+      content: none;
+    }
+  }
+
+  ::slotted(n-li:last-child) {
+    font-weight: bold;
+
+    &::before {
+      font-weight: normal;
+    }
+  }
 }
 </style>

@@ -12,15 +12,8 @@ const hostRef = ref<HTMLInputElement | null>(null);
 useCe(hostRef, definedProps, () => {});
 
 defineRender(() => (
-  <li ref={hostRef}>
+  <li ref={hostRef} part="li">
     <slot />
   </li>
 ));
 </script>
-
-<style lang="scss">
-li {
-  padding-inline-start: 0.5ch;
-  color: var(--cs-text-primary);
-}
-</style>
