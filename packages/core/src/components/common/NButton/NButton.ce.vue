@@ -6,7 +6,7 @@ import clsx from "clsx";
 import { type AnchorHTMLAttributes, type ButtonHTMLAttributes, computed, ref, useId } from "vue";
 
 export type Props = {
-  variant?: "primary" | "secondary" | "error";
+  variant?: "primary" | "secondary" | "tertiary" | "error";
   disabled?: boolean;
   /**
    * @default "stretch"
@@ -170,6 +170,7 @@ defineRender(() => {
 
   &.-primary,
   &.-secondary,
+  &.-tertiary,
   &.-error {
     &[disabled] {
       cursor: not-allowed;
@@ -207,6 +208,26 @@ defineRender(() => {
     &:not([disabled]):focus-visible,
     :not([disabled]):focus {
       outline-offset: 0;
+    }
+  }
+
+  &.-tertiary {
+    color: var(--cs-text-primary);
+    background-color: transparent;
+
+    &[disabled] {
+      color: var(--cs-neutral-400);
+      background-color: transparent;
+    }
+
+    &:not([disabled]):focus,
+    &:not([disabled]):hover {
+      background-color: color-mix(in srgb, var(--cs-neutral-900) 5%, transparent);
+
+      &::after {
+        outline-offset: 2px;
+        opacity: 0;
+      }
     }
   }
 

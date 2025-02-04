@@ -10,7 +10,7 @@ const dynamicArgTypes = {
   },
   variant: {
     control: "select",
-    options: ["primary", "secondary", "error"],
+    options: ["primary", "secondary", "tertiary", "error"],
   },
   width: {
     control: "select",
@@ -64,6 +64,13 @@ export const Secondary: Story = {
   args: {
     type: "button",
     variant: "secondary",
+  },
+};
+
+export const Tertiary: Story = {
+  args: {
+    type: "button",
+    variant: "tertiary",
   },
 };
 
