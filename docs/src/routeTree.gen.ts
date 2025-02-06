@@ -14,7 +14,10 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as DocsImport } from './routes/docs'
 import { Route as IndexImport } from './routes/index'
 import { Route as DocsIndexImport } from './routes/docs/index'
-import { Route as DocsGettingStartedWebComponentsImport } from './routes/docs/getting-started/web-components'
+import { Route as DocsWebComponentsIndexImport } from './routes/docs/web-components/index'
+import { Route as DocsReactIndexImport } from './routes/docs/react/index'
+import { Route as DocsWebComponentsGettingStartedImport } from './routes/docs/web-components/getting-started'
+import { Route as DocsReactGettingStartedImport } from './routes/docs/react/getting-started'
 
 // Create/Update Routes
 
@@ -36,12 +39,30 @@ const DocsIndexRoute = DocsIndexImport.update({
   getParentRoute: () => DocsRoute,
 } as any)
 
-const DocsGettingStartedWebComponentsRoute =
-  DocsGettingStartedWebComponentsImport.update({
-    id: '/getting-started/web-components',
-    path: '/getting-started/web-components',
+const DocsWebComponentsIndexRoute = DocsWebComponentsIndexImport.update({
+  id: '/web-components/',
+  path: '/web-components/',
+  getParentRoute: () => DocsRoute,
+} as any)
+
+const DocsReactIndexRoute = DocsReactIndexImport.update({
+  id: '/react/',
+  path: '/react/',
+  getParentRoute: () => DocsRoute,
+} as any)
+
+const DocsWebComponentsGettingStartedRoute =
+  DocsWebComponentsGettingStartedImport.update({
+    id: '/web-components/getting-started',
+    path: '/web-components/getting-started',
     getParentRoute: () => DocsRoute,
   } as any)
+
+const DocsReactGettingStartedRoute = DocsReactGettingStartedImport.update({
+  id: '/react/getting-started',
+  path: '/react/getting-started',
+  getParentRoute: () => DocsRoute,
+} as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -68,11 +89,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DocsIndexImport
       parentRoute: typeof DocsImport
     }
-    '/docs/getting-started/web-components': {
-      id: '/docs/getting-started/web-components'
-      path: '/getting-started/web-components'
-      fullPath: '/docs/getting-started/web-components'
-      preLoaderRoute: typeof DocsGettingStartedWebComponentsImport
+    '/docs/react/getting-started': {
+      id: '/docs/react/getting-started'
+      path: '/react/getting-started'
+      fullPath: '/docs/react/getting-started'
+      preLoaderRoute: typeof DocsReactGettingStartedImport
+      parentRoute: typeof DocsImport
+    }
+    '/docs/web-components/getting-started': {
+      id: '/docs/web-components/getting-started'
+      path: '/web-components/getting-started'
+      fullPath: '/docs/web-components/getting-started'
+      preLoaderRoute: typeof DocsWebComponentsGettingStartedImport
+      parentRoute: typeof DocsImport
+    }
+    '/docs/react/': {
+      id: '/docs/react/'
+      path: '/react'
+      fullPath: '/docs/react'
+      preLoaderRoute: typeof DocsReactIndexImport
+      parentRoute: typeof DocsImport
+    }
+    '/docs/web-components/': {
+      id: '/docs/web-components/'
+      path: '/web-components'
+      fullPath: '/docs/web-components'
+      preLoaderRoute: typeof DocsWebComponentsIndexImport
       parentRoute: typeof DocsImport
     }
   }
@@ -82,12 +124,18 @@ declare module '@tanstack/react-router' {
 
 interface DocsRouteChildren {
   DocsIndexRoute: typeof DocsIndexRoute
-  DocsGettingStartedWebComponentsRoute: typeof DocsGettingStartedWebComponentsRoute
+  DocsReactGettingStartedRoute: typeof DocsReactGettingStartedRoute
+  DocsWebComponentsGettingStartedRoute: typeof DocsWebComponentsGettingStartedRoute
+  DocsReactIndexRoute: typeof DocsReactIndexRoute
+  DocsWebComponentsIndexRoute: typeof DocsWebComponentsIndexRoute
 }
 
 const DocsRouteChildren: DocsRouteChildren = {
   DocsIndexRoute: DocsIndexRoute,
-  DocsGettingStartedWebComponentsRoute: DocsGettingStartedWebComponentsRoute,
+  DocsReactGettingStartedRoute: DocsReactGettingStartedRoute,
+  DocsWebComponentsGettingStartedRoute: DocsWebComponentsGettingStartedRoute,
+  DocsReactIndexRoute: DocsReactIndexRoute,
+  DocsWebComponentsIndexRoute: DocsWebComponentsIndexRoute,
 }
 
 const DocsRouteWithChildren = DocsRoute._addFileChildren(DocsRouteChildren)
@@ -96,13 +144,19 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/docs': typeof DocsRouteWithChildren
   '/docs/': typeof DocsIndexRoute
-  '/docs/getting-started/web-components': typeof DocsGettingStartedWebComponentsRoute
+  '/docs/react/getting-started': typeof DocsReactGettingStartedRoute
+  '/docs/web-components/getting-started': typeof DocsWebComponentsGettingStartedRoute
+  '/docs/react': typeof DocsReactIndexRoute
+  '/docs/web-components': typeof DocsWebComponentsIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/docs': typeof DocsIndexRoute
-  '/docs/getting-started/web-components': typeof DocsGettingStartedWebComponentsRoute
+  '/docs/react/getting-started': typeof DocsReactGettingStartedRoute
+  '/docs/web-components/getting-started': typeof DocsWebComponentsGettingStartedRoute
+  '/docs/react': typeof DocsReactIndexRoute
+  '/docs/web-components': typeof DocsWebComponentsIndexRoute
 }
 
 export interface FileRoutesById {
@@ -110,20 +164,39 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/docs': typeof DocsRouteWithChildren
   '/docs/': typeof DocsIndexRoute
-  '/docs/getting-started/web-components': typeof DocsGettingStartedWebComponentsRoute
+  '/docs/react/getting-started': typeof DocsReactGettingStartedRoute
+  '/docs/web-components/getting-started': typeof DocsWebComponentsGettingStartedRoute
+  '/docs/react/': typeof DocsReactIndexRoute
+  '/docs/web-components/': typeof DocsWebComponentsIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/docs' | '/docs/' | '/docs/getting-started/web-components'
+  fullPaths:
+    | '/'
+    | '/docs'
+    | '/docs/'
+    | '/docs/react/getting-started'
+    | '/docs/web-components/getting-started'
+    | '/docs/react'
+    | '/docs/web-components'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/docs' | '/docs/getting-started/web-components'
+  to:
+    | '/'
+    | '/docs'
+    | '/docs/react/getting-started'
+    | '/docs/web-components/getting-started'
+    | '/docs/react'
+    | '/docs/web-components'
   id:
     | '__root__'
     | '/'
     | '/docs'
     | '/docs/'
-    | '/docs/getting-started/web-components'
+    | '/docs/react/getting-started'
+    | '/docs/web-components/getting-started'
+    | '/docs/react/'
+    | '/docs/web-components/'
   fileRoutesById: FileRoutesById
 }
 
@@ -158,15 +231,30 @@ export const routeTree = rootRoute
       "filePath": "docs.tsx",
       "children": [
         "/docs/",
-        "/docs/getting-started/web-components"
+        "/docs/react/getting-started",
+        "/docs/web-components/getting-started",
+        "/docs/react/",
+        "/docs/web-components/"
       ]
     },
     "/docs/": {
       "filePath": "docs/index.tsx",
       "parent": "/docs"
     },
-    "/docs/getting-started/web-components": {
-      "filePath": "docs/getting-started/web-components.tsx",
+    "/docs/react/getting-started": {
+      "filePath": "docs/react/getting-started.tsx",
+      "parent": "/docs"
+    },
+    "/docs/web-components/getting-started": {
+      "filePath": "docs/web-components/getting-started.tsx",
+      "parent": "/docs"
+    },
+    "/docs/react/": {
+      "filePath": "docs/react/index.tsx",
+      "parent": "/docs"
+    },
+    "/docs/web-components/": {
+      "filePath": "docs/web-components/index.tsx",
       "parent": "/docs"
     }
   }

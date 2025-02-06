@@ -27,5 +27,9 @@
 
   > .main {
     grid-area: MAIN;
+
+    > .breadcrumb {
+      margin-bottom: var(--n-6);
+    }
   }
 }

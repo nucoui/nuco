@@ -12,27 +12,27 @@ function RouteComponent(): ReactElement {
   const links = [
     {
       title: "with Web Components",
-      href: "/docs/getting-started/web-components",
+      href: "/docs/web-components/getting-started",
       isSupported: true,
     },
     {
       title: "with Vue.js",
-      href: "/docs/getting-started/vue",
+      href: "/docs/vue/getting-started",
       isSupported: false,
     },
     {
       title: "with React",
-      href: "/docs/getting-started/react",
+      href: "/docs/react/getting-started",
       isSupported: true,
     },
     {
       title: "with Angular",
-      href: "/docs/getting-started/angular",
+      href: "/docs/angular/getting-started",
       isSupported: false,
     },
     {
       title: "with Svelte",
-      href: "/docs/getting-started/svelte",
+      href: "/docs/svelte/getting-started",
       isSupported: false,
     },
   ] as const satisfies Array<{ title: string; href: `/${string}`; isSupported?: boolean }>;

@@ -1,7 +1,7 @@
 import { H2 } from "@nuco/react";
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/docs/getting-started/web-components")({
+export const Route = createFileRoute("/docs/react/getting-started")({
   component: RouteComponent,
 });
 

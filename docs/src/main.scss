@@ -40,6 +40,7 @@ body {
     z-index: 8000;
     width: 100%;
     height: calc(64px + var(--n-4) * 2);
+    pointer-events: none;
     content: "";
     background: linear-gradient(
       to top,
@@ -69,7 +70,7 @@ body {
   }
 
   @media (width <= 768px) {
-    padding-top: 0;
+    padding-top: calc(var(--n-4) * 3);
     padding-bottom: calc(64px + var(--n-4) + var(--n-4));
 
     &::before {
