@@ -6,9 +6,45 @@ settings:
 
 catalogs:
   default:
+    '@chromatic-com/storybook':
+      specifier: ^3.2.2
+      version: 3.2.2
+    '@storybook/addon-essentials':
+      specifier: 8.4.6
+      version: 8.4.6
+    '@storybook/addon-interactions':
+      specifier: 8.4.6
+      version: 8.4.6
+    '@storybook/addon-links':
+      specifier: 8.4.6
+      version: 8.4.6
+    '@storybook/addon-onboarding':
+      specifier: 8.4.6
+      version: 8.4.6
+    '@storybook/blocks':
+      specifier: 8.4.6
+      version: 8.4.6
+    '@storybook/manager-api':
+      specifier: 8.4.6
+      version: 8.4.6
+    '@storybook/test':
+      specifier: 8.4.6
+      version: 8.4.6
+    '@storybook/theming':
+      specifier: 8.4.6
+      version: 8.4.6
+    storybook:
+      specifier: 8.4.6
+      version: 8.4.6
+    storybook-dark-mode:
+      specifier: ^4.0.2
+      version: 4.0.2
     typescript:
       specifier: 5.6.3
       version: 5.6.3
+    vite:
+      specifier: 6.0.3
+      version: 6.0.3
 
 importers:
 
@@ -66,6 +102,9 @@ importers:
       '@tanstack/react-router':
         specifier: ^1.91.3
         version: 1.91.3(@tanstack/router-generator@1.87.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
       react:
         specifier: ^19.0.0
         version: 19.0.0

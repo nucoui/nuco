@@ -28,28 +28,28 @@ ol {
   ::slotted(n-li) {
     display: flex;
     align-items: baseline;
+    font-size: var(--n-3);
+    color: var(--cs-text-secondary);
 
     &::before {
       display: inline-block;
       margin-right: var(--n-2);
-      color: var(--cs-text-secondary);
       content: ">";
     }
   }
 
   ::slotted(n-li:first-child) {
-    color: var(--cs-text-secondary) !important;
-
     &::before {
       content: none;
     }
   }
 
   ::slotted(n-li:last-child) {
-    font-weight: bold;
+    color: var(--cs-text-primary);
 
     &::before {
       font-weight: normal;
+      color: var(--cs-text-secondary);
     }
   }
 }
