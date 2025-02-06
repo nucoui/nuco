@@ -52,6 +52,7 @@ const resisterElement = (name: ElementNames) => {
   if (customElements.get(name)) {
     return;
   }
+
   try {
     customElements.define(name, Elements[name]);
     // eslint-disable-next-line no-console

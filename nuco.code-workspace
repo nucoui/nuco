@@ -41,6 +41,10 @@
       "path": "playgrounds/react-rhf"
     },
     {
+      "name": "🎮 next",
+      "path": "playgrounds/next"
+    },
+    {
       "name": "-------",
       "path": "c"
     },

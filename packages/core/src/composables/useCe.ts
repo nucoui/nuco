@@ -1,5 +1,6 @@
 import type { defineProps, Ref } from "vue";
-import { baseAdoptedStyleSheets, resetAdoptedStyleSheets } from "@/utils/adoptedStyleSheets";
+import base from "@/styles/base.css?inline";
+import reset from "@/styles/reset.css?inline";
 import { computed, onMounted, ref, useHost, useShadowRoot } from "vue";
 
 export const useCe = <Props extends ReturnType<typeof defineProps>, Emit extends ReturnType<typeof defineEmit>>(mainRef: Ref<HTMLElement | null>, props: Props, emit: Emit) => {
@@ -32,6 +33,12 @@ export const useCe = <Props extends ReturnType<typeof defineProps>, Emit extends
       }
 
       if (shadowRoot) {
+        const baseAdoptedStyleSheets = new CSSStyleSheet();
+        baseAdoptedStyleSheets.replaceSync(base);
+
+        const resetAdoptedStyleSheets = new CSSStyleSheet();
+        resetAdoptedStyleSheets.replaceSync(reset);
+
         shadowRoot.adoptedStyleSheets = [
           resetAdoptedStyleSheets,
           baseAdoptedStyleSheets,

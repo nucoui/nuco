@@ -3,7 +3,7 @@
 import type { ElementNames } from "@nuco/core";
 import type { JSX, ReactNode, SyntheticEvent } from "react";
 import { resisterElement } from "@nuco/core";
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef } from "react";
 import { jsx as _jsx } from "react/jsx-runtime";
 
 type Upper<T extends string> = `on${Capitalize<T>}`;
@@ -38,10 +38,14 @@ function splitProps<RefType extends HTMLElement, ElementProps extends Record<str
 }
 
 export const NucoWrapper = <RefType extends HTMLElement, ElementProps extends Record<string, unknown>, ElementEmits extends string>({ elementName, props }: WrapperProps<RefType, ElementProps, ElementEmits>) => {
-  resisterElement(elementName);
-
   const ref = useRef<RefType | null>(null);
   const { emits, props: elementProps } = useMemo(() => splitProps(props), [props]);
+
+  useLayoutEffect(() => {
+    // eslint-disable-next-line no-console
+    customElements.whenDefined(elementName).then(() => console.info(`${elementName} is defined with React`));
+    resisterElement(elementName);
+  }, []);
 
   useEffect(() => {
     const currentRef = ref.current;
