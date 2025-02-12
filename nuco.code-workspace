@@ -41,8 +41,12 @@
       "path": "playgrounds/react-rhf"
     },
     {
-      "name": "🎮 next",
+      "name": "🎮 next.js",
       "path": "playgrounds/next"
+    },
+    {
+      "name": "🎮 tanstack start",
+      "path": "playgrounds/tanstack"
     },
     {
       "name": "-------",
