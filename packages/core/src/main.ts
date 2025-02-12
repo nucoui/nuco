@@ -1,5 +1,5 @@
 // import component
-import { NButton } from "@/components/common/NButton/NButton.ce";
+import { NButton, styleNButton } from "@/components/common/NButton/NButton.ce";
 import { NH1 } from "@/components/common/NH1/NH1.ce";
 import { NH2 } from "@/components/common/NH2/NH2.ce";
 import { NH3 } from "@/components/common/NH3/NH3.ce";
@@ -72,6 +72,10 @@ const resister = () => {
 export {
   resister,
   resisterElement,
+};
+
+export {
+  styleNButton,
 };
 
 export type {

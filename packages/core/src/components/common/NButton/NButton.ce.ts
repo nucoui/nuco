@@ -1,6 +1,8 @@
 import { defineCustomElement } from "vue";
 import NButtonCe from "./NButton.ce.vue";
 
+export const styleNButton = (NButtonCe as any).styles[0] as string;
+
 const DefinedNButtonCe = defineCustomElement(NButtonCe);
 
 export class NButton extends DefinedNButtonCe {}

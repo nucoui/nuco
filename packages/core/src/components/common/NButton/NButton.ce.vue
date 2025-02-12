@@ -109,14 +109,7 @@ defineRender(() => {
 });
 </script>
 
-<style scoped lang="scss">
-/* :host {
-  box-sizing: border-box;
-  width: -moz-available;
-  width: -webkit-fill-available;
-  width: stretch;
-} */
-
+<style lang="scss">
 .n-button {
   position: relative;
   box-sizing: border-box;

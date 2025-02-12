@@ -1,4 +1,6 @@
+import type { Plugin } from "vite";
 import react from "@vitejs/plugin-react";
+import preserveDirectives from "rollup-preserve-directives";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 import tsconfigPaths from "vite-tsconfig-paths";
@@ -6,7 +8,10 @@ import tsconfigPaths from "vite-tsconfig-paths";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    react(),
+    react({
+      // jsxImportSource: "automatic",
+    }),
+    preserveDirectives() as Plugin,
     dts({
       include: ["src"],
       tsconfigPath: "./tsconfig.app.json",
@@ -23,18 +28,19 @@ export default defineConfig({
       entry: "src/main.tsx",
       name: "react",
       fileName: "react",
-      formats: ["es", "cjs", "umd"],
+      formats: ["es", "cjs"],
     },
     rollupOptions: {
       external: ["react", "react-dom"],
       output: {
         exports: "named",
-        manualChunks: undefined,
+        preserveModules: true,
+        interop: "auto",
         globals: {
           "react": "React",
           "react-dom": "ReactDOM",
         },
-        banner: "\"use client\";\n", // ここでバナーを追加
+        // banner: "\"use client\";\n", // ここでバナーを追加
       },
     },
     commonjsOptions: {

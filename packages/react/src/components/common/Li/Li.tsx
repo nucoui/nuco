@@ -1,3 +1,5 @@
+"use client";
+
 import type { Props } from "@/components/NucoWrapper";
 import type { NLiEmits, NLiProps } from "@nuco/core";
 import { NucoWrapper } from "@/components/NucoWrapper";

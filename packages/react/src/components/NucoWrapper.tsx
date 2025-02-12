@@ -42,8 +42,7 @@ export const NucoWrapper = <RefType extends HTMLElement, ElementProps extends Re
   const { emits, props: elementProps } = useMemo(() => splitProps(props), [props]);
 
   useLayoutEffect(() => {
-    // eslint-disable-next-line no-console
-    customElements.whenDefined(elementName).then(() => console.info(`${elementName} is defined with React`));
+    // customElements.whenDefined(elementName).then(() => console.info(`${elementName} is defined with React`));
     resisterElement(elementName);
   }, []);
 
