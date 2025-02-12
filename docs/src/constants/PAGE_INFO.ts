@@ -8,44 +8,44 @@ export type PageInfo = {
 
 export type PageInfoValue = {
   shortTitle: string;
-  title: string;
+  title: `@nuco/core | ${string}`;
   description: string;
 };
 
 export const PAGE_INFO = {
   "/": {
     shortTitle: "Home",
-    title: "Home",
+    title: "@nuco/core | Home",
     description: "Home Page",
   },
   "/docs": {
     shortTitle: "Docs",
-    title: "Docs",
+    title: "@nuco/core | Docs",
     description: "Documentation for Nuco",
   },
   "/docs/": {
     shortTitle: "Docs",
-    title: "Docs",
+    title: "@nuco/core | Docs",
     description: "Documentation for Nuco",
   },
   "/docs/react/": {
     shortTitle: "React",
-    title: "React Documentation",
+    title: "@nuco/core | React Documentation",
     description: "React Documentation for Nuco",
   },
   "/docs/react/getting-started": {
     shortTitle: "Getting Started",
-    title: "Getting Started with React",
+    title: "@nuco/core | Getting Started with React",
     description: "Getting Started with React Documentation for Nuco",
   },
   "/docs/web-components/": {
     shortTitle: "Web Components",
-    title: "Web Components Documentation",
+    title: "@nuco/core | Web Components Documentation",
     description: "Web Components Documentation for Nuco",
   },
   "/docs/web-components/getting-started": {
     shortTitle: "Getting Started",
-    title: "Getting Started with Web Components",
+    title: "@nuco/core | Getting Started with Web Components",
     description: "Getting Started with Web Components Documentation for Nuco",
   },
 } as const satisfies PageInfo;

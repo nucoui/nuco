@@ -16,7 +16,8 @@
     "@tanstack/react-router": "^1.91.3",
     "clsx": "^2.1.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "unhead": "^1.11.18"
   },
   "devDependencies": {
     "@nuco/config": "workspace:*",
