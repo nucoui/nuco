@@ -1,4 +1,4 @@
-import type { NButtonProps } from "@/main";
+import type { NButtonProps } from "@/components/common/NButton/NButton.ce";
 import type { Meta, StoryObj } from "@storybook/web-components";
 import type NButtonCe from "./NButton.ce.vue";
 import { renderElement } from "@root/.storybook/utils/renderElement";
