@@ -49,6 +49,10 @@
       "path": "playgrounds/tanstack"
     },
     {
+      "name": "🎮 react router",
+      "path": "playgrounds/react-router"
+    },
+    {
       "name": "-------",
       "path": "c"
     },
