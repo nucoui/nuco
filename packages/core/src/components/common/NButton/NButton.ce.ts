@@ -1,13 +1,13 @@
 import type { Emits as NButtonEmits, Props as NButtonProps } from "./NButton.ce.vue";
+import { renderToStringSync } from "@/utils/renderToStringSync";
 import { defineCustomElement, h } from "vue";
-import { renderToString } from "vue/server-renderer";
 import NButtonCe from "./NButton.ce.vue";
 
 const styleNButton = (NButtonCe as any).styles[0] as string;
 
-const getNButtonHtml = async (props: NButtonProps) => {
+const getNButtonHtml = (props: NButtonProps) => {
   const node = h(NButtonCe, props);
-  const renderedNode = await renderToString(node);
+  const renderedNode = renderToStringSync(node);
 
   return renderedNode;
 };

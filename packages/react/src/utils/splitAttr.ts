@@ -1,5 +1,5 @@
-import type { Props } from "@/components/NucoWrapper";
 import type { EventHandlers } from "@/types/EventHandlers";
+import type { Props } from "@/types/Props";
 import type { Upper } from "@/types/Upper";
 import type { SyntheticEvent } from "react";
 
