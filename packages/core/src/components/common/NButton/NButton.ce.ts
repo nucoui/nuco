@@ -1,23 +1,28 @@
-import type { Emits as NButtonEmits, Props as NButtonProps } from "./NButton.ce.vue";
+import type { Emits, Props } from "./NButton.ce.vue";
 import { renderToStringSync } from "@/utils/renderToStringSync";
 import { defineCustomElement, h } from "vue";
 import NButtonCe from "./NButton.ce.vue";
 
-const styleNButton = (NButtonCe as any).styles[0] as string;
+const style = (NButtonCe as any).styles[0] as string;
 
-const getNButtonHtml = (props: NButtonProps) => {
+const getHtmlString = (props: Props) => {
   const node = h(NButtonCe, props);
   const renderedNode = renderToStringSync(node);
 
   return renderedNode;
 };
 
-class NButton extends defineCustomElement(NButtonCe) {}
+export class NButton extends defineCustomElement(NButtonCe) {}
 
-export {
-  getNButtonHtml,
-  NButton,
-  styleNButton,
+export const NButtonUtil: {
+  style: typeof style;
+  getHtmlString: typeof getHtmlString;
+} = {
+  style,
+  getHtmlString,
 };
 
-export type { NButtonEmits, NButtonProps };
+export type NButtonType = {
+  Emit: Emits;
+  Props: Props;
+};

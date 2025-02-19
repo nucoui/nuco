@@ -1,4 +1,4 @@
-import type { NButtonProps } from "@/components/common/NButton/NButton.ce";
+import type { NButtonType } from "@/components/common/NButton/NButton.ce";
 import type { Meta, StoryObj } from "@storybook/web-components";
 import type NButtonCe from "./NButton.ce.vue";
 import { renderElement } from "@root/.storybook/utils/renderElement";
@@ -30,7 +30,7 @@ const dynamicArgTypes = {
 } as const satisfies Meta["argTypes"];
 
 // This default export determines where your story goes in the story list
-const meta: Meta<NButtonProps> = {
+const meta: Meta<NButtonType["Props"]> = {
   component: "n-button",
   tags: ["autodocs"],
   argTypes: dynamicArgTypes,

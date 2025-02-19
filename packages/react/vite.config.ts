@@ -40,7 +40,6 @@ export default defineConfig({
           "react": "React",
           "react-dom": "ReactDOM",
         },
-        // banner: "\"use client\";\n", // ここでバナーを追加
       },
     },
     commonjsOptions: {

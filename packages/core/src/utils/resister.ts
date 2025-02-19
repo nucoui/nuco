@@ -55,6 +55,7 @@ const resister = () => {
 };
 
 export {
+  Elements,
   resister,
   resisterElement,
 };

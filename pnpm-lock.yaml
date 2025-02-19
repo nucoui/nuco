@@ -266,6 +266,9 @@ importers:
       globals:
         specifier: ^15.12.0
         version: 15.13.0
+      plop:
+        specifier: ^4.0.1
+        version: 4.0.1
       react:
         specifier: ^19.0.0
         version: 19.0.0
