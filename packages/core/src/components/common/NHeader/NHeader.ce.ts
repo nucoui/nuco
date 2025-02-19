@@ -1,9 +1,28 @@
-import { defineCustomElement } from "vue";
+import type { Emits, Props } from "./NHeader.ce.vue";
+import { renderToStringSync } from "@/utils/renderToStringSync";
+import { defineCustomElement, h } from "vue";
 import NHeaderCe from "./NHeader.ce.vue";
 
-const DefineNHeader = defineCustomElement(NHeaderCe);
+const style = (NHeaderCe as any).styles[0] as string;
 
-export class NHeader extends DefineNHeader {}
+const getHtmlString = (props: Props) => {
+  const node = h(NHeaderCe, props);
+  const renderedNode = renderToStringSync(node);
 
-export type { Props as NHeaderProps } from "./NHeader.ce.vue";
-export type { Emits as NHeaderEmits } from "./NHeader.ce.vue";
+  return renderedNode;
+};
+
+export class NHeader extends defineCustomElement(NHeaderCe) {}
+
+export const NHeaderUtil: {
+  style: typeof style;
+  getHtmlString: typeof getHtmlString;
+} = {
+  style,
+  getHtmlString,
+};
+
+export type NHeaderType = {
+  Emit: Emits;
+  Props: Props;
+};

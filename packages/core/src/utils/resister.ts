@@ -1,4 +1,3 @@
-// import component
 import { NButton } from "@/components/common/NButton/NButton.ce";
 import { NH1 } from "@/components/common/NH1/NH1.ce";
 import { NH2 } from "@/components/common/NH2/NH2.ce";
@@ -14,19 +13,19 @@ import { NBreadcrumb } from "@/components/composite/NBreadcrumb/NBreadcrumb.ce";
 import { NError } from "@/components/composite/NError/NError.ce";
 
 const Elements = {
-  "n-breadcrumb": NBreadcrumb,
-  "n-button": NButton,
-  "n-input": NInput,
   "n-error": NError,
+  "n-breadcrumb": NBreadcrumb,
   "n-ul": NUl,
   "n-li": NLi,
+  "n-input": NInput,
   "n-header": NHeader,
-  "n-h1": NH1,
-  "n-h2": NH2,
-  "n-h3": NH3,
-  "n-h4": NH4,
-  "n-h5": NH5,
   "n-h6": NH6,
+  "n-h5": NH5,
+  "n-h4": NH4,
+  "n-h3": NH3,
+  "n-h2": NH2,
+  "n-h1": NH1,
+  "n-button": NButton,
 } as const satisfies {
   [key: `n-${string}`]: typeof HTMLElement;
 };

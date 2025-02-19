@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import type { {{pascalCase name}}Props } from "./{{pascalCase name}}.ce";
+import type { {{pascalCase name}}Type } from "./{{pascalCase name}}.ce";
 import { renderElement } from "@root/.storybook/utils/renderElement";
 
 // This default export determines where your story goes in the story list
@@ -16,7 +16,7 @@ const meta: Meta = {
 };
 
 export default meta;
-type Story = StoryObj<{{pascalCase name}}Props>;
+type Story = StoryObj<{{pascalCase name}}Type["Props"]>;
 
 export const Primary: Story = {
   args: {},

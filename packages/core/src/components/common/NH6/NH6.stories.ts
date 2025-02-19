@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
+import type { NH6Type } from "./NH6.ce";
 import { renderElement } from "@root/.storybook/utils/renderElement";
 
 // This default export determines where your story goes in the story list
@@ -16,7 +17,7 @@ const meta: Meta = {
 };
 
 export default meta;
-type Story = StoryObj;
+type Story = StoryObj<NH6Type["Props"]>;
 
 export const Primary: Story = {
   args: {},

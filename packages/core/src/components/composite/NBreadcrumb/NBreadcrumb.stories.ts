@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import type { NBreadcrumbProps } from "./NBreadcrumb.ce";
+import type { NBreadcrumbType } from "./NBreadcrumb.ce";
 import { renderElement } from "@root/.storybook/utils/renderElement";
 
 // This default export determines where your story goes in the story list
@@ -32,7 +32,7 @@ const meta: Meta = {
 };
 
 export default meta;
-type Story = StoryObj<NBreadcrumbProps>;
+type Story = StoryObj<NBreadcrumbType["Props"]>;
 
 export const Primary: Story = {
   args: {},

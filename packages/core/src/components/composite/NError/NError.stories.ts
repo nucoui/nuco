@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import type { NErrorProps } from "./NError.ce";
+import type { NErrorType } from "./NError.ce";
 import { renderElement } from "@root/.storybook/utils/renderElement";
 
 // This default export determines where your story goes in the story list
@@ -24,7 +24,7 @@ const meta: Meta = {
 };
 
 export default meta;
-type Story = StoryObj<NErrorProps>;
+type Story = StoryObj<NErrorType["Props"]>;
 
 export const Primary: Story = {
   args: {},

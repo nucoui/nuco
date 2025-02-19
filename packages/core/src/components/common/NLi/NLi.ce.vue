@@ -4,12 +4,10 @@ import { ref } from "vue";
 
 // eslint-disable-next-line ts/no-empty-object-type
 export type Props = {};
-
 export type Emits = never;
 
-const definedProps = withDefaults(defineProps<Props>(), {});
 const hostRef = ref<HTMLInputElement | null>(null);
-useCe(hostRef, definedProps, () => {});
+useCe(hostRef, {}, () => {});
 
 defineRender(() => (
   <li ref={hostRef} part="li">
@@ -17,3 +15,7 @@ defineRender(() => (
   </li>
 ));
 </script>
+
+<style lang="scss">
+  // empty
+</style>

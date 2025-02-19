@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import type { NLiProps } from "./NLi.ce";
+import type { NLiType } from "./NLi.ce";
 import { renderElement } from "@root/.storybook/utils/renderElement";
 
 // This default export determines where your story goes in the story list
@@ -17,7 +17,7 @@ const meta: Meta = {
 };
 
 export default meta;
-type Story = StoryObj<NLiProps>;
+type Story = StoryObj<NLiType["Props"]>;
 
 export const Primary: Story = {
   args: {},

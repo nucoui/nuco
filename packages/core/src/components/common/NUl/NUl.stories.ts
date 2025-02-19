@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import type { NUlProps } from "./NUl.ce";
+import type { NUlType } from "./NUl.ce";
 import { renderElement } from "@root/.storybook/utils/renderElement";
 
 // This default export determines where your story goes in the story list
@@ -33,7 +33,7 @@ const meta: Meta = {
 };
 
 export default meta;
-type Story = StoryObj<NUlProps>;
+type Story = StoryObj<NUlType["Props"]>;
 
 export const Primary: Story = {
   args: {},

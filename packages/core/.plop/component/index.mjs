@@ -45,6 +45,7 @@ export default (
     actions: (data) => {
       const path = `../../src/components${data.atomic}`;
       const mainPath = "../../src/main.ts";
+      const resisterPath = "../../src/utils/resister.ts";
 
       return [
         {
@@ -64,21 +65,21 @@ export default (
         },
         {
           type: "modify",
-          path: mainPath,
+          path: resisterPath,
           pattern: /(const Elements = \{)/g,
           template: `$1\n  "{{kebabCase name}}": {{pascalCase name}},`,
         },
         {
           type: "modify",
-          path: mainPath,
-          pattern: /(\/\/ import component)/g,
+          path: resisterPath,
+          pattern: /(^\s*)/m, // ファイルの先頭にマッチする正規表現
           template: `$1\n\nimport { {{pascalCase name}} } from "@/components{{atomic}}{{pascalCase name}}/{{pascalCase name}}.ce";`,
         },
         {
           type: "modify",
           path: mainPath,
-          pattern: /(\/\/ export component type)/g,
-          template: `$1\n\nexport type { {{pascalCase name}}Emits, {{pascalCase name}}Props } from "@/components{{atomic}}{{pascalCase name}}/{{pascalCase name}}.ce";`,
+          pattern: /(^\s*)/m, // ファイルの先頭にマッチする正規表現
+          template: `$1\n\nexport * from "@/components{{atomic}}{{pascalCase name}}/{{pascalCase name}}.ce";`,
         },
       ];
     },

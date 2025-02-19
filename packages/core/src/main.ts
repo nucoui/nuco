@@ -10,4 +10,7 @@ export * from "@/components/common/NInput/NInput.ce";
 export * from "@/components/common/NLi/NLi.ce";
 export * from "@/components/common/NUl/NUl.ce";
 export * from "@/components/composite/NBreadcrumb/NBreadcrumb.ce";
+export * from "@/components/composite/NError/NError.ce";
+
+// utils
 export * from "@/utils/resister";

@@ -1,9 +1,28 @@
-import { defineCustomElement } from "vue";
+import type { Emits, Props } from "./NLi.ce.vue";
+import { renderToStringSync } from "@/utils/renderToStringSync";
+import { defineCustomElement, h } from "vue";
 import NLiCe from "./NLi.ce.vue";
 
-const DefineNLi = defineCustomElement(NLiCe);
+const style = (NLiCe as any).styles[0] as string;
 
-export class NLi extends DefineNLi {}
+const getHtmlString = (props: Props) => {
+  const node = h(NLiCe, props);
+  const renderedNode = renderToStringSync(node);
 
-export type { Props as NLiProps } from "./NLi.ce.vue";
-export type { Emits as NLiEmits } from "./NLi.ce.vue";
+  return renderedNode;
+};
+
+export class NLi extends defineCustomElement(NLiCe) {}
+
+export const NLiUtil: {
+  style: typeof style;
+  getHtmlString: typeof getHtmlString;
+} = {
+  style,
+  getHtmlString,
+};
+
+export type NLiType = {
+  Emit: Emits;
+  Props: Props;
+};

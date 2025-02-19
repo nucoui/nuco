@@ -1,11 +1,30 @@
-import { defineCustomElement } from "vue";
+import type { Emits, Props } from "./NInput.ce.vue";
+import { renderToStringSync } from "@/utils/renderToStringSync";
+import { defineCustomElement, h } from "vue";
 import NInputCe from "./NInput.ce.vue";
 
-const DefinedNInput = defineCustomElement(NInputCe);
+const style = (NInputCe as any).styles[0] as string;
 
-export class NInput extends DefinedNInput {
+const getHtmlString = (props: Props) => {
+  const node = h(NInputCe, props);
+  const renderedNode = renderToStringSync(node);
+
+  return renderedNode;
+};
+
+export class NInput extends defineCustomElement(NInputCe) {
   static formAssociated = true;
 }
 
-export type { Props as NInputProps } from "./NInput.ce.vue";
-export type { Emits as NInputEmits } from "./NInput.ce.vue";
+export const NInputUtil: {
+  style: typeof style;
+  getHtmlString: typeof getHtmlString;
+} = {
+  style,
+  getHtmlString,
+};
+
+export type NInputType = {
+  Emit: Emits;
+  Props: Props;
+};

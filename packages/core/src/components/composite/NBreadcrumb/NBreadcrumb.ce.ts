@@ -1,9 +1,28 @@
-import { defineCustomElement } from "vue";
+import type { Emits, Props } from "./NBreadcrumb.ce.vue";
+import { renderToStringSync } from "@/utils/renderToStringSync";
+import { defineCustomElement, h } from "vue";
 import NBreadcrumbCe from "./NBreadcrumb.ce.vue";
 
-const DefineNBreadcrumb = defineCustomElement(NBreadcrumbCe);
+const style = (NBreadcrumbCe as any).styles[0] as string;
 
-export class NBreadcrumb extends DefineNBreadcrumb {}
+const getHtmlString = (props: Props) => {
+  const node = h(NBreadcrumbCe, props);
+  const renderedNode = renderToStringSync(node);
 
-export type { Props as NBreadcrumbProps } from "./NBreadcrumb.ce.vue";
-export type { Emits as NBreadcrumbEmits } from "./NBreadcrumb.ce.vue";
+  return renderedNode;
+};
+
+export class NBreadcrumb extends defineCustomElement(NBreadcrumbCe) {}
+
+export const NBreadcrumbUtil: {
+  style: typeof style;
+  getHtmlString: typeof getHtmlString;
+} = {
+  style,
+  getHtmlString,
+};
+
+export type NBreadcrumbType = {
+  Emit: Emits;
+  Props: Props;
+};

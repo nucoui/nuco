@@ -1,8 +1,28 @@
-import { defineCustomElement } from "vue";
+import type { Emits, Props } from "./NH2.ce.vue";
+import { renderToStringSync } from "@/utils/renderToStringSync";
+import { defineCustomElement, h } from "vue";
 import NH2Ce from "./NH2.ce.vue";
 
-const DefineNH2 = defineCustomElement(NH2Ce);
+const style = (NH2Ce as any).styles[0] as string;
 
-export class NH2 extends DefineNH2 {}
+const getHtmlString = (props: Props) => {
+  const node = h(NH2Ce, props);
+  const renderedNode = renderToStringSync(node);
 
-export type { Emits as NH2Emits } from "./NH2.ce.vue";
+  return renderedNode;
+};
+
+export class NH2 extends defineCustomElement(NH2Ce) {}
+
+export const NH2Util: {
+  style: typeof style;
+  getHtmlString: typeof getHtmlString;
+} = {
+  style,
+  getHtmlString,
+};
+
+export type NH2Type = {
+  Emit: Emits;
+  Props: Props;
+};
