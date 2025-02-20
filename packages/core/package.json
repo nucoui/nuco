@@ -27,7 +27,7 @@
   },
   "scripts": {
     "dev": "storybook dev -p 5222 --no-open",
-    "build": "vite build && tsc",
+    "build": "vite build --mode production && tsc",
     "preview": "vite preview",
     "lint": "eslint . && stylelint \"**/*.vue\" \"**/*.css\" \"**/*.scss\"",
     "sb:init": "storybook init",

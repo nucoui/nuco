@@ -20,6 +20,8 @@ export const useCe = <Props extends ReturnType<typeof defineProps>, Emit extends
     return emit(name, { bubbles: true, composed: true }, detail);
   };
 
+  console.warn = () => {};
+
   // const ceSymbol = Symbol("") as InjectionKey<typeof parsedProps>;
   const host = useHost();
   const shadowRoot = useShadowRoot();
@@ -46,6 +48,9 @@ export const useCe = <Props extends ReturnType<typeof defineProps>, Emit extends
       }
     }
   });
+
+  // eslint-disable-next-line no-self-assign
+  console.warn = console.warn;
 
   // provide(ceSymbol, parsedProps);
 

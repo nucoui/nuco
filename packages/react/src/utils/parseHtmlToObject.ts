@@ -15,7 +15,7 @@ function parseHtmlToObject(htmlString: string): JsonNode[] {
   const stack: JsonNode[] = []; // ネストされた要素を処理するためのスタック
   let current: JsonNode | null = null;
 
-  const tagRegex = /<(\/)?([a-z]+)([^>]*)>([^<]*)/gi; // 開始タグ、終了タグ、属性、テキストをマッチ
+  const tagRegex = /<(\/)?([a-z0-9]+)([^>]*)>([^<]*)/gi; // 開始タグ、終了タグ、属性、テキストをマッチ
   let match;
 
   while ((match = tagRegex.exec(htmlString)) !== null) {
