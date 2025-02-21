@@ -4,32 +4,31 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint . && stylelint \"**/*.vue\" \"**/*.css\" \"**/*.scss\"",
-    "stylelint": "stylelint",
-    "preview": "vite preview"
+    "dev": "vinxi dev --port 5229",
+    "build": "vinxi build",
+    "start": "vinxi start"
   },
   "dependencies": {
+    "@nuco/config": "workspace:*",
+    "@nuco/core": "workspace:*",
     "@nuco/react": "workspace:*",
     "@nuco/variable": "workspace:*",
-    "@tanstack/react-router": "^1.91.3",
+    "@tanstack/react-router": "^1.102.5",
+    "@tanstack/start": "^1.102.5",
     "clsx": "^2.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "unhead": "^1.11.18"
+    "vinxi": "0.5.3"
   },
   "devDependencies": {
-    "@nuco/config": "workspace:*",
-    "@tanstack/router-devtools": "^1.91.3",
-    "@tanstack/router-plugin": "^1.91.1",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react": "^4.3.4",
-    "globals": "^15.13.0",
-    "stylelint": "^16.10.0",
-    "typescript": "~5.6.2",
+    "globals": "^15.14.0",
+    "typescript": "~5.7.2",
+    "unenv": "^1.10.0",
     "unplugin-fonts": "^1.1.1",
-    "vite": "catalog:"
+    "vite": "^6.1.0",
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }
