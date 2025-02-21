@@ -4,7 +4,7 @@ import type { Props } from "@/types/Props";
 import type { Upper } from "@/types/Upper";
 import type { ElementNames } from "@nuco/core";
 import type { JSX } from "react";
-import { splitAttr } from "@/utils/splitAttr";
+import { splitPropsAttr } from "@/utils/splitPropsAttr";
 import { resisterElement } from "@nuco/core";
 import { useEffect, useLayoutEffect, useMemo, useRef } from "react";
 import { jsx as _jsx } from "react/jsx-runtime";
@@ -16,7 +16,7 @@ type ClientWrapperProps<RefType extends HTMLElement, ElementProps extends Record
 
 export const NucoClientWrapper = <RefType extends HTMLElement, ElementProps extends Record<string, unknown>, ElementEmits extends string>({ elementName, props }: ClientWrapperProps<RefType, ElementProps, ElementEmits>) => {
   const ref = useRef<RefType | null>(null);
-  const { emits, props: elementProps } = useMemo(() => splitAttr(props), [props]);
+  const { emits, props: elementProps, children } = useMemo(() => splitPropsAttr(props), [props]);
 
   useLayoutEffect(() => {
     // customElements.whenDefined(elementName).then(() => console.info(`${elementName} is defined with React`));
@@ -51,6 +51,7 @@ export const NucoClientWrapper = <RefType extends HTMLElement, ElementProps exte
     elementName as any,
     {
       ...elementProps,
+      children,
       ref,
     },
     void 0,

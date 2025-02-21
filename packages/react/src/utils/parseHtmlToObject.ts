@@ -1,14 +1,7 @@
 /* eslint-disable regexp/no-super-linear-backtracking */
 /* eslint-disable no-cond-assign */
-import type { JSX, ReactNode } from "react";
-import { jsx } from "react/jsx-runtime";
 
-interface JsonNode {
-  tag: string;
-  attr: { [key: string]: string };
-  children: JsonNode[];
-  text?: string; // textノードの場合にテキスト内容を格納する
-}
+import type { JsonNode } from "@/types/JsonNode";
 
 function parseHtmlToObject(htmlString: string): JsonNode[] {
   const result: JsonNode[] = [];
@@ -68,23 +61,4 @@ function parseHtmlToObject(htmlString: string): JsonNode[] {
   return result;
 }
 
-function convertJsonToJsx(jsonNodes: JsonNode[], slotChildren?: ReactNode): JSX.Element[] {
-  return jsonNodes.map((node, index): JSX.Element => {
-    if (node.tag === "text") {
-      return jsx("span", { children: node.text }, index); // テキストノードをspanでラップして返します
-    }
-    else {
-      let children: JSX.Element[] | ReactNode | null = node.children.length > 0 ? convertJsonToJsx(node.children, slotChildren) : null;
-
-      // slot要素の場合、slotChildrenを設定
-      if (node.tag === "slot" && slotChildren) {
-        children = [slotChildren];
-      }
-
-      const { children: attrChildren, ...rest } = node.attr;
-      return jsx(node.tag as any, { ...rest, children }, index);
-    }
-  });
-}
-
-export { convertJsonToJsx, parseHtmlToObject };
+export { parseHtmlToObject };

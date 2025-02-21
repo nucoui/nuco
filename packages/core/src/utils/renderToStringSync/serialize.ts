@@ -11,9 +11,15 @@ export function serialize(
   node: TestNode,
   indent: number = 0,
   depth: number = 0,
+  seen = new WeakSet<TestNode>(),
 ): string {
+  if (seen.has(node)) {
+    return "[Circular]";
+  }
+  seen.add(node);
+
   if (node.type === TestNodeTypes.ELEMENT) {
-    return serializeElement(node, indent, depth);
+    return serializeElement(node, indent, depth, seen);
   }
   else {
     return serializeText(node, indent, depth);
@@ -24,11 +30,12 @@ export function serializeInner(
   node: TestElement,
   indent: number = 0,
   depth: number = 0,
+  seen = new WeakSet<TestNode>(),
 ): string {
   const newLine = indent ? `\n` : ``;
   return node.children.length
     ? newLine
-    + node.children.map(c => serialize(c, indent, depth + 1)).join(newLine)
+    + node.children.map(c => serialize(c, indent, depth + 1, seen)).join(newLine)
     + newLine
     : ``;
 }
@@ -37,6 +44,7 @@ function serializeElement(
   node: TestElement,
   indent: number,
   depth: number,
+  seen: WeakSet<TestNode>,
 ): string {
   const props = Object.keys(node.props)
     .map((key) => {
@@ -45,14 +53,22 @@ function serializeElement(
         ? ``
         : value === ``
           ? key
-          : `${key}=${JSON.stringify(value)}`;
+          : `${key}=${JSON.stringify(value, (key, value) => {
+            if (typeof value === "object" && value !== null) {
+              if (seen.has(value)) {
+                return "[Circular]";
+              }
+              seen.add(value);
+            }
+            return value;
+          })}`;
     })
     .filter(Boolean)
     .join(" ");
   const padding = indent ? ` `.repeat(indent).repeat(depth) : ``;
   return (
     `${padding}<${node.tag}${props ? ` ${props}` : ``}>`
-    + `${serializeInner(node, indent, depth)}`
+    + `${serializeInner(node, indent, depth, seen)}`
     + `${padding}</${node.tag}>`
   );
 }
