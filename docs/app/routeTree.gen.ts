@@ -11,14 +11,57 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as DocsImport } from './routes/docs'
 import { Route as IndexImport } from './routes/index'
+import { Route as DocsIndexImport } from './routes/docs/index'
+import { Route as DocsWebComponentsIndexImport } from './routes/docs/web-components/index'
+import { Route as DocsReactIndexImport } from './routes/docs/react/index'
+import { Route as DocsWebComponentsGettingStartedImport } from './routes/docs/web-components/getting-started'
+import { Route as DocsReactGettingStartedImport } from './routes/docs/react/getting-started'
 
 // Create/Update Routes
+
+const DocsRoute = DocsImport.update({
+  id: '/docs',
+  path: '/docs',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRoute,
+} as any)
+
+const DocsIndexRoute = DocsIndexImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DocsRoute,
+} as any)
+
+const DocsWebComponentsIndexRoute = DocsWebComponentsIndexImport.update({
+  id: '/web-components/',
+  path: '/web-components/',
+  getParentRoute: () => DocsRoute,
+} as any)
+
+const DocsReactIndexRoute = DocsReactIndexImport.update({
+  id: '/react/',
+  path: '/react/',
+  getParentRoute: () => DocsRoute,
+} as any)
+
+const DocsWebComponentsGettingStartedRoute =
+  DocsWebComponentsGettingStartedImport.update({
+    id: '/web-components/getting-started',
+    path: '/web-components/getting-started',
+    getParentRoute: () => DocsRoute,
+  } as any)
+
+const DocsReactGettingStartedRoute = DocsReactGettingStartedImport.update({
+  id: '/react/getting-started',
+  path: '/react/getting-started',
+  getParentRoute: () => DocsRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
@@ -32,39 +75,139 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/docs': {
+      id: '/docs'
+      path: '/docs'
+      fullPath: '/docs'
+      preLoaderRoute: typeof DocsImport
+      parentRoute: typeof rootRoute
+    }
+    '/docs/': {
+      id: '/docs/'
+      path: '/'
+      fullPath: '/docs/'
+      preLoaderRoute: typeof DocsIndexImport
+      parentRoute: typeof DocsImport
+    }
+    '/docs/react/getting-started': {
+      id: '/docs/react/getting-started'
+      path: '/react/getting-started'
+      fullPath: '/docs/react/getting-started'
+      preLoaderRoute: typeof DocsReactGettingStartedImport
+      parentRoute: typeof DocsImport
+    }
+    '/docs/web-components/getting-started': {
+      id: '/docs/web-components/getting-started'
+      path: '/web-components/getting-started'
+      fullPath: '/docs/web-components/getting-started'
+      preLoaderRoute: typeof DocsWebComponentsGettingStartedImport
+      parentRoute: typeof DocsImport
+    }
+    '/docs/react/': {
+      id: '/docs/react/'
+      path: '/react'
+      fullPath: '/docs/react'
+      preLoaderRoute: typeof DocsReactIndexImport
+      parentRoute: typeof DocsImport
+    }
+    '/docs/web-components/': {
+      id: '/docs/web-components/'
+      path: '/web-components'
+      fullPath: '/docs/web-components'
+      preLoaderRoute: typeof DocsWebComponentsIndexImport
+      parentRoute: typeof DocsImport
+    }
   }
 }
 
 // Create and export the route tree
 
+interface DocsRouteChildren {
+  DocsIndexRoute: typeof DocsIndexRoute
+  DocsReactGettingStartedRoute: typeof DocsReactGettingStartedRoute
+  DocsWebComponentsGettingStartedRoute: typeof DocsWebComponentsGettingStartedRoute
+  DocsReactIndexRoute: typeof DocsReactIndexRoute
+  DocsWebComponentsIndexRoute: typeof DocsWebComponentsIndexRoute
+}
+
+const DocsRouteChildren: DocsRouteChildren = {
+  DocsIndexRoute: DocsIndexRoute,
+  DocsReactGettingStartedRoute: DocsReactGettingStartedRoute,
+  DocsWebComponentsGettingStartedRoute: DocsWebComponentsGettingStartedRoute,
+  DocsReactIndexRoute: DocsReactIndexRoute,
+  DocsWebComponentsIndexRoute: DocsWebComponentsIndexRoute,
+}
+
+const DocsRouteWithChildren = DocsRoute._addFileChildren(DocsRouteChildren)
+
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/docs': typeof DocsRouteWithChildren
+  '/docs/': typeof DocsIndexRoute
+  '/docs/react/getting-started': typeof DocsReactGettingStartedRoute
+  '/docs/web-components/getting-started': typeof DocsWebComponentsGettingStartedRoute
+  '/docs/react': typeof DocsReactIndexRoute
+  '/docs/web-components': typeof DocsWebComponentsIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/docs': typeof DocsIndexRoute
+  '/docs/react/getting-started': typeof DocsReactGettingStartedRoute
+  '/docs/web-components/getting-started': typeof DocsWebComponentsGettingStartedRoute
+  '/docs/react': typeof DocsReactIndexRoute
+  '/docs/web-components': typeof DocsWebComponentsIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/docs': typeof DocsRouteWithChildren
+  '/docs/': typeof DocsIndexRoute
+  '/docs/react/getting-started': typeof DocsReactGettingStartedRoute
+  '/docs/web-components/getting-started': typeof DocsWebComponentsGettingStartedRoute
+  '/docs/react/': typeof DocsReactIndexRoute
+  '/docs/web-components/': typeof DocsWebComponentsIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/docs'
+    | '/docs/'
+    | '/docs/react/getting-started'
+    | '/docs/web-components/getting-started'
+    | '/docs/react'
+    | '/docs/web-components'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/docs'
+    | '/docs/react/getting-started'
+    | '/docs/web-components/getting-started'
+    | '/docs/react'
+    | '/docs/web-components'
+  id:
+    | '__root__'
+    | '/'
+    | '/docs'
+    | '/docs/'
+    | '/docs/react/getting-started'
+    | '/docs/web-components/getting-started'
+    | '/docs/react/'
+    | '/docs/web-components/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DocsRoute: typeof DocsRouteWithChildren
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DocsRoute: DocsRouteWithChildren,
 }
 
 export const routeTree = rootRoute
@@ -77,11 +220,42 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/"
+        "/",
+        "/docs"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/docs": {
+      "filePath": "docs.tsx",
+      "children": [
+        "/docs/",
+        "/docs/react/getting-started",
+        "/docs/web-components/getting-started",
+        "/docs/react/",
+        "/docs/web-components/"
+      ]
+    },
+    "/docs/": {
+      "filePath": "docs/index.tsx",
+      "parent": "/docs"
+    },
+    "/docs/react/getting-started": {
+      "filePath": "docs/react/getting-started.tsx",
+      "parent": "/docs"
+    },
+    "/docs/web-components/getting-started": {
+      "filePath": "docs/web-components/getting-started.tsx",
+      "parent": "/docs"
+    },
+    "/docs/react/": {
+      "filePath": "docs/react/index.tsx",
+      "parent": "/docs"
+    },
+    "/docs/web-components/": {
+      "filePath": "docs/web-components/index.tsx",
+      "parent": "/docs"
     }
   }
 }
