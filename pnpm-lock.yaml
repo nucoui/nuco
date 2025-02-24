@@ -106,11 +106,11 @@ importers:
         specifier: workspace:*
         version: link:../packages/variable
       '@tanstack/react-router':
-        specifier: ^1.109.2
-        version: 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: ^1.111.3
+        version: 1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@tanstack/start':
-        specifier: ^1.109.2
-        version: 1.109.2(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)
+        specifier: ^1.111.3
+        version: 1.111.3(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -489,14 +489,14 @@ importers:
         specifier: workspace:*
         version: link:../../packages/variable
       '@tanstack/react-router':
-        specifier: ^1.102.5
-        version: 1.102.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: ^1.109.2
+        version: 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@tanstack/router-devtools':
-        specifier: ^1.102.5
-        version: 1.102.5(@tanstack/react-router@1.102.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(csstype@3.1.3)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: ^1.109.2
+        version: 1.111.3(@tanstack/react-router@1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(csstype@3.1.3)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@tanstack/start':
-        specifier: ^1.102.5
-        version: 1.102.5(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)
+        specifier: ^1.109.2
+        version: 1.109.2(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)
       react:
         specifier: ^19.0.0
         version: 19.0.0
@@ -3091,12 +3091,12 @@ packages:
     peerDependencies:
       vite: ^5.2.0 || ^6
 
-  '@tanstack/directive-functions-plugin@1.102.2':
-    resolution: {integrity: sha512-wM4ovyuYx0rBvcaR9ay+CtuPK8AEqFv6rF4LbPqHx7EufzBi7aJt70RqPdHt3bP3dcEuJbcRGFxthZ+WUt/Q5Q==}
-    engines: {node: '>=12'}
-
   '@tanstack/directive-functions-plugin@1.106.0':
     resolution: {integrity: sha512-eAK+8tGl+ZZimROdnuHoAc1MVKvmQWh7WTQbh531607NQAuD/7TgbTAiSBfTJYW8qeGovrSp/qq+dnhjqTy3xQ==}
+    engines: {node: '>=12'}
+
+  '@tanstack/directive-functions-plugin@1.111.2':
+    resolution: {integrity: sha512-9j4N7wt1C38n1Egi8kDE270QXgKEEADUyIGS2ZlcJIbrye7p4QjBxkcx600S+vMy9qFxEhw3I7Oi9/KjRp69qw==}
     engines: {node: '>=12'}
 
   '@tanstack/history@1.99.13':
@@ -3109,15 +3109,15 @@ packages:
       react: '>=18.0.0 || >=19.0.0'
       react-dom: '>=18.0.0 || >=19.0.0'
 
-  '@tanstack/react-router@1.102.5':
-    resolution: {integrity: sha512-stZgbXE++aW9sGeAC9fGyFiY58OsEDrn4L7y7eC5A8egC0mTrG0q0yoaxBstXWXGkahmnaKIKkHnl4F6+pNt2g==}
+  '@tanstack/react-router@1.109.2':
+    resolution: {integrity: sha512-cJZGIvYIrd5lcwbwoB2vxJe379TQZIM5/RAzlDSrvV5KAPlkmK3cqZHZ8zPrsZIBASEyERM8Od+jM9s3qDTXkA==}
     engines: {node: '>=12'}
     peerDependencies:
       react: '>=18.0.0 || >=19.0.0'
       react-dom: '>=18.0.0 || >=19.0.0'
 
-  '@tanstack/react-router@1.109.2':
-    resolution: {integrity: sha512-cJZGIvYIrd5lcwbwoB2vxJe379TQZIM5/RAzlDSrvV5KAPlkmK3cqZHZ8zPrsZIBASEyERM8Od+jM9s3qDTXkA==}
+  '@tanstack/react-router@1.111.3':
+    resolution: {integrity: sha512-OsqAuExa4WF7+BbjENWlb4dHRousxU5jahJHUPyO0gaUcWwzaVloJKi8lTFTd1PWQ8waz5V7BedkV67hd8syUw==}
     engines: {node: '>=12'}
     peerDependencies:
       react: '>=18.0.0 || >=19.0.0'
@@ -3129,29 +3129,24 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@tanstack/router-core@1.102.5':
-    resolution: {integrity: sha512-NdPrR7h+b7mwwn0+guEYhay/iZMpQZB324iNF+fJq7VZUrXG+dO/wgDJGSOYBhM4rObWned0gFjLHNAaAsBqBA==}
-    engines: {node: '>=12'}
-
   '@tanstack/router-core@1.108.0':
     resolution: {integrity: sha512-lo6Nqdp8gxWNZ8YZ6UhiQgR0CgcAiMaw1cxgKK7M4u3nFFwqW7Hzycl5ik1l3NRh5/pQVK+OVzlKok5rrrHxSg==}
     engines: {node: '>=12'}
 
-  '@tanstack/router-devtools@1.102.5':
-    resolution: {integrity: sha512-J/K00q0bW6mBnUErNMnseB5ZUzD2J3W46kUSaipinj3pYMT9rIqS6/Qvm812tIJ36ag/HLNxk6Ybw+ELLye3cQ==}
+  '@tanstack/router-core@1.111.3':
+    resolution: {integrity: sha512-q+CHuOhTgqHudVKijL89jIdLe5A00RzV8ZMMSi4qiHGnggm4nisF8eSE3dFQaic1+YFk1wR7dfFA2hvkr1hFIA==}
+    engines: {node: '>=12'}
+
+  '@tanstack/router-devtools@1.111.3':
+    resolution: {integrity: sha512-1b/B35+Ph1F8LYUKgaGXw+o3jbfIG3wPy7HP7It8/vLIwRH1IZu5rnHcevybdGbpnGUxcWjQVbDQuKEZow9yoQ==}
     engines: {node: '>=12'}
     peerDependencies:
-      '@tanstack/react-router': ^1.102.5
+      '@tanstack/react-router': ^1.111.3
+      csstype: ^3.0.10
       react: '>=18.0.0 || >=19.0.0'
       react-dom: '>=18.0.0 || >=19.0.0'
-
-  '@tanstack/router-generator@1.102.5':
-    resolution: {integrity: sha512-HuFu3+2h3RaU3zn7qYBu2O+2wJNHC+jqp/efCLZOl5k+E2WblK46SXJL6rPlKHQJkKXwzuCD93C0qkbjs+hLqA==}
-    engines: {node: '>=12'}
-    peerDependencies:
-      '@tanstack/react-router': ^1.102.5
     peerDependenciesMeta:
-      '@tanstack/react-router':
+      csstype:
         optional: true
 
   '@tanstack/router-generator@1.109.2':
@@ -3163,22 +3158,13 @@ packages:
       '@tanstack/react-router':
         optional: true
 
-  '@tanstack/router-plugin@1.102.5':
-    resolution: {integrity: sha512-O0Q+Kd+xSuSRySxm64pda+J4fNZSXwd4+GjxRClEauOjbUi+mMsz+wkv9tFE6o4C0/6tVRCp45S/UWvpL2hF1Q==}
+  '@tanstack/router-generator@1.111.3':
+    resolution: {integrity: sha512-LQCn4arMDYwm1X/n8S/ahsDWOEV6niG0xsRV1nMGmAGMBiaTc1FESPKpRsVc/EKGhR0gE0VnLIbrzWnubkJ/4g==}
     engines: {node: '>=12'}
     peerDependencies:
-      '@rsbuild/core': '>=1.0.2'
-      '@tanstack/react-router': ^1.102.5
-      vite: '>=5.0.0 || >=6.0.0'
-      webpack: '>=5.92.0'
+      '@tanstack/react-router': ^1.111.3
     peerDependenciesMeta:
-      '@rsbuild/core':
-        optional: true
       '@tanstack/react-router':
-        optional: true
-      vite:
-        optional: true
-      webpack:
         optional: true
 
   '@tanstack/router-plugin@1.109.2':
@@ -3202,25 +3188,38 @@ packages:
       webpack:
         optional: true
 
+  '@tanstack/router-plugin@1.111.3':
+    resolution: {integrity: sha512-RNcMcFXO5ge8pQobssS9qEvYBladItGVXeGZVB8RulvD1jH3qP3UIeigOr9OM190aYo3LGm4rxPTewe7tf0rpA==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      '@rsbuild/core': '>=1.0.2'
+      '@tanstack/react-router': ^1.111.3
+      vite: '>=5.0.0 || >=6.0.0'
+      vite-plugin-solid: ^2.11.2
+      webpack: '>=5.92.0'
+    peerDependenciesMeta:
+      '@rsbuild/core':
+        optional: true
+      '@tanstack/react-router':
+        optional: true
+      vite:
+        optional: true
+      vite-plugin-solid:
+        optional: true
+      webpack:
+        optional: true
+
   '@tanstack/router-utils@1.102.2':
     resolution: {integrity: sha512-Uwl2nbrxhCzviaHHBLNPhSC/OMpZLdOTxTJndUSsXTzWUP4IoQcVmngaIsxi9iriE3ArC1VXuanUAkfGmimNOQ==}
-    engines: {node: '>=12'}
-
-  '@tanstack/server-functions-plugin@1.102.2':
-    resolution: {integrity: sha512-l7nPcYjUaiO4ogjfE5hAPsuByFsn/5LqtdsC7f0I1VVgMxHp08OVVRH2rrgdR24ehRr3RkrUQoFviVyBSxcfCA==}
     engines: {node: '>=12'}
 
   '@tanstack/server-functions-plugin@1.106.0':
     resolution: {integrity: sha512-uFqiICV0b9t7jluQLroUt9/2PayEKu4hWTS5nezWsW8kNaK0Pw4avdLK+8mYjYuJLBhuQrQZ/mSEMqdJYgYv0Q==}
     engines: {node: '>=12'}
 
-  '@tanstack/start-api-routes@1.102.5':
-    resolution: {integrity: sha512-RvcBPsrY8nzQ+uxFVHPLmWZwZNIDEUwlqysm0IjboJWxNU+9F4w9GgKVNB6g6AE2nY4tmPP1qBZ1TO2MRMki2Q==}
+  '@tanstack/server-functions-plugin@1.111.2':
+    resolution: {integrity: sha512-V1UzMXNGO7igH/Dk6cDRw6V3VM8TbJca+UEUrdV/J7M3jLMfMr5BoASmoKdWmTvrRsML8F1CFKsv6XdrG5c8LA==}
     engines: {node: '>=12'}
-    peerDependencies:
-      react: '>=18.0.0 || >=19.0.0'
-      react-dom: '>=18.0.0 || >=19.0.0'
-      vite: ^6.0.0
 
   '@tanstack/start-api-routes@1.109.2':
     resolution: {integrity: sha512-MHT1kRu4eZspORuDWEMMlbamBFwcYgoMdZhmJn2f1hSngPf4kClCygRiIFhwVFJ2x9fezQ6CrAaHdFXYpGFD/Q==}
@@ -3229,12 +3228,9 @@ packages:
       react: '>=18.0.0 || >=19.0.0'
       react-dom: '>=18.0.0 || >=19.0.0'
 
-  '@tanstack/start-client@1.102.5':
-    resolution: {integrity: sha512-ZqlT5EFK0/7Otnesdn6quRsUMAF1zPX/qwaxZOtJVdkshRKNUZywQzj/wo1TnUyIqEQknjbcjky2V3GZwWEA8Q==}
+  '@tanstack/start-api-routes@1.111.3':
+    resolution: {integrity: sha512-JGryfh5OAJHDsF8+1jwlBwnQucmIIR3Af+Odb25dYC4Od5CjVHVdOTR9JhHP51wTv9t4v4Fw6gfumBgstikuPw==}
     engines: {node: '>=12'}
-    peerDependencies:
-      react: '>=18.0.0 || >=19.0.0'
-      react-dom: '>=18.0.0 || >=19.0.0'
 
   '@tanstack/start-client@1.109.2':
     resolution: {integrity: sha512-GC5v6yICP6CgP9tbdQMhRnzOK6sQFnUdyWJhzpNO1EqFAWygus+staGzKYyUNs8dX/zVrqCMe1J26lIaGzt2Pg==}
@@ -3243,13 +3239,12 @@ packages:
       react: '>=18.0.0 || >=19.0.0'
       react-dom: '>=18.0.0 || >=19.0.0'
 
-  '@tanstack/start-config@1.102.5':
-    resolution: {integrity: sha512-wHfptujyUeq825sRiNYwxsBtt6BvMXMhseA1POT6O3LvLKZZMqLnyY1jF4AKpsnkYZqpB/90wOOmMStuIiO71w==}
+  '@tanstack/start-client@1.111.3':
+    resolution: {integrity: sha512-/PS53Bzg6MOMGbTQvH1zXy/S+THtjcPWX1CTJ2FQxeZEbVqyHNX3uD1zpGF5p1tQK/zdDZYEH9NVW0qytcqE9g==}
     engines: {node: '>=12'}
     peerDependencies:
       react: '>=18.0.0 || >=19.0.0'
       react-dom: '>=18.0.0 || >=19.0.0'
-      vite: ^6.0.0
 
   '@tanstack/start-config@1.109.2':
     resolution: {integrity: sha512-ZULr3DUaI4aM9aKUo3rnMUUfo3D7wqFvOdTWiKUt5PsG1+whlV3TTx9d9Ie2PBtOXDVqRw4j61hYdDr4riDHQw==}
@@ -3259,20 +3254,21 @@ packages:
       react-dom: '>=18.0.0 || >=19.0.0'
       vite: ^6.0.0
 
-  '@tanstack/start-plugin@1.102.2':
-    resolution: {integrity: sha512-ztjJ0EkpRjllXh/KjPQnPBktz9K8bK+lYz2cWrQWWTO97X7m7AU/bHuslMAILbJaO9y7xM2LwhOsFz/923TMRg==}
+  '@tanstack/start-config@1.111.3':
+    resolution: {integrity: sha512-AuUgekgfongqWHiPWek1liiriNmJfqm6U2aY4RG1F3KDvoA5tJQZn9ZIhmabmSzzPCcN6fSpyGzw6CH/cSD5YA==}
     engines: {node: '>=12'}
+    peerDependencies:
+      react: '>=18.0.0 || >=19.0.0'
+      react-dom: '>=18.0.0 || >=19.0.0'
+      vite: ^6.0.0
 
   '@tanstack/start-plugin@1.107.0':
     resolution: {integrity: sha512-g7GI2tGDRVjOKv9cjBHu9DeEWzunoytYbcw1JtsWBolbjmSAz7MYtbV5BKqyP7ebPmBY8WhLvC+X1asb66vfEg==}
     engines: {node: '>=12'}
 
-  '@tanstack/start-router-manifest@1.102.5':
-    resolution: {integrity: sha512-C/+maPGYI0Qj16j7dbA7pgRzEq/8cO742tvvTSAb63h35G0Ezg2y2D/BZ+J4yBswN1uIGibZlb+bRuyAbY4TdA==}
+  '@tanstack/start-plugin@1.111.2':
+    resolution: {integrity: sha512-D2fhxYoAwVGzvQNZPxzrAub0MbkGBvQ65WHBommemVSQ6wSpy37TLp04OyK8aJ0JAhsdGAqXje2CwA0BN9MAeA==}
     engines: {node: '>=12'}
-    peerDependencies:
-      react: '>=18.0.0 || >=19.0.0'
-      react-dom: '>=18.0.0 || >=19.0.0'
 
   '@tanstack/start-router-manifest@1.109.2':
     resolution: {integrity: sha512-ev8tD0YEKhoBUipYqq/WE+HKLQxumqmoHTiFF4BwkDxCQU9nJzpeXBzD+HE0MU5M16CrxVWLbrhSJsM8QjyHng==}
@@ -3281,12 +3277,9 @@ packages:
       react: '>=18.0.0 || >=19.0.0'
       react-dom: '>=18.0.0 || >=19.0.0'
 
-  '@tanstack/start-server-functions-client@1.102.5':
-    resolution: {integrity: sha512-p2emkul6nJAjMXqyN4OcNCiYdLjyE3SCO500eKNqi3XeX+n94CWJs2RuoBV98kT27wN3ARuyPD6SvwZNdlyiKg==}
+  '@tanstack/start-router-manifest@1.111.3':
+    resolution: {integrity: sha512-NoKECxCYsMOzx66UxHFwQSuM7SFwVGvZUs1bT53C2qkw7W9Xc2gYk9eS2taBGWN2havib9Lnv5LE9eAkBDVUTg==}
     engines: {node: '>=12'}
-    peerDependencies:
-      react: '>=18.0.0 || >=19.0.0'
-      react-dom: '>=18.0.0 || >=19.0.0'
 
   '@tanstack/start-server-functions-client@1.109.2':
     resolution: {integrity: sha512-RE0mnR+e+9GwPMlWpLSRdETBtF8R6HoF5oMptWFfsTISiSsrYc1Kqr/iuTO8TTe64oVgFKv031/adqrZ4rGoVg==}
@@ -3295,12 +3288,9 @@ packages:
       react: '>=18.0.0 || >=19.0.0'
       react-dom: '>=18.0.0 || >=19.0.0'
 
-  '@tanstack/start-server-functions-fetcher@1.102.5':
-    resolution: {integrity: sha512-GiuC+NmAZ0s9j9pDe8gKno++jdWb+cCVmUHTQ0U2aLA174U8JjDgWzZcGlrwlje86tzUlpTQUuQwBEkvBYYHuw==}
+  '@tanstack/start-server-functions-client@1.111.3':
+    resolution: {integrity: sha512-9F/myo/XYnt1klk1iKBK7UL8P6Uu6C2m4GhmLKYo8fRpIp0qGl0+kwdImhg8DrGPLeGysPYPHND/Z9PtkJ8jKg==}
     engines: {node: '>=12'}
-    peerDependencies:
-      react: '>=18.0.0 || >=19.0.0'
-      react-dom: '>=18.0.0 || >=19.0.0'
 
   '@tanstack/start-server-functions-fetcher@1.109.2':
     resolution: {integrity: sha512-YO2vzRDvUdPAfyltP/XQxJ7TTdzPV//qRfanCcNlDeJBYr3ZKHM3P0A8Fy0nyoBgQCT8EWVZDlpqoxg7tmiHUg==}
@@ -3309,13 +3299,12 @@ packages:
       react: '>=18.0.0 || >=19.0.0'
       react-dom: '>=18.0.0 || >=19.0.0'
 
-  '@tanstack/start-server-functions-handler@1.102.5':
-    resolution: {integrity: sha512-sLIQ7oCnQswLC+J16HgeIj9PcDEaBR47s4kSLF1HfFCUOhZTkdw3Negs2Ba6IhJutbm9MQyLAqUz/mX8vrFRSA==}
+  '@tanstack/start-server-functions-fetcher@1.111.3':
+    resolution: {integrity: sha512-O266++jcYDG0EMCFbY73D+a+UUqVjsu5Beac2iHpAmhwK8LjBHDDHXDh8k7R+bTf8c7nUr16K2d3jIowzQwpRg==}
     engines: {node: '>=12'}
     peerDependencies:
       react: '>=18.0.0 || >=19.0.0'
       react-dom: '>=18.0.0 || >=19.0.0'
-      vite: ^6.0.0
 
   '@tanstack/start-server-functions-handler@1.109.2':
     resolution: {integrity: sha512-GPHZSiuUGJVfEXj125QAGendEB7nUplbs9H1V/Dlj95SwJg8WYL2Qjq+TB0bCnWlL5kJOMqE9yJcD/r8iusE7g==}
@@ -3324,8 +3313,8 @@ packages:
       react: '>=18.0.0 || >=19.0.0'
       react-dom: '>=18.0.0 || >=19.0.0'
 
-  '@tanstack/start-server-functions-server@1.102.2':
-    resolution: {integrity: sha512-xA5j0wLbIhq39bktUjn7mdDTGpZIeHekc00bSSXJDJcdea4SsvxPIH2XkQa/wEd8QOEtiUfIXCqtYo442dEtoA==}
+  '@tanstack/start-server-functions-handler@1.111.3':
+    resolution: {integrity: sha512-hWEC+lx/hWenNdo0VEzA/fxf1qYs28gLwXE2Y4cfk7ncPbUdUC59zA7sqgNuooNMQUyRqNLB19YU0k9Irvi/dw==}
     engines: {node: '>=12'}
     peerDependencies:
       react: '>=18.0.0 || >=19.0.0'
@@ -3338,13 +3327,9 @@ packages:
       react: '>=18.0.0 || >=19.0.0'
       react-dom: '>=18.0.0 || >=19.0.0'
 
-  '@tanstack/start-server-functions-ssr@1.102.5':
-    resolution: {integrity: sha512-aVmRIZRxEG45UB75zeNsGz2CLT2XHohKfbl6gH3mDRai7aHddkN2wT57QMmLW8E4qqoUNOQAW9Lm8EgzXp+vlQ==}
+  '@tanstack/start-server-functions-server@1.111.2':
+    resolution: {integrity: sha512-DfM4wZ/4oKz+HuPvFeLvdSDVCjNCLbn7J1OfN9bg50YHnoYb+ZXPOBZCS1nhVvA72YjrxLpQ1sb6/bSz/RkThg==}
     engines: {node: '>=12'}
-    peerDependencies:
-      react: '>=18.0.0 || >=19.0.0'
-      react-dom: '>=18.0.0 || >=19.0.0'
-      vite: ^6.0.0
 
   '@tanstack/start-server-functions-ssr@1.109.2':
     resolution: {integrity: sha512-Dy+SDHRTF946i+HQ0IhfyPBdJ845ceAsqX5iSdstn+LnZIwqNbeEbEPQsDOn1swYT0QXDh+0ghkVtmEJ+Wun+g==}
@@ -3353,12 +3338,9 @@ packages:
       react: '>=18.0.0 || >=19.0.0'
       react-dom: '>=18.0.0 || >=19.0.0'
 
-  '@tanstack/start-server@1.102.5':
-    resolution: {integrity: sha512-E+LN/t+CkpL15YgvwZUT7O4/OTFnRwh42FIJNGPARhNeJ32oLVJzHhfA5LaOO/fB4mnKuNOTXwgxlGWlc7n/tg==}
+  '@tanstack/start-server-functions-ssr@1.111.3':
+    resolution: {integrity: sha512-PcP1vAMwWNLeIhgqgtX7KWXb1rnVE6ct19JQgrcxmsFB/z34J4pwDv2PyYCdBQ4CoM6A3o6qlR7fNPqRg40qBg==}
     engines: {node: '>=12'}
-    peerDependencies:
-      react: '>=18.0.0 || >=19.0.0'
-      react-dom: '>=18.0.0 || >=19.0.0'
 
   '@tanstack/start-server@1.109.2':
     resolution: {integrity: sha512-cnLUQhqVUy9i5qw+2jD2HO7w3qEOJaGXo5rTrZEGoRKX5z8vqfUkyBYVflJmlEQZw0mzTM+2+jdceqqlmYC/Dg==}
@@ -3367,16 +3349,23 @@ packages:
       react: '>=18.0.0 || >=19.0.0'
       react-dom: '>=18.0.0 || >=19.0.0'
 
-  '@tanstack/start@1.102.5':
-    resolution: {integrity: sha512-KHDuOWgGmsLl7SslyWOFV7ES+ngYk4bjkuhkykLZT9UBpgnlY6nhqjN40x3J93ccY2oWlpIKR5Qkq4hptDD3fg==}
+  '@tanstack/start-server@1.111.3':
+    resolution: {integrity: sha512-zG9K01jjeHXzoFhSRXulEqNSusvVYtLsi707OYZTVdwgkge7TwFsCyGnIxsdrma6xikg7aCElW4uRX3PO7TDsg==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      react: '>=18.0.0 || >=19.0.0'
+      react-dom: '>=18.0.0 || >=19.0.0'
+
+  '@tanstack/start@1.109.2':
+    resolution: {integrity: sha512-Fb473jWym6OKy5sL9g2Retafel/l8DcR+UBaywzms5RjX2/+UZefArk3jOLgeVRlDNAvKq7auIX+lISJ+uYD6Q==}
     engines: {node: '>=12'}
     peerDependencies:
       react: '>=18.0.0 || >=19.0.0'
       react-dom: '>=18.0.0 || >=19.0.0'
       vite: ^6.0.0
 
-  '@tanstack/start@1.109.2':
-    resolution: {integrity: sha512-Fb473jWym6OKy5sL9g2Retafel/l8DcR+UBaywzms5RjX2/+UZefArk3jOLgeVRlDNAvKq7auIX+lISJ+uYD6Q==}
+  '@tanstack/start@1.111.3':
+    resolution: {integrity: sha512-peRtALueDs2Jrfuq3Qds+vuyFQ1id4n2FNQebnAC2ZKdwQw97F13AZ3ocHr7YYpog+4wDmwrfYD/661wxr1tww==}
     engines: {node: '>=12'}
     peerDependencies:
       react: '>=18.0.0 || >=19.0.0'
@@ -8872,6 +8861,46 @@ packages:
       yaml:
         optional: true
 
+  vite@6.1.0:
+    resolution: {integrity: sha512-RjjMipCKVoR4hVfPY6GQTgveinjNuyLw+qruksLDvA5ktI1150VmcMBKmQaEWJhg/j6Uaf6dNCNA0AfdzUb/hQ==}
+    engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': ^18.0.0 || ^20.0.0 || >=22.0.0
+      jiti: '>=1.21.0'
+      less: '*'
+      lightningcss: ^1.21.0
+      sass: '*'
+      sass-embedded: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.16.0
+      tsx: ^4.8.1
+      yaml: ^2.4.2
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      jiti:
+        optional: true
+      less:
+        optional: true
+      lightningcss:
+        optional: true
+      sass:
+        optional: true
+      sass-embedded:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+      tsx:
+        optional: true
+      yaml:
+        optional: true
+
   vite@6.1.1:
     resolution: {integrity: sha512-4GgM54XrwRfrOp297aIYspIti66k56v16ZnqHvrIM7mG+HjDlAwS7p+Srr7J6fGvEdOJ5JcQ/D9T7HhtdXDTzA==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
@@ -11682,27 +11711,6 @@ snapshots:
       tailwindcss: 4.0.7
       vite: 5.4.14(@types/node@20.17.17)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)
 
-  '@tanstack/directive-functions-plugin@1.102.2(babel-plugin-macros@3.1.0)':
-    dependencies:
-      '@babel/code-frame': 7.26.2
-      '@babel/core': 7.26.8
-      '@babel/plugin-syntax-jsx': 7.25.9(@babel/core@7.26.8)
-      '@babel/plugin-syntax-typescript': 7.25.9(@babel/core@7.26.8)
-      '@babel/template': 7.26.8
-      '@babel/traverse': 7.26.8
-      '@babel/types': 7.26.8
-      '@tanstack/router-utils': 1.102.2
-      '@types/babel__code-frame': 7.0.6
-      '@types/babel__core': 7.20.5
-      '@types/babel__template': 7.4.4
-      '@types/babel__traverse': 7.20.6
-      babel-dead-code-elimination: 1.0.9
-      dedent: 1.5.3(babel-plugin-macros@3.1.0)
-      tiny-invariant: 1.3.3
-    transitivePeerDependencies:
-      - babel-plugin-macros
-      - supports-color
-
   '@tanstack/directive-functions-plugin@1.106.0(babel-plugin-macros@3.1.0)':
     dependencies:
       '@babel/code-frame': 7.26.2
@@ -11724,6 +11732,35 @@ snapshots:
       - babel-plugin-macros
       - supports-color
 
+  '@tanstack/directive-functions-plugin@1.111.2(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0)':
+    dependencies:
+      '@babel/code-frame': 7.26.2
+      '@babel/core': 7.26.8
+      '@babel/plugin-syntax-jsx': 7.25.9(@babel/core@7.26.8)
+      '@babel/plugin-syntax-typescript': 7.25.9(@babel/core@7.26.8)
+      '@babel/template': 7.26.8
+      '@babel/traverse': 7.26.8
+      '@babel/types': 7.26.8
+      '@tanstack/router-utils': 1.102.2
+      babel-dead-code-elimination: 1.0.9
+      dedent: 1.5.3(babel-plugin-macros@3.1.0)
+      tiny-invariant: 1.3.3
+      vite: 6.1.0(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0)
+    transitivePeerDependencies:
+      - '@types/node'
+      - babel-plugin-macros
+      - jiti
+      - less
+      - lightningcss
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
+      - yaml
+
   '@tanstack/history@1.99.13': {}
 
   '@tanstack/react-cross-context@1.99.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
@@ -11731,22 +11768,22 @@ snapshots:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
 
-  '@tanstack/react-router@1.102.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+  '@tanstack/react-router@1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@tanstack/history': 1.99.13
       '@tanstack/react-store': 0.7.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@tanstack/router-core': 1.102.5
+      '@tanstack/router-core': 1.108.0
       jsesc: 3.1.0
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
       tiny-invariant: 1.3.3
       tiny-warning: 1.0.3
 
-  '@tanstack/react-router@1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+  '@tanstack/react-router@1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@tanstack/history': 1.99.13
       '@tanstack/react-store': 0.7.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@tanstack/router-core': 1.108.0
+      '@tanstack/router-core': 1.111.3
       jsesc: 3.1.0
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
@@ -11760,45 +11797,45 @@ snapshots:
       react-dom: 19.0.0(react@19.0.0)
       use-sync-external-store: 1.4.0(react@19.0.0)
 
-  '@tanstack/router-core@1.102.5':
-    dependencies:
-      '@tanstack/history': 1.99.13
-      '@tanstack/store': 0.7.0
-
   '@tanstack/router-core@1.108.0':
     dependencies:
       '@tanstack/history': 1.99.13
       '@tanstack/store': 0.7.0
 
-  '@tanstack/router-devtools@1.102.5(@tanstack/react-router@1.102.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(csstype@3.1.3)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+  '@tanstack/router-core@1.111.3':
     dependencies:
-      '@tanstack/react-router': 1.102.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tanstack/history': 1.99.13
+      '@tanstack/store': 0.7.0
+
+  '@tanstack/router-devtools@1.111.3(@tanstack/react-router@1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(csstype@3.1.3)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      '@tanstack/react-router': 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       clsx: 2.1.1
       goober: 2.1.16(csstype@3.1.3)
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
-    transitivePeerDependencies:
-      - csstype
+    optionalDependencies:
+      csstype: 3.1.3
 
-  '@tanstack/router-generator@1.102.5(@tanstack/react-router@1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))':
+  '@tanstack/router-generator@1.109.2(@tanstack/react-router@1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))':
     dependencies:
       '@tanstack/virtual-file-routes': 1.99.0
       prettier: 3.5.0
       tsx: 4.19.2
       zod: 3.24.1
     optionalDependencies:
-      '@tanstack/react-router': 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tanstack/react-router': 1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
 
-  '@tanstack/router-generator@1.109.2(@tanstack/react-router@1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))':
+  '@tanstack/router-generator@1.111.3(@tanstack/react-router@1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))':
     dependencies:
       '@tanstack/virtual-file-routes': 1.99.0
       prettier: 3.5.0
       tsx: 4.19.2
       zod: 3.24.1
     optionalDependencies:
-      '@tanstack/react-router': 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tanstack/react-router': 1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
 
-  '@tanstack/router-plugin@1.102.5(@tanstack/react-router@1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))':
+  '@tanstack/router-plugin@1.109.2(@tanstack/react-router@1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))':
     dependencies:
       '@babel/core': 7.26.8
       '@babel/plugin-syntax-jsx': 7.25.9(@babel/core@7.26.8)
@@ -11806,7 +11843,7 @@ snapshots:
       '@babel/template': 7.26.8
       '@babel/traverse': 7.26.8
       '@babel/types': 7.26.8
-      '@tanstack/router-generator': 1.102.5(@tanstack/react-router@1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
+      '@tanstack/router-generator': 1.109.2(@tanstack/react-router@1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
       '@tanstack/router-utils': 1.102.2
       '@tanstack/virtual-file-routes': 1.99.0
       '@types/babel__core': 7.20.5
@@ -11817,12 +11854,12 @@ snapshots:
       unplugin: 2.2.0
       zod: 3.24.1
     optionalDependencies:
-      '@tanstack/react-router': 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tanstack/react-router': 1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       vite: 6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0)
     transitivePeerDependencies:
       - supports-color
 
-  '@tanstack/router-plugin@1.109.2(@tanstack/react-router@1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))':
+  '@tanstack/router-plugin@1.111.3(@tanstack/react-router@1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))':
     dependencies:
       '@babel/core': 7.26.8
       '@babel/plugin-syntax-jsx': 7.25.9(@babel/core@7.26.8)
@@ -11830,7 +11867,7 @@ snapshots:
       '@babel/template': 7.26.8
       '@babel/traverse': 7.26.8
       '@babel/types': 7.26.8
-      '@tanstack/router-generator': 1.109.2(@tanstack/react-router@1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
+      '@tanstack/router-generator': 1.111.3(@tanstack/react-router@1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
       '@tanstack/router-utils': 1.102.2
       '@tanstack/virtual-file-routes': 1.99.0
       '@types/babel__core': 7.20.5
@@ -11841,7 +11878,7 @@ snapshots:
       unplugin: 2.2.0
       zod: 3.24.1
     optionalDependencies:
-      '@tanstack/react-router': 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tanstack/react-router': 1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       vite: 6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0)
     transitivePeerDependencies:
       - supports-color
@@ -11852,27 +11889,6 @@ snapshots:
       '@babel/parser': 7.26.8
       ansis: 3.12.0
       diff: 7.0.0
-
-  '@tanstack/server-functions-plugin@1.102.2(babel-plugin-macros@3.1.0)':
-    dependencies:
-      '@babel/code-frame': 7.26.2
-      '@babel/core': 7.26.8
-      '@babel/plugin-syntax-jsx': 7.25.9(@babel/core@7.26.8)
-      '@babel/plugin-syntax-typescript': 7.25.9(@babel/core@7.26.8)
-      '@babel/template': 7.26.8
-      '@babel/traverse': 7.26.8
-      '@babel/types': 7.26.8
-      '@tanstack/directive-functions-plugin': 1.102.2(babel-plugin-macros@3.1.0)
-      '@types/babel__code-frame': 7.0.6
-      '@types/babel__core': 7.20.5
-      '@types/babel__template': 7.4.4
-      '@types/babel__traverse': 7.20.6
-      babel-dead-code-elimination: 1.0.9
-      dedent: 1.5.3(babel-plugin-macros@3.1.0)
-      tiny-invariant: 1.3.3
-    transitivePeerDependencies:
-      - babel-plugin-macros
-      - supports-color
 
   '@tanstack/server-functions-plugin@1.106.0(babel-plugin-macros@3.1.0)':
     dependencies:
@@ -11895,61 +11911,37 @@ snapshots:
       - babel-plugin-macros
       - supports-color
 
-  '@tanstack/start-api-routes@1.102.5(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)':
+  '@tanstack/server-functions-plugin@1.111.2(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0)':
     dependencies:
-      '@tanstack/react-router': 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@tanstack/start-server': 1.102.5(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)
-      '@vitejs/plugin-react': 4.3.4(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
-      vinxi: 0.5.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
-      vite: 6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0)
+      '@babel/code-frame': 7.26.2
+      '@babel/core': 7.26.8
+      '@babel/plugin-syntax-jsx': 7.25.9(@babel/core@7.26.8)
+      '@babel/plugin-syntax-typescript': 7.25.9(@babel/core@7.26.8)
+      '@babel/template': 7.26.8
+      '@babel/traverse': 7.26.8
+      '@babel/types': 7.26.8
+      '@tanstack/directive-functions-plugin': 1.111.2(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0)
+      babel-dead-code-elimination: 1.0.9
+      dedent: 1.5.3(babel-plugin-macros@3.1.0)
+      tiny-invariant: 1.3.3
     transitivePeerDependencies:
-      - '@azure/app-configuration'
-      - '@azure/cosmos'
-      - '@azure/data-tables'
-      - '@azure/identity'
-      - '@azure/keyvault-secrets'
-      - '@azure/storage-blob'
-      - '@capacitor/preferences'
-      - '@deno/kv'
-      - '@electric-sql/pglite'
-      - '@libsql/client'
-      - '@netlify/blobs'
-      - '@planetscale/database'
       - '@types/node'
-      - '@upstash/redis'
-      - '@vercel/blob'
-      - '@vercel/kv'
-      - aws4fetch
-      - better-sqlite3
-      - db0
-      - debug
-      - drizzle-orm
-      - encoding
-      - idb-keyval
-      - ioredis
+      - babel-plugin-macros
       - jiti
       - less
       - lightningcss
-      - mysql2
-      - rolldown
       - sass
       - sass-embedded
-      - sqlite3
       - stylus
       - sugarss
       - supports-color
       - terser
       - tsx
-      - typescript
-      - uploadthing
-      - xml2js
       - yaml
 
   '@tanstack/start-api-routes@1.109.2(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)':
     dependencies:
-      '@tanstack/react-router': 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tanstack/react-router': 1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@tanstack/start-server': 1.109.2(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
@@ -11997,14 +11989,10 @@ snapshots:
       - xml2js
       - yaml
 
-  '@tanstack/start-client@1.102.5(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)':
+  '@tanstack/start-api-routes@1.111.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)':
     dependencies:
-      '@tanstack/react-cross-context': 1.99.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@tanstack/react-router': 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      jsesc: 3.1.0
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
-      tiny-invariant: 1.3.3
+      '@tanstack/router-core': 1.111.3
+      '@tanstack/start-server': 1.111.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
       vinxi: 0.5.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -12035,6 +12023,8 @@ snapshots:
       - less
       - lightningcss
       - mysql2
+      - react
+      - react-dom
       - rolldown
       - sass
       - sass-embedded
@@ -12052,7 +12042,7 @@ snapshots:
   '@tanstack/start-client@1.109.2(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)':
     dependencies:
       '@tanstack/react-cross-context': 1.99.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@tanstack/react-router': 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tanstack/react-router': 1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       cookie-es: 1.2.2
       jsesc: 3.1.0
       react: 19.0.0
@@ -12102,23 +12092,16 @@ snapshots:
       - xml2js
       - yaml
 
-  '@tanstack/start-config@1.102.5(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)':
+  '@tanstack/start-client@1.111.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)':
     dependencies:
-      '@tanstack/react-router': 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@tanstack/router-generator': 1.102.5(@tanstack/react-router@1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
-      '@tanstack/router-plugin': 1.102.5(@tanstack/react-router@1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))
-      '@tanstack/server-functions-plugin': 1.102.2(babel-plugin-macros@3.1.0)
-      '@tanstack/start-plugin': 1.102.2
-      '@tanstack/start-server-functions-handler': 1.102.5(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)
-      '@vitejs/plugin-react': 4.3.4(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))
-      import-meta-resolve: 4.1.0
-      nitropack: 2.10.4(typescript@5.7.3)
-      ofetch: 1.4.1
+      '@tanstack/react-cross-context': 1.99.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tanstack/react-router': 1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      cookie-es: 1.2.2
+      jsesc: 3.1.0
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
+      tiny-invariant: 1.3.3
       vinxi: 0.5.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
-      vite: 6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0)
-      zod: 3.24.1
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -12132,13 +12115,11 @@ snapshots:
       - '@libsql/client'
       - '@netlify/blobs'
       - '@planetscale/database'
-      - '@rsbuild/core'
       - '@types/node'
       - '@upstash/redis'
       - '@vercel/blob'
       - '@vercel/kv'
       - aws4fetch
-      - babel-plugin-macros
       - better-sqlite3
       - db0
       - debug
@@ -12161,15 +12142,14 @@ snapshots:
       - tsx
       - typescript
       - uploadthing
-      - webpack
       - xml2js
       - yaml
 
   '@tanstack/start-config@1.109.2(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)':
     dependencies:
-      '@tanstack/react-router': 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@tanstack/router-generator': 1.109.2(@tanstack/react-router@1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
-      '@tanstack/router-plugin': 1.109.2(@tanstack/react-router@1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))
+      '@tanstack/react-router': 1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tanstack/router-generator': 1.109.2(@tanstack/react-router@1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
+      '@tanstack/router-plugin': 1.109.2(@tanstack/react-router@1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))
       '@tanstack/server-functions-plugin': 1.106.0(babel-plugin-macros@3.1.0)
       '@tanstack/start-plugin': 1.107.0
       '@tanstack/start-server-functions-handler': 1.109.2(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
@@ -12229,51 +12209,23 @@ snapshots:
       - xml2js
       - yaml
 
-  '@tanstack/start-plugin@1.102.2':
+  '@tanstack/start-config@1.111.3(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)':
     dependencies:
-      '@babel/code-frame': 7.26.2
-      '@babel/core': 7.26.8
-      '@babel/plugin-syntax-jsx': 7.25.9(@babel/core@7.26.8)
-      '@babel/plugin-syntax-typescript': 7.25.9(@babel/core@7.26.8)
-      '@babel/template': 7.26.8
-      '@babel/traverse': 7.26.8
-      '@babel/types': 7.26.8
-      '@tanstack/router-utils': 1.102.2
-      '@types/babel__code-frame': 7.0.6
-      '@types/babel__core': 7.20.5
-      '@types/babel__template': 7.4.4
-      '@types/babel__traverse': 7.20.6
-      babel-dead-code-elimination: 1.0.9
-      tiny-invariant: 1.3.3
-    transitivePeerDependencies:
-      - supports-color
-
-  '@tanstack/start-plugin@1.107.0':
-    dependencies:
-      '@babel/code-frame': 7.26.2
-      '@babel/core': 7.26.8
-      '@babel/plugin-syntax-jsx': 7.25.9(@babel/core@7.26.8)
-      '@babel/plugin-syntax-typescript': 7.25.9(@babel/core@7.26.8)
-      '@babel/template': 7.26.8
-      '@babel/traverse': 7.26.8
-      '@babel/types': 7.26.8
-      '@tanstack/router-utils': 1.102.2
-      '@types/babel__code-frame': 7.0.6
-      '@types/babel__core': 7.20.5
-      '@types/babel__template': 7.4.4
-      '@types/babel__traverse': 7.20.6
-      babel-dead-code-elimination: 1.0.9
-      tiny-invariant: 1.3.3
-    transitivePeerDependencies:
-      - supports-color
-
-  '@tanstack/start-router-manifest@1.102.5(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)':
-    dependencies:
-      '@tanstack/react-router': 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tanstack/react-router': 1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tanstack/router-generator': 1.111.3(@tanstack/react-router@1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
+      '@tanstack/router-plugin': 1.111.3(@tanstack/react-router@1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))
+      '@tanstack/server-functions-plugin': 1.111.2(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0)
+      '@tanstack/start-plugin': 1.111.2(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0)
+      '@tanstack/start-server-functions-handler': 1.111.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
       '@vitejs/plugin-react': 4.3.4(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))
+      import-meta-resolve: 4.1.0
+      nitropack: 2.10.4(typescript@5.7.3)
+      ofetch: 1.4.1
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
       vinxi: 0.5.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
+      vite: 6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0)
+      zod: 3.24.1
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -12287,107 +12239,7 @@ snapshots:
       - '@libsql/client'
       - '@netlify/blobs'
       - '@planetscale/database'
-      - '@types/node'
-      - '@upstash/redis'
-      - '@vercel/blob'
-      - '@vercel/kv'
-      - aws4fetch
-      - better-sqlite3
-      - db0
-      - debug
-      - drizzle-orm
-      - encoding
-      - idb-keyval
-      - ioredis
-      - jiti
-      - less
-      - lightningcss
-      - mysql2
-      - rolldown
-      - sass
-      - sass-embedded
-      - sqlite3
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - tsx
-      - typescript
-      - uploadthing
-      - vite
-      - xml2js
-      - yaml
-
-  '@tanstack/start-router-manifest@1.109.2(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)':
-    dependencies:
-      '@tanstack/react-router': 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
-      vinxi: 0.5.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
-    transitivePeerDependencies:
-      - '@azure/app-configuration'
-      - '@azure/cosmos'
-      - '@azure/data-tables'
-      - '@azure/identity'
-      - '@azure/keyvault-secrets'
-      - '@azure/storage-blob'
-      - '@capacitor/preferences'
-      - '@deno/kv'
-      - '@electric-sql/pglite'
-      - '@libsql/client'
-      - '@netlify/blobs'
-      - '@planetscale/database'
-      - '@types/node'
-      - '@upstash/redis'
-      - '@vercel/blob'
-      - '@vercel/kv'
-      - aws4fetch
-      - better-sqlite3
-      - db0
-      - debug
-      - drizzle-orm
-      - encoding
-      - idb-keyval
-      - ioredis
-      - jiti
-      - less
-      - lightningcss
-      - mysql2
-      - rolldown
-      - sass
-      - sass-embedded
-      - sqlite3
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - tsx
-      - typescript
-      - uploadthing
-      - xml2js
-      - yaml
-
-  '@tanstack/start-server-functions-client@1.102.5(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)':
-    dependencies:
-      '@tanstack/server-functions-plugin': 1.102.2(babel-plugin-macros@3.1.0)
-      '@tanstack/start-server-functions-fetcher': 1.102.5(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)
-      '@vitejs/plugin-react': 4.3.4(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
-      tiny-invariant: 1.3.3
-    transitivePeerDependencies:
-      - '@azure/app-configuration'
-      - '@azure/cosmos'
-      - '@azure/data-tables'
-      - '@azure/identity'
-      - '@azure/keyvault-secrets'
-      - '@azure/storage-blob'
-      - '@capacitor/preferences'
-      - '@deno/kv'
-      - '@electric-sql/pglite'
-      - '@libsql/client'
-      - '@netlify/blobs'
-      - '@planetscale/database'
+      - '@rsbuild/core'
       - '@types/node'
       - '@upstash/redis'
       - '@vercel/blob'
@@ -12416,7 +12268,151 @@ snapshots:
       - tsx
       - typescript
       - uploadthing
-      - vite
+      - vite-plugin-solid
+      - webpack
+      - xml2js
+      - yaml
+
+  '@tanstack/start-plugin@1.107.0':
+    dependencies:
+      '@babel/code-frame': 7.26.2
+      '@babel/core': 7.26.8
+      '@babel/plugin-syntax-jsx': 7.25.9(@babel/core@7.26.8)
+      '@babel/plugin-syntax-typescript': 7.25.9(@babel/core@7.26.8)
+      '@babel/template': 7.26.8
+      '@babel/traverse': 7.26.8
+      '@babel/types': 7.26.8
+      '@tanstack/router-utils': 1.102.2
+      '@types/babel__code-frame': 7.0.6
+      '@types/babel__core': 7.20.5
+      '@types/babel__template': 7.4.4
+      '@types/babel__traverse': 7.20.6
+      babel-dead-code-elimination: 1.0.9
+      tiny-invariant: 1.3.3
+    transitivePeerDependencies:
+      - supports-color
+
+  '@tanstack/start-plugin@1.111.2(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0)':
+    dependencies:
+      '@babel/code-frame': 7.26.2
+      '@babel/core': 7.26.8
+      '@babel/plugin-syntax-jsx': 7.25.9(@babel/core@7.26.8)
+      '@babel/plugin-syntax-typescript': 7.25.9(@babel/core@7.26.8)
+      '@babel/template': 7.26.8
+      '@babel/traverse': 7.26.8
+      '@babel/types': 7.26.8
+      '@tanstack/router-utils': 1.102.2
+      babel-dead-code-elimination: 1.0.9
+      tiny-invariant: 1.3.3
+      vite: 6.1.0(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0)
+    transitivePeerDependencies:
+      - '@types/node'
+      - jiti
+      - less
+      - lightningcss
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
+      - yaml
+
+  '@tanstack/start-router-manifest@1.109.2(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)':
+    dependencies:
+      '@tanstack/react-router': 1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+      vinxi: 0.5.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
+    transitivePeerDependencies:
+      - '@azure/app-configuration'
+      - '@azure/cosmos'
+      - '@azure/data-tables'
+      - '@azure/identity'
+      - '@azure/keyvault-secrets'
+      - '@azure/storage-blob'
+      - '@capacitor/preferences'
+      - '@deno/kv'
+      - '@electric-sql/pglite'
+      - '@libsql/client'
+      - '@netlify/blobs'
+      - '@planetscale/database'
+      - '@types/node'
+      - '@upstash/redis'
+      - '@vercel/blob'
+      - '@vercel/kv'
+      - aws4fetch
+      - better-sqlite3
+      - db0
+      - debug
+      - drizzle-orm
+      - encoding
+      - idb-keyval
+      - ioredis
+      - jiti
+      - less
+      - lightningcss
+      - mysql2
+      - rolldown
+      - sass
+      - sass-embedded
+      - sqlite3
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
+      - typescript
+      - uploadthing
+      - xml2js
+      - yaml
+
+  '@tanstack/start-router-manifest@1.111.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)':
+    dependencies:
+      '@tanstack/router-core': 1.111.3
+      tiny-invariant: 1.3.3
+      vinxi: 0.5.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
+    transitivePeerDependencies:
+      - '@azure/app-configuration'
+      - '@azure/cosmos'
+      - '@azure/data-tables'
+      - '@azure/identity'
+      - '@azure/keyvault-secrets'
+      - '@azure/storage-blob'
+      - '@capacitor/preferences'
+      - '@deno/kv'
+      - '@electric-sql/pglite'
+      - '@libsql/client'
+      - '@netlify/blobs'
+      - '@planetscale/database'
+      - '@types/node'
+      - '@upstash/redis'
+      - '@vercel/blob'
+      - '@vercel/kv'
+      - aws4fetch
+      - better-sqlite3
+      - db0
+      - debug
+      - drizzle-orm
+      - encoding
+      - idb-keyval
+      - ioredis
+      - jiti
+      - less
+      - lightningcss
+      - mysql2
+      - rolldown
+      - sass
+      - sass-embedded
+      - sqlite3
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
+      - typescript
+      - uploadthing
       - xml2js
       - yaml
 
@@ -12470,13 +12466,10 @@ snapshots:
       - xml2js
       - yaml
 
-  '@tanstack/start-server-functions-fetcher@1.102.5(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)':
+  '@tanstack/start-server-functions-client@1.111.3(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)':
     dependencies:
-      '@tanstack/react-router': 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@tanstack/start-client': 1.102.5(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
-      '@vitejs/plugin-react': 4.3.4(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
+      '@tanstack/server-functions-plugin': 1.111.2(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0)
+      '@tanstack/start-server-functions-fetcher': 1.111.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -12495,6 +12488,7 @@ snapshots:
       - '@vercel/blob'
       - '@vercel/kv'
       - aws4fetch
+      - babel-plugin-macros
       - better-sqlite3
       - db0
       - debug
@@ -12506,6 +12500,8 @@ snapshots:
       - less
       - lightningcss
       - mysql2
+      - react
+      - react-dom
       - rolldown
       - sass
       - sass-embedded
@@ -12517,13 +12513,12 @@ snapshots:
       - tsx
       - typescript
       - uploadthing
-      - vite
       - xml2js
       - yaml
 
   '@tanstack/start-server-functions-fetcher@1.109.2(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)':
     dependencies:
-      '@tanstack/react-router': 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tanstack/react-router': 1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@tanstack/start-client': 1.109.2(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
@@ -12570,16 +12565,12 @@ snapshots:
       - xml2js
       - yaml
 
-  '@tanstack/start-server-functions-handler@1.102.5(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)':
+  '@tanstack/start-server-functions-fetcher@1.111.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)':
     dependencies:
-      '@tanstack/react-router': 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@tanstack/start-client': 1.102.5(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
-      '@tanstack/start-server': 1.102.5(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)
-      '@vitejs/plugin-react': 4.3.4(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))
+      '@tanstack/react-router': 1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tanstack/start-client': 1.111.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
-      tiny-invariant: 1.3.3
-      vite: 6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0)
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -12625,7 +12616,7 @@ snapshots:
 
   '@tanstack/start-server-functions-handler@1.109.2(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)':
     dependencies:
-      '@tanstack/react-router': 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tanstack/react-router': 1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@tanstack/start-client': 1.109.2(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
       '@tanstack/start-server': 1.109.2(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
       react: 19.0.0
@@ -12674,39 +12665,14 @@ snapshots:
       - xml2js
       - yaml
 
-  '@tanstack/start-server-functions-server@1.102.2(babel-plugin-macros@3.1.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))':
+  '@tanstack/start-server-functions-handler@1.111.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)':
     dependencies:
-      '@tanstack/server-functions-plugin': 1.102.2(babel-plugin-macros@3.1.0)
-      '@vitejs/plugin-react': 4.3.4(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))
+      '@tanstack/react-router': 1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tanstack/start-client': 1.111.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
+      '@tanstack/start-server': 1.111.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
       tiny-invariant: 1.3.3
-    transitivePeerDependencies:
-      - babel-plugin-macros
-      - supports-color
-      - vite
-
-  '@tanstack/start-server-functions-server@1.106.0(babel-plugin-macros@3.1.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
-    dependencies:
-      '@tanstack/server-functions-plugin': 1.106.0(babel-plugin-macros@3.1.0)
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
-      tiny-invariant: 1.3.3
-    transitivePeerDependencies:
-      - babel-plugin-macros
-      - supports-color
-
-  '@tanstack/start-server-functions-ssr@1.102.5(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)':
-    dependencies:
-      '@tanstack/server-functions-plugin': 1.102.2(babel-plugin-macros@3.1.0)
-      '@tanstack/start-client': 1.102.5(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
-      '@tanstack/start-server': 1.102.5(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)
-      '@tanstack/start-server-functions-fetcher': 1.102.5(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)
-      '@vitejs/plugin-react': 4.3.4(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
-      tiny-invariant: 1.3.3
-      vite: 6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0)
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -12725,7 +12691,6 @@ snapshots:
       - '@vercel/blob'
       - '@vercel/kv'
       - aws4fetch
-      - babel-plugin-macros
       - better-sqlite3
       - db0
       - debug
@@ -12749,6 +12714,35 @@ snapshots:
       - typescript
       - uploadthing
       - xml2js
+      - yaml
+
+  '@tanstack/start-server-functions-server@1.106.0(babel-plugin-macros@3.1.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      '@tanstack/server-functions-plugin': 1.106.0(babel-plugin-macros@3.1.0)
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+      tiny-invariant: 1.3.3
+    transitivePeerDependencies:
+      - babel-plugin-macros
+      - supports-color
+
+  '@tanstack/start-server-functions-server@1.111.2(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0)':
+    dependencies:
+      '@tanstack/server-functions-plugin': 1.111.2(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0)
+      tiny-invariant: 1.3.3
+    transitivePeerDependencies:
+      - '@types/node'
+      - babel-plugin-macros
+      - jiti
+      - less
+      - lightningcss
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
       - yaml
 
   '@tanstack/start-server-functions-ssr@1.109.2(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)':
@@ -12804,18 +12798,13 @@ snapshots:
       - xml2js
       - yaml
 
-  '@tanstack/start-server@1.102.5(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)':
+  '@tanstack/start-server-functions-ssr@1.111.3(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)':
     dependencies:
-      '@tanstack/react-cross-context': 1.99.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@tanstack/react-router': 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@tanstack/start-client': 1.102.5(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
-      '@vitejs/plugin-react': 4.3.4(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))
-      h3: 1.13.0
-      isbot: 5.1.22
-      jsesc: 3.1.0
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
-      unctx: 2.4.1
+      '@tanstack/server-functions-plugin': 1.111.2(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0)
+      '@tanstack/start-client': 1.111.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
+      '@tanstack/start-server': 1.111.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
+      '@tanstack/start-server-functions-fetcher': 1.111.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
+      tiny-invariant: 1.3.3
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -12834,6 +12823,7 @@ snapshots:
       - '@vercel/blob'
       - '@vercel/kv'
       - aws4fetch
+      - babel-plugin-macros
       - better-sqlite3
       - db0
       - debug
@@ -12845,6 +12835,8 @@ snapshots:
       - less
       - lightningcss
       - mysql2
+      - react
+      - react-dom
       - rolldown
       - sass
       - sass-embedded
@@ -12856,14 +12848,13 @@ snapshots:
       - tsx
       - typescript
       - uploadthing
-      - vite
       - xml2js
       - yaml
 
   '@tanstack/start-server@1.109.2(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)':
     dependencies:
       '@tanstack/react-cross-context': 1.99.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@tanstack/react-router': 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tanstack/react-router': 1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@tanstack/start-client': 1.109.2(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
       h3: 1.13.0
       isbot: 5.1.22
@@ -12914,17 +12905,71 @@ snapshots:
       - xml2js
       - yaml
 
-  '@tanstack/start@1.102.5(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)':
+  '@tanstack/start-server@1.111.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)':
     dependencies:
-      '@tanstack/start-api-routes': 1.102.5(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)
-      '@tanstack/start-client': 1.102.5(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
-      '@tanstack/start-config': 1.102.5(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)
-      '@tanstack/start-router-manifest': 1.102.5(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)
-      '@tanstack/start-server': 1.102.5(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)
-      '@tanstack/start-server-functions-client': 1.102.5(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)
-      '@tanstack/start-server-functions-handler': 1.102.5(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)
-      '@tanstack/start-server-functions-server': 1.102.2(babel-plugin-macros@3.1.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))
-      '@tanstack/start-server-functions-ssr': 1.102.5(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)
+      '@tanstack/react-cross-context': 1.99.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tanstack/react-router': 1.111.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tanstack/start-client': 1.111.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
+      h3: 1.13.0
+      isbot: 5.1.22
+      jsesc: 3.1.0
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+      unctx: 2.4.1
+    transitivePeerDependencies:
+      - '@azure/app-configuration'
+      - '@azure/cosmos'
+      - '@azure/data-tables'
+      - '@azure/identity'
+      - '@azure/keyvault-secrets'
+      - '@azure/storage-blob'
+      - '@capacitor/preferences'
+      - '@deno/kv'
+      - '@electric-sql/pglite'
+      - '@libsql/client'
+      - '@netlify/blobs'
+      - '@planetscale/database'
+      - '@types/node'
+      - '@upstash/redis'
+      - '@vercel/blob'
+      - '@vercel/kv'
+      - aws4fetch
+      - better-sqlite3
+      - db0
+      - debug
+      - drizzle-orm
+      - encoding
+      - idb-keyval
+      - ioredis
+      - jiti
+      - less
+      - lightningcss
+      - mysql2
+      - rolldown
+      - sass
+      - sass-embedded
+      - sqlite3
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
+      - typescript
+      - uploadthing
+      - xml2js
+      - yaml
+
+  '@tanstack/start@1.109.2(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)':
+    dependencies:
+      '@tanstack/start-api-routes': 1.109.2(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
+      '@tanstack/start-client': 1.109.2(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
+      '@tanstack/start-config': 1.109.2(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)
+      '@tanstack/start-router-manifest': 1.109.2(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
+      '@tanstack/start-server': 1.109.2(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
+      '@tanstack/start-server-functions-client': 1.109.2(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
+      '@tanstack/start-server-functions-handler': 1.109.2(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
+      '@tanstack/start-server-functions-server': 1.106.0(babel-plugin-macros@3.1.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tanstack/start-server-functions-ssr': 1.109.2(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
       vite: 6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0)
@@ -12970,21 +13015,22 @@ snapshots:
       - tsx
       - typescript
       - uploadthing
+      - vite-plugin-solid
       - webpack
       - xml2js
       - yaml
 
-  '@tanstack/start@1.109.2(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)':
+  '@tanstack/start@1.111.3(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)':
     dependencies:
-      '@tanstack/start-api-routes': 1.109.2(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
-      '@tanstack/start-client': 1.109.2(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
-      '@tanstack/start-config': 1.109.2(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)
-      '@tanstack/start-router-manifest': 1.109.2(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
-      '@tanstack/start-server': 1.109.2(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
-      '@tanstack/start-server-functions-client': 1.109.2(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
-      '@tanstack/start-server-functions-handler': 1.109.2(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
-      '@tanstack/start-server-functions-server': 1.106.0(babel-plugin-macros@3.1.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@tanstack/start-server-functions-ssr': 1.109.2(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
+      '@tanstack/start-api-routes': 1.111.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
+      '@tanstack/start-client': 1.111.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
+      '@tanstack/start-config': 1.111.3(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(vite@6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0))(yaml@2.6.0)
+      '@tanstack/start-router-manifest': 1.111.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
+      '@tanstack/start-server': 1.111.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
+      '@tanstack/start-server-functions-client': 1.111.3(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
+      '@tanstack/start-server-functions-handler': 1.111.3(@types/node@22.7.9)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
+      '@tanstack/start-server-functions-server': 1.111.2(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0)
+      '@tanstack/start-server-functions-ssr': 1.111.3(@types/node@22.7.9)(babel-plugin-macros@3.1.0)(db0@0.2.4)(ioredis@5.5.0)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.6.0)
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
       vite: 6.1.1(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0)
@@ -19817,6 +19863,21 @@ snapshots:
       esbuild: 0.24.0
       postcss: 8.4.49
       rollup: 4.24.0
+    optionalDependencies:
+      '@types/node': 22.7.9
+      fsevents: 2.3.3
+      jiti: 2.4.2
+      lightningcss: 1.29.1
+      sass-embedded: 1.80.4
+      terser: 5.38.2
+      tsx: 4.19.2
+      yaml: 2.6.0
+
+  vite@6.1.0(@types/node@22.7.9)(jiti@2.4.2)(lightningcss@1.29.1)(sass-embedded@1.80.4)(terser@5.38.2)(tsx@4.19.2)(yaml@2.6.0):
+    dependencies:
+      esbuild: 0.24.2
+      postcss: 8.5.2
+      rollup: 4.34.6
     optionalDependencies:
       '@types/node': 22.7.9
       fsevents: 2.3.3
