@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "turbo build",
+    "build": "pnpm p:variable build && pnpm p:core build && pnpm p:react build",
     "dev": "turbo dev",
     "lint": "turbo lint",
 
@@ -22,8 +22,9 @@
     "pg:router": "pnpm -C playgrounds/react-router"
   },
   "devDependencies": {
-    "turbo": "^2.2.3"
+    "turbo": "^2.4.2"
   },
+  "packageManager": "pnpm@9.12.2",
   "volta": {
     "node": "22.10.0",
     "pnpm": "9.12.2"
