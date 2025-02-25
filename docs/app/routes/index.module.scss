@@ -16,7 +16,10 @@
   grid-template-rows: 1fr 1fr;
   gap: var(--n-10);
   align-items: center;
+  width: 100%;
+  max-width: var(--max-screen-width);
   min-height: calc(100vh - 64px - var(--n-4) - var(--n-4) - var(--n-4));
+  margin: auto;
 
   > .title {
     position: relative;

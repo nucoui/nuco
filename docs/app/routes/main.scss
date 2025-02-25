@@ -8,6 +8,8 @@ html {
   font-family: Poppins, "Noto Sans JP", sans-serif;
   color: var(--cs-text-primary);
   background-color: var(--cs-background-primary);
+
+  --max-screen-width: 1200px;
 }
 
 body {
@@ -82,9 +84,12 @@ body {
 #header {
   position: fixed;
   top: 0;
+  left: 50%;
   z-index: 8999;
   width: 100%;
+  max-width: var(--max-screen-width);
   padding: var(--n-4) var(--n-8);
+  transform: translate(-50%, 0);
 
   @media (width <= 768px) {
     top: auto;

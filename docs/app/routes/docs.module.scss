@@ -4,8 +4,10 @@
   grid-template-areas: "NAV MAIN";
   grid-template-columns: auto 1fr;
   gap: var(--n-4);
+  max-width: var(--max-screen-width);
   min-height: calc(100vh - 64px - var(--n-4) - var(--n-4) - var(--n-4));
-  padding: var(--n-4) var(--n-6);
+  padding: var(--n-4) var(--n-8);
+  margin: auto;
 
   @media (width <= 768px) {
     grid-template-areas: "MAIN MAIN";
