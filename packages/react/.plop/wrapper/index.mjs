@@ -1,3 +1,6 @@
+import { readdirSync } from "node:fs";
+import { join } from "node:path";
+import { cwd } from "node:process";
 import { Elements } from "@nuco/core";
 
 /** @type {(str: string) => string} */
@@ -7,6 +10,14 @@ function capitalizeAndRemovePrefix(str) {
 
   // 最初の文字を大文字にする
   return newStr.charAt(0).toUpperCase() + newStr.slice(1);
+}
+
+/** @type {(str: string) => string} */
+function kebabCase(str) {
+  return str
+    .replace(/([a-z])([A-Z])/g, "$1-$2")
+    .replace(/[\s_]+/g, "-")
+    .toLowerCase();
 }
 
 export default (
@@ -26,8 +37,17 @@ export default (
         message: "What is the name of the web-component you want to wrap?",
         choices: () => {
           return new Promise((resolve) => {
+            const wrappedComponentsDir = join(cwd(), "src/components/wrapped");
+            const wrappedFiles = readdirSync(wrappedComponentsDir)
+              .map(file => `n-${kebabCase(file.replace(/\.[^/.]+$/, ""))}`);
+            const choices = Object.keys(Elements).filter(key => !wrappedFiles.includes(key));
+
+            if (choices.length === 0) {
+              throw new Error("No components to wrap");
+            }
+
             setTimeout(() => {
-              resolve(Object.keys(Elements));
+              resolve(choices);
             }, 1000);
           });
         },

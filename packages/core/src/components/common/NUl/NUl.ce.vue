@@ -35,6 +35,9 @@ defineRender(() => (
 </script>
 
 <style lang="scss">
+@import "src/styles/reset.css";
+@import "src/styles/base.css";
+
 ul {
   padding-left: 2ch;
   margin: 1ch 0;

@@ -73,13 +73,13 @@ export default (
           type: "modify",
           path: resisterPath,
           pattern: /(^\s*)/m, // ファイルの先頭にマッチする正規表現
-          template: `$1\n\nimport { {{pascalCase name}} } from "@/components{{atomic}}{{pascalCase name}}/{{pascalCase name}}.ce";`,
+          template: `$1import { {{pascalCase name}} } from "@/components{{atomic}}{{pascalCase name}}/{{pascalCase name}}.ce";\n`,
         },
         {
           type: "modify",
           path: mainPath,
           pattern: /(^\s*)/m, // ファイルの先頭にマッチする正規表現
-          template: `$1\n\nexport * from "@/components{{atomic}}{{pascalCase name}}/{{pascalCase name}}.ce";`,
+          template: `$1export * from "@/components{{atomic}}{{pascalCase name}}/{{pascalCase name}}.ce";\n`,
         },
       ];
     },

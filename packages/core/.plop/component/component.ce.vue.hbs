@@ -11,11 +11,11 @@ const definedProps = withDefaults(defineProps<Props>(), {});
 const emit = defineEmits<EventEmitHelper<Emits>>();
 const hostRef = ref<HTMLInputElement | null>(null);
 const {
-  host,
-  shadowRoot,
-  internals,
-  props,
-} = useCe(hostRef, definedProps);
+  host: _host,
+  shadowRoot: _shadowRoot,
+  internals: _internals,
+  props: _props,
+} = useCe(hostRef, definedProps, emit);
 
 defineRender(() => (
   <div ref={hostRef}></div>
@@ -23,4 +23,6 @@ defineRender(() => (
 </script>
 
 <style lang="scss">
+@import "src/styles/reset.css";
+@import "src/styles/base.css";
 </style>

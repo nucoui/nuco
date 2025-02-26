@@ -110,6 +110,9 @@ defineRender(() => {
 </script>
 
 <style lang="scss">
+@import "src/styles/reset.css";
+@import "src/styles/base.css";
+
 .n-button {
   position: relative;
   box-sizing: border-box;

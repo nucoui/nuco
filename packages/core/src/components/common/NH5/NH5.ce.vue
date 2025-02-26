@@ -17,6 +17,9 @@ defineRender(() => (
 </script>
 
 <style lang="scss">
+@import "src/styles/reset.css";
+@import "src/styles/base.css";
+
 .n-h5 {
   font-size: var(--n-4);
   line-height: 1.75;

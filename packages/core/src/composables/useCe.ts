@@ -1,6 +1,6 @@
 import type { defineProps, Ref } from "vue";
-import base from "@/styles/base.css?inline";
-import reset from "@/styles/reset.css?inline";
+// import base from "@/styles/base.css?inline";
+// import reset from "@/styles/reset.css?inline";
 import { computed, onMounted, ref, useHost, useShadowRoot } from "vue";
 
 export const useCe = <Props extends ReturnType<typeof defineProps>, Emit extends ReturnType<typeof defineEmit>>(mainRef: Ref<HTMLElement | null>, props: Props, emit: Emit) => {
@@ -11,8 +11,6 @@ export const useCe = <Props extends ReturnType<typeof defineProps>, Emit extends
       }),
     );
 
-    // console.log(rest);
-
     return rest as Props;
   });
 
@@ -22,7 +20,6 @@ export const useCe = <Props extends ReturnType<typeof defineProps>, Emit extends
 
   console.warn = () => {};
 
-  // const ceSymbol = Symbol("") as InjectionKey<typeof parsedProps>;
   const host = useHost();
   const shadowRoot = useShadowRoot();
   const internals = ref<ElementInternals | null>(null);
@@ -34,28 +31,25 @@ export const useCe = <Props extends ReturnType<typeof defineProps>, Emit extends
         internals.value = attachedInternals;
       }
 
-      if (shadowRoot) {
-        const baseAdoptedStyleSheets = new CSSStyleSheet();
-        baseAdoptedStyleSheets.replaceSync(base);
+      // if (shadowRoot) {
+      //   const baseAdoptedStyleSheets = new CSSStyleSheet();
+      //   baseAdoptedStyleSheets.replaceSync(base);
 
-        const resetAdoptedStyleSheets = new CSSStyleSheet();
-        resetAdoptedStyleSheets.replaceSync(reset);
+      //   const resetAdoptedStyleSheets = new CSSStyleSheet();
+      //   resetAdoptedStyleSheets.replaceSync(reset);
 
-        shadowRoot.adoptedStyleSheets = [
-          resetAdoptedStyleSheets,
-          baseAdoptedStyleSheets,
-        ];
-      }
+      //   shadowRoot.adoptedStyleSheets = [
+      //     resetAdoptedStyleSheets,
+      //     baseAdoptedStyleSheets,
+      //   ];
+      // }
     }
   });
 
   // eslint-disable-next-line no-self-assign
   console.warn = console.warn;
 
-  // provide(ceSymbol, parsedProps);
-
   return {
-    // ceSymbol,
     host,
     shadowRoot,
     internals,
