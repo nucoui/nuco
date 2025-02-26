@@ -15,7 +15,7 @@
       "@/*": ["src/*"],
       "@root/*": ["./*"]
     },
-    "types": ["unplugin-vue-macros/macros-global"],
+    "types": ["unplugin-vue-macros/macros-global", "unplugin-icons/types/vue3"],
     "allowImportingTsExtensions": true,
     "allowJs": true,
 

@@ -11,8 +11,10 @@ import { NLi } from "@/components/common/NLi/NLi.ce";
 import { NUl } from "@/components/common/NUl/NUl.ce";
 import { NBreadcrumb } from "@/components/composite/NBreadcrumb/NBreadcrumb.ce";
 import { NError } from "@/components/composite/NError/NError.ce";
+import { NNavAccordion } from "@/components/composite/NNavAccordion/NNavAccordion.ce";
 
 const Elements = {
+  "n-nav-accordion": NNavAccordion,
   "n-error": NError,
   "n-breadcrumb": NBreadcrumb,
   "n-ul": NUl,

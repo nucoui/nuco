@@ -8,8 +8,11 @@ function capitalizeAndRemovePrefix(str) {
   // "n-" を削除
   const newStr = str.replace("n-", "");
 
-  // 最初の文字を大文字にする
-  return newStr.charAt(0).toUpperCase() + newStr.slice(1);
+  // パスカルケースに変換
+  return newStr
+    .split("-")
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join("");
 }
 
 /** @type {(str: string) => string} */

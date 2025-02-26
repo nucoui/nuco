@@ -10,4 +10,5 @@ export { H6 } from "@/components/wrapped/H6";
 export { Header } from "@/components/wrapped/Header";
 export { Input } from "@/components/wrapped/Input";
 export { Li } from "@/components/wrapped/Li";
+export { NavAccordion } from "@/components/wrapped/NavAccordion";
 export { Ul } from "@/components/wrapped/Ul";

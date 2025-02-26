@@ -1,7 +1,7 @@
 import { resolve } from "node:path";
 import vue from "@vitejs/plugin-vue";
 import VueJsx from "@vitejs/plugin-vue-jsx";
-import Unfonts from "unplugin-fonts/vite";
+import Icons from "unplugin-icons/vite";
 import VueMacros from "unplugin-vue-macros/vite";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
@@ -16,23 +16,12 @@ export default defineConfig({
         vueJsx: VueJsx(),
       },
     }),
-    Unfonts({
-      google: {
-        families: [
-          {
-            name: "Poppins",
-            styles: "ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900",
-            defer: true,
-          },
-          {
-            name: "Noto Sans JP",
-            styles: "ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700",
-            defer: true,
-          },
-        ],
-      },
+    Icons({
+      autoInstall: true,
     }),
-    dts({ tsconfigPath: resolve(__dirname, "tsconfig.app.json") }),
+    dts({
+      tsconfigPath: resolve(__dirname, "tsconfig.app.json"),
+    }),
     tsconfigPaths({
       configNames: ["tsconfig.app.json"],
     }),

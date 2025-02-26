@@ -11,6 +11,7 @@ export * from "@/components/common/NLi/NLi.ce";
 export * from "@/components/common/NUl/NUl.ce";
 export * from "@/components/composite/NBreadcrumb/NBreadcrumb.ce";
 export * from "@/components/composite/NError/NError.ce";
+export * from "@/components/composite/NNavAccordion/NNavAccordion.ce";
 
 // utils
 export * from "@/utils/resister";

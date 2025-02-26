@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "catalog:",
+    "@iconify-json/material-symbols": "^1.2.14",
     "@nuco/config": "workspace:*",
     "@storybook/addon-essentials": "catalog:",
     "@storybook/addon-interactions": "catalog:",
@@ -60,8 +61,10 @@
     "plop": "^4.0.1",
     "storybook": "catalog:",
     "storybook-dark-mode": "catalog:",
+    "stylelint": "^16.10.0",
     "typescript": "catalog:",
     "unplugin-fonts": "^1.3.1",
+    "unplugin-icons": "^22.1.0",
     "unplugin-vue-macros": "^2.14.2",
     "vite": "catalog:",
     "vite-plugin-dts": "^4.5.0",
