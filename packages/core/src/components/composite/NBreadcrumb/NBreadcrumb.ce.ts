@@ -3,7 +3,7 @@ import { renderToStringSync } from "@/utils/renderToStringSync";
 import { defineCustomElement, h } from "vue";
 import NBreadcrumbCe from "./NBreadcrumb.ce.vue";
 
-const style = (NBreadcrumbCe as any).styles[0] as string;
+const style = (NBreadcrumbCe as any).styles?.[0] || "" as string;
 
 const getHtmlString = (props: Props) => {
   const node = h(NBreadcrumbCe, props);

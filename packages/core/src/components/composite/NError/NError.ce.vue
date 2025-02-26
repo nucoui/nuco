@@ -19,9 +19,6 @@ defineRender(() => (
 </script>
 
 <style lang="scss">
-@import "src/styles/reset.css";
-@import "src/styles/base.css";
-
 .n-error {
   padding: var(--n-1) var(--n-2);
   font-size: var(--n-3);

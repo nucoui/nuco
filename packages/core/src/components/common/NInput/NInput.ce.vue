@@ -125,9 +125,6 @@ defineRender(() => (
 </script>
 
 <style lang="scss">
-@import "src/styles/reset.css";
-@import "src/styles/base.css";
-
 .n-label {
   display: flex;
   flex-direction: column;

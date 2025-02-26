@@ -3,7 +3,7 @@ import { renderToStringSync } from "@/utils/renderToStringSync";
 import { defineCustomElement, h } from "vue";
 import NInputCe from "./NInput.ce.vue";
 
-const style = (NInputCe as any).styles[0] as string;
+const style = (NInputCe as any).styles?.[0] || "" as string;
 
 const getHtmlString = (props: Props) => {
   const node = h(NInputCe, props);

@@ -3,7 +3,7 @@ import { renderToStringSync } from "@/utils/renderToStringSync";
 import { defineCustomElement, h } from "vue";
 import NH1Ce from "./NH1.ce.vue";
 
-const style = (NH1Ce as any).styles[0] as string;
+const style = (NH1Ce as any).styles?.[0] || "" as string;
 
 const getHtmlString = (props: Props) => {
   const node = h(NH1Ce, props);

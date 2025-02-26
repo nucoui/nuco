@@ -17,10 +17,8 @@ defineRender(() => (
 </script>
 
 <style lang="scss">
-@import "src/styles/reset.css";
-@import "src/styles/base.css";
-
 .n-h2 {
+  font-weight: bold;
   font-size: var(--n-7);
   line-height: 1.75;
 }

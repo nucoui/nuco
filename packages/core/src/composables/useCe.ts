@@ -1,6 +1,6 @@
 import type { defineProps, Ref } from "vue";
-// import base from "@/styles/base.css?inline";
-// import reset from "@/styles/reset.css?inline";
+import base from "@/styles/base.css?inline";
+import reset from "@/styles/reset.css?inline";
 import { computed, onMounted, ref, useHost, useShadowRoot } from "vue";
 
 export const useCe = <Props extends ReturnType<typeof defineProps>, Emit extends ReturnType<typeof defineEmit>>(mainRef: Ref<HTMLElement | null>, props: Props, emit: Emit) => {
@@ -24,25 +24,22 @@ export const useCe = <Props extends ReturnType<typeof defineProps>, Emit extends
   const shadowRoot = useShadowRoot();
   const internals = ref<ElementInternals | null>(null);
 
+  if (shadowRoot) {
+    const baseAdoptedStyleSheets = new CSSStyleSheet();
+    baseAdoptedStyleSheets.replaceSync(base);
+    shadowRoot.adoptedStyleSheets.push(baseAdoptedStyleSheets);
+
+    const resetAdoptedStyleSheets = new CSSStyleSheet();
+    resetAdoptedStyleSheets.replaceSync(reset);
+    shadowRoot.adoptedStyleSheets.push(resetAdoptedStyleSheets);
+  }
+
   onMounted(() => {
     if (mainRef.value) {
       const attachedInternals = host?.attachInternals();
       if (attachedInternals) {
         internals.value = attachedInternals;
       }
-
-      // if (shadowRoot) {
-      //   const baseAdoptedStyleSheets = new CSSStyleSheet();
-      //   baseAdoptedStyleSheets.replaceSync(base);
-
-      //   const resetAdoptedStyleSheets = new CSSStyleSheet();
-      //   resetAdoptedStyleSheets.replaceSync(reset);
-
-      //   shadowRoot.adoptedStyleSheets = [
-      //     resetAdoptedStyleSheets,
-      //     baseAdoptedStyleSheets,
-      //   ];
-      // }
     }
   });
 
