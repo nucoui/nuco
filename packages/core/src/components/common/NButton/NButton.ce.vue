@@ -12,6 +12,7 @@ export type Props = {
    * @default "stretch"
    */
   width?: "auto" | "stretch";
+  size?: "small" | "medium" | "large";
 } & ({
   type?: "anchor";
   href?: string;
@@ -29,6 +30,7 @@ const definedProps = withDefaults(defineProps<Props>(), {
   variant: "primary",
   disabled: false,
   width: "stretch",
+  size: "medium",
 });
 
 const emit = defineEmits<EventEmitHelper<Emits>>();
@@ -54,7 +56,7 @@ const handleKeydown = (e: KeyboardEvent) => {
 const commonAttrs = computed(() => ({
   "ref": buttonRef,
   "part": id,
-  "class": clsx("n-button", `-${props.value.variant}`, {
+  "class": clsx("n-button", `-${props.value.size}`, `-${props.value.variant}`, {
     "-anchor": props.value.type === "anchor",
     "-toggle": props.value.type === "toggle",
     "-auto": props.value.width === "auto",
@@ -152,6 +154,18 @@ defineRender(() => {
 
   &.-auto {
     width: auto;
+  }
+
+  &.-small {
+    padding: var(--n-2) var(--n-4);
+  }
+
+  &.-medium {
+    padding: var(--n-3) var(--n-6);
+  }
+
+  &.-large {
+    padding: var(--n-4) var(--n-8);
   }
 
   &.-anchor {

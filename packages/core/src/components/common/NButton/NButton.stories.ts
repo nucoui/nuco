@@ -16,6 +16,10 @@ const dynamicArgTypes = {
     control: "select",
     options: ["auto", "stretch"],
   },
+  size: {
+    control: "select",
+    options: ["small", "medium", "large"],
+  },
   disabled: {
     control: "boolean",
   },
@@ -39,6 +43,7 @@ const meta: Meta<NButtonType["Props"]> = {
     variant: "primary",
     disabled: false,
     width: "stretch",
+    size: "medium",
     href: undefined,
     target: undefined,
   },
