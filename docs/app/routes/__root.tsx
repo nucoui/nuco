@@ -3,10 +3,11 @@ import { Header } from "@nuco/react";
 import cssVariables from "@nuco/variable/css.css?url";
 import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
 import { Meta, Scripts } from "@tanstack/start";
+import cssMain from "~/styles/main.scss?url";
+import cssReset from "~/styles/reset.css?url";
 import { Anchor } from "../components/Anchor/Anchor";
 import { ColorScheme } from "../components/layouts/ColorScheme";
 import styles from "./__root.module.scss";
-import cssMain from "./main.scss?url";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -23,6 +24,7 @@ export const Route = createRootRoute({
       },
     ],
     links: [
+      { rel: "stylesheet", href: cssReset },
       {
         rel: "preconnect",
         href: "https://fonts.googleapis.com",

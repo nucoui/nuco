@@ -63,7 +63,7 @@ header {
   /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
-  border: 1px solid var(--cs-border-secondary);
+  border: 1px solid var(--cs-border-tertiary);
   border-radius: calc(infinity * 1px);
 }
 </style>

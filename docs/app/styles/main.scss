@@ -87,13 +87,13 @@ body {
   left: 50%;
   z-index: 8999;
   width: 100%;
-  max-width: var(--max-screen-width);
-  padding: var(--n-4) var(--n-8);
+  padding: var(--n-4);
   transform: translate(-50%, 0);
 
   @media (width <= 768px) {
     top: auto;
     bottom: 0;
+    padding: var(--n-4) var(--n-2);
     margin-bottom: env(safe-area-inset-bottom);
   }
 }

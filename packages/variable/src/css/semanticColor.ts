@@ -15,7 +15,8 @@ export const semanticColor = {
     },
     border: {
       primary: permissibleColor.neutral[600],
-      secondary: permissibleColor.neutral[300],
+      secondary: permissibleColor.neutral[400],
+      tertiary: permissibleColor.neutral[300],
     },
   },
   dark: {
@@ -31,6 +32,7 @@ export const semanticColor = {
     border: {
       primary: permissibleColor.neutral[600],
       secondary: permissibleColor.neutral[700],
+      tertiary: permissibleColor.neutral[800],
     },
   },
 } as const satisfies SemanticColorRule;
