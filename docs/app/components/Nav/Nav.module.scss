@@ -1,0 +1,11 @@
+.nav {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--n-2);
+}
+
+.children {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--n-1);
+}

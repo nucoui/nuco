@@ -1,6 +1,6 @@
 <script lang="tsx" setup>
 import { useCe } from "@/composables/useCe";
-import MaterialSymbolsKeyboardArrowDownRounded from "~icons/material-symbols/keyboard-arrow-down-rounded?width=1.5rem&height=1.5rem";
+import MaterialSymbolsChevronRightRounded from "~icons/material-symbols/chevron-right-rounded?width=1.5rem&height=1.5rem";
 import { ref, useId } from "vue";
 
 export type Props = {
@@ -42,7 +42,7 @@ defineRender(() => (
         <slot name="summary">
           summary
         </slot>
-        <MaterialSymbolsKeyboardArrowDownRounded class="arrow" />
+        <MaterialSymbolsChevronRightRounded class="arrow" />
       </button>
     </h3>
     <div
@@ -68,9 +68,7 @@ defineRender(() => (
     grid-template-columns: 1fr auto;
     align-items: center;
     width: 100%;
-    padding: var(--n-3) var(--n-6);
-    margin: 0 0 var(--n-2) 0;
-    font-weight: 500;
+    padding: var(--n-2) var(--n-4);
     cursor: pointer;
     border-radius: var(--n-2);
     transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -82,13 +80,13 @@ defineRender(() => (
 
     > .arrow {
       color: var(--cs-text-secondary);
-      transition: 0.3s;
+      transition: 0.2s;
       transform: rotate(0deg);
       transform-origin: center center;
     }
 
     &[aria-expanded="true"] > .arrow {
-      transform: rotate(180deg);
+      transform: rotate(90deg);
     }
   }
 }
@@ -96,11 +94,12 @@ defineRender(() => (
 .detail {
   display: block grid;
   grid-template-rows: 1fr;
-  padding: 0 var(--n-4);
-  transition: grid-template-rows 0.3s;
+  padding: var(--n-2) var(--n-4) 0;
+  transition: 0.3s;
 
   &[data-hidden="true"] {
     grid-template-rows: 0fr;
+    padding: 0 var(--n-4);
   }
 
   > .inner {
@@ -110,9 +109,9 @@ defineRender(() => (
     overflow: hidden;
 
     > .stroke {
-      width: 3px;
+      width: 2px;
       height: 100%;
-      margin: 0 var(--n-2);
+      margin: 0 var(--n-1);
       background-color: var(--cs-border-secondary);
       border-radius: calc(infinity * 1px);
     }

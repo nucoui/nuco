@@ -1,33 +1,28 @@
-import type { Link } from "@tanstack/react-router";
-import { Breadcrumb, Li, NavAccordion } from "@nuco/react";
+import type { ComponentProps } from "react";
+import { Breadcrumb, Li } from "@nuco/react";
 import { createFileRoute, ErrorComponent, Outlet, useLocation } from "@tanstack/react-router";
-import { type ComponentProps, Fragment } from "react";
-import { LinkButton } from "~/components/LinkButton/LinkButton";
+import { Nav } from "~/components/Nav/Nav";
 import { Anchor } from "../components/Anchor/Anchor";
 import { NotFound } from "../components/layouts/NotFound/NotFound";
 import { getBreadcrumb } from "../utils/getBreadcrumb";
 import styles from "./docs.module.scss";
 
-type Nav = {
-  title: string;
-  href?: ComponentProps<typeof Link>["to"];
-  children?: Nav[];
-} & ({
-  href: ComponentProps<typeof Link>["to"];
-  children?: Nav[];
-} | {
-  href?: never;
-  children: Nav[];
-});
-
-const NAV = [{
-  title: "Getting Started",
-  children: [
-    { title: "Overview", href: "/docs/web-components/overview" },
-    { title: "Installation", href: "/docs/web-components/installation" },
-
-  ],
-}] as Nav[];
+const DOCS_NAV: ComponentProps<typeof Nav>["links"] = [
+  {
+    title: "Getting Started",
+    children: [
+      { title: "Overview", href: "/docs/web-components/overview" },
+      { title: "Installation", href: "/docs/web-components/installation" },
+    ],
+  },
+  {
+    title: "Components",
+    children: [
+      { title: "Overview", href: "/docs/web-components/overview" },
+      { title: "Installation", href: "/docs/web-components/installation" },
+    ],
+  },
+];
 
 export const Route = createFileRoute("/docs")({
   errorComponent: ErrorComponent,
@@ -41,41 +36,9 @@ function RouteComponent() {
 
   return (
     <div className={styles["contents-container"]}>
-      <nav className={styles.nav}>
-        {NAV.map(({ title, href, children }) => (
-          <Fragment key={title}>
-            {href
-              ? (
-                  <LinkButton
-                    type="anchor"
-                    variant="tertiary"
-                    width="auto"
-                    href={href}
-                  >
-                    {title}
-                  </LinkButton>
-                )
-              : (
-                  <NavAccordion>
-                    <span slot="summary">{title}</span>
-                    <div>
-                      {children?.map(({ title, href }) => (
-                        <LinkButton
-                          key={title}
-                          type="anchor"
-                          variant="tertiary"
-                          width="auto"
-                          href={href}
-                        >
-                          {title}
-                        </LinkButton>
-                      ))}
-                    </div>
-                  </NavAccordion>
-                )}
-          </Fragment>
-        ))}
-      </nav>
+      <div className={styles["nav-container"]}>
+        <Nav links={DOCS_NAV} />
+      </div>
       <main className={styles.main}>
         <div className={styles.breadcrumb}>
           <Breadcrumb>

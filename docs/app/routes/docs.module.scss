@@ -15,11 +15,11 @@
     padding: var(--n-8) var(--n-6);
   }
 
-  > .nav {
+  > .nav-container {
     position: sticky;
     top: calc(64px + var(--n-4) + var(--n-4) + var(--n-4));
     grid-area: NAV;
-    width: 300px;
+    width: 256px;
     height: calc(100vh - 64px - var(--n-4) - var(--n-4) - var(--n-4));
 
     @media (width <= 768px) {

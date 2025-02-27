@@ -10,7 +10,7 @@ const meta: Meta = {
   args: {},
   render: (attr) => {
     const elm = renderElement("n-nav-accordion", attr);
-    const detail = renderElement("n-button", { type: "anchor", variant: "tertiary", width: "auto" });
+    const detail = renderElement("n-button", { type: "anchor", variant: "tertiary", width: "auto", size: "small" });
     detail.innerHTML = "Detail";
 
     elm.appendChild(detail);
