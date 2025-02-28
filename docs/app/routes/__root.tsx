@@ -1,8 +1,9 @@
-import type { ComponentProps, ReactNode } from "react";
 import { Header } from "@nuco/react";
 import cssVariables from "@nuco/variable/css.css?url";
 import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
 import { Meta, Scripts } from "@tanstack/start";
+import { type ComponentProps, type ReactNode, useEffect } from "react";
+import { scan } from "react-scan";
 import cssMain from "~/styles/main.scss?url";
 import cssReset from "~/styles/reset.css?url";
 import { Anchor } from "../components/Anchor/Anchor";
@@ -61,6 +62,12 @@ const MIDDLE_ANCHOR_LINKS = [
 ] as const satisfies Array<ComponentProps<typeof Anchor>>;
 
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
+  useEffect(() => {
+    scan({
+      enabled: true,
+    });
+  }, []);
+
   return (
     <html>
       <head>
@@ -77,7 +84,11 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
             </div>
             <div slot="middle" className={styles["middle-container"]}>
               {MIDDLE_ANCHOR_LINKS.map(link => (
-                <Anchor key={link.to} {...link} />
+                <Anchor
+                  key={link.to}
+                  underline="none"
+                  {...link}
+                />
               ))}
             </div>
           </Header>

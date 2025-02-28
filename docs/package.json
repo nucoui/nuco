@@ -26,6 +26,7 @@
     "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react": "^4.3.4",
     "globals": "^15.14.0",
+    "react-scan": "^0.2.7",
     "stylelint": "^16.10.0",
     "typescript": "~5.7.2",
     "unenv": "^1.10.0",

@@ -1,20 +1,30 @@
-import type { ComponentProps } from "react";
+import type { ComponentProps, PropsWithChildren } from "react";
+import { Anchor as NAnchor } from "@nuco/react";
+
 import { Link } from "@tanstack/react-router";
-import clsx from "clsx";
-import styles from "./Anchor.module.scss";
 
-type Props = ComponentProps<typeof Link> & {
-  color?: "primary" | "secondary";
-};
+type Props = PropsWithChildren<
+  Omit<
+    ComponentProps<typeof Link>,
+    "children"
+  > & {
+    target?: ComponentProps<typeof NAnchor>["target"];
+    underline?: ComponentProps<typeof NAnchor>["underline"];
+  }
+>;
 
-export const Anchor = ({ color = "primary", ...props }: Props) => {
+export const Anchor = ({ children, ...props }: Props) => {
   return (
-    <Link
-      {...props}
-      className={clsx(
-        styles.anchor,
-        color === "secondary" && styles["-secondary"],
-      )}
-    />
+    <Link {...props}>
+      <NAnchor
+        href=""
+        target={props.target}
+        underline={props.underline}
+      >
+        <>
+          {children}
+        </>
+      </NAnchor>
+    </Link>
   );
 };

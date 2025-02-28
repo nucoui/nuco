@@ -2,7 +2,7 @@ import type { Link } from "@tanstack/react-router";
 import type { ComponentProps } from "react";
 import { NavAccordion } from "@nuco/react";
 import { Fragment } from "react/jsx-runtime";
-import { LinkButton } from "~/components/LinkButton/LinkButton";
+import { Anchor } from "~/components/Anchor/Anchor";
 import styles from "./Nav.module.scss";
 
 type Props = {
@@ -24,29 +24,26 @@ export const Nav = ({ links }: Props) => {
         <Fragment key={title}>
           {href
             ? (
-                <LinkButton
-                  variant="tertiary"
-                  width="auto"
-                  size="small"
-                  href={href}
+                <Anchor
+                  key={title}
+                  to={href}
+                  underline="none"
                 >
                   {title}
-                </LinkButton>
+                </Anchor>
               )
             : (
                 <NavAccordion>
                   <span slot="summary">{title}</span>
                   <div className={styles.children}>
                     {children?.map(({ title, href }) => (
-                      <LinkButton
+                      <Anchor
                         key={title}
-                        variant="tertiary"
-                        width="auto"
-                        size="small"
-                        href={href}
+                        to={href}
+                        underline="none"
                       >
                         {title}
-                      </LinkButton>
+                      </Anchor>
                     ))}
                   </div>
                 </NavAccordion>

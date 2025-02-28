@@ -51,7 +51,7 @@ function RouteComponent() {
                   )
                 : (
                     <Li key={to}>
-                      <Anchor to={to} color="secondary">{shortTitle}</Anchor>
+                      <Anchor to={to} underline="none">{shortTitle}</Anchor>
                     </Li>
                   );
             })}
