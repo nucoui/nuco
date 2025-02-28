@@ -1,9 +1,10 @@
 import type { ComponentProps } from "react";
 import { Breadcrumb, Li } from "@nuco/react";
-import { Outlet, useLocation } from "react-router";
+import { type MetaFunction, Outlet, useLocation } from "react-router";
 import { Anchor } from "~/components/Anchor/Anchor";
 import { Nav } from "~/components/Nav/Nav";
 import { getBreadcrumb } from "~/utils/getBreadcrumb";
+import { getPageInfoMeta } from "~/utils/getPageInfoMeta";
 import styles from "./docs.module.scss";
 
 const DOCS_NAV: ComponentProps<typeof Nav>["links"] = [
@@ -22,6 +23,14 @@ const DOCS_NAV: ComponentProps<typeof Nav>["links"] = [
     ],
   },
 ];
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const meta: MetaFunction = ({ location }) => {
+  const pageInfo = getPageInfoMeta(location.pathname);
+  return [
+    ...pageInfo,
+  ];
+};
 
 const Layout = () => {
   const location = useLocation();

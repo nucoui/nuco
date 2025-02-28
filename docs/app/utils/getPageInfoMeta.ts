@@ -1,7 +1,7 @@
-import type { AnyRouteMatch } from "@tanstack/react-router";
+import type { MetaFunction } from "react-router";
 import { getPageInfo } from "./getPageInfo";
 
-export const getPageInfoMeta = (pathname: string): NonNullable<AnyRouteMatch["meta"]> => {
+export const getPageInfoMeta = (pathname: string): NonNullable<ReturnType<MetaFunction>> => {
   const pageInfo = getPageInfo(pathname);
 
   return [

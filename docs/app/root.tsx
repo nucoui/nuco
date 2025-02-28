@@ -8,6 +8,7 @@ import {
 
   Links,
   Meta,
+  type MetaFunction,
   Outlet,
   Scripts,
   ScrollRestoration,
@@ -45,6 +46,13 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
+export const meta: MetaFunction = () => {
+  return [
+    { title: "@nuco/core" },
+    { name: "description", content: "Design system library that Transcends Framework boundaries" },
+  ];
+};
+
 export function Layout({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // Make sure to run react-scan only after hydration
@@ -54,11 +62,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-
-    <html>
+    <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0 viewport-fit=cover" />
+        <link rel="icon" href="/icon-dark-transparent.svg" />
         <Meta />
         <Links />
       </head>
