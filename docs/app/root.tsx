@@ -1,6 +1,6 @@
 import type { Route } from "./+types/root";
-
 import { Header } from "@nuco/react";
+import cssNuco from "@nuco/variable/css.css?url";
 import { type ComponentProps, useEffect } from "react";
 import {
   isRouteErrorResponse,
@@ -13,14 +13,11 @@ import {
   ScrollRestoration,
 } from "react-router";
 import { scan } from "react-scan";
-
 import { Anchor } from "~/components/Anchor/Anchor";
 import { ColorScheme } from "~/components/layouts/ColorScheme";
 import cssReset from "~/reset.css?url";
-
+import cssApp from "./app.scss?url";
 import styles from "./root.module.scss";
-import "./app.scss";
-import "@nuco/variable/css";
 
 const MIDDLE_ANCHOR_LINKS = [
   {
@@ -31,6 +28,8 @@ const MIDDLE_ANCHOR_LINKS = [
 
 export const links: Route.LinksFunction = () => [
   { rel: "stylesheet", href: cssReset },
+  { rel: "stylesheet", href: cssApp },
+  { rel: "stylesheet", href: cssNuco },
   {
     rel: "preconnect",
     href: "https://fonts.googleapis.com",

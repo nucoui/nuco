@@ -13,14 +13,14 @@ const hostRef = ref<HTMLInputElement | null>(null);
 useCe(hostRef, definedProps, () => {});
 
 defineRender(() => (
-  <ol ref={hostRef}>
+  <ol ref={hostRef} class="n-breadcrumb">
     <slot />
   </ol>
 ));
 </script>
 
 <style lang="scss">
-ol {
+.n-breadcrumb {
   display: flex;
   gap: var(--n-2);
   align-items: center;

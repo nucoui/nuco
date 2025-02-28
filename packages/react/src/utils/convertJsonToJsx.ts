@@ -19,7 +19,10 @@ function convertJsonToJsx(jsonNodes: JsonNode[], slotChildren?: ReactNode): JSX.
           children = namedSlotChildren.length > 0 ? namedSlotChildren : null;
         }
         else if (slotChildren) {
-          children = [slotChildren];
+          const namedSlotChildren = Children.toArray(slotChildren).filter(
+            (child: any) => !child.props?.slot,
+          );
+          children = namedSlotChildren.length > 0 ? namedSlotChildren : null;
         }
       }
 

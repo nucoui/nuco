@@ -10,12 +10,16 @@ const hostRef = ref<HTMLInputElement | null>(null);
 useCe(hostRef, {}, () => {});
 
 defineRender(() => (
-  <li ref={hostRef} part="li">
+  <li ref={hostRef} part="li" class="n-li">
     <slot />
   </li>
 ));
 </script>
 
 <style lang="scss">
-
+.n-li {
+  &::marker {
+    content: none;
+  }
+}
 </style>
