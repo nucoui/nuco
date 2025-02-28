@@ -4,6 +4,8 @@ compatibility_flags = [ "nodejs_compat" ]
 compatibility_date = "2024-11-13"
 upload_source_maps = true
 
-observability.enable = true
+[observability]
+enable = true
 
-assets.directory = "./build/client"
+[assets]
+directory = "./build/client"
