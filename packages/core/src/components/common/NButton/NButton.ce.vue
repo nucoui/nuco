@@ -170,9 +170,9 @@ defineRender(() => {
 
   &.-anchor {
     display: inline-block;
-    text-decoration: underline dashed;
+    text-decoration: underline dotted;
     text-decoration-thickness: 2px;
-    text-decoration-color: var(--cs-text-secondary);
+    text-decoration-color: var(--cs-border-secondary);
   }
 
   &.-primary,

@@ -1,3 +1,4 @@
+import { NAnchor } from "@/components/common/NAnchor/NAnchor.ce";
 import { NButton } from "@/components/common/NButton/NButton.ce";
 import { NH1 } from "@/components/common/NH1/NH1.ce";
 import { NH2 } from "@/components/common/NH2/NH2.ce";
@@ -14,6 +15,7 @@ import { NError } from "@/components/composite/NError/NError.ce";
 import { NNavAccordion } from "@/components/composite/NNavAccordion/NNavAccordion.ce";
 
 const Elements = {
+  "n-anchor": NAnchor,
   "n-nav-accordion": NNavAccordion,
   "n-error": NError,
   "n-breadcrumb": NBreadcrumb,
