@@ -7,6 +7,9 @@ function convertJsonToJsx(jsonNodes: JsonNode[], slotChildren?: ReactNode): JSX.
     if (node.tag === "text") {
       return jsx("span", { children: node.text }, index); // テキストノードをspanでラップして返します
     }
+    if (node.tag === "input") {
+      return jsx("input", { ...node.attr }, index);
+    }
     else {
       let children: JSX.Element[] | ReactNode | null = node.children.length > 0 ? convertJsonToJsx(node.children, slotChildren) : null;
 
