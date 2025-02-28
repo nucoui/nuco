@@ -1,0 +1,37 @@
+{
+  "name": "pre-docs",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "sideEffects": false,
+  "scripts": {
+    "dev": "vinxi dev --port 5229",
+    "build": "vinxi build",
+    "start": "vinxi start"
+  },
+  "dependencies": {
+    "@nuco/config": "workspace:*",
+    "@nuco/core": "workspace:*",
+    "@nuco/react": "workspace:*",
+    "@nuco/variable": "workspace:*",
+    "@tanstack/react-router": "1.85.10",
+    "@tanstack/start": "1.85.10",
+    "clsx": "^2.1.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "vinxi": "0.5.3"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "globals": "^15.14.0",
+    "react-scan": "^0.2.7",
+    "stylelint": "^16.10.0",
+    "typescript": "~5.7.2",
+    "unenv": "^1.10.0",
+    "unplugin-fonts": "^1.3.1",
+    "vite": "^6.1.0",
+    "vite-tsconfig-paths": "^5.1.4"
+  }
+}

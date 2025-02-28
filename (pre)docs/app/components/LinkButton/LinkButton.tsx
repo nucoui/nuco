@@ -1,13 +1,10 @@
 import type { ComponentProps } from "react";
 import { Button } from "@nuco/react";
-import { type To, useNavigate } from "react-router";
+import { useLocation, useNavigate } from "@tanstack/react-router";
 
-type Props = Omit<ComponentProps<typeof Button>, "type" | "href"> & {
-  href: To;
-};
-
-export const LinkButton = ({ onClick, children, href, ...props }: Props) => {
-  const navigate = useNavigate();
+export const LinkButton = ({ onClick, children, ...props }: Omit<ComponentProps<typeof Button>, "type">) => {
+  const location = useLocation();
+  const navigate = useNavigate({ from: location.pathname as any });
 
   const handleClick = (e: Parameters<NonNullable<typeof onClick>>[0]) => {
     onClick?.(e);
@@ -16,14 +13,13 @@ export const LinkButton = ({ onClick, children, href, ...props }: Props) => {
       return;
 
     e.preventDefault();
-    navigate(href);
+    navigate({ to: props.href });
   };
 
   return (
     <Button
       type="anchor"
       onClick={handleClick}
-      href={href as string}
       {...props}
     >
       {children}

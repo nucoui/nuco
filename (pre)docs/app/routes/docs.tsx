@@ -1,9 +1,10 @@
 import type { ComponentProps } from "react";
 import { Breadcrumb, Li } from "@nuco/react";
-import { Outlet, useLocation } from "react-router";
-import { Anchor } from "~/components/Anchor/Anchor";
+import { createFileRoute, ErrorComponent, Outlet, useLocation } from "@tanstack/react-router";
 import { Nav } from "~/components/Nav/Nav";
-import { getBreadcrumb } from "~/utils/getBreadcrumb";
+import { Anchor } from "../components/Anchor/Anchor";
+import { NotFound } from "../components/layouts/NotFound/NotFound";
+import { getBreadcrumb } from "../utils/getBreadcrumb";
 import styles from "./docs.module.scss";
 
 const DOCS_NAV: ComponentProps<typeof Nav>["links"] = [
@@ -23,7 +24,13 @@ const DOCS_NAV: ComponentProps<typeof Nav>["links"] = [
   },
 ];
 
-const Layout = () => {
+export const Route = createFileRoute("/docs")({
+  errorComponent: ErrorComponent,
+  notFoundComponent: NotFound,
+  component: RouteComponent,
+});
+
+function RouteComponent() {
   const location = useLocation();
   const breadcrumb = getBreadcrumb(location.pathname);
 
@@ -32,7 +39,6 @@ const Layout = () => {
       <div className={styles["nav-container"]}>
         <Nav links={DOCS_NAV} />
       </div>
-
       <main className={styles.main}>
         <div className={styles.breadcrumb}>
           <Breadcrumb>
@@ -53,9 +59,8 @@ const Layout = () => {
         </div>
 
         <Outlet />
+
       </main>
     </div>
   );
-};
-
-export default Layout;
+}

@@ -1,6 +1,7 @@
 import type { ComponentProps, PropsWithChildren } from "react";
 import { Anchor as NAnchor } from "@nuco/react";
-import { type Link, useNavigate } from "react-router";
+
+import { Link } from "@tanstack/react-router";
 
 type Props = PropsWithChildren<
   Omit<
@@ -13,23 +14,17 @@ type Props = PropsWithChildren<
 >;
 
 export const Anchor = ({ children, ...props }: Props) => {
-  const navigate = useNavigate();
-
-  const handleClick = (e: React.SyntheticEvent<HTMLElement, Event>) => {
-    e.preventDefault();
-    navigate(props.to);
-  };
-
   return (
-    <NAnchor
-      href={props.to as string}
-      target={props.target}
-      underline={props.underline}
-      onClick={handleClick}
-    >
-      <>
-        {children}
-      </>
-    </NAnchor>
+    <Link {...props}>
+      <NAnchor
+        href=""
+        target={props.target}
+        underline={props.underline}
+      >
+        <>
+          {children}
+        </>
+      </NAnchor>
+    </Link>
   );
 };

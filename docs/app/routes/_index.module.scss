@@ -1,0 +1,156 @@
+.contents-container {
+  display: grid;
+  gap: var(--n-8);
+  min-height: calc(100vh - 64px - var(--n-4) - var(--n-4) - var(--n-4));
+  padding: var(--n-4) var(--n-8);
+  overflow-x: hidden;
+
+  @media (width <= 768px) {
+    min-height: 100vh;
+    padding: var(--n-8) var(--n-6);
+  }
+}
+
+.hero-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: var(--n-10);
+  align-items: center;
+  width: 100%;
+  max-width: var(--max-screen-width);
+  min-height: calc(100vh - 64px - var(--n-4) - var(--n-4) - var(--n-4));
+  margin: auto;
+
+  > .title {
+    position: relative;
+    display: grid;
+    align-self: flex-end;
+
+    > .gradient1,
+    > .gradient2 {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      grid-area: 1/1;
+      width: 320px;
+      height: 320px;
+      user-select: none;
+      filter: blur(72px);
+      border-radius: 50%;
+      transform: translateY(-50%);
+      animation-duration: 30s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      will-change: filter;
+    }
+
+    > .gradient1 {
+      background: linear-gradient(-45deg, #ee7752, #cf326e, #6632cf, #28a1cd, #23d5ab);
+      background-size: 400% 400%;
+      animation-name: gradient1;
+
+      @keyframes gradient1 {
+        0% {
+          top: 50%;
+          left: 10%;
+          background-position: 0% 50%;
+          transform: translateY(-50%) translateX(-10%);
+        }
+
+        25% {
+          top: 55%;
+          left: 5%;
+          transform: translateY(-55%) translateX(-5%);
+        }
+
+        50% {
+          top: 50%;
+          left: 15%;
+          background-position: 100% 50%;
+          transform: translateY(-50%) translateX(-15%);
+        }
+
+        75% {
+          top: 55%;
+          left: 5%;
+          transform: translateY(-55%) translateX(-5%);
+        }
+
+        100% {
+          top: 50%;
+          left: 10%;
+          background-position: 0% 50%;
+          transform: translateY(-50%) translateX(-10%);
+        }
+      }
+    }
+
+    > .gradient2 {
+      background: linear-gradient(-45deg, #23d5ab, #28a1cd, #6632cf, #cf326e, #ee7752);
+      background-size: 400% 400%;
+      animation-name: gradient2;
+
+      @keyframes gradient2 {
+        0% {
+          top: 30%;
+          left: 20%;
+          background-position: 0% 50%;
+          transform: translateY(-30%) translateX(-20%);
+        }
+
+        25% {
+          top: 35%;
+          left: 25%;
+          transform: translateY(-35%) translateX(-25%);
+        }
+
+        50% {
+          top: 30%;
+          left: 15%;
+          background-position: 100% 50%;
+          transform: translateY(-30%) translateX(-15%);
+        }
+
+        75% {
+          top: 35%;
+          left: 25%;
+          transform: translateY(-35%) translateX(-25%);
+        }
+
+        100% {
+          top: 30%;
+          left: 20%;
+          background-position: 0% 50%;
+          transform: translateY(-30%) translateX(-20%);
+        }
+      }
+    }
+
+    > .text {
+      z-index: 1;
+      grid-area: 1/1;
+    }
+  }
+
+  > .links {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row: 2;
+    gap: var(--n-4);
+    justify-items: end;
+    width: 100%;
+
+    > n-h4 {
+      grid-column: 1/3;
+    }
+
+    > n-button {
+      grid-column: 1/3;
+    }
+  }
+
+  @media (width <= 768px) {
+    min-height: calc(100vh - var(--n-4));
+  }
+}
