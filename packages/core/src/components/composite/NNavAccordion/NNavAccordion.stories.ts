@@ -11,13 +11,20 @@ const meta: Meta = {
   render: (attr) => {
     const elm = renderElement("n-nav-accordion", attr);
 
+    const div = document.createElement("div");
+    div.style.display = "flex";
+    div.style.flexDirection = "column";
+    div.style.gap = "1rem";
+
     const detail = renderElement("n-anchor", { underline: "none" });
     detail.innerHTML = "Detail";
     const detail2 = renderElement("n-anchor", { underline: "none" });
-    detail.innerHTML = "Detail";
+    detail2.innerHTML = "Detail";
 
-    elm.appendChild(detail);
-    elm.appendChild(detail2);
+    div.appendChild(detail);
+    div.appendChild(detail2);
+
+    elm.appendChild(div);
 
     return elm;
   },

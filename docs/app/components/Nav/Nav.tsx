@@ -1,5 +1,5 @@
-import type { Link } from "@tanstack/react-router";
 import type { ComponentProps } from "react";
+import type { Link } from "react-router";
 import { NavAccordion } from "@nuco/react";
 import { Fragment } from "react/jsx-runtime";
 import { Anchor } from "~/components/Anchor/Anchor";
@@ -39,7 +39,7 @@ export const Nav = ({ links }: Props) => {
                     {children?.map(({ title, href }) => (
                       <Anchor
                         key={title}
-                        to={href}
+                        to={href as string}
                         underline="none"
                       >
                         {title}

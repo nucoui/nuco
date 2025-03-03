@@ -1,3 +1,4 @@
+import type { Plugin } from "vite";
 import { resolve } from "node:path";
 import vue from "@vitejs/plugin-vue";
 import VueJsx from "@vitejs/plugin-vue-jsx";
@@ -18,7 +19,7 @@ export default defineConfig({
     }),
     Icons({
       autoInstall: true,
-    }),
+    }) as Plugin,
     dts({
       tsconfigPath: resolve(__dirname, "tsconfig.app.json"),
     }),

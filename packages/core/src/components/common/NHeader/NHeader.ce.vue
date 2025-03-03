@@ -1,5 +1,4 @@
 <script lang="tsx" setup>
-import type { EventEmitHelper } from "@/types/emit/EventEmit/EventEmits";
 import { useCe } from "@/composables/useCe";
 import { ref } from "vue";
 
@@ -9,25 +8,24 @@ export type Props = {
   isMiddle?: boolean;
 };
 
-export type Emits = "clickNav";
+export type Emits = never;
 
 const definedProps = withDefaults(defineProps<Props>(), {
   isLogo: true,
   isNavToggle: true,
   isMiddle: true,
 });
-const emit = defineEmits<EventEmitHelper<Emits>>();
+// const emit = defineEmits<EventEmitHelper<Emits>>();
 const hostRef = ref<HTMLInputElement | null>(null);
 const {
   props,
-  customEventEmit,
-} = useCe(hostRef, definedProps, emit);
+} = useCe(hostRef, definedProps, () => {});
 
 defineRender(() => (
   <header ref={hostRef}>
     {props.value.isLogo
     && (
-      <slot name="logo">
+      <slot name="left">
         <span>@nuco/core</span>
       </slot>
     )}
@@ -35,15 +33,15 @@ defineRender(() => (
     {props.value.isMiddle
     && (
       <div>
-        <slot name="middle" />
+        <slot name="center" />
       </div>
     )}
 
     {props.value.isNavToggle && (
       <div>
-        <button onClick={e => customEventEmit("onClickNav", e)}>
-          <slot name="nav-toggle-icon" />
-        </button>
+        <div>
+          <slot name="right" />
+        </div>
       </div>
     )}
   </header>

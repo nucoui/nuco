@@ -1,7 +1,9 @@
 import type { Route } from "./+types/root";
-import { Header } from "@nuco/react";
+import { ColorSchemeProvider, Header } from "@nuco/react";
 import cssNuco from "@nuco/variable/css.css?url";
-import { type ComponentProps, useEffect } from "react";
+import FileIconsNpm from "~icons/file-icons/npm?width=1.06rem&height=1.26rem";
+import MdiGithub from "~icons/mdi/github?width=1.5rem&height=1.5rem";
+import React, { type AnchorHTMLAttributes, type ComponentProps, useEffect } from "react";
 import {
   isRouteErrorResponse,
   Link,
@@ -15,7 +17,6 @@ import {
 } from "react-router";
 import { scan } from "react-scan";
 import { Anchor } from "~/components/Anchor/Anchor";
-import { ColorScheme } from "~/components/layouts/ColorScheme";
 import cssReset from "~/reset.css?url";
 import cssApp from "./app.scss?url";
 import styles from "./root.module.scss";
@@ -26,6 +27,19 @@ const MIDDLE_ANCHOR_LINKS = [
     children: "Docs",
   },
 ] as const satisfies Array<ComponentProps<typeof Anchor>>;
+
+const RIGHT_ANCHOR_LINKS = [
+  {
+    href: "https://github.com/nucoui/nuco",
+    target: "_blank",
+    children: <MdiGithub />,
+  },
+  {
+    href: "https://www.npmjs.com/@nuco/core",
+    target: "_blank",
+    children: <FileIconsNpm />,
+  },
+] as const satisfies Array<AnchorHTMLAttributes<HTMLAnchorElement>>;
 
 export const links: Route.LinksFunction = () => [
   { rel: "stylesheet", href: cssReset },
@@ -70,20 +84,47 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
+
       <body id="root">
-        <ColorScheme />
         <div id="header">
           <Header>
-            <div slot="logo" className={styles["logo-container"]}>
+            <div slot="left" className={styles["left-container"]}>
               <Link to="/">
-                <img src="/( •ω• ฅ).png" alt="logo" className={styles.logo} />
+                <picture>
+                  {/* {scheme === "dark" && (
+                    <source
+                      srcSet="/nuco-dark.png"
+                      className={styles.logo}
+                    />
+                  )}
+                  {scheme === "light" && (
+                    <source
+                      srcSet="/nuco-light.png"
+                      className={styles.logo}
+                    />
+                  )} */}
+                  <img
+                    src="/nuco-light.png"
+                    alt="Description of the image"
+                    className={styles.logo}
+                  />
+                </picture>
               </Link>
             </div>
-            <div slot="middle" className={styles["middle-container"]}>
+            <div slot="center" className={styles["center-container"]}>
               {MIDDLE_ANCHOR_LINKS.map(link => (
                 <Anchor
                   key={link.to}
                   underline="none"
+                  {...link}
+                />
+              ))}
+            </div>
+            <div slot="right" className={styles["right-container"]}>
+              {RIGHT_ANCHOR_LINKS.map(link => (
+                <a
+                  key={link.href}
+                  className={styles.anchor}
                   {...link}
                 />
               ))}
@@ -104,7 +145,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <ColorSchemeProvider>
+      <Outlet />
+    </ColorSchemeProvider>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

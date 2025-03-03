@@ -93,13 +93,13 @@ defineRender(() => (
 
 .detail {
   display: block grid;
-  grid-template-rows: 1fr;
-  padding: var(--n-2) var(--n-4) 0;
+  grid-template-rows: 0fr;
+  padding: 0 var(--n-4);
   transition: 0.3s;
 
-  &[data-hidden="true"] {
-    grid-template-rows: 0fr;
-    padding: 0 var(--n-4);
+  &[data-hidden="false"] {
+    grid-template-rows: 1fr;
+    padding: var(--n-2) var(--n-4) 0;
   }
 
   > .inner {
