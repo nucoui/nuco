@@ -13,3 +13,7 @@ export { Input } from "@/components/wrapped/Input";
 export { Li } from "@/components/wrapped/Li";
 export { NavAccordion } from "@/components/wrapped/NavAccordion";
 export { Ul } from "@/components/wrapped/Ul";
+
+export { ColorSchemeContext } from "@/context/ColorScheme";
+export { ColorSchemeProvider } from "@/context/ColorSchemeProvider";
+export { useColorScheme } from "@/hooks/useColorScheme";

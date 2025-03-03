@@ -1,5 +1,5 @@
 import type { Route } from "./+types/root";
-import { ColorSchemeProvider, Header } from "@nuco/react";
+import { Header, useColorScheme } from "@nuco/react";
 import cssNuco from "@nuco/variable/css.css?url";
 import FileIconsNpm from "~icons/file-icons/npm?width=1.06rem&height=1.26rem";
 import MdiGithub from "~icons/mdi/github?width=1.5rem&height=1.5rem";
@@ -41,6 +41,7 @@ const RIGHT_ANCHOR_LINKS = [
   },
 ] as const satisfies Array<AnchorHTMLAttributes<HTMLAnchorElement>>;
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const links: Route.LinksFunction = () => [
   { rel: "stylesheet", href: cssReset },
   { rel: "stylesheet", href: cssApp },
@@ -60,6 +61,7 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const meta: MetaFunction = () => {
   return [
     { title: "@nuco/core" },
@@ -74,6 +76,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
       enabled: true,
     });
   }, []);
+
+  const scheme = useColorScheme();
 
   return (
     <html lang="en">
@@ -90,25 +94,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <Header>
             <div slot="left" className={styles["left-container"]}>
               <Link to="/">
-                <picture>
-                  {/* {scheme === "dark" && (
-                    <source
-                      srcSet="/nuco-dark.png"
-                      className={styles.logo}
-                    />
-                  )}
-                  {scheme === "light" && (
-                    <source
-                      srcSet="/nuco-light.png"
-                      className={styles.logo}
-                    />
-                  )} */}
-                  <img
-                    src="/nuco-light.png"
-                    alt="Description of the image"
-                    className={styles.logo}
-                  />
-                </picture>
+                <img src={scheme === "dark" ? "/nuco-dark.png" : "/nuco-light.png"} alt="logo" />
               </Link>
             </div>
             <div slot="center" className={styles["center-container"]}>
@@ -146,9 +132,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return (
-    <ColorSchemeProvider>
-      <Outlet />
-    </ColorSchemeProvider>
+    <Outlet />
   );
 }
 

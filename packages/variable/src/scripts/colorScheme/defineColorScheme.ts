@@ -12,4 +12,9 @@ export const defineColorScheme = () => {
     const isDark = e.matches;
     htmlElement.setAttribute("data-color-scheme", isDark ? "dark" : "light");
   });
+
+  if (!htmlElement.getAttribute("data-color-scheme")) {
+    const isDark = prefersColorSchemeMedia.matches;
+    htmlElement.setAttribute("data-color-scheme", isDark ? "dark" : "light");
+  }
 };

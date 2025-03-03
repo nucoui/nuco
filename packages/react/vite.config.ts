@@ -25,7 +25,7 @@ export default defineConfig({
     outDir: "./dist",
     cssCodeSplit: true,
     lib: {
-      entry: "src/main.tsx",
+      entry: "src/main.ts",
       name: "react",
       fileName: "react",
       formats: ["es", "cjs"],
