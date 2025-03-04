@@ -1,6 +1,7 @@
 <script lang="tsx" setup>
 import { useCe } from "@/composables/useCe";
-import { computed, ref } from "vue";
+import clsx from "clsx";
+import { ref } from "vue";
 
 export type Props = {
   type: "none" | "disc" | "decimal";
@@ -14,31 +15,29 @@ const definedProps = withDefaults(defineProps<Props>(), {
 const hostRef = ref<HTMLInputElement | null>(null);
 const { props } = useCe(hostRef, definedProps, () => {});
 
-const listStyleType = computed(() => {
-  switch (props.value.type) {
-    case "none":
-      return "none";
-    case "disc":
-      return "disc";
-    case "decimal":
-      return "decimal-leading-zero";
-    default:
-      return "disc";
-  }
-});
-
 defineRender(() => (
-  <ul ref={hostRef}>
+  <ul ref={hostRef} class={clsx("n-ul", `-type-${props.value.type}`)}>
     <slot />
   </ul>
 ));
 </script>
 
 <style lang="scss">
-ul {
+.n-ul {
   padding-left: 2ch;
   margin: 1ch 0;
-  list-style-type: v-bind("listStyleType");
+
+  &.n-ul.-type-none {
+    list-style-type: none;
+  }
+
+  &.n-ul.-type-disc {
+    list-style-type: disc;
+  }
+
+  &.n-ul.-type-decimal {
+    list-style-type: decimal-leading-zero;
+  }
 
   ::slotted(n-li) {
     /* padding-inline-start: 0.1ch; */

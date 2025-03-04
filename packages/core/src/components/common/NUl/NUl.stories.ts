@@ -16,7 +16,9 @@ const meta: Meta = {
       ],
     },
   },
-  args: {},
+  args: {
+    type: "disc",
+  },
   render: (attr) => {
     const element = renderElement("n-ul", attr);
 
