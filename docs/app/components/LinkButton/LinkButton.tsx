@@ -1,9 +1,10 @@
 import type { ComponentProps } from "react";
 import { Button } from "@nuco/react";
-import { type To, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
+import type { Nav } from "~/components/Nav/Nav";
 
 type Props = Omit<ComponentProps<typeof Button>, "type" | "href"> & {
-  href: To;
+  href: NonNullable<ComponentProps<typeof Nav>["links"][number]["href"]>;
 };
 
 export const LinkButton = ({ onClick, children, href, ...props }: Props) => {

@@ -7,7 +7,7 @@ import { getBreadcrumb } from "~/utils/getBreadcrumb";
 import { getPageInfoMeta } from "~/utils/getPageInfoMeta";
 import styles from "./docs.module.scss";
 
-const DOCS_NAV: ComponentProps<typeof Nav>["links"] = [
+const DOCS_NAV = [
   {
     title: "Getting Started",
     children: [
@@ -22,7 +22,7 @@ const DOCS_NAV: ComponentProps<typeof Nav>["links"] = [
       { title: "Installation", href: "/docs/web-components/installation" },
     ],
   },
-];
+] as const satisfies ComponentProps<typeof Nav>["links"];
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const meta: MetaFunction = ({ location }) => {

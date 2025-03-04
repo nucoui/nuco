@@ -1,35 +1,37 @@
+import type { ComponentProps } from "react";
 import { H1, H2, H3, H4 } from "@nuco/react";
 import { LinkButton } from "~/components/LinkButton/LinkButton";
+import type { Nav } from "~/components/Nav/Nav";
 import styles from "./_index.module.scss";
 
 const Page = () => {
   const links = [
     {
       title: "with Web Components",
-      href: "/docs/web-components/getting-started",
+      href: "/docs/web-components/overview",
       isSupported: true,
     },
     {
       title: "with Vue.js",
-      href: "/docs/vue/getting-started",
+      href: "/docs/vue/overview",
       isSupported: false,
     },
     {
       title: "with React",
-      href: "/docs/react/getting-started",
+      href: "/docs/react/overview",
       isSupported: true,
     },
     {
       title: "with Angular",
-      href: "/docs/angular/getting-started",
+      href: "/docs/angular/overview",
       isSupported: false,
     },
     {
       title: "with Svelte",
-      href: "/docs/svelte/getting-started",
+      href: "/docs/svelte/overview",
       isSupported: false,
     },
-  ] as const satisfies Array<{ title: string; href: `/${string}`; isSupported?: boolean }>;
+  ] as const satisfies Array<{ title: string; href: ComponentProps<typeof Nav>["links"][number]["href"]; isSupported?: boolean }>;
 
   return (
     <div className={styles["contents-container"]}>

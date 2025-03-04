@@ -56,7 +56,7 @@ header {
   align-items: center;
   width: 100%;
   height: 64px;
-  padding: var(--n-4) var(--n-6);
+  padding: var(--n-4) var(--n-8);
   background-color: color-mix(in srgb, var(--cs-background-primary) 90%, transparent);
   /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-backdrop-filter: blur(4px);
