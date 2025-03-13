@@ -12,6 +12,8 @@ export { Header } from "@/components/wrapped/Header";
 export { Input } from "@/components/wrapped/Input";
 export { Li } from "@/components/wrapped/Li";
 export { NavAccordion } from "@/components/wrapped/NavAccordion";
+export { Option } from "@/components/wrapped/Option";
+export { Select } from "@/components/wrapped/Select";
 export { Ul } from "@/components/wrapped/Ul";
 
 export { ColorSchemeContext } from "@/context/ColorScheme";

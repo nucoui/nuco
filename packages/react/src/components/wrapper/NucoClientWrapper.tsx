@@ -17,6 +17,7 @@ type ClientWrapperProps<RefType extends HTMLElement, ElementProps extends Record
 export const NucoClientWrapper = <RefType extends HTMLElement, ElementProps extends Record<string, unknown>, ElementEmits extends string>({ elementName, props }: ClientWrapperProps<RefType, ElementProps, ElementEmits>) => {
   const ref = useRef<RefType | null>(null);
   const { emits, props: elementProps, children } = useMemo(() => splitPropsAttr(props), [props]);
+  const eventListenersAdded = useRef<Set<string>>(new Set());
 
   useLayoutEffect(() => {
     // customElements.whenDefined(elementName).then(() => console.info(`${elementName} is defined with React`));
@@ -38,7 +39,15 @@ export const NucoClientWrapper = <RefType extends HTMLElement, ElementProps exte
         };
 
         if (currentRef) {
-          currentRef[`${action}EventListener`](eventName, onCustomEvent as EventListener);
+          const eventListenerKey = `${eventName}-${action}`;
+          if (action === "add" && !eventListenersAdded.current.has(eventListenerKey)) {
+            currentRef.addEventListener(eventName, onCustomEvent as EventListener);
+            eventListenersAdded.current.add(eventListenerKey);
+          }
+          else if (action === "remove" && eventListenersAdded.current.has(eventListenerKey)) {
+            currentRef.removeEventListener(eventName, onCustomEvent as EventListener);
+            eventListenersAdded.current.delete(eventListenerKey);
+          }
         }
       });
     };

@@ -52,7 +52,6 @@ defineRender(() => (
   display: inline-flex;
   gap: var(--n-1);
   align-items: last baseline;
-  color: var(--cs-color-primary);
   text-decoration-thickness: 2px;
   text-decoration-color: var(--cs-border-secondary);
   text-underline-offset: 4px;

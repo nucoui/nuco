@@ -58,7 +58,7 @@ export default (
     ],
     actions: (data) => {
       const path = `../../src/components/wrapped/`;
-      const mainPath = "../../src/main.tsx";
+      const mainPath = "../../src/main.ts";
 
       const componentName = capitalizeAndRemovePrefix(data.name);
 

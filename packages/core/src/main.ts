@@ -9,6 +9,8 @@ export * from "@/components/common/NH6/NH6.ce";
 export * from "@/components/common/NHeader/NHeader.ce";
 export * from "@/components/common/NInput/NInput.ce";
 export * from "@/components/common/NLi/NLi.ce";
+export * from "@/components/common/NOption/NOption.ce";
+export * from "@/components/common/NSelect/NSelect.ce";
 export * from "@/components/common/NUl/NUl.ce";
 export * from "@/components/composite/NBreadcrumb/NBreadcrumb.ce";
 export * from "@/components/composite/NError/NError.ce";

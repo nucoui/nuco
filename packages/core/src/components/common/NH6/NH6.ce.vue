@@ -18,8 +18,8 @@ defineRender(() => (
 
 <style lang="scss">
 .n-h6 {
-  font-weight: bold;
   font-size: var(--n-3);
+  font-weight: bold;
   line-height: 1.75;
 }
 </style>

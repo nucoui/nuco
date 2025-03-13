@@ -14,10 +14,6 @@ export const useCe = <Props extends ReturnType<typeof defineProps>, Emit extends
     return rest as Props;
   });
 
-  const customEventEmit = (name: Parameters<typeof emit>[0], detail: Parameters<typeof emit>[1]) => {
-    return emit(name, { bubbles: true, composed: true }, detail);
-  };
-
   console.warn = () => {};
 
   const host = useHost();
@@ -46,11 +42,25 @@ export const useCe = <Props extends ReturnType<typeof defineProps>, Emit extends
   // eslint-disable-next-line no-self-assign
   console.warn = console.warn;
 
+  const customEventEmit = (name: Parameters<typeof emit>[0], detail: Parameters<typeof emit>[1]) => {
+    return emit(name, { bubbles: true, composed: true }, detail);
+  };
+
+  const getSlot = (name?: string) => {
+    const selector = name ? `slot[name="${name}"]` : "slot:not([name])";
+    if (!shadowRoot) {
+      return null;
+    }
+
+    return shadowRoot?.querySelector(selector) as HTMLSlotElement | null;
+  };
+
   return {
     host,
     shadowRoot,
     internals,
     props: parsedProps,
     customEventEmit,
+    getSlot,
   };
 };

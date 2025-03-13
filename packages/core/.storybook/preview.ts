@@ -24,7 +24,7 @@ export const parameters = {
 
 const withTheme = (StoryFn, context) => {
   if (context.globals.backgrounds) {
-    const theme = context.globals.backgrounds.value === css.semanticColor.light.background.secondary ? "light" : "dark";
+    const theme = context.globals.backgrounds.value === css.semanticColor.light.background.primary ? "light" : "dark";
     document.documentElement.setAttribute("data-color-scheme", theme);
   }
 

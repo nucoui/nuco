@@ -165,7 +165,7 @@ defineRender(() => (
   color: var(--cs-text-primary);
   background: transparent;
   border: none;
-  border-radius: var(--n-1);
+  border-radius: var(--n-2);
   outline: 1px solid var(--cs-neutral-400);
   outline-offset: -1.5px;
 

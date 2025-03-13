@@ -9,12 +9,16 @@ import { NH6 } from "@/components/common/NH6/NH6.ce";
 import { NHeader } from "@/components/common/NHeader/NHeader.ce";
 import { NInput } from "@/components/common/NInput/NInput.ce";
 import { NLi } from "@/components/common/NLi/NLi.ce";
+import { NOption } from "@/components/common/NOption/NOption.ce";
+import { NSelect } from "@/components/common/NSelect/NSelect.ce";
 import { NUl } from "@/components/common/NUl/NUl.ce";
 import { NBreadcrumb } from "@/components/composite/NBreadcrumb/NBreadcrumb.ce";
 import { NError } from "@/components/composite/NError/NError.ce";
 import { NNavAccordion } from "@/components/composite/NNavAccordion/NNavAccordion.ce";
 
 const Elements = {
+  "n-option": NOption,
+  "n-select": NSelect,
   "n-anchor": NAnchor,
   "n-nav-accordion": NNavAccordion,
   "n-error": NError,
