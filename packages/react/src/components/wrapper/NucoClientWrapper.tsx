@@ -26,6 +26,7 @@ export const NucoClientWrapper = <RefType extends HTMLElement, ElementProps exte
 
   useEffect(() => {
     const currentRef = ref.current;
+    const currentEventListenersAdded = eventListenersAdded.current;
 
     const manageEventListener = (action: "add" | "remove") => {
       Object.keys(emits).forEach((key) => {
@@ -40,20 +41,23 @@ export const NucoClientWrapper = <RefType extends HTMLElement, ElementProps exte
 
         if (currentRef) {
           const eventListenerKey = `${eventName}-${action}`;
-          if (action === "add" && !eventListenersAdded.current.has(eventListenerKey)) {
+          if (action === "add" && !currentEventListenersAdded.has(eventListenerKey)) {
             currentRef.addEventListener(eventName, onCustomEvent as EventListener);
-            eventListenersAdded.current.add(eventListenerKey);
+            currentEventListenersAdded.add(eventListenerKey);
           }
-          else if (action === "remove" && eventListenersAdded.current.has(eventListenerKey)) {
+          else if (action === "remove" && currentEventListenersAdded.has(eventListenerKey)) {
             currentRef.removeEventListener(eventName, onCustomEvent as EventListener);
-            eventListenersAdded.current.delete(eventListenerKey);
+            currentEventListenersAdded.delete(eventListenerKey);
           }
         }
       });
     };
 
     manageEventListener("add");
-    return () => manageEventListener("remove");
+    return () => {
+      manageEventListener("remove");
+      currentEventListenersAdded.clear();
+    };
   }, [emits]);
 
   return _jsx(

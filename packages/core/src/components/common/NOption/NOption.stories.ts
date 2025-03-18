@@ -6,10 +6,20 @@ import { renderElement } from "@root/.storybook/utils/renderElement";
 const meta: Meta = {
   component: "n-option",
   tags: ["autodocs"],
-  argTypes: {},
-  args: {},
+  argTypes: {
+    value: {
+      control: "text",
+    },
+    disabled: {
+      control: "boolean",
+    },
+  },
+  args: {
+    disabled: false,
+  },
   render: (attr) => {
     const elm = renderElement("n-option", attr);
+    elm.textContent = "Option";
 
     return elm;
   },

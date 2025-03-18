@@ -56,12 +56,12 @@ header {
   align-items: center;
   width: 100%;
   height: 64px;
-  padding: var(--n-4) var(--n-8);
+  padding: var(--n-4) var(--n-6);
   background-color: color-mix(in srgb, var(--cs-background-primary) 90%, transparent);
   /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   border: 1px solid var(--cs-border-tertiary);
-  border-radius: calc(infinity * 1px);
+  border-radius: var(--n-4);
 }
 </style>

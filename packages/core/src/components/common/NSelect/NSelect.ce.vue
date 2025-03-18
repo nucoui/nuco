@@ -5,28 +5,31 @@ import type { SelectHTMLAttributes } from "vue";
 import { useCe } from "@/composables/useCe";
 import MaterialSymbolsArrowDropDownRounded from "~icons/material-symbols/arrow-drop-down-rounded?width=1.5rem&height=1.5rem";
 import clsx from "clsx";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 
 export type Props = {
   name: SelectHTMLAttributes["name"];
+  disabled?: boolean;
   placeholder?: SelectHTMLAttributes["placeholder"];
 };
 
 export type Emits = ExtractEventName<"change">;
 
-const definedProps = withDefaults(defineProps<Props>(), {});
+const definedProps = withDefaults(defineProps<Props>(), {
+  disabled: false,
+});
 const emit = defineEmits<EventEmitHelper<Emits>>();
 const hostRef = ref<HTMLInputElement | null>(null);
 const {
   host,
-  shadowRoot,
   internals,
   props,
   customEventEmit,
-  getSlot,
+  getSlottedElements,
 } = useCe(hostRef, definedProps, emit);
 
 const isShowOptions = ref(false);
+const slottedElements = ref<Element[] | null>(null);
 
 function preventSpaceScroll(event: KeyboardEvent) {
   if (event.key === " ") {
@@ -41,43 +44,45 @@ function allowSpaceScroll() {
 
 const handleCLick = (e: Event) => {
   e.preventDefault();
+
+  if (props.value.disabled) {
+    return;
+  }
+
   isShowOptions.value = true;
 };
 
 const handleKeydown = (e: KeyboardEvent) => {
+  e.preventDefault();
+
+  if (props.value.disabled) {
+    return;
+  }
+
   if (isShowOptions.value && e.key === "Escape") {
-    e.preventDefault();
     isShowOptions.value = false;
     return;
   }
 
   if (!isShowOptions.value && ["ArrowDown", "ArrowUp", " ", "Enter"].includes(e.key)) {
-    e.preventDefault();
     isShowOptions.value = true;
   }
 
   if (isShowOptions.value && ["ArrowDown", "ArrowUp"].includes(e.key)) {
-    e.preventDefault();
     window.addEventListener("keydown", preventSpaceScroll);
 
-    const slotElement = getSlot();
-    const assignedNodes = slotElement?.assignedNodes().filter(node => node.nodeType === Node.ELEMENT_NODE) as HTMLElement[];
-    const currentIndex = assignedNodes.findIndex(node => node === document.activeElement);
+    const slottedElementsIndex = slottedElements.value?.findIndex(node => node === document.activeElement) ?? 0;
 
-    if (e.key === "ArrowDown") {
-      const nextIndex = (currentIndex + 1) % assignedNodes.length;
-      const nextOption = assignedNodes[nextIndex].shadowRoot?.querySelector("[part=\"n-option\"]") as HTMLElement;
+    if (slottedElements.value && e.key === "ArrowDown") {
+      const nextIndex = (slottedElementsIndex + 1) % slottedElements.value.length;
+      const nextOption = slottedElements.value[nextIndex].shadowRoot?.querySelector("[part=\"n-option\"]") as HTMLElement;
       nextOption?.focus();
     }
-    else if (e.key === "ArrowUp") {
-      const prevIndex = (currentIndex - 1 + assignedNodes.length) % assignedNodes.length;
-      const prevOption = assignedNodes[prevIndex].shadowRoot?.querySelector("[part=\"n-option\"]") as HTMLElement;
+    else if (slottedElements.value && e.key === "ArrowUp") {
+      const prevIndex = (slottedElementsIndex - 1 + slottedElements.value.length) % slottedElements.value.length;
+      const prevOption = slottedElements.value[prevIndex].shadowRoot?.querySelector("[part=\"n-option\"]") as HTMLElement;
       prevOption?.focus();
     }
-  }
-
-  if (isShowOptions.value && (e.key === "Tab" || (e.shiftKey && e.key === "Tab"))) {
-    e.preventDefault();
   }
 };
 
@@ -86,7 +91,7 @@ const handleSelectOption = (node: Node) => {
   const clonedNodeValue = clonedNode.getAttribute("value");
 
   if (host) {
-    const existingSelectedValue = host.querySelector("[slot=\"selected-value\"]");
+    const existingSelectedValue = getSlottedElements({ slotName: "selected-value" })?.[0];
     if (existingSelectedValue)
       host.removeChild(existingSelectedValue);
 
@@ -105,14 +110,15 @@ const handleSelectOption = (node: Node) => {
 };
 
 const handleBlur = (event: FocusEvent) => {
-  const relatedTarget = event.relatedTarget as Element;
-  const slotElement = getSlot();
-  const selectedValueElement = getSlot("selected-value");
+  if (props.value.disabled) {
+    return;
+  }
 
-  if (relatedTarget && (
-    slotElement?.assignedElements().includes(relatedTarget)
-    || selectedValueElement?.assignedElements().includes(relatedTarget)
-  )) {
+  const relatedTarget = event.relatedTarget as Element;
+  const slotElement = getSlottedElements();
+  const selectedValueElement = getSlottedElements({ slotName: "selected-value" });
+
+  if (relatedTarget && (slotElement?.includes(relatedTarget) || selectedValueElement?.includes(relatedTarget))) {
     return;
   }
 
@@ -120,21 +126,48 @@ const handleBlur = (event: FocusEvent) => {
 };
 
 onMounted(() => {
-  const slotElement = shadowRoot?.querySelector("slot:not([name])") as HTMLSlotElement | null;
-  slotElement?.assignedNodes().forEach((node) => {
-    if (node.nodeName === "N-OPTION") {
-      node.addEventListener("click", (event) => {
+  const selectedSlottedElement = getSlottedElements({
+    customSelector: "n-option[selected]:not([disabled]):not([slot])",
+  });
+
+  if (!selectedSlottedElement?.length) {
+    return;
+  }
+
+  handleSelectOption(selectedSlottedElement[0]);
+});
+
+watch(() => host, () => {
+  slottedElements.value = getSlottedElements({
+    customSelector: "n-option:not([disabled]):not([slot])",
+  });
+
+  slottedElements.value?.forEach((node) => {
+    node.removeEventListener("click", (event) => {
+      event.stopPropagation();
+      handleSelectOption(node);
+    });
+    node.addEventListener("click", (event) => {
+      event.stopPropagation();
+      handleSelectOption(node);
+    });
+
+    node.removeEventListener("keydown", (event) => {
+      if (["Enter", " "].includes((event as KeyboardEvent).key)) {
         event.stopPropagation();
         handleSelectOption(node);
-      });
-      node.addEventListener("keydown", (event) => {
-        if (["Enter", " "].includes((event as KeyboardEvent).key)) {
-          event.stopPropagation();
-          handleSelectOption(node);
-        }
-      });
-    }
+      }
+    });
+    node.addEventListener("keydown", (event) => {
+      if (["Enter", " "].includes((event as KeyboardEvent).key)) {
+        event.stopPropagation();
+        handleSelectOption(node);
+      }
+    });
   });
+}, {
+  deep: true,
+  immediate: true,
 });
 
 defineRender(() => (
@@ -143,6 +176,7 @@ defineRender(() => (
     class="n-select"
     role="select"
     tabindex={0}
+    aria-disabled={props.value.disabled}
     onBlur={handleBlur}
     onClick={handleCLick}
     onKeydown={handleKeydown}
@@ -196,6 +230,11 @@ defineRender(() => (
     }
   }
 
+  &[aria-disabled] {
+    color: var(--cs-text-secondary);
+    cursor: not-allowed;
+  }
+
   &::after {
     position: absolute;
     inset: 0;
@@ -207,8 +246,8 @@ defineRender(() => (
     transition: all 0.1s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  &:not([disabled]):focus,
-  &:not([disabled]):hover {
+  &:not([aria-disabled]):focus,
+  &:not([aria-disabled]):hover {
     &::after {
       outline-offset: 2px;
       opacity: 1;

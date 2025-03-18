@@ -13,18 +13,26 @@ const meta: Meta = {
     placeholder: {
       control: "text",
     },
+    disabled: {
+      control: "boolean",
+    },
   },
-  args: {},
+  args: {
+    disabled: false,
+  },
   render: (attr) => {
     const elm = renderElement("n-select", attr);
 
-    const optionA = document.createElement("option");
-    optionA.value = "a";
+    const optionA = renderElement("n-option", {
+      value: "a",
+    });
     optionA.textContent = "Option A";
     optionA.tabIndex = 0;
 
-    const optionB = document.createElement("option");
-    optionB.value = "b";
+    const optionB = renderElement("n-option", {
+      value: "b",
+      disabled: true,
+    });
     optionB.textContent = "Option B";
     optionB.tabIndex = 0;
 
@@ -59,6 +67,7 @@ export const Playground: Story = {
 
     const optionB = renderElement("n-option", {
       value: "b",
+      selected: true,
     });
     optionB.appendChild(document.createTextNode("Option B"));
 
