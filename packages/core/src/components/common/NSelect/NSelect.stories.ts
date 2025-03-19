@@ -61,7 +61,7 @@ export const Playground: Story = {
       value: "a",
     });
     const optionASlotContent = document.createElement("span");
-    optionASlotContent.style.color = "red";
+    optionASlotContent.style.fontWeight = "bold";
     optionASlotContent.textContent = "Option A";
     optionA.appendChild(optionASlotContent);
 

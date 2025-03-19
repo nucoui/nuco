@@ -1,6 +1,7 @@
 <script lang="tsx" setup>
 import type { OptionHTMLAttributes } from "vue";
 import { useCe } from "@/composables/useCe";
+import MaterialSymbolsCheckCircleRounded from "~icons/material-symbols/check-circle-rounded?width=1.5rem&height=1.5rem";
 import { ref } from "vue";
 
 export type Props = {
@@ -32,6 +33,11 @@ defineRender(() => (
     tabindex={0}
   >
     <slot />
+    {
+      props.value.selected && (
+        <MaterialSymbolsCheckCircleRounded />
+      )
+    }
   </div>
 ));
 </script>
@@ -39,8 +45,14 @@ defineRender(() => (
 <style lang="scss">
 .n-option {
   position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--n-2);
+  align-items: center;
+  justify-content: space-between;
   padding: var(--n-2) var(--n-5);
   cursor: pointer;
+  border-radius: var(--n-1);
 
   &::after {
     position: absolute;
@@ -51,6 +63,12 @@ defineRender(() => (
     outline-offset: 0;
     opacity: 0;
     transition: all 0.1s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &[aria-selected="true"] {
+    font-weight: 500;
+    color: var(--cs-background-primary);
+    background: var(--cs-neutral-700);
   }
 
   &[aria-disabled] {

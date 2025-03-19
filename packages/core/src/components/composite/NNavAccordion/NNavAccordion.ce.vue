@@ -95,11 +95,14 @@ defineRender(() => (
   display: block grid;
   grid-template-rows: 0fr;
   padding: 0 var(--n-4);
-  transition: 0.3s;
+  opacity: 0;
+  transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
 
   &[data-hidden="false"] {
     grid-template-rows: 1fr;
     padding: var(--n-2) var(--n-4) 0;
+    opacity: 1;
+    transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
   }
 
   > .inner {

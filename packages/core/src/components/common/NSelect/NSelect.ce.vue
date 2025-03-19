@@ -4,7 +4,6 @@ import type { ExtractEventName } from "@/types/emit/EventEmit/EventNames";
 import type { SelectHTMLAttributes } from "vue";
 import { useCe } from "@/composables/useCe";
 import MaterialSymbolsArrowDropDownRounded from "~icons/material-symbols/arrow-drop-down-rounded?width=1.5rem&height=1.5rem";
-import clsx from "clsx";
 import { onMounted, ref, watch } from "vue";
 
 export type Props = {
@@ -97,6 +96,7 @@ const handleSelectOption = (node: Node) => {
 
     clonedNode.slot = "selected-value";
     clonedNode.tabIndex = -1;
+    clonedNode.removeAttribute("selected");
     host.appendChild(clonedNode);
     hostRef.value?.focus();
   }
@@ -187,8 +187,12 @@ defineRender(() => (
       </slot>
       <MaterialSymbolsArrowDropDownRounded />
     </div>
-    <div class={clsx("n-select-options", { "-show": isShowOptions.value })}>
-      <slot />
+    <div class="n-select-options" data-hidden={!isShowOptions.value}>
+      <div class="summary">
+        <div class="slot">
+          <slot />
+        </div>
+      </div>
     </div>
   </div>
 ));
@@ -226,7 +230,7 @@ defineRender(() => (
     }
 
     ::slotted(n-option) {
-      margin: calc(-1 * var(--n-2)) calc(-1 * var(--n-5));
+      margin: calc(-1 * var(--n-2)) calc(-1 * var(--n-4));
     }
   }
 
@@ -260,26 +264,35 @@ defineRender(() => (
   top: 100%;
   left: 0;
   z-index: 1;
-  display: none;
+  display: grid;
+  grid-template-rows: 0fr;
   width: 100%;
-  padding: var(--n-2);
   margin: var(--n-2) 0;
-  overflow: hidden;
   pointer-events: none;
   cursor: default;
   background-color: color-mix(in srgb, var(--cs-background-primary) 98%, transparent);
   backdrop-filter: blur(4px);
   border-radius: var(--n-2);
-  outline: 1px solid var(--cs-neutral-300);
   box-shadow: 0 var(--n-1) var(--n-4) color-mix(in srgb, var(--cs-neutral-400) 25%, transparent);
   opacity: 0;
-  transition: all 0.1s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
 
-  &.-show {
-    display: grid;
-    gap: var(--n-2);
-    pointer-events: auto;
+  &[data-hidden="false"] {
+    grid-template-rows: 1fr;
+    outline: 1px solid var(--cs-neutral-300);
     opacity: 1;
+    transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  > .summary {
+    overflow: hidden;
+
+    > .slot {
+      display: grid;
+      gap: var(--n-2);
+      padding: var(--n-2);
+      pointer-events: auto;
+    }
   }
 }
 </style>
