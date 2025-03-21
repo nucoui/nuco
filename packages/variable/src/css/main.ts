@@ -45,6 +45,12 @@ const genCssVariables = () => {
     path.join(outputDir, `numeric.css`),
     `:root {\n${numericValues.map(({ key, value }) => `  ${key}: ${value};\n`).join("")}}\n`,
   );
+
+  fs.writeFileSync(
+    path.join(outputDir, `shiki.css`),
+    `[data-color-scheme="dark"] n-code::part(n-code) {\n  color: var(--shiki-dark) !important;\n  background-color: var(--shiki-dark-bg) !important;\n}\n\n@media (prefers-color-scheme: dark) {\n  n-code::part(n-code) {\n    color: var(--shiki-dark) !important;\n    background-color: var(--shiki-dark-bg) !important;\n  }\n}\n`,
+  );
+
   fs.writeFileSync(
     path.join(outputDir, "index.js"),
     `import * as permissibleColor from "./permissibleColor.css";
@@ -87,6 +93,7 @@ export {
     path.join(outputDir, `semanticColor.css`),
     path.join(outputDir, `numeric.css`),
     path.join(outputDir, `prefersColorSchema.css`),
+    path.join(outputDir, `shiki.css`),
   ], path.join(outputDir, "variables.css"));
 };
 

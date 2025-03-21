@@ -2,6 +2,8 @@ import type { Plugin } from "vite";
 import { resolve } from "node:path";
 import vue from "@vitejs/plugin-vue";
 import VueJsx from "@vitejs/plugin-vue-jsx";
+import { visualizer } from "rollup-plugin-visualizer";
+import preserveDirectives from "rollup-preserve-directives";
 import Icons from "unplugin-icons/vite";
 import VueMacros from "unplugin-vue-macros/vite";
 import { defineConfig } from "vite";
@@ -26,6 +28,13 @@ export default defineConfig({
     tsconfigPaths({
       configNames: ["tsconfig.app.json"],
     }),
+    preserveDirectives(),
+    visualizer({
+      open: true,
+      filename: "dist/stats.html",
+      gzipSize: true,
+      brotliSize: true,
+    }),
   ],
 
   css: {
@@ -49,13 +58,21 @@ export default defineConfig({
       entry: "src/main.ts",
       name: "core",
       fileName: "core",
-      formats: ["es", "cjs", "umd"],
+      formats: [
+        "es",
+        "cjs",
+      ],
     },
     rollupOptions: {
       // external: ["vue"],
       output: {
         exports: "named",
+        preserveModules: true,
+        inlineDynamicImports: false,
         manualChunks: undefined,
+        globals: {
+          // vue: "Vue",
+        },
       },
     },
   },

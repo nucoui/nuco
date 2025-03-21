@@ -1,6 +1,9 @@
+import type { Route } from "./+types/docs._index";
 import { Button, H1, H2, H3, H4, H5, H6, Input } from "@nuco/react";
 
-const Page = () => {
+export default function Page({
+  loaderData: _,
+}: Route.ComponentProps) {
   return (
     <>
       <H1>Path : /</H1>
@@ -29,5 +32,3 @@ const Page = () => {
     </>
   );
 };
-
-export default Page;

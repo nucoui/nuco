@@ -16,6 +16,12 @@ export const renderElement = (name: ElementNames, attr: Record<string, any>) => 
       }
       continue;
     }
+
+    if (typeof attr[key] === "object") {
+      element.setAttribute(key, JSON.stringify(attr[key]));
+      continue;
+    }
+
     element.setAttribute(key, (attr as Record<string, any>)[key]);
   }
 

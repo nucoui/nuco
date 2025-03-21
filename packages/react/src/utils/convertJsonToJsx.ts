@@ -2,6 +2,21 @@ import type { JsonNode } from "@/types/JsonNode";
 import { Children, type JSX, type ReactNode } from "react";
 import { jsx } from "react/jsx-runtime";
 
+/**
+ * style属性をオブジェクト形式に変換する関数
+ * @param styleString - 文字列形式のstyle属性
+ * @returns オブジェクト形式のstyle属性
+ */
+const parseStyleString = (styleString: string): { [key: string]: string } => {
+  return styleString.split(";").reduce((styleObject, styleProperty) => {
+    const [key, value] = styleProperty.split(":").map(str => str.trim());
+    if (key && value) {
+      styleObject[key] = value;
+    }
+    return styleObject;
+  }, {} as { [key: string]: string });
+};
+
 function convertJsonToJsx(jsonNodes: JsonNode[], slotChildren?: ReactNode): JSX.Element[] {
   return jsonNodes.map((node, index): JSX.Element => {
     if (node.tag === "text") {
@@ -29,8 +44,9 @@ function convertJsonToJsx(jsonNodes: JsonNode[], slotChildren?: ReactNode): JSX.
         }
       }
 
-      const { children: attrChildren, ...rest } = node.attr;
-      return jsx(node.tag as any, { ...rest, children: children || node.children.map(child => convertJsonToJsx([child], slotChildren)[0]) }, index);
+      const { children: attrChildren, style, ...rest } = node.attr;
+      const styleObject = style ? parseStyleString(style) : undefined;
+      return jsx(node.tag as any, { ...rest, style: styleObject, children: children || node.children.map(child => convertJsonToJsx([child], slotChildren)[0]) }, index);
     }
   });
 }

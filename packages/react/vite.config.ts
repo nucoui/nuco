@@ -28,10 +28,16 @@ export default defineConfig({
       entry: "src/main.ts",
       name: "react",
       fileName: "react",
-      formats: ["es", "cjs"],
+      formats: [
+        "es",
+        "cjs",
+      ],
     },
     rollupOptions: {
-      external: ["react", "react-dom"],
+      external: [
+        "react",
+        "react-dom",
+      ],
       output: {
         exports: "named",
         preserveModules: true,
