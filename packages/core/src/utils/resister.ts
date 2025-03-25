@@ -12,11 +12,13 @@ import { NLi } from "@/components/common/NLi/NLi.ce";
 import { NOption } from "@/components/common/NOption/NOption.ce";
 import { NSelect } from "@/components/common/NSelect/NSelect.ce";
 import { NUl } from "@/components/common/NUl/NUl.ce";
+import { NBadge } from "@/components/composite/NBadge/NBadge.ce";
 import { NBreadcrumb } from "@/components/composite/NBreadcrumb/NBreadcrumb.ce";
 import { NError } from "@/components/composite/NError/NError.ce";
 import { NNavAccordion } from "@/components/composite/NNavAccordion/NNavAccordion.ce";
 
 const Elements = {
+  "n-badge": NBadge,
   "n-option": NOption,
   "n-select": NSelect,
   "n-anchor": NAnchor,

@@ -1,6 +1,7 @@
 import { css } from "@nuco/variable";
 import { theme } from "./utils/theme";
 import "@nuco/variable/css";
+import "./preview.css";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

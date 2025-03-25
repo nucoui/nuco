@@ -1,4 +1,5 @@
 export { Anchor } from "@/components/wrapped/Anchor";
+export { Badge } from "@/components/wrapped/Badge";
 export { Breadcrumb } from "@/components/wrapped/Breadcrumb";
 export { Button } from "@/components/wrapped/Button";
 export { Error } from "@/components/wrapped/Error";
