@@ -29,6 +29,9 @@
 
   > .main {
     grid-area: MAIN;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 
     > .breadcrumb {
       margin-bottom: var(--n-6);

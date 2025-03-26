@@ -1,6 +1,10 @@
 import type { ElementNames } from "@/main";
 import { resisterElement } from "@/main";
 
+function camelToKebabCase(str: string): string {
+  return str.replace(/([a-z0-9]?)([A-Z])/g, "$1-$2").toLowerCase();
+}
+
 export const renderElement = (name: ElementNames, attr: Record<string, any>) => {
   resisterElement(name);
 
@@ -9,20 +13,20 @@ export const renderElement = (name: ElementNames, attr: Record<string, any>) => 
   for (const key in attr) {
     if (typeof attr[key] === "boolean") {
       if (attr[key]) {
-        element.setAttribute(key, "");
+        element.setAttribute(camelToKebabCase(key), "");
       }
       else {
-        element.removeAttribute(key);
+        element.removeAttribute(camelToKebabCase(key));
       }
       continue;
     }
 
     if (typeof attr[key] === "object") {
-      element.setAttribute(key, JSON.stringify(attr[key]));
+      element.setAttribute(camelToKebabCase(key), JSON.stringify(attr[key]));
       continue;
     }
 
-    element.setAttribute(key, (attr as Record<string, any>)[key]);
+    element.setAttribute(camelToKebabCase(key), (attr as Record<string, any>)[key]);
   }
 
   return element;

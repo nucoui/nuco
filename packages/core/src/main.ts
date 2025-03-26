@@ -1,5 +1,6 @@
 export * from "@/components/common/NAnchor/NAnchor.ce";
 export * from "@/components/common/NButton/NButton.ce";
+export * from "@/components/common/NDivider/NDivider.ce";
 export * from "@/components/common/NH1/NH1.ce";
 export * from "@/components/common/NH2/NH2.ce";
 export * from "@/components/common/NH3/NH3.ce";

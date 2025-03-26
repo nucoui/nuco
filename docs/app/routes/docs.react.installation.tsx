@@ -1,4 +1,4 @@
-import { Badge, H1 } from "@nuco/react";
+import { Badge, Divider, H1, H3 } from "@nuco/react";
 
 const Page = () => {
   return (
@@ -10,7 +10,8 @@ const Page = () => {
       <p>
         Explains how to use components that support CSR and SSR in React 19
       </p>
-      <hr />
+      <Divider textPosition="center" />
+      <H3>Installation</H3>
     </>
   );
 };
