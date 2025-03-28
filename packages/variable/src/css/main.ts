@@ -48,7 +48,7 @@ const genCssVariables = () => {
 
   fs.writeFileSync(
     path.join(outputDir, `shiki.css`),
-    `[data-color-scheme="dark"] n-code::part(n-code) {\n  color: var(--shiki-dark) !important;\n  background-color: var(--shiki-dark-bg) !important;\n}\n\n@media (prefers-color-scheme: dark) {\n  n-code::part(n-code) {\n    color: var(--shiki-dark) !important;\n    background-color: var(--shiki-dark-bg) !important;\n  }\n}\n`,
+    `[data-color-scheme="dark"] n-code-block::part(pre) { color: var(--shiki-dark) !important; background-color: var(--shiki-dark-bg) !important; } @media (prefers-color-scheme: dark) { n-code-block::part(pre) { color: var(--shiki-dark) !important; background-color: var(--shiki-dark-bg) !important; } } [data-color-scheme="light"] n-code-block::part(pre) { color: var(--shiki-light) !important; background-color: var(--shiki-light-bg) !important; }\n`,
   );
 
   fs.writeFileSync(

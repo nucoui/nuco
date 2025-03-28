@@ -15,6 +15,7 @@ export * from "@/components/common/NSelect/NSelect.ce";
 export * from "@/components/common/NUl/NUl.ce";
 export * from "@/components/composite/NBadge/NBadge.ce";
 export * from "@/components/composite/NBreadcrumb/NBreadcrumb.ce";
+export * from "@/components/composite/NCodeBlock/NCodeBlock.ce";
 export * from "@/components/composite/NError/NError.ce";
 export * from "@/components/composite/NNavAccordion/NNavAccordion.ce";
 

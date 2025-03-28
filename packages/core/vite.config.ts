@@ -64,14 +64,20 @@ export default defineConfig({
       ],
     },
     rollupOptions: {
-      // external: ["vue"],
+      external: [
+        "vue",
+        "shiki",
+        "@shikijs/twoslash",
+      ],
       output: {
         exports: "named",
         preserveModules: true,
         inlineDynamicImports: false,
         manualChunks: undefined,
         globals: {
-          // vue: "Vue",
+          "vue": "Vue",
+          "shiki": "shiki",
+          "@shikijs/twoslash": "@shikijs/twoslash",
         },
       },
     },

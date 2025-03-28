@@ -2,6 +2,7 @@ export { Anchor } from "@/components/wrapped/Anchor";
 export { Badge } from "@/components/wrapped/Badge";
 export { Breadcrumb } from "@/components/wrapped/Breadcrumb";
 export { Button } from "@/components/wrapped/Button";
+export { CodeBlock } from "@/components/wrapped/CodeBlock";
 export { Divider } from "@/components/wrapped/Divider";
 export { Error } from "@/components/wrapped/Error";
 export { H1 } from "@/components/wrapped/H1";

@@ -15,10 +15,12 @@ import { NSelect } from "@/components/common/NSelect/NSelect.ce";
 import { NUl } from "@/components/common/NUl/NUl.ce";
 import { NBadge } from "@/components/composite/NBadge/NBadge.ce";
 import { NBreadcrumb } from "@/components/composite/NBreadcrumb/NBreadcrumb.ce";
+import { NCodeBlock } from "@/components/composite/NCodeBlock/NCodeBlock.ce";
 import { NError } from "@/components/composite/NError/NError.ce";
 import { NNavAccordion } from "@/components/composite/NNavAccordion/NNavAccordion.ce";
 
 const Elements = {
+  "n-code-block": NCodeBlock,
   "n-divider": NDivider,
   "n-badge": NBadge,
   "n-option": NOption,

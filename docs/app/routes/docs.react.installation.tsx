@@ -1,4 +1,4 @@
-import { Badge, Divider, H1, H3 } from "@nuco/react";
+import { Badge, CodeBlock, Divider, H1, H3 } from "@nuco/react";
 
 const Page = () => {
   return (
@@ -12,6 +12,7 @@ const Page = () => {
       </p>
       <Divider textPosition="center" />
       <H3>Installation</H3>
+      <CodeBlock lang="shell" code="npm i @nuco/core @nuco/react @nuco/variable" />
     </>
   );
 };

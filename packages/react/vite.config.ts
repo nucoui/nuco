@@ -37,6 +37,8 @@ export default defineConfig({
       external: [
         "react",
         "react-dom",
+        "shiki",
+        "@shikijs/twoslash",
       ],
       output: {
         exports: "named",
@@ -45,6 +47,8 @@ export default defineConfig({
         globals: {
           "react": "React",
           "react-dom": "ReactDOM",
+          "shiki": "shiki",
+          "@shikijs/twoslash": "@shikijs/twoslash",
         },
       },
     },
