@@ -158,7 +158,8 @@
       "Nuco"
     ],
 
-    "terminal.integrated.cwd": "${workspaceFolder}"
+    "terminal.integrated.cwd": "${workspaceFolder}",
+    "github.gitProtocol": "ssh"
   },
   "extensions": {
     "unwantedRecommendations": []
