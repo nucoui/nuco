@@ -1,4 +1,4 @@
-import { H1 } from "@nuco/react";
+import { H1 } from "@nuco/react/components/H1";
 
 const Page = () => {
   return (

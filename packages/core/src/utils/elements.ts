@@ -19,7 +19,7 @@ import { NCodeBlock } from "@/components/composite/NCodeBlock/NCodeBlock.ce";
 import { NError } from "@/components/composite/NError/NError.ce";
 import { NNavAccordion } from "@/components/composite/NNavAccordion/NNavAccordion.ce";
 
-const Elements = {
+const _Elements = {
   "n-code-block": NCodeBlock,
   "n-divider": NDivider,
   "n-badge": NBadge,
@@ -44,35 +44,5 @@ const Elements = {
   [key: `n-${string}`]: typeof HTMLElement;
 };
 
-type ElementNames = keyof typeof Elements;
-
-const resisterElement = (name: ElementNames) => {
-  if (customElements.get(name)) {
-    return;
-  }
-
-  try {
-    customElements.define(name, Elements[name]);
-    // // eslint-disable-next-line no-console
-    // console.info(`Element "${name}" is registered.`);
-  }
-  catch (error) {
-    console.error(error);
-  }
-};
-
-const resister = () => {
-  for (const name in Elements) {
-    resisterElement(name as ElementNames);
-  }
-};
-
-export {
-  Elements,
-  resister,
-  resisterElement,
-};
-
-export type {
-  ElementNames,
-};
+export type NElementNames = keyof typeof _Elements;
+export type NElements = typeof _Elements;

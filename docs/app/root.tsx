@@ -1,5 +1,7 @@
 import type { Route } from "./+types/root";
-import { Divider, Header, useColorScheme } from "@nuco/react";
+import { useColorScheme } from "@nuco/react";
+import { Divider } from "@nuco/react/components/Divider";
+import { Header } from "@nuco/react/components/Header";
 import cssNuco from "@nuco/variable/css.css?url";
 import FileIconsNpm from "~icons/file-icons/npm?width=1.06rem&height=1.26rem";
 import MdiGithub from "~icons/mdi/github?width=1.5rem&height=1.5rem";
@@ -35,7 +37,7 @@ const RIGHT_ANCHOR_LINKS = [
     children: <MdiGithub />,
   },
   {
-    href: "https://www.npmjs.com/@nuco/core",
+    href: "https://www.npmjs.com/org/nuco",
     target: "_blank",
     children: <FileIconsNpm />,
   },

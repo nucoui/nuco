@@ -20,4 +20,5 @@ export * from "@/components/composite/NError/NError.ce";
 export * from "@/components/composite/NNavAccordion/NNavAccordion.ce";
 
 // utils
-export * from "@/utils/resister";
+export * from "@/utils/elements";
+export * from "@/utils/resisterElement";

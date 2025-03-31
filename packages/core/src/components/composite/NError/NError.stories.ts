@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import type { NErrorType } from "./NError.ce";
+import { NLi, NUl } from "@/main";
 import { renderElement } from "@root/.storybook/utils/renderElement";
+import { NError, type NErrorType } from "./NError.ce";
 
 // This default export determines where your story goes in the story list
 const meta: Meta = {
@@ -9,10 +10,10 @@ const meta: Meta = {
   argTypes: {},
   args: {},
   render: (attr) => {
-    const element = renderElement("n-error", attr);
-    const nUl = renderElement("n-ul", {});
+    const element = renderElement("n-error", NError, attr);
+    const nUl = renderElement("n-ul", NUl, {});
 
-    const nLi = renderElement("n-li", {});
+    const nLi = renderElement("n-li", NLi, {});
     nLi.appendChild(document.createTextNode("Error message"));
 
     nUl?.appendChild(nLi);

@@ -1,6 +1,6 @@
 import type { Props } from "@/types/Props";
 import { NucoWrapper } from "@/components/wrapper/NucoWrapper";
-import { type NButtonType, NButtonUtil } from "@nuco/core";
+import { NButton, type NButtonType, NButtonUtil } from "@nuco/core";
 
 // Please change the type of ElementType to the correct type
 type ElementType = HTMLElement;
@@ -9,8 +9,9 @@ export const Button = (props: Props<ElementType, NButtonType["Props"], NButtonTy
   const { getHtmlString, style } = NButtonUtil;
 
   return (
-    <NucoWrapper<ElementType, NButtonType["Props"], NButtonType["Emit"]>
+    <NucoWrapper<"n-button", ElementType, NButtonType["Props"], NButtonType["Emit"]>
       elementName="n-button"
+      elementClass={NButton}
       getNElementHtml={getHtmlString}
       style={style}
       props={props}

@@ -1,12 +1,12 @@
 import type { Props } from "@/types/Props";
-import type { ElementNames } from "@nuco/core";
+import type { NElementNames } from "@nuco/core";
 import { convertJsonToJsx } from "@/utils/convertJsonToJsx";
 import { parseHtmlToObject } from "@/utils/parseHtmlToObject";
 import { splitPropsAttr } from "@/utils/splitPropsAttr";
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 
 type ServerWrapperProps<RefType extends HTMLElement, ElementProps extends Record<string, unknown>, ElementEmits extends string> = {
-  elementName: ElementNames;
+  elementName: NElementNames;
   getNElementHtml: (props: ElementProps) => string;
   style: string;
   props: Props<RefType, ElementProps, ElementEmits>;

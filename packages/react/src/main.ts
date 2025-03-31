@@ -1,24 +1,3 @@
-export { Anchor } from "@/components/wrapped/Anchor";
-export { Badge } from "@/components/wrapped/Badge";
-export { Breadcrumb } from "@/components/wrapped/Breadcrumb";
-export { Button } from "@/components/wrapped/Button";
-export { CodeBlock } from "@/components/wrapped/CodeBlock";
-export { Divider } from "@/components/wrapped/Divider";
-export { Error } from "@/components/wrapped/Error";
-export { H1 } from "@/components/wrapped/H1";
-export { H2 } from "@/components/wrapped/H2";
-export { H3 } from "@/components/wrapped/H3";
-export { H4 } from "@/components/wrapped/H4";
-export { H5 } from "@/components/wrapped/H5";
-export { H6 } from "@/components/wrapped/H6";
-export { Header } from "@/components/wrapped/Header";
-export { Input } from "@/components/wrapped/Input";
-export { Li } from "@/components/wrapped/Li";
-export { NavAccordion } from "@/components/wrapped/NavAccordion";
-export { Option } from "@/components/wrapped/Option";
-export { Select } from "@/components/wrapped/Select";
-export { Ul } from "@/components/wrapped/Ul";
-
 export { ColorSchemeContext } from "@/context/ColorScheme";
 export { ColorSchemeProvider } from "@/context/ColorSchemeProvider";
 export { useColorScheme } from "@/hooks/useColorScheme";

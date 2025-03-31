@@ -30,10 +30,10 @@ export default defineConfig({
     }),
     preserveDirectives(),
     visualizer({
-      open: true,
-      filename: "dist/stats.html",
+      open: false,
+      filename: "stats.html",
       gzipSize: true,
-      brotliSize: true,
+      template: "treemap",
     }),
   ],
 

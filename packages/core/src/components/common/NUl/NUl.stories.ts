@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import type { NUlType } from "./NUl.ce";
+import { NLi } from "@/main";
 import { renderElement } from "@root/.storybook/utils/renderElement";
+import { NUl, type NUlType } from "./NUl.ce";
 
 // This default export determines where your story goes in the story list
 const meta: Meta = {
@@ -20,13 +21,13 @@ const meta: Meta = {
     type: "disc",
   },
   render: (attr) => {
-    const element = renderElement("n-ul", attr);
+    const element = renderElement("n-ul", NUl, attr);
 
-    const nLi1 = renderElement("n-li", {});
+    const nLi1 = renderElement("n-li", NLi, {});
     nLi1.appendChild(document.createTextNode("List item"));
     element.appendChild(nLi1);
 
-    const nLi2 = renderElement("n-li", {});
+    const nLi2 = renderElement("n-li", NLi, {});
     nLi2.appendChild(document.createTextNode("List item"));
     element.appendChild(nLi2);
 

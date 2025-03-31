@@ -1,6 +1,6 @@
 import type { Props } from "@/types/Props";
 import { NucoWrapper } from "@/components/wrapper/NucoWrapper";
-import { type NBreadcrumbType, NBreadcrumbUtil } from "@nuco/core";
+import { NBreadcrumb, type NBreadcrumbType, NBreadcrumbUtil } from "@nuco/core";
 
 // Please change the type of ElementType to the correct type
 type ElementType = HTMLElement;
@@ -9,8 +9,9 @@ export const Breadcrumb = (props: Props<ElementType, NBreadcrumbType["Props"], N
   const { getHtmlString, style } = NBreadcrumbUtil;
 
   return (
-    <NucoWrapper<ElementType, NBreadcrumbType["Props"], NBreadcrumbType["Emit"]>
+    <NucoWrapper<"n-breadcrumb", ElementType, NBreadcrumbType["Props"], NBreadcrumbType["Emit"]>
       elementName="n-breadcrumb"
+      elementClass={NBreadcrumb}
       getNElementHtml={getHtmlString}
       style={style}
       props={props}

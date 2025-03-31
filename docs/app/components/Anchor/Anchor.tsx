@@ -1,5 +1,5 @@
 import type { ComponentProps, PropsWithChildren } from "react";
-import { Anchor as NAnchor } from "@nuco/react";
+import { Anchor as NAnchor } from "@nuco/react/components/Anchor";
 import { type Link, useNavigate } from "react-router";
 
 type Props = PropsWithChildren<

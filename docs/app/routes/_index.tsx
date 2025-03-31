@@ -1,5 +1,8 @@
 import type { ComponentProps } from "react";
-import { H1, H2, H3, H4 } from "@nuco/react";
+import { H1 } from "@nuco/react/components/H1";
+import { H2 } from "@nuco/react/components/H2";
+import { H3 } from "@nuco/react/components/H3";
+import { H4 } from "@nuco/react/components/H4";
 import { LinkButton } from "~/components/LinkButton/LinkButton";
 import type { Nav } from "~/components/Nav/Nav";
 import styles from "./_index.module.scss";

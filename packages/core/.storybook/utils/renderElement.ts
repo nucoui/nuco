@@ -1,12 +1,12 @@
-import type { ElementNames } from "@/main";
-import { resisterElement } from "@/main";
+import type { NElementNames, NElements } from "@/main";
+import { resisterNElement } from "@/main";
 
 function camelToKebabCase(str: string): string {
   return str.replace(/([a-z0-9]?)([A-Z])/g, "$1-$2").toLowerCase();
 }
 
-export const renderElement = (name: ElementNames, attr: Record<string, any>) => {
-  resisterElement(name);
+export const renderElement = <Name extends NElementNames>(name: Name, elementClass: NElements[Name], attr: Record<string, any>) => {
+  resisterNElement(name, elementClass);
 
   const element = document.createElement(name);
 

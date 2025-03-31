@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import type { NH1Type } from "./NH1.ce";
 import { renderElement } from "@root/.storybook/utils/renderElement";
+import { NH1, type NH1Type } from "./NH1.ce";
 
 // This default export determines where your story goes in the story list
 const meta: Meta = {
@@ -9,7 +9,7 @@ const meta: Meta = {
   argTypes: {},
   args: {},
   render: (attr) => {
-    const element = renderElement("n-h1", attr);
+    const element = renderElement("n-h1", NH1, attr);
     element.innerHTML = "Heading 1";
 
     return element;

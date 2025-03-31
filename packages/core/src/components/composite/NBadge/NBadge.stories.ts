@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import type { NBadgeType } from "./NBadge.ce";
+import { NH1 } from "@/main";
 import { renderElement } from "@root/.storybook/utils/renderElement";
+import { NBadge, type NBadgeType } from "./NBadge.ce";
 
 // This default export determines where your story goes in the story list
 const meta: Meta = {
@@ -17,7 +18,7 @@ const meta: Meta = {
   },
   args: {},
   render: (attr) => {
-    const elm = renderElement("n-badge", attr);
+    const elm = renderElement("n-badge", NBadge, attr);
 
     return elm;
   },
@@ -39,9 +40,9 @@ export const Playground: Story = {
     text: "1.0.0 +",
   },
   render: (attr) => {
-    const elm = renderElement("n-badge", attr);
+    const elm = renderElement("n-badge", NBadge, attr);
 
-    const h1 = renderElement("n-h1", {});
+    const h1 = renderElement("n-h1", NH1, {});
     h1.innerHTML = "Heading 1";
     h1.appendChild(elm);
 

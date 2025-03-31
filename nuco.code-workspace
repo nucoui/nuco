@@ -159,7 +159,8 @@
     ],
 
     "terminal.integrated.cwd": "${workspaceFolder}",
-    "github.gitProtocol": "ssh"
+    "github.gitProtocol": "ssh",
+    "liveServer.settings.multiRootWorkspaceName": "root"
   },
   "extensions": {
     "unwantedRecommendations": []

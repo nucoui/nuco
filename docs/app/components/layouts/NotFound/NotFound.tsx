@@ -1,4 +1,5 @@
-import { H1, H3 } from "@nuco/react";
+import { H1 } from "@nuco/react/components/H1";
+import { H3 } from "@nuco/react/components/H3";
 import { LinkButton } from "../../LinkButton/LinkButton";
 import styles from "./NotFound.module.scss";
 

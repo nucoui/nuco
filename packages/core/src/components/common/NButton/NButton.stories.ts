@@ -1,6 +1,6 @@
-import type { NButtonType } from "@/components/common/NButton/NButton.ce";
 import type { Meta, StoryObj } from "@storybook/web-components";
 import type NButtonCe from "./NButton.ce.vue";
+import { NButton, type NButtonType } from "@/components/common/NButton/NButton.ce";
 import { renderElement } from "@root/.storybook/utils/renderElement";
 
 const dynamicArgTypes = {
@@ -48,7 +48,7 @@ const meta: Meta<NButtonType["Props"]> = {
     target: undefined,
   },
   render: (attr) => {
-    const element = renderElement("n-button", attr);
+    const element = renderElement("n-button", NButton, attr);
     element.innerHTML = "Button";
 
     return element;

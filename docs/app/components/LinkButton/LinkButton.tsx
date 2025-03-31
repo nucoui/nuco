@@ -1,5 +1,5 @@
 import type { ComponentProps } from "react";
-import { Button } from "@nuco/react";
+import { Button } from "@nuco/react/components/Button";
 import { useNavigate } from "react-router";
 import type { Nav } from "~/components/Nav/Nav";
 

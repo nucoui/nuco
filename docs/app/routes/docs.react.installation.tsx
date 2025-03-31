@@ -1,12 +1,13 @@
 import type { MetaFunction } from "react-router";
-import { Badge, CodeBlock, Divider, H1, H3, H4 } from "@nuco/react";
+import { Badge } from "@nuco/react/components/Badge";
+import { CodeBlock } from "@nuco/react/components/CodeBlock";
+import { Divider } from "@nuco/react/components/Divider";
+import { H1 } from "@nuco/react/components/H1";
+import { H3 } from "@nuco/react/components/H3";
+import { H4 } from "@nuco/react/components/H4";
+import { generatePageInfoMeta } from "~/utils/generatePageInfoMeta";
 
-export const meta: MetaFunction = () => {
-  return [
-    { title: "@nuco/core | Installation" },
-    { name: "description", content: "Design system library that Transcends Framework boundaries" },
-  ];
-};
+export const meta: MetaFunction = () => generatePageInfoMeta("/docs/react/installation");
 
 const Page = () => {
   return (
@@ -31,8 +32,8 @@ const Page = () => {
       />
       <H4>2.2. Done !</H4>
       <CodeBlock
-        lang="ts"
-        fileName="root.tsx"
+        lang="tsx"
+        fileName="page.tsx"
         code={`import { Button } from "@nuco/react";
 
 const Page = () => {

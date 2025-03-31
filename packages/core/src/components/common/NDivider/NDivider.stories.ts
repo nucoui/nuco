@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import type { NDividerType } from "./NDivider.ce";
 import { renderElement } from "@root/.storybook/utils/renderElement";
+import { NDivider, type NDividerType } from "./NDivider.ce";
 
 // This default export determines where your story goes in the story list
 const meta: Meta<NDividerType["Props"]> = {
@@ -17,7 +17,7 @@ const meta: Meta<NDividerType["Props"]> = {
   },
   args: {},
   render: (attr) => {
-    const elm = renderElement("n-divider", attr);
+    const elm = renderElement("n-divider", NDivider, attr);
 
     return elm;
   },
@@ -45,7 +45,7 @@ export const Vertical: Story = {
     const container = document.createElement("div");
     container.style.height = "200px";
 
-    const elm = renderElement("n-divider", attr);
+    const elm = renderElement("n-divider", NDivider, attr);
 
     const text = document.createElement("span");
     text.textContent = "Text";

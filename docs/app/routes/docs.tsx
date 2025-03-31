@@ -1,5 +1,6 @@
-import type { Option } from "@nuco/react";
-import { Breadcrumb, Li } from "@nuco/react";
+import type { Option } from "@nuco/react/components/Option";
+import { Breadcrumb } from "@nuco/react/components/Breadcrumb";
+import { Li } from "@nuco/react/components/Li";
 import FamiconsLogoWebComponent from "~icons/famicons/logo-web-component?width=1.5rem&height=1.5rem";
 import MdiAngular from "~icons/mdi/angular?width=1.5rem&height=1.5rem";
 import MdiReact from "~icons/mdi/react?width=1.5rem&height=1.5rem";

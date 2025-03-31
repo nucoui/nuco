@@ -1,22 +1,24 @@
 import type { Props } from "@/types/Props";
-import type { ElementNames } from "@nuco/core";
+import type { NElementNames, NElements } from "@nuco/core";
 import { Client } from "@/components/wrapper/Client";
 import { NucoClientWrapper } from "@/components/wrapper/NucoClientWrapper";
 import { NucoServerWrapper } from "@/components/wrapper/NucoServerWrapper";
 
-type WrapperProps<RefType extends HTMLElement, ElementProps extends Record<string, unknown>, ElementEmits extends string> = {
-  elementName: ElementNames;
+type WrapperProps<Name extends NElementNames, RefType extends HTMLElement, ElementProps extends Record<string, unknown>, ElementEmits extends string> = {
+  elementName: Name;
+  elementClass: NElements[Name];
   getNElementHtml: (props: ElementProps) => string;
   style: string;
   props: Props<RefType, ElementProps, ElementEmits>;
 };
 
-export const NucoWrapper = <RefType extends HTMLElement, ElementProps extends Record<string, unknown>, ElementEmits extends string>({
+export const NucoWrapper = <Name extends NElementNames, RefType extends HTMLElement, ElementProps extends Record<string, unknown>, ElementEmits extends string>({
   elementName,
+  elementClass,
   getNElementHtml,
   style,
   props,
-}: WrapperProps<RefType, ElementProps, ElementEmits>) => {
+}: WrapperProps<Name, RefType, ElementProps, ElementEmits>) => {
   return (
     <Client
       serverChildren={(
@@ -28,8 +30,9 @@ export const NucoWrapper = <RefType extends HTMLElement, ElementProps extends Re
         />
       )}
     >
-      <NucoClientWrapper<RefType, ElementProps, ElementEmits>
+      <NucoClientWrapper<Name, RefType, ElementProps, ElementEmits>
         elementName={elementName}
+        elementClass={elementClass}
         props={props}
       />
     </Client>

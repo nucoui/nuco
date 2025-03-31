@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import type { NOptionType } from "./NOption.ce";
 import { renderElement } from "@root/.storybook/utils/renderElement";
+import { NOption, type NOptionType } from "./NOption.ce";
 
 // This default export determines where your story goes in the story list
 const meta: Meta = {
@@ -18,7 +18,7 @@ const meta: Meta = {
     disabled: false,
   },
   render: (attr) => {
-    const elm = renderElement("n-option", attr);
+    const elm = renderElement("n-option", NOption, attr);
     elm.textContent = "Option";
 
     return elm;

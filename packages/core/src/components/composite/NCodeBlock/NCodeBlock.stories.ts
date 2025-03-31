@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import type { NCodeBlockType } from "./NCodeBlock.ce";
 import { renderElement } from "@root/.storybook/utils/renderElement";
+import { NCodeBlock, type NCodeBlockType } from "./NCodeBlock.ce";
 
 // This default export determines where your story goes in the story list
 const meta: Meta<NCodeBlockType["Props"]> = {
@@ -22,7 +22,7 @@ const meta: Meta<NCodeBlockType["Props"]> = {
     code: `console.log("Hello, World!");`,
   },
   render: (attr) => {
-    const elm = renderElement("n-code-block", attr);
+    const elm = renderElement("n-code-block", NCodeBlock, attr);
 
     return elm;
   },

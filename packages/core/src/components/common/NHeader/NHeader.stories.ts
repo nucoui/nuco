@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import type { NHeaderType } from "./NHeader.ce";
 import { renderElement } from "@root/.storybook/utils/renderElement";
+import { NHeader, type NHeaderType } from "./NHeader.ce";
 
 // This default export determines where your story goes in the story list
 const meta: Meta = {
@@ -27,7 +27,7 @@ const meta: Meta = {
     const headerArea = document.createElement("div");
     headerArea.style.setProperty("position", "relative");
 
-    const element = renderElement("n-header", attr);
+    const element = renderElement("n-header", NHeader, attr);
 
     headerArea.appendChild(element);
 

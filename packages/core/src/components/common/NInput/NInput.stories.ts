@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
 import type NInputCe from "./NInput.ce.vue";
-import { resisterElement } from "@/main";
+import { NError, NInput, NLi, NUl } from "@/main";
 import { renderElement } from "@root/.storybook/utils/renderElement";
 
 // This default export determines where your story goes in the story list
@@ -62,7 +62,7 @@ const meta: Meta = {
     invalid: false,
   },
   render: (attr) => {
-    return renderElement("n-input", attr);
+    return renderElement("n-input", NInput, attr);
   },
 };
 
@@ -85,14 +85,14 @@ export const Invalid: Story = {
     invalid: true,
   },
   render: (attr) => {
-    const nInput = renderElement("n-input", attr);
+    const nInput = renderElement("n-input", NInput, attr);
 
-    const nError = renderElement("n-error", attr);
+    const nError = renderElement("n-error", NError, attr);
     nError.slot = "error";
 
-    const nUl = renderElement("n-ul", {});
+    const nUl = renderElement("n-ul", NUl, {});
 
-    const nLi = renderElement("n-li", {});
+    const nLi = renderElement("n-li", NLi, {});
     nLi.appendChild(document.createTextNode("Error message"));
 
     nUl?.appendChild(nLi);
@@ -112,7 +112,7 @@ export const CustomLabel: Story = {
     placeholder: "Placeholder",
   },
   render: (attr) => {
-    const nInput = renderElement("n-input", attr);
+    const nInput = renderElement("n-input", NInput, attr);
 
     const label = document.createElement("span");
     label.textContent = "Custom Label";
@@ -140,15 +140,12 @@ export const Playground: Story = {
     placeholder: "Please enter your name",
   },
   render: (attr) => {
-    resisterElement("n-input");
-    resisterElement("n-button");
-
     const form = document.createElement("form");
     form.style.display = "flex";
     form.style.flexDirection = "column";
     form.style.gap = "8px";
 
-    const nInput = renderElement("n-input", attr);
+    const nInput = renderElement("n-input", NInput, attr);
     nInput.setAttribute("type", "text");
     nInput.setAttribute("minlength", "3");
     nInput.setAttribute("maxlength", "10");

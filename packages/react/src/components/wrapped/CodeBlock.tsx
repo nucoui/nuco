@@ -1,6 +1,6 @@
 import type { Props } from "@/types/Props";
 import { NucoWrapper } from "@/components/wrapper/NucoWrapper";
-import { type NCodeBlockType, NCodeBlockUtil } from "@nuco/core";
+import { NCodeBlock, type NCodeBlockType, NCodeBlockUtil } from "@nuco/core";
 
 // Please change the type of ElementType to the correct type
 type ElementType = HTMLElement;
@@ -9,8 +9,9 @@ export const CodeBlock = (props: Props<ElementType, NCodeBlockType["Props"], NCo
   const { getHtmlString, style } = NCodeBlockUtil;
 
   return (
-    <NucoWrapper<ElementType, NCodeBlockType["Props"], NCodeBlockType["Emit"]>
+    <NucoWrapper<"n-code-block", ElementType, NCodeBlockType["Props"], NCodeBlockType["Emit"]>
       elementName="n-code-block"
+      elementClass={NCodeBlock}
       getNElementHtml={getHtmlString}
       style={style}
       props={props}

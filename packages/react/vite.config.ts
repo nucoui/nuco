@@ -1,5 +1,6 @@
 import type { Plugin } from "vite";
 import react from "@vitejs/plugin-react";
+import { visualizer } from "rollup-plugin-visualizer";
 import preserveDirectives from "rollup-preserve-directives";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
@@ -14,10 +15,17 @@ export default defineConfig({
     preserveDirectives() as Plugin,
     dts({
       include: ["src"],
+      outDir: "./dist/types",
       tsconfigPath: "./tsconfig.app.json",
     }),
     tsconfigPaths({
       configNames: ["tsconfig.app.json"],
+    }),
+    visualizer({
+      open: false,
+      filename: "stats.html",
+      gzipSize: true,
+      template: "treemap",
     }),
   ],
 
@@ -25,9 +33,33 @@ export default defineConfig({
     outDir: "./dist",
     cssCodeSplit: true,
     lib: {
-      entry: "src/main.ts",
+      entry: [
+        "src/main.ts",
+        "src/components/wrapped/Anchor.tsx",
+        "src/components/wrapped/Badge.tsx",
+        "src/components/wrapped/Breadcrumb.tsx",
+        "src/components/wrapped/Button.tsx",
+        "src/components/wrapped/CodeBlock.tsx",
+        "src/components/wrapped/Divider.tsx",
+        "src/components/wrapped/Error.tsx",
+        "src/components/wrapped/H1.tsx",
+        "src/components/wrapped/H2.tsx",
+        "src/components/wrapped/H3.tsx",
+        "src/components/wrapped/H4.tsx",
+        "src/components/wrapped/H5.tsx",
+        "src/components/wrapped/H6.tsx",
+        "src/components/wrapped/Header.tsx",
+        "src/components/wrapped/Input.tsx",
+        "src/components/wrapped/Li.tsx",
+        "src/components/wrapped/NavAccordion.tsx",
+        "src/components/wrapped/Option.tsx",
+        "src/components/wrapped/Select.tsx",
+        "src/components/wrapped/Ul.tsx",
+      ],
       name: "react",
-      fileName: "react",
+      fileName: (format, entryName) => {
+        return `${entryName}.${format}.js`;
+      },
       formats: [
         "es",
         "cjs",
@@ -36,9 +68,10 @@ export default defineConfig({
     rollupOptions: {
       external: [
         "react",
+        "react/jsx-runtime",
         "react-dom",
         "shiki",
-        "@shikijs/twoslash",
+        "@nuco/variable",
       ],
       output: {
         exports: "named",
@@ -48,7 +81,7 @@ export default defineConfig({
           "react": "React",
           "react-dom": "ReactDOM",
           "shiki": "shiki",
-          "@shikijs/twoslash": "@shikijs/twoslash",
+          "@nuco/variable": "nucoVariable",
         },
       },
     },

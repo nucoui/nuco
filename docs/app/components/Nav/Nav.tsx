@@ -1,7 +1,8 @@
 import type { ComponentProps } from "react";
 import type { Register } from "react-router";
-import { NavAccordion, Option, Select } from "@nuco/react";
-
+import { NavAccordion } from "@nuco/react/components/NavAccordion";
+import { Option } from "@nuco/react/components/Option";
+import { Select } from "@nuco/react/components/Select";
 import { Fragment } from "react/jsx-runtime";
 import { Anchor } from "~/components/Anchor/Anchor";
 import styles from "./Nav.module.scss";

@@ -2,26 +2,27 @@
 
 import type { Props } from "@/types/Props";
 import type { Upper } from "@/types/Upper";
-import type { ElementNames } from "@nuco/core";
+import type { NElementNames, NElements } from "@nuco/core";
 import type { JSX } from "react";
 import { splitPropsAttr } from "@/utils/splitPropsAttr";
-import { resisterElement } from "@nuco/core";
+import { resisterNElement } from "@nuco/core";
 import { useEffect, useLayoutEffect, useMemo, useRef } from "react";
 import { jsx as _jsx } from "react/jsx-runtime";
 
-type ClientWrapperProps<RefType extends HTMLElement, ElementProps extends Record<string, unknown>, ElementEmits extends string> = {
-  elementName: ElementNames;
+type ClientWrapperProps<Name extends NElementNames, RefType extends HTMLElement, ElementProps extends Record<string, unknown>, ElementEmits extends string> = {
+  elementName: Name;
+  elementClass: NElements[Name];
   props: Props<RefType, ElementProps, ElementEmits>;
 };
 
-export const NucoClientWrapper = <RefType extends HTMLElement, ElementProps extends Record<string, unknown>, ElementEmits extends string>({ elementName, props }: ClientWrapperProps<RefType, ElementProps, ElementEmits>) => {
+export const NucoClientWrapper = <Name extends NElementNames, RefType extends HTMLElement, ElementProps extends Record<string, unknown>, ElementEmits extends string>({ elementName, elementClass, props }: ClientWrapperProps<Name, RefType, ElementProps, ElementEmits>) => {
   const ref = useRef<RefType | null>(null);
   const { emits, props: elementProps, children } = useMemo(() => splitPropsAttr(props), [props]);
   const eventListenersAdded = useRef<Set<string>>(new Set());
 
   useLayoutEffect(() => {
     // customElements.whenDefined(elementName).then(() => console.info(`${elementName} is defined with React`));
-    resisterElement(elementName);
+    resisterNElement(elementName, elementClass);
   }, []);
 
   useEffect(() => {

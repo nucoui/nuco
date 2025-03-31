@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import type { NSelectType } from "./NSelect.ce";
+import { NButton, NOption } from "@/main";
 import { renderElement } from "@root/.storybook/utils/renderElement";
+import { NSelect, type NSelectType } from "./NSelect.ce";
 
 // This default export determines where your story goes in the story list
 const meta: Meta = {
@@ -21,15 +22,15 @@ const meta: Meta = {
     disabled: false,
   },
   render: (attr) => {
-    const elm = renderElement("n-select", attr);
+    const elm = renderElement("n-select", NSelect, attr);
 
-    const optionA = renderElement("n-option", {
+    const optionA = renderElement("n-option", NOption, {
       value: "a",
     });
     optionA.textContent = "Option A";
     optionA.tabIndex = 0;
 
-    const optionB = renderElement("n-option", {
+    const optionB = renderElement("n-option", NOption, {
       value: "b",
       disabled: true,
     });
@@ -55,9 +56,9 @@ export const Playground: Story = {
     name: "name",
   },
   render: (attr) => {
-    const elm = renderElement("n-select", attr);
+    const elm = renderElement("n-select", NSelect, attr);
 
-    const optionA = renderElement("n-option", {
+    const optionA = renderElement("n-option", NOption, {
       value: "a",
     });
     const optionASlotContent = document.createElement("span");
@@ -65,7 +66,7 @@ export const Playground: Story = {
     optionASlotContent.textContent = "Option A";
     optionA.appendChild(optionASlotContent);
 
-    const optionB = renderElement("n-option", {
+    const optionB = renderElement("n-option", NOption, {
       value: "b",
       selected: true,
     });
@@ -79,7 +80,7 @@ export const Playground: Story = {
     form.style.flexDirection = "column";
     form.style.gap = "1rem";
 
-    const submitButton = renderElement("n-button", {
+    const submitButton = renderElement("n-button", NButton, {
       type: "submit",
     });
     submitButton.textContent = "Submit";

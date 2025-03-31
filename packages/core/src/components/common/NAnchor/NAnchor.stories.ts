@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import type { NAnchorType } from "./NAnchor.ce";
 import { renderElement } from "@root/.storybook/utils/renderElement";
+import { NAnchor, type NAnchorType } from "./NAnchor.ce";
 
 // This default export determines where your story goes in the story list
 const meta: Meta = {
@@ -25,7 +25,7 @@ const meta: Meta = {
     underline: "dotted",
   },
   render: (attr) => {
-    const elm = renderElement("n-anchor", attr);
+    const elm = renderElement("n-anchor", NAnchor, attr);
 
     const text = document.createElement("span");
     text.textContent = "Anchor";
