@@ -20,8 +20,10 @@ const Page = () => {
         Explains how to use components that support CSR and SSR in React 19
       </p>
       <Divider textPosition="center" />
+
       <H3>1. Installation</H3>
       <CodeBlock lang="shell" code="npm i @nuco/core @nuco/react @nuco/variable" />
+
       <H3>2. Setup</H3>
       <H4>2.1. Import CSS</H4>
       <p>Put the following code in the root file of the project (main.tsx or root.tsx)</p>
@@ -30,11 +32,17 @@ const Page = () => {
         fileName="root.tsx"
         code={`import "@nuco/variable/css"`}
       />
-      <H4>2.2. Done !</H4>
+      <H4>2.2. Road font</H4>
+      <p>
+        nuco is designed for use with Poppins fonts.
+        Load fonts from Google font or local assets.
+      </p>
+
+      <H3>Done !</H3>
       <CodeBlock
         lang="tsx"
         fileName="page.tsx"
-        code={`import { Button } from "@nuco/react";
+        code={`import { Button } from "@nuco/react/components/Button";
 
 const Page = () => {
   return (

@@ -18,7 +18,7 @@ defineRender(() => (
 
 <style lang="scss">
 .n-h2 {
-  margin-top: var(--n-4);
+  margin-top: var(--n-6);
   font-size: var(--n-7);
   font-weight: bold;
   line-height: 1.5;

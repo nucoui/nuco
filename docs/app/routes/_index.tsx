@@ -62,8 +62,15 @@ const Page = () => {
         </div>
       </div>
       <div>
-        <H2>Features</H2>
-        index
+        <H2>What @nuco/core ?</H2>
+        <p>
+          @nuco/core is a UI library that works with any framework.
+          <br />
+          You will be freed from the fear of migrating from Vue to React during development or maintenance, or the curse of narrowing your framework choices to use a UI library.
+        </p>
+      </div>
+      <div>
+
       </div>
     </div>
   );

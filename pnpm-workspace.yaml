@@ -6,7 +6,7 @@ packages:
 
 catalog:
   "typescript": "5.7.3" # https://www.npmjs.com/package/typescript
-  "vite": "6.1.1" # https://www.npmjs.com/package/vite
+  "vite": "6.2.4" # https://www.npmjs.com/package/vite
   # == storybook https://storybook.js.org/ ==
   "@chromatic-com/storybook": "^3.2.4"
   "@storybook/addon-essentials": "8.6.0"
