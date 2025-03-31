@@ -80,7 +80,7 @@ defineRender(() => (
 
   &.-warning {
     color: var(--p-yellow-900);
-    background-color: var(--p-yellow-600);
+    background-color: var(--p-yellow-400);
     border-color: var(--p-yellow-300);
   }
 

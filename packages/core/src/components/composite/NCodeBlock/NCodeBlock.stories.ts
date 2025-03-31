@@ -18,6 +18,7 @@ const meta: Meta<NCodeBlockType["Props"]> = {
   },
   args: {
     lang: "js",
+    fileName: "index.js",
     code: `console.log("Hello, World!");`,
   },
   render: (attr) => {

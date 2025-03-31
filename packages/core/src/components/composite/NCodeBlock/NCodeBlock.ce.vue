@@ -10,6 +10,7 @@ import { h, ref, watch } from "vue";
 
 export type Props = {
   lang?: BundledLanguage | SpecialLanguage;
+  fileName?: string;
   code: string;
 };
 
@@ -80,6 +81,7 @@ const handleCLick = () => {
 defineRender(() => (
   <div ref={hostRef} class="n-code-block">
     <div class="header">
+      <span class="name">{props.value.fileName}</span>
       <span class="lang">{props.value.lang}</span>
     </div>
     <div class="block">
@@ -95,6 +97,7 @@ defineRender(() => (
 
 <style lang="scss">
 .n-code-block {
+  margin: var(--n-6) 0;
   overflow: hidden;
   background-color: var(--cs-background-secondary);
   border: 2px solid var(--cs-border-tertiary);
@@ -104,7 +107,13 @@ defineRender(() => (
     display: grid;
     grid-template-columns: auto auto;
     justify-content: space-between;
-    padding: var(--n-1) var(--n-4);
+    padding: var(--n-2) var(--n-4);
+
+    > .name {
+      font-size: var(--n-3);
+      font-weight: 500;
+      color: var(--cs-text-primary);
+    }
 
     > .lang {
       font-size: var(--n-3);
@@ -143,6 +152,7 @@ defineRender(() => (
       padding: var(--n-4);
       margin: 0;
       overflow-x: auto;
+      font-size: var(--n-4);
 
       &:focus {
         outline: none;

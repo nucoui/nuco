@@ -1,5 +1,5 @@
 import type { Route } from "./+types/root";
-import { Header, useColorScheme } from "@nuco/react";
+import { Divider, Header, useColorScheme } from "@nuco/react";
 import cssNuco from "@nuco/variable/css.css?url";
 import FileIconsNpm from "~icons/file-icons/npm?width=1.06rem&height=1.26rem";
 import MdiGithub from "~icons/mdi/github?width=1.5rem&height=1.5rem";
@@ -121,6 +121,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
 
         <footer>
+          <Divider text="footer" textPosition="center" />
           footer
         </footer>
         <ScrollRestoration />

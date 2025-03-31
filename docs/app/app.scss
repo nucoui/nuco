@@ -17,6 +17,10 @@ body {
   margin: 0;
 }
 
+p {
+  margin-top: var(--n-4);
+}
+
 ::-webkit-scrollbar {
   width: var(--n-3);
 }

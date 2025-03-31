@@ -3,6 +3,10 @@ import type { Props } from "@/types/Props";
 import type { Upper } from "@/types/Upper";
 import type { ReactNode, SyntheticEvent } from "react";
 
+function camelToKebabCase(str: string): string {
+  return str.replace(/([a-z0-9]?)([A-Z])/g, "$1-$2").toLowerCase();
+}
+
 export const splitPropsAttr = <RefType extends HTMLElement, ElementProps extends Record<string, unknown>, ElementEmits extends string>(
   inputProps: Props<RefType, ElementProps, ElementEmits>,
 ) => {
@@ -19,7 +23,7 @@ export const splitPropsAttr = <RefType extends HTMLElement, ElementProps extends
         children = inputProps[key];
         return;
       }
-      props[key as keyof ElementProps] = inputProps[key] as ElementProps[keyof ElementProps];
+      props[camelToKebabCase(key) as keyof ElementProps] = inputProps[key] as ElementProps[keyof ElementProps];
     }
   });
 
