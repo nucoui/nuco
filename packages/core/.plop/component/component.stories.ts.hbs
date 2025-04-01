@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import type { {{pascalCase name}}Type } from "./{{pascalCase name}}.ce";
 import { renderElement } from "@root/.storybook/utils/renderElement";
+import { {{pascalCase name}}, type {{pascalCase name}}Type } from "./{{pascalCase name}}.ce";
 
 // This default export determines where your story goes in the story list
-const meta: Meta = {
+const meta: Meta<{{pascalCase name}}Type["Props"]> = {
   component: "{{kebabCase name}}",
   tags: ["autodocs"],
   argTypes: {},
   args: {},
   render: (attr) => {
-    const elm = renderElement("{{kebabCase name}}", attr);
+    const elm = renderElement("{{kebabCase name}}", {{pascalCase name}}, attr);
 
     return elm;
   },

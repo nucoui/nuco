@@ -34,7 +34,6 @@ export default defineConfig({
     cssCodeSplit: true,
     lib: {
       entry: [
-        "src/main.ts",
         "src/components/wrapped/Anchor.tsx",
         "src/components/wrapped/Badge.tsx",
         "src/components/wrapped/Breadcrumb.tsx",
@@ -55,9 +54,18 @@ export default defineConfig({
         "src/components/wrapped/Option.tsx",
         "src/components/wrapped/Select.tsx",
         "src/components/wrapped/Ul.tsx",
+        "src/main.ts",
       ],
       name: "react",
       fileName: (format, entryName) => {
+        if (format === "cjs") {
+          return `${entryName}.cjs`;
+        }
+
+        if (format === "es") {
+          return `${entryName}.js`;
+        }
+
         return `${entryName}.${format}.js`;
       },
       formats: [

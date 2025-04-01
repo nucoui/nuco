@@ -19,7 +19,7 @@ import { NCodeBlock } from "@/components/composite/NCodeBlock/NCodeBlock.ce";
 import { NError } from "@/components/composite/NError/NError.ce";
 import { NNavAccordion } from "@/components/composite/NNavAccordion/NNavAccordion.ce";
 
-const _Elements = {
+const Elements = {
   "n-code-block": NCodeBlock,
   "n-divider": NDivider,
   "n-badge": NBadge,
@@ -44,5 +44,14 @@ const _Elements = {
   [key: `n-${string}`]: typeof HTMLElement;
 };
 
-export type NElementNames = keyof typeof _Elements;
-export type NElements = typeof _Elements;
+ type ElementsName = keyof typeof Elements;
+ type ElementsMap = typeof Elements;
+
+export {
+  Elements,
+};
+
+export type {
+  ElementsMap,
+  ElementsName,
+};

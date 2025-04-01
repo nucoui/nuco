@@ -10,6 +10,29 @@ import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 import tsconfigPaths from "vite-tsconfig-paths";
 
+const COMPONENT_PATH = [
+  "src/components/common/NAnchor/NAnchor.ce.ts",
+  "src/components/common/NButton/NButton.ce.ts",
+  "src/components/common/NDivider/NDivider.ce.ts",
+  "src/components/common/NH1/NH1.ce.ts",
+  "src/components/common/NH2/NH2.ce.ts",
+  "src/components/common/NH3/NH3.ce.ts",
+  "src/components/common/NH4/NH4.ce.ts",
+  "src/components/common/NH5/NH5.ce.ts",
+  "src/components/common/NH6/NH6.ce.ts",
+  "src/components/common/NHeader/NHeader.ce.ts",
+  "src/components/common/NInput/NInput.ce.ts",
+  "src/components/common/NLi/NLi.ce.ts",
+  "src/components/common/NOption/NOption.ce.ts",
+  "src/components/common/NSelect/NSelect.ce.ts",
+  "src/components/common/NUl/NUl.ce.ts",
+  "src/components/composite/NBadge/NBadge.ce.ts",
+  "src/components/composite/NBreadcrumb/NBreadcrumb.ce.ts",
+  "src/components/composite/NCodeBlock/NCodeBlock.ce.ts",
+  "src/components/composite/NError/NError.ce.ts",
+  "src/components/composite/NNavAccordion/NNavAccordion.ce.ts",
+];
+
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
@@ -23,6 +46,7 @@ export default defineConfig({
       autoInstall: true,
     }) as Plugin,
     dts({
+      outDir: "./dist/types",
       tsconfigPath: resolve(__dirname, "tsconfig.app.json"),
     }),
     tsconfigPaths({
@@ -52,12 +76,27 @@ export default defineConfig({
   },
 
   build: {
-    outDir: "./dist",
+    outDir: "dist",
     cssCodeSplit: true,
     lib: {
-      entry: "src/main.ts",
+      entry: [
+        ...COMPONENT_PATH,
+        "src/utils/elements.ts",
+        "src/utils/resisterElement.ts",
+        "src/main.ts",
+      ],
       name: "core",
-      fileName: "core",
+      fileName: (format, entryName) => {
+        if (format === "cjs") {
+          return `${entryName}.cjs`;
+        }
+
+        if (format === "es") {
+          return `${entryName}.js`;
+        }
+
+        return `${entryName}.${format}.js`;
+      },
       formats: [
         "es",
         "cjs",

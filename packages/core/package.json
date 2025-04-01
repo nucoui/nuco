@@ -5,14 +5,124 @@
   "private": false,
   "exports": {
     ".": {
-      "types": "./dist/src/main.d.ts",
-      "import": "./dist/core.js",
-      "require": "./dist/core.cjs"
+      "types": "./dist/types/main.d.ts",
+      "import": "./dist/packages/core/src/main.js",
+      "require": "./dist/packages/core/src/main.cjs"
+    },
+    "./components/common/n-anchor": {
+      "types": "./dist/types/components/common/NAnchor/NAnchor.ce.d.ts",
+      "import": "./dist/packages/core/src/components/common/NAnchor/NAnchor.ce.js",
+      "require": "./dist/packages/core/src/components/common/NAnchor/NAnchor.ce.cjs"
+    },
+    "./components/common/n-button": {
+      "types": "./dist/types/components/common/NButton/NButton.ce.d.ts",
+      "import": "./dist/packages/core/src/components/common/NButton/NButton.ce.js",
+      "require": "./dist/packages/core/src/components/common/NButton/NButton.ce.cjs"
+    },
+    "./components/common/n-divider": {
+      "types": "./dist/types/components/common/NDivider/NDivider.ce.d.ts",
+      "import": "./dist/packages/core/src/components/common/NDivider/NDivider.ce.js",
+      "require": "./dist/packages/core/src/components/common/NDivider/NDivider.ce.cjs"
+    },
+    "./components/common/n-h1": {
+      "types": "./dist/types/components/common/NH1/NH1.ce.d.ts",
+      "import": "./dist/packages/core/src/components/common/NH1/NH1.ce.js",
+      "require": "./dist/packages/core/src/components/common/NH1/NH1.ce.cjs"
+    },
+    "./components/common/n-h2": {
+      "types": "./dist/types/components/common/NH2/NH2.ce.d.ts",
+      "import": "./dist/packages/core/src/components/common/NH2/NH2.ce.js",
+      "require": "./dist/packages/core/src/components/common/NH2/NH2.ce.cjs"
+    },
+    "./components/common/n-h3": {
+      "types": "./dist/types/components/common/NH3/NH3.ce.d.ts",
+      "import": "./dist/packages/core/src/components/common/NH3/NH3.ce.js",
+      "require": "./dist/packages/core/src/components/common/NH3/NH3.ce.cjs"
+    },
+    "./components/common/n-h4": {
+      "types": "./dist/types/components/common/NH4/NH4.ce.d.ts",
+      "import": "./dist/packages/core/src/components/common/NH4/NH4.ce.js",
+      "require": "./dist/packages/core/src/components/common/NH4/NH4.ce.cjs"
+    },
+    "./components/common/n-h5": {
+      "types": "./dist/types/components/common/NH5/NH5.ce.d.ts",
+      "import": "./dist/packages/core/src/components/common/NH5/NH5.ce.js",
+      "require": "./dist/packages/core/src/components/common/NH5/NH5.ce.cjs"
+    },
+    "./components/common/n-h6": {
+      "types": "./dist/types/components/common/NH6/NH6.ce.d.ts",
+      "import": "./dist/packages/core/src/components/common/NH6/NH6.ce.js",
+      "require": "./dist/packages/core/src/components/common/NH6/NH6.ce.cjs"
+    },
+    "./components/common/n-header": {
+      "types": "./dist/types/components/common/NHeader/NHeader.ce.d.ts",
+      "import": "./dist/packages/core/src/components/common/NHeader/NHeader.ce.js",
+      "require": "./dist/packages/core/src/components/common/NHeader/NHeader.ce.cjs"
+    },
+    "./components/common/n-input": {
+      "types": "./dist/types/components/common/NInput/NInput.ce.d.ts",
+      "import": "./dist/packages/core/src/components/common/NInput/NInput.ce.js",
+      "require": "./dist/packages/core/src/components/common/NInput/NInput.ce.cjs"
+    },
+    "./components/common/n-li": {
+      "types": "./dist/types/components/common/NLi/NLi.ce.d.ts",
+      "import": "./dist/packages/core/src/components/common/NLi/NLi.ce.js",
+      "require": "./dist/packages/core/src/components/common/NLi/NLi.ce.cjs"
+    },
+    "./components/common/n-option": {
+      "types": "./dist/types/components/common/NOption/NOption.ce.d.ts",
+      "import": "./dist/packages/core/src/components/common/NOption/NOption.ce.js",
+      "require": "./dist/packages/core/src/components/common/NOption/NOption.ce.cjs"
+    },
+    "./components/common/n-select": {
+      "types": "./dist/types/components/common/NSelect/NSelect.ce.d.ts",
+      "import": "./dist/packages/core/src/components/common/NSelect/NSelect.ce.js",
+      "require": "./dist/packages/core/src/components/common/NSelect/NSelect.ce.cjs"
+    },
+    "./components/common/n-ul": {
+      "types": "./dist/types/components/common/NUl/NUl.ce.d.ts",
+      "import": "./dist/packages/core/src/components/common/NUl/NUl.ce.js",
+      "require": "./dist/packages/core/src/components/common/NUl/NUl.ce.cjs"
+    },
+    "./components/composite/n-badge": {
+      "types": "./dist/types/components/composite/NBadge/NBadge.ce.d.ts",
+      "import": "./dist/packages/core/src/components/composite/NBadge/NBadge.ce.js",
+      "require": "./dist/packages/core/src/components/composite/NBadge/NBadge.ce.cjs"
+    },
+    "./components/composite/n-breadcrumb": {
+      "types": "./dist/types/components/composite/NBreadcrumb/NBreadcrumb.ce.d.ts",
+      "import": "./dist/packages/core/src/components/composite/NBreadcrumb/NBreadcrumb.ce.js",
+      "require": "./dist/packages/core/src/components/composite/NBreadcrumb/NBreadcrumb.ce.cjs"
+    },
+    "./components/composite/n-code-block": {
+      "types": "./dist/types/components/composite/NCodeBlock/NCodeBlock.ce.d.ts",
+      "import": "./dist/packages/core/src/components/composite/NCodeBlock/NCodeBlock.ce.js",
+      "require": "./dist/packages/core/src/components/composite/NCodeBlock/NCodeBlock.ce.cjs"
+    },
+    "./components/composite/n-error": {
+      "types": "./dist/types/components/composite/NError/NError.ce.d.ts",
+      "import": "./dist/packages/core/src/components/composite/NError/NError.ce.js",
+      "require": "./dist/packages/core/src/components/composite/NError/NError.ce.cjs"
+    },
+    "./components/composite/n-nav-accordion": {
+      "types": "./dist/types/components/composite/NNavAccordion/NNavAccordion.ce.d.ts",
+      "import": "./dist/packages/core/src/components/composite/NNavAccordion/NNavAccordion.ce.js",
+      "require": "./dist/packages/core/src/components/composite/NNavAccordion/NNavAccordion.ce.cjs"
+    },
+    "./elements": {
+      "types": "./dist/types/src/utils/elements.d.ts",
+      "import": "./dist/packages/core/src/utils/elements.js",
+      "require": "./dist/packages/core/src/utils/elements.cjs"
+    },
+    "./resisterElement": {
+      "types": "./dist/types/utils/resisterElement.d.ts",
+      "import": "./dist/packages/core/src/utils/resisterElement.js",
+      "require": "./dist/packages/core/src/utils/resisterElement.cjs"
     }
   },
-  "main": "./dist/core.umd.cjs",
-  "module": "./dist/core.js",
-  "types": "./dist/src/core.d.ts",
+  "main": "./dist/packages/core/src/main.js",
+  "module": "./dist/packages/core/src/main.js",
+  "types": "./dist/types/main.d.ts",
   "files": [
     "LICENSE.md",
     "README.md",
