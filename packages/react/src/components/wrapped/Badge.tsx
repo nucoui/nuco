@@ -1,6 +1,6 @@
 import type { Props } from "@/types/Props";
 import { NucoWrapper } from "@/components/wrapper/NucoWrapper";
-import { NBadge, type NBadgeType, NBadgeUtil } from "@nuco/core";
+import { NBadge, type NBadgeType, NBadgeUtil } from "@nuco/core/components/composite/n-badge";
 
 // Please change the type of ElementType to the correct type
 type ElementType = HTMLElement;

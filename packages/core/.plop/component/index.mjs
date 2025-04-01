@@ -142,7 +142,7 @@ export default (
             const pascalCaseName = toPascalCase(data.name);
 
             const newExport = {
-              types: `./dist/types/components${data.atomic}${pascalCaseName}/${pascalCaseName}.ce.d.ts`,
+              types: `./dist/types/src/components${data.atomic}${pascalCaseName}/${pascalCaseName}.ce.d.ts`,
               import: `./dist/packages/core/src/components${data.atomic}${pascalCaseName}/${pascalCaseName}.ce.js`,
               require: `./dist/packages/core/src/components${data.atomic}${pascalCaseName}/${pascalCaseName}.ce.cjs`,
             };

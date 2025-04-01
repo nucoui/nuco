@@ -1,4 +1,3 @@
-import type { Route } from "./+types/docs._index";
 import { Button } from "@nuco/react/components/Button";
 import { H1 } from "@nuco/react/components/H1";
 import { H2 } from "@nuco/react/components/H2";
@@ -8,9 +7,7 @@ import { H5 } from "@nuco/react/components/H5";
 import { H6 } from "@nuco/react/components/H6";
 import { Input } from "@nuco/react/components/Input";
 
-export default function Page({
-  loaderData: _,
-}: Route.ComponentProps) {
+export default function Page() {
   return (
     <>
       <H1>Path : /</H1>

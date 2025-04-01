@@ -1,6 +1,6 @@
 import type { Props } from "@/types/Props";
 import { NucoWrapper } from "@/components/wrapper/NucoWrapper";
-import { NAnchor, type NAnchorType, NAnchorUtil } from "@nuco/core";
+import { NAnchor, type NAnchorType, NAnchorUtil } from "@nuco/core/components/common/n-anchor";
 
 // Please change the type of ElementType to the correct type
 type ElementType = HTMLElement;

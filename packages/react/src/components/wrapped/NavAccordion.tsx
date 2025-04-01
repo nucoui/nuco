@@ -1,6 +1,6 @@
 import type { Props } from "@/types/Props";
 import { NucoWrapper } from "@/components/wrapper/NucoWrapper";
-import { NNavAccordion, type NNavAccordionType, NNavAccordionUtil } from "@nuco/core";
+import { NNavAccordion, type NNavAccordionType, NNavAccordionUtil } from "@nuco/core/components/composite/n-nav-accordion";
 
 // Please change the type of ElementType to the correct type
 type ElementType = HTMLElement;

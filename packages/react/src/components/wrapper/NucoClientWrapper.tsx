@@ -2,27 +2,27 @@
 
 import type { Props } from "@/types/Props";
 import type { Upper } from "@/types/Upper";
-import type { NElementNames, NElements } from "@nuco/core";
+import type { ElementsMap, ElementsName } from "@nuco/core/elements";
 import type { JSX } from "react";
 import { splitPropsAttr } from "@/utils/splitPropsAttr";
-import { resisterNElement } from "@nuco/core";
+import { resisterElement } from "@nuco/core/resisterElement";
 import { useEffect, useLayoutEffect, useMemo, useRef } from "react";
 import { jsx as _jsx } from "react/jsx-runtime";
 
-type ClientWrapperProps<Name extends NElementNames, RefType extends HTMLElement, ElementProps extends Record<string, unknown>, ElementEmits extends string> = {
+type ClientWrapperProps<Name extends ElementsName, RefType extends HTMLElement, ElementProps extends Record<string, unknown>, ElementEmits extends string> = {
   elementName: Name;
-  elementClass: NElements[Name];
+  elementClass: ElementsMap[Name];
   props: Props<RefType, ElementProps, ElementEmits>;
 };
 
-export const NucoClientWrapper = <Name extends NElementNames, RefType extends HTMLElement, ElementProps extends Record<string, unknown>, ElementEmits extends string>({ elementName, elementClass, props }: ClientWrapperProps<Name, RefType, ElementProps, ElementEmits>) => {
+export const NucoClientWrapper = <Name extends ElementsName, RefType extends HTMLElement, ElementProps extends Record<string, unknown>, ElementEmits extends string>({ elementName, elementClass, props }: ClientWrapperProps<Name, RefType, ElementProps, ElementEmits>) => {
   const ref = useRef<RefType | null>(null);
   const { emits, props: elementProps, children } = useMemo(() => splitPropsAttr(props), [props]);
   const eventListenersAdded = useRef<Set<string>>(new Set());
 
   useLayoutEffect(() => {
     // customElements.whenDefined(elementName).then(() => console.info(`${elementName} is defined with React`));
-    resisterNElement(elementName, elementClass);
+    resisterElement(elementName, elementClass);
   }, []);
 
   useEffect(() => {

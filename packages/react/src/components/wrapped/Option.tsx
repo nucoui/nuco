@@ -1,6 +1,6 @@
 import type { Props } from "@/types/Props";
 import { NucoWrapper } from "@/components/wrapper/NucoWrapper";
-import { NOption, type NOptionType, NOptionUtil } from "@nuco/core";
+import { NOption, type NOptionType, NOptionUtil } from "@nuco/core/components/common/n-option";
 
 // Please change the type of ElementType to the correct type
 type ElementType = HTMLElement;
