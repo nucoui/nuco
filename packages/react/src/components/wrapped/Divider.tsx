@@ -1,6 +1,6 @@
 import type { Props } from "@/types/Props";
 import { NucoWrapper } from "@/components/wrapper/NucoWrapper";
-import { NDivider, type NDividerType, NDividerUtil } from "@nuco/core/components/common/n-divider";
+import { NDivider, type NDividerType, NDividerUtil } from "@nuco/core/components/n-divider";
 
 // Please change the type of ElementType to the correct type
 type ElementType = HTMLElement;

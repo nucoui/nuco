@@ -1,6 +1,6 @@
 import type { Props } from "@/types/Props";
 import { NucoWrapper } from "@/components/wrapper/NucoWrapper";
-import { NUl, type NUlType, NUlUtil } from "@nuco/core/components/common/n-ul";
+import { NUl, type NUlType, NUlUtil } from "@nuco/core/components/n-ul";
 
 // Please change the type of ElementType to the correct type
 type ElementType = HTMLElement;

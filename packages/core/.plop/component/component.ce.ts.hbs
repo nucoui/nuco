@@ -1,25 +1,14 @@
 import type { Emits, Props } from "./{{pascalCase name}}.ce.vue";
-import { renderToStringSync } from "@/utils/renderToStringSync";
+import { getStyle } from "@/utils/getStyle";
+import { renderToHastSync } from "@/utils/renderToHastSync";
 import { defineCustomElement, h } from "vue";
 import {{pascalCase name}}Ce from "./{{pascalCase name}}.ce.vue";
 
-const style = ({{pascalCase name}}Ce as any).styles?.[0] ?? "" as string;
-
-const getHtmlString = (props: Props) => {
-  const node = h({{pascalCase name}}Ce, props);
-  const renderedNode = renderToStringSync(node);
-
-  return renderedNode;
-};
-
 export class {{pascalCase name}} extends defineCustomElement({{pascalCase name}}Ce) {}
 
-export const {{pascalCase name}}Util: {
-  style: typeof style;
-  getHtmlString: typeof getHtmlString;
-} = {
-  style,
-  getHtmlString,
+export const {{pascalCase name}}Util = {
+  style: getStyle({{pascalCase name}}Ce),
+  getHtmlHast: (props: Props) => renderToHastSync(h({{pascalCase name}}Ce, props)),
 };
 
 export type {{pascalCase name}}Type = {

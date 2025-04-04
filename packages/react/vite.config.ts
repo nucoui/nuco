@@ -6,6 +6,29 @@ import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 import tsconfigPaths from "vite-tsconfig-paths";
 
+const COMPONENT_PATH = [
+  "src/components/wrapped/Anchor.tsx",
+  "src/components/wrapped/Badge.tsx",
+  "src/components/wrapped/Breadcrumb.tsx",
+  "src/components/wrapped/Button.tsx",
+  "src/components/wrapped/CodeBlock.tsx",
+  "src/components/wrapped/Divider.tsx",
+  "src/components/wrapped/Error.tsx",
+  "src/components/wrapped/H1.tsx",
+  "src/components/wrapped/H2.tsx",
+  "src/components/wrapped/H3.tsx",
+  "src/components/wrapped/H4.tsx",
+  "src/components/wrapped/H5.tsx",
+  "src/components/wrapped/H6.tsx",
+  "src/components/wrapped/Header.tsx",
+  "src/components/wrapped/Input.tsx",
+  "src/components/wrapped/Li.tsx",
+  "src/components/wrapped/NavAccordion.tsx",
+  "src/components/wrapped/Option.tsx",
+  "src/components/wrapped/Select.tsx",
+  "src/components/wrapped/Ul.tsx",
+];
+
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
@@ -40,26 +63,7 @@ export default defineConfig({
     cssCodeSplit: true,
     lib: {
       entry: [
-        "src/components/wrapped/Anchor.tsx",
-        "src/components/wrapped/Badge.tsx",
-        "src/components/wrapped/Breadcrumb.tsx",
-        "src/components/wrapped/Button.tsx",
-        "src/components/wrapped/CodeBlock.tsx",
-        "src/components/wrapped/Divider.tsx",
-        "src/components/wrapped/Error.tsx",
-        "src/components/wrapped/H1.tsx",
-        "src/components/wrapped/H2.tsx",
-        "src/components/wrapped/H3.tsx",
-        "src/components/wrapped/H4.tsx",
-        "src/components/wrapped/H5.tsx",
-        "src/components/wrapped/H6.tsx",
-        "src/components/wrapped/Header.tsx",
-        "src/components/wrapped/Input.tsx",
-        "src/components/wrapped/Li.tsx",
-        "src/components/wrapped/NavAccordion.tsx",
-        "src/components/wrapped/Option.tsx",
-        "src/components/wrapped/Select.tsx",
-        "src/components/wrapped/Ul.tsx",
+        ...COMPONENT_PATH,
         "src/main.ts",
       ],
       name: "react",

@@ -117,7 +117,7 @@ export default (
 
             return fileContent.replace(
               /const COMPONENT_PATH = \[[\s\S]*?\];/,
-              `const COMPONENT_PATH = [\n  ${updatedEntries}\n];`,
+              `const COMPONENT_PATH = [\n  ${updatedEntries},\n];`,
             );
           },
         },
@@ -138,7 +138,7 @@ export default (
 
             // 新しいエクスポート文を作成
             const componentName = `n-${data.name.replace(/^n-/, "").toLowerCase()}`;
-            const componentPath = `./components${data.atomic}${componentName}`;
+            const componentPath = `./components/${componentName}`;
             const pascalCaseName = toPascalCase(data.name);
 
             const newExport = {

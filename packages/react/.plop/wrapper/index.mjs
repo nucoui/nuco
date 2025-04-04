@@ -57,22 +57,87 @@ export default (
       },
     ],
     actions: (data) => {
-      const path = `../../src/components/wrapped/`;
-      const mainPath = "../../src/main.ts";
+      const rootPath = "../../";
+      const componentDir = `${rootPath}src/components/wrapped/`;
+      const viteConfigPath = `${rootPath}vite.config.ts`;
 
       const componentName = capitalizeAndRemovePrefix(data.name);
 
       return [
         {
           type: "add",
-          path: `${path}${componentName}.tsx`,
+          path: `${componentDir}${componentName}.tsx`,
           templateFile: "./wrapper.tsx.hbs",
         },
         {
           type: "modify",
-          path: mainPath,
-          pattern: /(^\s*)/m, // ファイルの先頭にマッチする正規表現
-          template: `$1export { ${componentName} } from "@/components/wrapped/${componentName}";\n`,
+          path: viteConfigPath,
+          /**
+           * @param {string} fileContent
+           */
+          transform: (fileContent) => {
+            const match = fileContent.match(/(const COMPONENT_PATH = \[)([\s\S]*?)(\];)/);
+
+            if (!match) {
+              throw new Error("COMPONENT_PATH not found");
+            }
+
+            const entries = match[2]
+              .split(",")
+              .map(entry => entry.trim().replace(/['"]/g, ""))
+              .filter(entry => entry); // 空エントリを除去
+
+            const newEntry = `src/components/wrapped/${componentName}.tsx`;
+
+            entries.push(newEntry);
+            entries.sort();
+
+            const updatedEntries = entries.map(entry => `"${entry}"`).join(",\n  ");
+
+            return fileContent.replace(
+              /const COMPONENT_PATH = \[[\s\S]*?\];/,
+              `const COMPONENT_PATH = [\n  ${updatedEntries}\n];`,
+            );
+          },
+        },
+        {
+          type: "modify",
+          path: `${rootPath}package.json`,
+          /**
+           * @param {string} fileContent - package.json の内容
+           */
+          transform: (fileContent) => {
+            const packageJson = JSON.parse(fileContent);
+
+            // `exports` フィールドが存在しない場合は初期化
+            if (!packageJson.exports) {
+              packageJson.exports = {};
+            }
+
+            const componentPath = `./components/${componentName}`;
+
+            const newExport = {
+              types: `./dist/types/components/wrapped/${componentName}.d.ts`,
+              import: `./dist/packages/react/src/components/wrapped/${componentName}.js`,
+              require: `./dist/packages/react/src/components/wrapped/${componentName}.cjs`,
+            };
+
+            // エクスポート文を追加
+            packageJson.exports[componentPath] = newExport;
+
+            // `exports` フィールドをアルファベット順にソート
+            const sortedExports = Object.keys(packageJson.exports)
+              .sort()
+              .reduce((acc, key) => {
+                acc[key] = packageJson.exports[key];
+                return acc;
+              }, {});
+
+            packageJson.exports = sortedExports;
+
+            // JSON を文字列に戻して返す
+            return JSON.stringify(packageJson, null, 2);
+          },
         },
       ];
     },

@@ -1,6 +1,6 @@
 import type { Props } from "@/types/Props";
 import { NucoWrapper } from "@/components/wrapper/NucoWrapper";
-import { NSelect, type NSelectType, NSelectUtil } from "@nuco/core/components/common/n-select";
+import { NSelect, type NSelectType, NSelectUtil } from "@nuco/core/components/n-select";
 
 // Please change the type of ElementType to the correct type
 type ElementType = HTMLSelectElement;
