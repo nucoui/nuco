@@ -6,13 +6,13 @@ import { NOption, type NOptionType, NOptionUtil } from "@nuco/core/components/co
 type ElementType = HTMLElement;
 
 export const Option = (props: Props<ElementType, NOptionType["Props"], NOptionType["Emit"]>) => {
-  const { getHtmlString, style } = NOptionUtil;
+  const { getHtmlHast, style } = NOptionUtil;
 
   return (
     <NucoWrapper<"n-option", ElementType, NOptionType["Props"], NOptionType["Emit"]>
       elementName="n-option"
       elementClass={NOption}
-      getNElementHtml={getHtmlString}
+      getNElementHtml={getHtmlHast}
       style={style}
       props={props}
     />

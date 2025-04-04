@@ -6,13 +6,13 @@ import { NSelect, type NSelectType, NSelectUtil } from "@nuco/core/components/co
 type ElementType = HTMLSelectElement;
 
 export const Select = (props: Props<ElementType, NSelectType["Props"], NSelectType["Emit"]>) => {
-  const { getHtmlString, style } = NSelectUtil;
+  const { getHtmlHast, style } = NSelectUtil;
 
   return (
     <NucoWrapper<"n-select", ElementType, NSelectType["Props"], NSelectType["Emit"]>
       elementName="n-select"
       elementClass={NSelect}
-      getNElementHtml={getHtmlString}
+      getNElementHtml={getHtmlHast}
       style={style}
       props={props}
     />

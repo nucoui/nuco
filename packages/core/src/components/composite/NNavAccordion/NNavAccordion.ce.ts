@@ -1,25 +1,14 @@
 import type { Emits, Props } from "./NNavAccordion.ce.vue";
-import { renderToStringSync } from "@/utils/renderToStringSync";
+import { getStyle } from "@/utils/getStyle";
+import { renderToHastSync } from "@/utils/renderToHastSync";
 import { defineCustomElement, h } from "vue";
 import NNavAccordionCe from "./NNavAccordion.ce.vue";
 
-const style = (NNavAccordionCe as any).styles?.[0] || "" as string;
-
-const getHtmlString = (props: Props) => {
-  const node = h(NNavAccordionCe, props);
-  const renderedNode = renderToStringSync(node);
-
-  return renderedNode;
-};
-
 export class NNavAccordion extends defineCustomElement(NNavAccordionCe) {}
 
-export const NNavAccordionUtil: {
-  style: typeof style;
-  getHtmlString: typeof getHtmlString;
-} = {
-  style,
-  getHtmlString,
+export const NNavAccordionUtil = {
+  style: getStyle(NNavAccordionCe),
+  getHtmlHast: (props: Props) => renderToHastSync(h(NNavAccordionCe, props)),
 };
 
 export type NNavAccordionType = {

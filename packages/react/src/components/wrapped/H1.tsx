@@ -6,13 +6,13 @@ import { NH1, type NH1Type, NH1Util } from "@nuco/core/components/common/n-h1";
 type ElementType = HTMLElement;
 
 export const H1 = (props: Props<ElementType, NH1Type["Props"], NH1Type["Emit"]>) => {
-  const { getHtmlString, style } = NH1Util;
+  const { getHtmlHast, style } = NH1Util;
 
   return (
     <NucoWrapper<"n-h1", ElementType, NH1Type["Props"], NH1Type["Emit"]>
       elementName="n-h1"
       elementClass={NH1}
-      getNElementHtml={getHtmlString}
+      getNElementHtml={getHtmlHast}
       style={style}
       props={props}
     />

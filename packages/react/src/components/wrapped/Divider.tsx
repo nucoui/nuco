@@ -6,13 +6,13 @@ import { NDivider, type NDividerType, NDividerUtil } from "@nuco/core/components
 type ElementType = HTMLElement;
 
 export const Divider = (props: Props<ElementType, NDividerType["Props"], NDividerType["Emit"]>) => {
-  const { getHtmlString, style } = NDividerUtil;
+  const { getHtmlHast, style } = NDividerUtil;
 
   return (
     <NucoWrapper<"n-divider", ElementType, NDividerType["Props"], NDividerType["Emit"]>
       elementName="n-divider"
       elementClass={NDivider}
-      getNElementHtml={getHtmlString}
+      getNElementHtml={getHtmlHast}
       style={style}
       props={props}
     />

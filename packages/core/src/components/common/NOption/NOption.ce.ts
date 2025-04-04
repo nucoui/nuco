@@ -1,25 +1,14 @@
 import type { Emits, Props } from "./NOption.ce.vue";
-import { renderToStringSync } from "@/utils/renderToStringSync";
+import { getStyle } from "@/utils/getStyle";
+import { renderToHastSync } from "@/utils/renderToHastSync";
 import { defineCustomElement, h } from "vue";
 import NOptionCe from "./NOption.ce.vue";
 
-const style = (NOptionCe as any).styles?.[0] ?? "" as string;
-
-const getHtmlString = (props: Props) => {
-  const node = h(NOptionCe, props);
-  const renderedNode = renderToStringSync(node);
-
-  return renderedNode;
-};
-
 export class NOption extends defineCustomElement(NOptionCe) {}
 
-export const NOptionUtil: {
-  style: typeof style;
-  getHtmlString: typeof getHtmlString;
-} = {
-  style,
-  getHtmlString,
+export const NOptionUtil = {
+  style: getStyle(NOptionCe),
+  getHtmlHast: (props: Props) => renderToHastSync(h(NOptionCe, props)),
 };
 
 export type NOptionType = {

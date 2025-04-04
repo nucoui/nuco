@@ -1,16 +1,17 @@
-import React from "react";
+import type { ReactNode } from "react";
+import { useSyncExternalStore } from "react";
 
 export interface ClientOnlyProps {
-  children: React.ReactNode;
-  serverChildren?: React.ReactNode | undefined;
+  children: ReactNode;
+  serverChildren?: ReactNode | undefined;
 }
 
 const noop = () => void 0;
 
-export const Client = (props: ClientOnlyProps): React.ReactNode => {
+export const Client = (props: ClientOnlyProps): ReactNode => {
   const { children, serverChildren } = props;
 
-  const isClient = React.useSyncExternalStore(
+  const isClient = useSyncExternalStore(
     () => noop,
     () => true,
     () => false,

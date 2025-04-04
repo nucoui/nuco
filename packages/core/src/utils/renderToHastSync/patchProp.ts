@@ -1,8 +1,8 @@
 import { isOn } from "@vue/shared";
-import { logNodeOp, NodeOpTypes, type TestElement } from "./nodeOps";
+import { type Element, logNodeOp, NodeOpTypes } from "./nodeOps";
 
 export function patchProp(
-  el: TestElement,
+  el: Element,
   key: string,
   prevValue: any,
   nextValue: any,
@@ -16,7 +16,7 @@ export function patchProp(
   });
   el.props[key] = nextValue;
   if (isOn(key)) {
-    const event = key[2] === ":" ? key.slice(3) : key.slice(2).toLowerCase()
-    ;(el.eventListeners || (el.eventListeners = {}))[event] = nextValue;
+    const event = key[2] === ":" ? key.slice(3) : key.slice(2).toLowerCase();
+    (el.eventListeners || (el.eventListeners = {}))[event] = nextValue;
   }
 }

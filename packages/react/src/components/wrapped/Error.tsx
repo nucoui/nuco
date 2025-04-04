@@ -6,13 +6,13 @@ import { NError, type NErrorType, NErrorUtil } from "@nuco/core/components/compo
 type ElementType = HTMLElement;
 
 export const Error = (props: Props<ElementType, NErrorType["Props"], NErrorType["Emit"]>) => {
-  const { getHtmlString, style } = NErrorUtil;
+  const { getHtmlHast, style } = NErrorUtil;
 
   return (
     <NucoWrapper<"n-error", ElementType, NErrorType["Props"], NErrorType["Emit"]>
       elementName="n-error"
       elementClass={NError}
-      getNElementHtml={getHtmlString}
+      getNElementHtml={getHtmlHast}
       style={style}
       props={props}
     />

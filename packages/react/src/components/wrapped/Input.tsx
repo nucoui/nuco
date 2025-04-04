@@ -6,13 +6,13 @@ import { NInput, type NInputType, NInputUtil } from "@nuco/core/components/commo
 type ElementType = HTMLElement;
 
 export const Input = (props: Props<ElementType, NInputType["Props"], NInputType["Emit"]>) => {
-  const { getHtmlString, style } = NInputUtil;
+  const { getHtmlHast, style } = NInputUtil;
 
   return (
     <NucoWrapper<"n-input", ElementType, NInputType["Props"], NInputType["Emit"]>
       elementName="n-input"
       elementClass={NInput}
-      getNElementHtml={getHtmlString}
+      getNElementHtml={getHtmlHast}
       style={style}
       props={props}
     />

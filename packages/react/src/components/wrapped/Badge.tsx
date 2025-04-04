@@ -6,13 +6,13 @@ import { NBadge, type NBadgeType, NBadgeUtil } from "@nuco/core/components/compo
 type ElementType = HTMLElement;
 
 export const Badge = (props: Props<ElementType, NBadgeType["Props"], NBadgeType["Emit"]>) => {
-  const { getHtmlString, style } = NBadgeUtil;
+  const { getHtmlHast, style } = NBadgeUtil;
 
   return (
     <NucoWrapper<"n-badge", ElementType, NBadgeType["Props"], NBadgeType["Emit"]>
       elementName="n-badge"
       elementClass={NBadge}
-      getNElementHtml={getHtmlString}
+      getNElementHtml={getHtmlHast}
       style={style}
       props={props}
     />

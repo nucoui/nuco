@@ -6,13 +6,13 @@ import { NCodeBlock, type NCodeBlockType, NCodeBlockUtil } from "@nuco/core/comp
 type ElementType = HTMLElement;
 
 export const CodeBlock = (props: Props<ElementType, NCodeBlockType["Props"], NCodeBlockType["Emit"]>) => {
-  const { getHtmlString, style } = NCodeBlockUtil;
+  const { getHtmlHast, style } = NCodeBlockUtil;
 
   return (
     <NucoWrapper<"n-code-block", ElementType, NCodeBlockType["Props"], NCodeBlockType["Emit"]>
       elementName="n-code-block"
       elementClass={NCodeBlock}
-      getNElementHtml={getHtmlString}
+      getNElementHtml={getHtmlHast}
       style={style}
       props={props}
     />

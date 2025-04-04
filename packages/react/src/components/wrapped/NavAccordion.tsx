@@ -6,13 +6,13 @@ import { NNavAccordion, type NNavAccordionType, NNavAccordionUtil } from "@nuco/
 type ElementType = HTMLElement;
 
 export const NavAccordion = (props: Props<ElementType, NNavAccordionType["Props"], NNavAccordionType["Emit"]>) => {
-  const { getHtmlString, style } = NNavAccordionUtil;
+  const { getHtmlHast, style } = NNavAccordionUtil;
 
   return (
     <NucoWrapper<"n-nav-accordion", ElementType, NNavAccordionType["Props"], NNavAccordionType["Emit"]>
       elementName="n-nav-accordion"
       elementClass={NNavAccordion}
-      getNElementHtml={getHtmlString}
+      getNElementHtml={getHtmlHast}
       style={style}
       props={props}
     />

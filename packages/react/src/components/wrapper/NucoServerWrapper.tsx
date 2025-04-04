@@ -1,13 +1,13 @@
 import type { Props } from "@/types/Props";
 import type { ElementsName } from "@nuco/core/elements";
+import type { Comment as HastComment, Element as HastElement, Text as HastText } from "hast";
 import { convertJsonToJsx } from "@/utils/convertJsonToJsx";
-import { parseHtmlToObject } from "@/utils/parseHtmlToObject";
 import { splitPropsAttr } from "@/utils/splitPropsAttr";
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 
 type ServerWrapperProps<RefType extends HTMLElement, ElementProps extends Record<string, unknown>, ElementEmits extends string> = {
   elementName: ElementsName;
-  getNElementHtml: (props: ElementProps) => string;
+  getNElementHtml: (props: ElementProps) => HastElement | HastText | HastComment | null;
   style: string;
   props: Props<RefType, ElementProps, ElementEmits>;
 };
@@ -19,9 +19,8 @@ export const NucoServerWrapper = <RefType extends HTMLElement, ElementProps exte
   props,
 }: ServerWrapperProps<RefType, ElementProps, ElementEmits>) => {
   const { props: spitedProps } = splitPropsAttr(props);
-  const htmlString = getNElementHtml(spitedProps);
-  const htmlObj = parseHtmlToObject(htmlString);
-  const node = convertJsonToJsx(htmlObj, props.children);
+  const hast = getNElementHtml(spitedProps);
+  const node = convertJsonToJsx(hast, props.children);
 
   return _jsxs(elementName as any, {
     ...spitedProps,

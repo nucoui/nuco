@@ -6,13 +6,13 @@ import { NAnchor, type NAnchorType, NAnchorUtil } from "@nuco/core/components/co
 type ElementType = HTMLElement;
 
 export const Anchor = (props: Props<ElementType, NAnchorType["Props"], NAnchorType["Emit"]>) => {
-  const { getHtmlString, style } = NAnchorUtil;
+  const { getHtmlHast, style } = NAnchorUtil;
 
   return (
     <NucoWrapper<"n-anchor", ElementType, NAnchorType["Props"], NAnchorType["Emit"]>
       elementName="n-anchor"
       elementClass={NAnchor}
-      getNElementHtml={getHtmlString}
+      getNElementHtml={getHtmlHast}
       style={style}
       props={props}
     />

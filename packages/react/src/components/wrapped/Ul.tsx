@@ -6,13 +6,13 @@ import { NUl, type NUlType, NUlUtil } from "@nuco/core/components/common/n-ul";
 type ElementType = HTMLElement;
 
 export const Ul = (props: Props<ElementType, NUlType["Props"], NUlType["Emit"]>) => {
-  const { getHtmlString, style } = NUlUtil;
+  const { getHtmlHast, style } = NUlUtil;
 
   return (
     <NucoWrapper<"n-ul", ElementType, NUlType["Props"], NUlType["Emit"]>
       elementName="n-ul"
       elementClass={NUl}
-      getNElementHtml={getHtmlString}
+      getNElementHtml={getHtmlHast}
       style={style}
       props={props}
     />

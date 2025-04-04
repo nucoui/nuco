@@ -1,6 +1,6 @@
 import { markRaw } from "vue";
 
-export enum TestNodeTypes {
+export enum NodeTypes {
   TEXT = "text",
   ELEMENT = "element",
   COMMENT = "comment",
@@ -15,41 +15,41 @@ export enum NodeOpTypes {
   PATCH = "patch",
 }
 
-export interface TestElement {
+export interface Element {
   id: number;
-  type: TestNodeTypes.ELEMENT;
-  parentNode: TestElement | null;
+  type: NodeTypes.ELEMENT;
+  parentNode: Element | null;
   tag: string;
-  children: TestNode[];
+  children: Node[];
   props: Record<string, any>;
   // eslint-disable-next-line ts/no-unsafe-function-type
   eventListeners: Record<string, Function | Function[]> | null;
 }
 
-export interface TestText {
+export interface Text {
   id: number;
-  type: TestNodeTypes.TEXT;
-  parentNode: TestElement | null;
+  type: NodeTypes.TEXT;
+  parentNode: Element | null;
   text: string;
 }
 
-export interface TestComment {
+export interface Comment {
   id: number;
-  type: TestNodeTypes.COMMENT;
-  parentNode: TestElement | null;
+  type: NodeTypes.COMMENT;
+  parentNode: Element | null;
   text: string;
 }
 
-export type TestNode = TestElement | TestText | TestComment;
+export type Node = Element | Text | Comment;
 
 export interface NodeOp {
   type: NodeOpTypes;
-  nodeType?: TestNodeTypes;
+  nodeType?: NodeTypes;
   tag?: string;
   text?: string;
-  targetNode?: TestNode;
-  parentNode?: TestElement;
-  refNode?: TestNode | null;
+  targetNode?: Node;
+  parentNode?: Element;
+  refNode?: Node | null;
   propKey?: string;
   propPrevValue?: any;
   propNextValue?: any;
@@ -72,10 +72,10 @@ export function dumpOps(): NodeOp[] {
   return ops;
 }
 
-function createElement(tag: string): TestElement {
-  const node: TestElement = {
+function createElement(tag: string): Element {
+  const node: Element = {
     id: nodeId++,
-    type: TestNodeTypes.ELEMENT,
+    type: NodeTypes.ELEMENT,
     tag,
     children: [],
     props: {},
@@ -84,7 +84,7 @@ function createElement(tag: string): TestElement {
   };
   logNodeOp({
     type: NodeOpTypes.CREATE,
-    nodeType: TestNodeTypes.ELEMENT,
+    nodeType: NodeTypes.ELEMENT,
     targetNode: node,
     tag,
   });
@@ -93,16 +93,16 @@ function createElement(tag: string): TestElement {
   return node;
 }
 
-function createText(text: string): TestText {
-  const node: TestText = {
+function createText(text: string): Text {
+  const node: Text = {
     id: nodeId++,
-    type: TestNodeTypes.TEXT,
+    type: NodeTypes.TEXT,
     text,
     parentNode: null,
   };
   logNodeOp({
     type: NodeOpTypes.CREATE,
-    nodeType: TestNodeTypes.TEXT,
+    nodeType: NodeTypes.TEXT,
     targetNode: node,
     text,
   });
@@ -111,16 +111,16 @@ function createText(text: string): TestText {
   return node;
 }
 
-function createComment(text: string): TestComment {
-  const node: TestComment = {
+function createComment(text: string): Comment {
+  const node: Comment = {
     id: nodeId++,
-    type: TestNodeTypes.COMMENT,
+    type: NodeTypes.COMMENT,
     text,
     parentNode: null,
   };
   logNodeOp({
     type: NodeOpTypes.CREATE,
-    nodeType: TestNodeTypes.COMMENT,
+    nodeType: NodeTypes.COMMENT,
     targetNode: node,
     text,
   });
@@ -129,7 +129,7 @@ function createComment(text: string): TestComment {
   return node;
 }
 
-function setText(node: TestText, text: string): void {
+function setText(node: Text, text: string): void {
   logNodeOp({
     type: NodeOpTypes.SET_TEXT,
     targetNode: node,
@@ -139,9 +139,9 @@ function setText(node: TestText, text: string): void {
 }
 
 function insert(
-  child: TestNode,
-  parent: TestElement,
-  ref?: TestNode | null,
+  child: Node,
+  parent: Element,
+  ref?: Node | null,
 ): void {
   let refIndex;
   if (ref) {
@@ -172,7 +172,7 @@ function insert(
   }
 }
 
-function remove(child: TestNode, logOp = true): void {
+function remove(child: Node, logOp = true): void {
   const parent = child.parentNode;
   if (parent) {
     if (logOp) {
@@ -195,7 +195,7 @@ function remove(child: TestNode, logOp = true): void {
   }
 }
 
-function setElementText(el: TestElement, text: string): void {
+function setElementText(el: Element, text: string): void {
   logNodeOp({
     type: NodeOpTypes.SET_ELEMENT_TEXT,
     targetNode: el,
@@ -211,7 +211,7 @@ function setElementText(el: TestElement, text: string): void {
     el.children = [
       {
         id: nodeId++,
-        type: TestNodeTypes.TEXT,
+        type: NodeTypes.TEXT,
         text,
         parentNode: el,
       },
@@ -219,11 +219,11 @@ function setElementText(el: TestElement, text: string): void {
   }
 }
 
-function parentNode(node: TestNode): TestElement | null {
+function parentNode(node: Node): Element | null {
   return node.parentNode;
 }
 
-function nextSibling(node: TestNode): TestNode | null {
+function nextSibling(node: Node): Node | null {
   const parent = node.parentNode;
   if (!parent) {
     return null;
@@ -236,7 +236,7 @@ function querySelector(): never {
   throw new Error("querySelector not supported in test renderer.");
 }
 
-function setScopeId(el: TestElement, id: string): void {
+function setScopeId(el: Element, id: string): void {
   el.props[id] = "";
 }
 

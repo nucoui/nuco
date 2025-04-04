@@ -1,25 +1,14 @@
 import type { Emits, Props } from "./NError.ce.vue";
-import { renderToStringSync } from "@/utils/renderToStringSync";
+import { getStyle } from "@/utils/getStyle";
+import { renderToHastSync } from "@/utils/renderToHastSync";
 import { defineCustomElement, h } from "vue";
 import NErrorCe from "./NError.ce.vue";
 
-const style = (NErrorCe as any).styles?.[0] || "" as string;
-
-const getHtmlString = (props: Props) => {
-  const node = h(NErrorCe, props);
-  const renderedNode = renderToStringSync(node);
-
-  return renderedNode;
-};
-
 export class NError extends defineCustomElement(NErrorCe) {}
 
-export const NErrorUtil: {
-  style: typeof style;
-  getHtmlString: typeof getHtmlString;
-} = {
-  style,
-  getHtmlString,
+export const NErrorUtil = {
+  style: getStyle(NErrorCe),
+  getHtmlHast: (props: Props) => renderToHastSync(h(NErrorCe, props)),
 };
 
 export type NErrorType = {

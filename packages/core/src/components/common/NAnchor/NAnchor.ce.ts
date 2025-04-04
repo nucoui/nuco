@@ -1,28 +1,24 @@
 import type { Emits, Props } from "./NAnchor.ce.vue";
-import { renderToStringSync } from "@/utils/renderToStringSync";
+import { getStyle } from "@/utils/getStyle";
+import { renderToHastSync } from "@/utils/renderToHastSync";
 import { defineCustomElement, h } from "vue";
 import NAnchorCe from "./NAnchor.ce.vue";
 
-const style = (NAnchorCe as any).styles[0] as string;
+class NAnchor extends defineCustomElement(NAnchorCe) {}
 
-const getHtmlString = (props: Props) => {
-  const node = h(NAnchorCe, props);
-  const renderedNode = renderToStringSync(node);
-
-  return renderedNode;
+const NAnchorUtil = {
+  style: getStyle(NAnchorCe),
+  getHtmlHast: (props: Props) => renderToHastSync(h(NAnchorCe, props)),
 };
 
-export class NAnchor extends defineCustomElement(NAnchorCe) {}
-
-export const NAnchorUtil: {
-  style: typeof style;
-  getHtmlString: typeof getHtmlString;
-} = {
-  style,
-  getHtmlString,
-};
-
-export type NAnchorType = {
+type NAnchorType = {
   Emit: Emits;
   Props: Props;
 };
+
+export {
+  NAnchor,
+  NAnchorUtil,
+};
+
+export type { NAnchorType };

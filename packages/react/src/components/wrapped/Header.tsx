@@ -6,13 +6,13 @@ import { NHeader, type NHeaderType, NHeaderUtil } from "@nuco/core/components/co
 type ElementType = HTMLElement;
 
 export const Header = (props: Props<ElementType, NHeaderType["Props"], NHeaderType["Emit"]>) => {
-  const { getHtmlString, style } = NHeaderUtil;
+  const { getHtmlHast, style } = NHeaderUtil;
 
   return (
     <NucoWrapper<"n-header", ElementType, NHeaderType["Props"], NHeaderType["Emit"]>
       elementName="n-header"
       elementClass={NHeader}
-      getNElementHtml={getHtmlString}
+      getNElementHtml={getHtmlHast}
       style={style}
       props={props}
     />

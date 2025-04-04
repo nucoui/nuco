@@ -1,25 +1,14 @@
 import type { Emits, Props } from "./NDivider.ce.vue";
-import { renderToStringSync } from "@/utils/renderToStringSync";
+import { getStyle } from "@/utils/getStyle";
+import { renderToHastSync } from "@/utils/renderToHastSync";
 import { defineCustomElement, h } from "vue";
 import NDividerCe from "./NDivider.ce.vue";
 
-const style = (NDividerCe as any).styles?.[0] ?? "" as string;
-
-const getHtmlString = (props: Props) => {
-  const node = h(NDividerCe, props);
-  const renderedNode = renderToStringSync(node);
-
-  return renderedNode;
-};
-
 export class NDivider extends defineCustomElement(NDividerCe) {}
 
-export const NDividerUtil: {
-  style: typeof style;
-  getHtmlString: typeof getHtmlString;
-} = {
-  style,
-  getHtmlString,
+export const NDividerUtil = {
+  style: getStyle(NDividerCe),
+  getHtmlHast: (props: Props) => renderToHastSync(h(NDividerCe, props)),
 };
 
 export type NDividerType = {

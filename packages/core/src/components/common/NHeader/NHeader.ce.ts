@@ -1,25 +1,14 @@
 import type { Emits, Props } from "./NHeader.ce.vue";
-import { renderToStringSync } from "@/utils/renderToStringSync";
+import { getStyle } from "@/utils/getStyle";
+import { renderToHastSync } from "@/utils/renderToHastSync";
 import { defineCustomElement, h } from "vue";
 import NHeaderCe from "./NHeader.ce.vue";
 
-const style = (NHeaderCe as any).styles?.[0] || "" as string;
-
-const getHtmlString = (props: Props) => {
-  const node = h(NHeaderCe, props);
-  const renderedNode = renderToStringSync(node);
-
-  return renderedNode;
-};
-
 export class NHeader extends defineCustomElement(NHeaderCe) {}
 
-export const NHeaderUtil: {
-  style: typeof style;
-  getHtmlString: typeof getHtmlString;
-} = {
-  style,
-  getHtmlString,
+export const NHeaderUtil = {
+  style: getStyle(NHeaderCe),
+  getHtmlHast: (props: Props) => renderToHastSync(h(NHeaderCe, props)),
 };
 
 export type NHeaderType = {

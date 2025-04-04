@@ -6,13 +6,13 @@ import { NBreadcrumb, type NBreadcrumbType, NBreadcrumbUtil } from "@nuco/core/c
 type ElementType = HTMLElement;
 
 export const Breadcrumb = (props: Props<ElementType, NBreadcrumbType["Props"], NBreadcrumbType["Emit"]>) => {
-  const { getHtmlString, style } = NBreadcrumbUtil;
+  const { getHtmlHast, style } = NBreadcrumbUtil;
 
   return (
     <NucoWrapper<"n-breadcrumb", ElementType, NBreadcrumbType["Props"], NBreadcrumbType["Emit"]>
       elementName="n-breadcrumb"
       elementClass={NBreadcrumb}
-      getNElementHtml={getHtmlString}
+      getNElementHtml={getHtmlHast}
       style={style}
       props={props}
     />

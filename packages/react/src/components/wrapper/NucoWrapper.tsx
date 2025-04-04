@@ -1,5 +1,6 @@
 import type { Props } from "@/types/Props";
 import type { ElementsMap, ElementsName } from "@nuco/core/elements";
+import type { Comment as HastComment, Element as HastElement, Text as HastText } from "hast";
 import { Client } from "@/components/wrapper/Client";
 import { NucoClientWrapper } from "@/components/wrapper/NucoClientWrapper";
 import { NucoServerWrapper } from "@/components/wrapper/NucoServerWrapper";
@@ -7,7 +8,7 @@ import { NucoServerWrapper } from "@/components/wrapper/NucoServerWrapper";
 type WrapperProps<Name extends ElementsName, RefType extends HTMLElement, ElementProps extends Record<string, unknown>, ElementEmits extends string> = {
   elementName: Name;
   elementClass: ElementsMap[Name];
-  getNElementHtml: (props: ElementProps) => string;
+  getNElementHtml: (props: ElementProps) => HastElement | HastText | HastComment | null;
   style: string;
   props: Props<RefType, ElementProps, ElementEmits>;
 };

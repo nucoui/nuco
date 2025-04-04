@@ -6,13 +6,13 @@ import { NButton, type NButtonType, NButtonUtil } from "@nuco/core/components/co
 type ElementType = HTMLElement;
 
 export const Button = (props: Props<ElementType, NButtonType["Props"], NButtonType["Emit"]>) => {
-  const { getHtmlString, style } = NButtonUtil;
+  const { getHtmlHast, style } = NButtonUtil;
 
   return (
     <NucoWrapper<"n-button", ElementType, NButtonType["Props"], NButtonType["Emit"]>
       elementName="n-button"
       elementClass={NButton}
-      getNElementHtml={getHtmlString}
+      getNElementHtml={getHtmlHast}
       style={style}
       props={props}
     />
