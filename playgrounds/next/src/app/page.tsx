@@ -1,6 +1,9 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import { Breadcrumb, Button, H1, Li } from "@nuco/react";
+import { Breadcrumb } from "@nuco/react/components/Breadcrumb";
+import { Button } from "@nuco/react/components/Button";
+import { H1 } from "@nuco/react/components/H1";
+import { Li } from "@nuco/react/components/Li";
 
 export default function Home() {
   return (
@@ -26,7 +29,7 @@ export default function Home() {
           <p>
             Playgrounds running @nuco/react on Next.js (App router)
           </p>
-          <Button>Button</Button>
+          {/* <Button>Button</Button> */}
         </div>
       </main>
       <footer className={styles.footer}>

@@ -22,6 +22,12 @@ export const NucoServerWrapper = <RefType extends HTMLElement, ElementProps exte
   const hast = getNElementHtml(spitedProps);
   const node = convertJsonToJsx(hast, props.children);
 
+  Object.keys(spitedProps).forEach((key) => {
+    if (key.startsWith("on")) {
+      delete spitedProps[key];
+    }
+  });
+
   return _jsxs(elementName as any, {
     ...spitedProps,
     children: [

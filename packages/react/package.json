@@ -10,104 +10,144 @@
       "require": "./dist/packages/react/src/main.cjs"
     },
     "./components/Anchor": {
-      "types": "./dist/types/components/wrapped/Anchor.d.ts",
-      "import": "./dist/packages/react/src/components/wrapped/Anchor.js",
-      "require": "./dist/packages/react/src/components/wrapped/Anchor.cjs"
+      "types": "./dist/types/components/wrapped/Anchor/Anchor.cc.d.ts",
+      "react-server": "./dist/packages/react/src/components/wrapped/Anchor/Anchor.sc.js",
+      "import": "./dist/packages/react/src/components/wrapped/Anchor/Anchor.cc.js",
+      "require": "./dist/packages/react/src/components/wrapped/Anchor/Anchor.cc.cjs",
+      "default": "./dist/packages/react/src/components/wrapped/Anchor/Anchor.cc.js"
     },
     "./components/Badge": {
-      "types": "./dist/types/components/wrapped/Badge.d.ts",
-      "import": "./dist/packages/react/src/components/wrapped/Badge.js",
-      "require": "./dist/packages/react/src/components/wrapped/Badge.cjs"
+      "types": "./dist/types/components/wrapped/Badge/Badge.cc.d.ts",
+      "react-server": "./dist/packages/react/src/components/wrapped/Badge/Badge.sc.js",
+      "import": "./dist/packages/react/src/components/wrapped/Badge/Badge.cc.js",
+      "require": "./dist/packages/react/src/components/wrapped/Badge/Badge.cc.cjs",
+      "default": "./dist/packages/react/src/components/wrapped/Badge/Badge.cc.js"
     },
     "./components/Breadcrumb": {
-      "types": "./dist/types/components/wrapped/Breadcrumb.d.ts",
-      "import": "./dist/packages/react/src/components/wrapped/Breadcrumb.js",
-      "require": "./dist/packages/react/src/components/wrapped/Breadcrumb.cjs"
+      "types": "./dist/types/components/wrapped/Breadcrumb/Breadcrumb.cc.d.ts",
+      "react-server": "./dist/packages/react/src/components/wrapped/Breadcrumb/Breadcrumb.sc.js",
+      "import": "./dist/packages/react/src/components/wrapped/Breadcrumb/Breadcrumb.cc.js",
+      "require": "./dist/packages/react/src/components/wrapped/Breadcrumb/Breadcrumb.cc.cjs",
+      "default": "./dist/packages/react/src/components/wrapped/Breadcrumb/Breadcrumb.cc.js"
     },
     "./components/Button": {
-      "types": "./dist/types/components/wrapped/Button.d.ts",
-      "import": "./dist/packages/react/src/components/wrapped/Button.js",
-      "require": "./dist/packages/react/src/components/wrapped/Button.cjs"
+      "types": "./dist/types/components/wrapped/Button/Button.cc.d.ts",
+      "react-server": "./dist/packages/react/src/components/wrapped/Button/Button.sc.js",
+      "import": "./dist/packages/react/src/components/wrapped/Button/Button.cc.js",
+      "require": "./dist/packages/react/src/components/wrapped/Button/Button.cc.cjs",
+      "default": "./dist/packages/react/src/components/wrapped/Button/Button.cc.js"
     },
     "./components/CodeBlock": {
-      "types": "./dist/types/components/wrapped/CodeBlock.d.ts",
-      "import": "./dist/packages/react/src/components/wrapped/CodeBlock.js",
-      "require": "./dist/packages/react/src/components/wrapped/CodeBlock.cjs"
+      "types": "./dist/types/components/wrapped/CodeBlock/CodeBlock.cc.d.ts",
+      "react-server": "./dist/packages/react/src/components/wrapped/CodeBlock/CodeBlock.sc.js",
+      "import": "./dist/packages/react/src/components/wrapped/CodeBlock/CodeBlock.cc.js",
+      "require": "./dist/packages/react/src/components/wrapped/CodeBlock/CodeBlock.cc.cjs",
+      "default": "./dist/packages/react/src/components/wrapped/CodeBlock/CodeBlock.cc.js"
     },
     "./components/Divider": {
-      "types": "./dist/types/components/wrapped/Divider.d.ts",
-      "import": "./dist/packages/react/src/components/wrapped/Divider.js",
-      "require": "./dist/packages/react/src/components/wrapped/Divider.cjs"
+      "types": "./dist/types/components/wrapped/Divider/Divider.cc.d.ts",
+      "react-server": "./dist/packages/react/src/components/wrapped/Divider/Divider.sc.js",
+      "import": "./dist/packages/react/src/components/wrapped/Divider/Divider.cc.js",
+      "require": "./dist/packages/react/src/components/wrapped/Divider/Divider.cc.cjs",
+      "default": "./dist/packages/react/src/components/wrapped/Divider/Divider.cc.js"
     },
     "./components/Error": {
-      "types": "./dist/types/components/wrapped/Error.d.ts",
-      "import": "./dist/packages/react/src/components/wrapped/Error.js",
-      "require": "./dist/packages/react/src/components/wrapped/Error.cjs"
+      "types": "./dist/types/components/wrapped/Error/Error.cc.d.ts",
+      "react-server": "./dist/packages/react/src/components/wrapped/Error/Error.sc.js",
+      "import": "./dist/packages/react/src/components/wrapped/Error/Error.cc.js",
+      "require": "./dist/packages/react/src/components/wrapped/Error/Error.cc.cjs",
+      "default": "./dist/packages/react/src/components/wrapped/Error/Error.cc.js"
     },
     "./components/H1": {
-      "types": "./dist/types/components/wrapped/H1.d.ts",
-      "import": "./dist/packages/react/src/components/wrapped/H1.js",
-      "require": "./dist/packages/react/src/components/wrapped/H1.cjs"
+      "types": "./dist/types/components/wrapped/H1/H1.cc.d.ts",
+      "react-server": "./dist/packages/react/src/components/wrapped/H1/H1.sc.js",
+      "import": "./dist/packages/react/src/components/wrapped/H1/H1.cc.js",
+      "require": "./dist/packages/react/src/components/wrapped/H1/H1.cc.cjs",
+      "default": "./dist/packages/react/src/components/wrapped/H1/H1.cc.js"
     },
     "./components/H2": {
-      "types": "./dist/types/components/wrapped/H2.d.ts",
-      "import": "./dist/packages/react/src/components/wrapped/H2.js",
-      "require": "./dist/packages/react/src/components/wrapped/H2.cjs"
+      "types": "./dist/types/components/wrapped/H2/H2.cc.d.ts",
+      "react-server": "./dist/packages/react/src/components/wrapped/H2/H2.sc.js",
+      "import": "./dist/packages/react/src/components/wrapped/H2/H2.cc.js",
+      "require": "./dist/packages/react/src/components/wrapped/H2/H2.cc.cjs",
+      "default": "./dist/packages/react/src/components/wrapped/H2/H2.cc.js"
     },
     "./components/H3": {
-      "types": "./dist/types/components/wrapped/H3.d.ts",
-      "import": "./dist/packages/react/src/components/wrapped/H3.js",
-      "require": "./dist/packages/react/src/components/wrapped/H3.cjs"
+      "types": "./dist/types/components/wrapped/H3/H3.cc.d.ts",
+      "react-server": "./dist/packages/react/src/components/wrapped/H3/H3.sc.js",
+      "import": "./dist/packages/react/src/components/wrapped/H3/H3.cc.js",
+      "require": "./dist/packages/react/src/components/wrapped/H3/H3.cc.cjs",
+      "default": "./dist/packages/react/src/components/wrapped/H3/H3.cc.js"
     },
     "./components/H4": {
-      "types": "./dist/types/components/wrapped/H4.d.ts",
-      "import": "./dist/packages/react/src/components/wrapped/H4.js",
-      "require": "./dist/packages/react/src/components/wrapped/H4.cjs"
+      "types": "./dist/types/components/wrapped/H4/H4.cc.d.ts",
+      "react-server": "./dist/packages/react/src/components/wrapped/H4/H4.sc.js",
+      "import": "./dist/packages/react/src/components/wrapped/H4/H4.cc.js",
+      "require": "./dist/packages/react/src/components/wrapped/H4/H4.cc.cjs",
+      "default": "./dist/packages/react/src/components/wrapped/H4/H4.cc.js"
     },
     "./components/H5": {
-      "types": "./dist/types/components/wrapped/H5.d.ts",
-      "import": "./dist/packages/react/src/components/wrapped/H5.js",
-      "require": "./dist/packages/react/src/components/wrapped/H5.cjs"
+      "types": "./dist/types/components/wrapped/H5/H5.cc.d.ts",
+      "react-server": "./dist/packages/react/src/components/wrapped/H5/H5.sc.js",
+      "import": "./dist/packages/react/src/components/wrapped/H5/H5.cc.js",
+      "require": "./dist/packages/react/src/components/wrapped/H5/H5.cc.cjs",
+      "default": "./dist/packages/react/src/components/wrapped/H5/H5.cc.js"
     },
     "./components/H6": {
-      "types": "./dist/types/components/wrapped/H6.d.ts",
-      "import": "./dist/packages/react/src/components/wrapped/H6.js",
-      "require": "./dist/packages/react/src/components/wrapped/H6.cjs"
+      "types": "./dist/types/components/wrapped/H6/H6.cc.d.ts",
+      "react-server": "./dist/packages/react/src/components/wrapped/H6/H6.sc.js",
+      "import": "./dist/packages/react/src/components/wrapped/H6/H6.cc.js",
+      "require": "./dist/packages/react/src/components/wrapped/H6/H6.cc.cjs",
+      "default": "./dist/packages/react/src/components/wrapped/H6/H6.cc.js"
     },
     "./components/Header": {
-      "types": "./dist/types/components/wrapped/Header.d.ts",
-      "import": "./dist/packages/react/src/components/wrapped/Header.js",
-      "require": "./dist/packages/react/src/components/wrapped/Header.cjs"
+      "types": "./dist/types/components/wrapped/Header/Header.cc.d.ts",
+      "react-server": "./dist/packages/react/src/components/wrapped/Header/Header.sc.js",
+      "import": "./dist/packages/react/src/components/wrapped/Header/Header.cc.js",
+      "require": "./dist/packages/react/src/components/wrapped/Header/Header.cc.cjs",
+      "default": "./dist/packages/react/src/components/wrapped/Header/Header.cc.js"
     },
     "./components/Input": {
-      "types": "./dist/types/components/wrapped/Input.d.ts",
-      "import": "./dist/packages/react/src/components/wrapped/Input.js",
-      "require": "./dist/packages/react/src/components/wrapped/Input.cjs"
+      "types": "./dist/types/components/wrapped/Input/Input.cc.d.ts",
+      "react-server": "./dist/packages/react/src/components/wrapped/Input/Input.sc.js",
+      "import": "./dist/packages/react/src/components/wrapped/Input/Input.cc.js",
+      "require": "./dist/packages/react/src/components/wrapped/Input/Input.cc.cjs",
+      "default": "./dist/packages/react/src/components/wrapped/Input/Input.cc.js"
     },
     "./components/Li": {
-      "types": "./dist/types/components/wrapped/Li.d.ts",
-      "import": "./dist/packages/react/src/components/wrapped/Li.js",
-      "require": "./dist/packages/react/src/components/wrapped/Li.cjs"
+      "types": "./dist/types/components/wrapped/Li/Li.cc.d.ts",
+      "react-server": "./dist/packages/react/src/components/wrapped/Li/Li.sc.js",
+      "import": "./dist/packages/react/src/components/wrapped/Li/Li.cc.js",
+      "require": "./dist/packages/react/src/components/wrapped/Li/Li.cc.cjs",
+      "default": "./dist/packages/react/src/components/wrapped/Li/Li.cc.js"
     },
     "./components/NavAccordion": {
-      "types": "./dist/types/components/wrapped/NavAccordion.d.ts",
-      "import": "./dist/packages/react/src/components/wrapped/NavAccordion.js",
-      "require": "./dist/packages/react/src/components/wrapped/NavAccordion.cjs"
+      "types": "./dist/types/components/wrapped/NavAccordion/NavAccordion.cc.d.ts",
+      "react-server": "./dist/packages/react/src/components/wrapped/NavAccordion/NavAccordion.sc.js",
+      "import": "./dist/packages/react/src/components/wrapped/NavAccordion/NavAccordion.cc.js",
+      "require": "./dist/packages/react/src/components/wrapped/NavAccordion/NavAccordion.cc.cjs",
+      "default": "./dist/packages/react/src/components/wrapped/NavAccordion/NavAccordion.cc.js"
     },
     "./components/Option": {
-      "types": "./dist/types/components/wrapped/Option.d.ts",
-      "import": "./dist/packages/react/src/components/wrapped/Option.js",
-      "require": "./dist/packages/react/src/components/wrapped/Option.cjs"
+      "types": "./dist/types/components/wrapped/Option/Option.cc.d.ts",
+      "react-server": "./dist/packages/react/src/components/wrapped/Option/Option.sc.js",
+      "import": "./dist/packages/react/src/components/wrapped/Option/Option.cc.js",
+      "require": "./dist/packages/react/src/components/wrapped/Option/Option.cc.cjs",
+      "default": "./dist/packages/react/src/components/wrapped/Option/Option.cc.js"
     },
     "./components/Select": {
-      "types": "./dist/types/components/wrapped/Select.d.ts",
-      "import": "./dist/packages/react/src/components/wrapped/Select.js",
-      "require": "./dist/packages/react/src/components/wrapped/Select.cjs"
+      "types": "./dist/types/components/wrapped/Select/Select.cc.d.ts",
+      "react-server": "./dist/packages/react/src/components/wrapped/Select/Select.sc.js",
+      "import": "./dist/packages/react/src/components/wrapped/Select/Select.cc.js",
+      "require": "./dist/packages/react/src/components/wrapped/Select/Select.cc.cjs",
+      "default": "./dist/packages/react/src/components/wrapped/Select/Select.cc.js"
     },
     "./components/Ul": {
-      "types": "./dist/types/components/wrapped/Ul.d.ts",
-      "import": "./dist/packages/react/src/components/wrapped/Ul.js",
-      "require": "./dist/packages/react/src/components/wrapped/Ul.cjs"
+      "types": "./dist/types/components/wrapped/Ul/Ul.cc.d.ts",
+      "react-server": "./dist/packages/react/src/components/wrapped/Ul/Ul.sc.js",
+      "import": "./dist/packages/react/src/components/wrapped/Ul/Ul.cc.js",
+      "require": "./dist/packages/react/src/components/wrapped/Ul/Ul.cc.cjs",
+      "default": "./dist/packages/react/src/components/wrapped/Ul/Ul.cc.js"
     }
   },
   "main": "./dist/packages/react/src/main.js",
@@ -121,7 +161,7 @@
   "scripts": {
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "gen:wrapper": "plop wrapper --plopfile .plop/wrapper/index.mjs"
+    "gen:component": "plop component --plopfile .plop/component/index.mjs"
   },
   "dependencies": {
     "vue": "^3.5.13"

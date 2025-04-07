@@ -1,0 +1,19 @@
+import type { Props } from "@/types/Props";
+import { NucoServerWrapper } from "@/components/wrapper/NucoServerWrapper";
+import { type {{ pascalCase name }}Type, {{ pascalCase name }}Util } from "@nuco/core/components/{{ name }}";
+
+// Please change the type of ElementType to the correct type
+type ElementType = HTMLElement;
+
+export const {{ pascalCase (replace name "n-" "") }} = (props: Props<ElementType, {{ pascalCase name }}Type["Props"], {{ pascalCase name }}Type["Emit"]>) => {
+  const { getHtmlHast, style } = {{ pascalCase name }}Util;
+
+  return (
+    <NucoServerWrapper<ElementType, {{ pascalCase name }}Type["Props"], {{ pascalCase name }}Type["Emit"]>
+      elementName="{{ name }}"
+      getNElementHtml={getHtmlHast}
+      style={style}
+      props={props}
+    />
+  );
+};
