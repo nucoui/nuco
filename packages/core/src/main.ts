@@ -18,6 +18,8 @@ export * from "@/components/composite/NBreadcrumb/NBreadcrumb.ce";
 export * from "@/components/composite/NCodeBlock/NCodeBlock.ce";
 export * from "@/components/composite/NError/NError.ce";
 export * from "@/components/composite/NNavAccordion/NNavAccordion.ce";
+export * from "@/components/composite/NPager/NPager.ce";
+export * from "@/components/composite/NPagers/NPagers.ce";
 
 // utils
 export * from "@/utils/elements";

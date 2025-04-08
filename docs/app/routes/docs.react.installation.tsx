@@ -1,13 +1,15 @@
-import type { MetaFunction } from "react-router";
+import type { LinksFunction, MetaFunction } from "react-router";
 import { Badge } from "@nuco/react/components/Badge";
 import { CodeBlock } from "@nuco/react/components/CodeBlock";
 import { Divider } from "@nuco/react/components/Divider";
 import { H1 } from "@nuco/react/components/H1";
 import { H3 } from "@nuco/react/components/H3";
 import { H4 } from "@nuco/react/components/H4";
+import { generatePageInfoLinks } from "~/utils/generatePageInfoLinks";
 import { generatePageInfoMeta } from "~/utils/generatePageInfoMeta";
 
 export const meta: MetaFunction = () => generatePageInfoMeta("/docs/react/installation");
+export const links: LinksFunction = () => generatePageInfoLinks("/docs/react/installation");
 
 const Page = () => {
   return (
@@ -32,7 +34,7 @@ const Page = () => {
         fileName="root.tsx"
         code={`import "@nuco/variable/css"`}
       />
-      <H4>2.2. Road font</H4>
+      <H4>2.2. Load font</H4>
       <p>
         nuco is designed for use with Poppins fonts.
         Load fonts from Google font or local assets.

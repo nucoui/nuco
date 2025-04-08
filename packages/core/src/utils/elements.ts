@@ -18,8 +18,12 @@ import { NBreadcrumb } from "@/components/composite/NBreadcrumb/NBreadcrumb.ce";
 import { NCodeBlock } from "@/components/composite/NCodeBlock/NCodeBlock.ce";
 import { NError } from "@/components/composite/NError/NError.ce";
 import { NNavAccordion } from "@/components/composite/NNavAccordion/NNavAccordion.ce";
+import { NPager } from "@/components/composite/NPager/NPager.ce";
+import { NPagers } from "@/components/composite/NPagers/NPagers.ce";
 
 const Elements = {
+  "n-pager": NPager,
+  "n-pagers": NPagers,
   "n-code-block": NCodeBlock,
   "n-divider": NDivider,
   "n-badge": NBadge,

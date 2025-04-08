@@ -1,6 +1,8 @@
 import type { Option } from "@nuco/react/components/Option";
 import { Breadcrumb } from "@nuco/react/components/Breadcrumb";
 import { Li } from "@nuco/react/components/Li";
+import { Pager } from "@nuco/react/components/Pager";
+import { Pagers } from "@nuco/react/components/Pagers";
 import FamiconsLogoWebComponent from "~icons/famicons/logo-web-component?width=1.5rem&height=1.5rem";
 import MdiAngular from "~icons/mdi/angular?width=1.5rem&height=1.5rem";
 import MdiReact from "~icons/mdi/react?width=1.5rem&height=1.5rem";
@@ -11,14 +13,17 @@ import { Outlet, useLocation } from "react-router";
 import { Anchor } from "~/components/Anchor/Anchor";
 import { Nav } from "~/components/Nav/Nav";
 import { getBreadcrumb } from "~/utils/getBreadcrumb";
+import { getPageInfo } from "~/utils/getPageInfo";
 import styles from "./docs.module.scss";
 
 const Layout = () => {
   const location = useLocation();
+
+  const pageInfo = getPageInfo(location.pathname);
   const breadcrumb = getBreadcrumb(location.pathname);
   const [selectedCategory, setSelectedCategory] = useState<"web-components" | "vue" | "react" | "angular" | "svelte" | undefined>(undefined);
 
-  const category = selectedCategory ?? location.pathname.split("/")[2] as "web-components" | "vue" | "react" | "angular" | "svelte";
+  const category = selectedCategory || location.pathname.split("/")[2] as "web-components" | "vue" | "react" | "angular" | "svelte";
 
   const selectOptions: ComponentProps<typeof Option>[] = useMemo(() => [
     {
@@ -117,6 +122,27 @@ const Layout = () => {
         </div>
 
         <Outlet />
+
+        <Pagers>
+          {pageInfo.links.prev && (
+            <Pager
+              type="prev"
+              slot="prev"
+              href={pageInfo.links.prev}
+            >
+              {getPageInfo(pageInfo.links.prev)?.shortTitle}
+            </Pager>
+          )}
+          {pageInfo.links.next && (
+            <Pager
+              type="next"
+              slot="next"
+              href={pageInfo.links.next}
+            >
+              {getPageInfo(pageInfo.links.next)?.shortTitle}
+            </Pager>
+          )}
+        </Pagers>
       </main>
     </div>
   );

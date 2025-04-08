@@ -31,6 +31,8 @@ const COMPONENT_PATH = [
   "src/components/composite/NCodeBlock/NCodeBlock.ce.ts",
   "src/components/composite/NError/NError.ce.ts",
   "src/components/composite/NNavAccordion/NNavAccordion.ce.ts",
+  "src/components/composite/NPager/NPager.ce.ts",
+  "src/components/composite/NPagers/NPagers.ce.ts",
 ];
 
 // https://vite.dev/config/

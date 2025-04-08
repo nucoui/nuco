@@ -99,6 +99,16 @@
       "import": "./dist/packages/core/src/components/common/NOption/NOption.ce.js",
       "require": "./dist/packages/core/src/components/common/NOption/NOption.ce.cjs"
     },
+    "./components/n-pager": {
+      "types": "./dist/types/src/components/composite/NPager/NPager.ce.d.ts",
+      "import": "./dist/packages/core/src/components/composite/NPager/NPager.ce.js",
+      "require": "./dist/packages/core/src/components/composite/NPager/NPager.ce.cjs"
+    },
+    "./components/n-pagers": {
+      "types": "./dist/types/src/components/composite/NPagers/NPagers.ce.d.ts",
+      "import": "./dist/packages/core/src/components/composite/NPagers/NPagers.ce.js",
+      "require": "./dist/packages/core/src/components/composite/NPagers/NPagers.ce.cjs"
+    },
     "./components/n-select": {
       "types": "./dist/types/src/components/common/NSelect/NSelect.ce.d.ts",
       "import": "./dist/packages/core/src/components/common/NSelect/NSelect.ce.js",

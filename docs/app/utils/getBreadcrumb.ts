@@ -1,4 +1,4 @@
-import { PAGE_INFO } from "../constants/PAGE_INFO";
+import { PAGE_INFO } from "../constants/PAGE_INFO/PAGE_INFO";
 
 export const getBreadcrumb = (pathname: string) => {
   const spitedPath = pathname.split("/").filter(Boolean);

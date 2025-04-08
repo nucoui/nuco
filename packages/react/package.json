@@ -135,6 +135,20 @@
       "require": "./dist/packages/react/src/components/wrapped/Option/Option.cc.cjs",
       "default": "./dist/packages/react/src/components/wrapped/Option/Option.cc.js"
     },
+    "./components/Pager": {
+      "types": "./dist/types/components/wrapped/Pager/Pager.cc.d.ts",
+      "react-server": "./dist/packages/react/src/components/wrapped/Pager/Pager.sc.js",
+      "import": "./dist/packages/react/src/components/wrapped/Pager/Pager.cc.js",
+      "require": "./dist/packages/react/src/components/wrapped/Pager/Pager.cc.cjs",
+      "default": "./dist/packages/react/src/components/wrapped/Pager/Pager.cc.js"
+    },
+    "./components/Pagers": {
+      "types": "./dist/types/components/wrapped/Pagers/Pagers.cc.d.ts",
+      "react-server": "./dist/packages/react/src/components/wrapped/Pagers/Pagers.sc.js",
+      "import": "./dist/packages/react/src/components/wrapped/Pagers/Pagers.cc.js",
+      "require": "./dist/packages/react/src/components/wrapped/Pagers/Pagers.cc.cjs",
+      "default": "./dist/packages/react/src/components/wrapped/Pagers/Pagers.cc.js"
+    },
     "./components/Select": {
       "types": "./dist/types/components/wrapped/Select/Select.cc.d.ts",
       "react-server": "./dist/packages/react/src/components/wrapped/Select/Select.sc.js",
