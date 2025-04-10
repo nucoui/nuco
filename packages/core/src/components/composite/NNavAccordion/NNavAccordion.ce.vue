@@ -69,6 +69,7 @@ defineRender(() => (
     align-items: center;
     width: 100%;
     padding: var(--n-2) var(--n-5);
+    white-space: pre-wrap;
     cursor: pointer;
     border-radius: var(--n-2);
     transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);

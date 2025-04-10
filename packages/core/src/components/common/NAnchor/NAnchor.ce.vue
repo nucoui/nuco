@@ -55,6 +55,7 @@ defineRender(() => (
   text-decoration-thickness: 2px;
   text-decoration-color: var(--cs-border-secondary);
   text-underline-offset: 4px;
+  white-space: pre-wrap;
   cursor: pointer;
   transition: 0.1s;
 

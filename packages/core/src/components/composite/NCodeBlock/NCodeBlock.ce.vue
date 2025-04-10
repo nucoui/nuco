@@ -107,7 +107,8 @@ defineRender(() => (
     display: grid;
     grid-template-columns: auto auto;
     justify-content: space-between;
-    padding: var(--n-2) var(--n-4);
+    padding: var(--n-4) var(--n-4) 0;
+    background-color: var(--cs-background-primary);
 
     > .name {
       font-size: var(--n-3);
@@ -123,6 +124,7 @@ defineRender(() => (
 
   > .block {
     position: relative;
+    background-color: var(--cs-background-primary);
 
     > .button {
       position: absolute;

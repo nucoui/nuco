@@ -25,6 +25,23 @@ const Layout = () => {
 
   const category = selectedCategory || location.pathname.split("/")[2] as "web-components" | "vue" | "react" | "angular" | "svelte";
 
+  const displayCategory = useMemo(() => {
+    switch (category) {
+      case "web-components":
+        return "Web Components";
+      case "vue":
+        return "Vue";
+      case "react":
+        return "React";
+      case "angular":
+        return "Angular";
+      case "svelte":
+        return "Svelte";
+      default:
+        return "";
+    }
+  }, [category]);
+
   const selectOptions: ComponentProps<typeof Option>[] = useMemo(() => [
     {
       children: <>
@@ -73,7 +90,7 @@ const Layout = () => {
 
   const links: ComponentProps<typeof Nav>["links"] = useMemo(() => [
     {
-      title: "Getting Started",
+      title: `Getting Started \nwith ${displayCategory}`,
       children: [
         { title: "Overview", href: `/docs/${category}/overview` },
         { title: "Installation", href: `/docs/${category}/installation` },
@@ -86,7 +103,7 @@ const Layout = () => {
         { title: "Button", href: `/docs/${category}/components/button` },
       ],
     },
-  ], [category]);
+  ], [category, displayCategory]);
 
   const handleChange = (value: string) => {
     setSelectedCategory(value as "web-components" | "vue" | "react" | "angular" | "svelte");
