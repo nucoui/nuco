@@ -1,7 +1,6 @@
 <script lang="tsx" setup>
 import { useCe } from "@/composables/useCe";
 import clsx from "clsx";
-import { ref } from "vue";
 
 export type Props = {
   marker?: "none" | "disc" | "decimal";
@@ -9,12 +8,10 @@ export type Props = {
 export type Emits = never;
 
 const definedProps = withDefaults(defineProps<Props>(), {});
-const hostRef = ref<HTMLInputElement | null>(null);
-const { props } = useCe(hostRef, definedProps, () => {});
+const { props } = useCe(definedProps, () => {});
 
 defineRender(() => (
   <li
-    ref={hostRef}
     part="li"
     class={clsx("n-li", props.value.marker && `-marker-${props.value.marker}`)}
   >

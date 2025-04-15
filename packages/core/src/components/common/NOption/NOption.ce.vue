@@ -2,7 +2,6 @@
 import type { OptionHTMLAttributes } from "vue";
 import { useCe } from "@/composables/useCe";
 import MaterialSymbolsCheckCircleRounded from "~icons/material-symbols/check-circle-rounded?width=1.5rem&height=1.5rem";
-import { ref } from "vue";
 
 export type Props = {
   value: OptionHTMLAttributes["value"];
@@ -14,17 +13,15 @@ export type Emits = never;
 
 const definedProps = withDefaults(defineProps<Props>(), {});
 // const emit = defineEmits<EventEmitHelper<Emits>>();
-const hostRef = ref<HTMLInputElement | null>(null);
 const {
   host: _host,
   shadowRoot: _shadowRoot,
   internals: _internals,
   props,
-} = useCe(hostRef, definedProps, () => {});
+} = useCe(definedProps, () => {});
 
 defineRender(() => (
   <div
-    ref={hostRef}
     role="option"
     part="n-option"
     class="n-option"

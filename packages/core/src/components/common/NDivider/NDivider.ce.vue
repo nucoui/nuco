@@ -1,7 +1,6 @@
 <script lang="tsx" setup>
 import { useCe } from "@/composables/useCe";
 import clsx from "clsx";
-import { ref } from "vue";
 
 export type Props = {
   vertical?: boolean;
@@ -15,18 +14,16 @@ const definedProps = withDefaults(defineProps<Props>(), {
   textPosition: "start",
 });
 // const emit = defineEmits<EventEmitHelper<Emits>>();
-const hostRef = ref<HTMLInputElement | null>(null);
 const {
   host: _host,
   shadowRoot: _shadowRoot,
   internals: _internals,
   props,
-} = useCe(hostRef, definedProps, () => {});
+} = useCe(definedProps, () => {});
 
 defineRender(() => (
   <>
     <div
-      ref={hostRef}
       class={clsx("n-divider", `-text-${props.value.textPosition}`, {
         "-vertical": props.value.vertical,
       })}

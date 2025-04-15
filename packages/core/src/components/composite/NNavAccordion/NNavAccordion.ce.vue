@@ -11,13 +11,12 @@ export type Emits = never;
 
 const definedProps = withDefaults(defineProps<Props>(), {});
 // const emit = defineEmits<EventEmitHelper<Emits>>();
-const hostRef = ref<HTMLInputElement | null>(null);
 const {
   host: _host,
   shadowRoot: _shadowRoot,
   internals: _internals,
   props,
-} = useCe(hostRef, definedProps, () => {});
+} = useCe(definedProps, () => {});
 
 const isOpen = ref(props.value.isDefaultOpen);
 
@@ -29,7 +28,7 @@ const handleClick = () => {
 };
 
 defineRender(() => (
-  <div ref={hostRef}>
+  <div>
     <h3 class="summary">
       <button
         type="button"

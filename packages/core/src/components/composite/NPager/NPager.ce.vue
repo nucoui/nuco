@@ -6,7 +6,6 @@ import { useCe } from "@/composables/useCe";
 import MaterialSymbolsArrowLeftAltRounded from "~icons/material-symbols/arrow-left-alt-rounded?width=1.5rem&height=1.5rem";
 import MaterialSymbolsArrowRightAltRounded from "~icons/material-symbols/arrow-right-alt-rounded?width=1.5rem&height=1.5rem";
 import clsx from "clsx";
-import { ref } from "vue";
 
 export type Props = {
   href: AnchorHTMLAttributes["href"];
@@ -21,18 +20,16 @@ const definedProps = withDefaults(defineProps<Props>(), {
   type: "prev",
 });
 const emit = defineEmits<EventEmitHelper<Emits>>();
-const hostRef = ref<HTMLInputElement | null>(null);
 const {
   host: _host,
   shadowRoot: _shadowRoot,
   internals: _internals,
   props,
   customEventEmit,
-} = useCe(hostRef, definedProps, emit);
+} = useCe(definedProps, emit);
 
 defineRender(() => (
   <a
-    ref={hostRef}
     href={props.value.href}
     target={props.value.target}
     class={clsx("n-pager", `-${props.value.type}`)}

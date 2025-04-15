@@ -20,13 +20,12 @@ const definedProps = withDefaults(defineProps<Props>(), {
   lang: "plaintext",
 });
 // const emit = defineEmits<EventEmitHelper<Emits>>();
-const hostRef = ref<HTMLInputElement | null>(null);
 const {
   host: _host,
   shadowRoot: _shadowRoot,
   internals: _internals,
   props,
-} = useCe(hostRef, definedProps, () => {});
+} = useCe(definedProps, () => {});
 
 const isCopied = ref(false);
 
@@ -79,7 +78,7 @@ const handleCLick = () => {
 };
 
 defineRender(() => (
-  <div ref={hostRef} class="n-code-block">
+  <div class="n-code-block">
     <div class="header">
       <span class="name">{props.value.fileName}</span>
       <span class="lang">{props.value.lang}</span>

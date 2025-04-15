@@ -5,7 +5,6 @@ import type { AnchorHTMLAttributes } from "vue";
 import { useCe } from "@/composables/useCe";
 import MaterialSymbolsOpenInNewRounded from "~icons/material-symbols/open-in-new-rounded?width=1rem&height=1rem";
 import clsx from "clsx";
-import { ref } from "vue";
 
 export type Props = {
   href: AnchorHTMLAttributes["href"];
@@ -20,14 +19,13 @@ const definedProps = withDefaults(defineProps<Props>(), {
   underline: "dotted",
 });
 const emit = defineEmits<EventEmitHelper<Emits>>();
-const hostRef = ref<HTMLInputElement | null>(null);
 const {
   host: _host,
   shadowRoot: _shadowRoot,
   internals: _internals,
   props,
   customEventEmit,
-} = useCe(hostRef, definedProps, emit);
+} = useCe(definedProps, emit);
 
 const handleClick = (e: MouseEvent) => {
   customEventEmit("onClick", e);
@@ -35,7 +33,6 @@ const handleClick = (e: MouseEvent) => {
 
 defineRender(() => (
   <a
-    ref={hostRef}
     href={props.value.href}
     target={props.value.target}
     class={clsx("n-anchor", `-${props.value.underline}`)}

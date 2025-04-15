@@ -26,10 +26,9 @@ const definedProps = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<EventEmitHelper<Emits>>();
 
-const inputRef = ref<HTMLInputElement | null>(null);
 const valueLength = ref<number>(0);
 
-const { internals, props, customEventEmit } = useCe(inputRef, definedProps, emit);
+const { internals, props, customEventEmit } = useCe(definedProps, emit);
 
 const maxlengthElement = computed(() => {
   const isMinlength = props.value.minlength !== undefined;
@@ -111,7 +110,6 @@ defineRender(() => (
     </div>
     <input
       {...props.value}
-      ref={inputRef}
       required={props.value.required}
       onInput={handleInput}
       onChange={handleChange}

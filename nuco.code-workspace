@@ -1,20 +1,28 @@
 {
   "folders": [
     {
-      "name": "root",
+      "name": "<root>",
       "path": "."
+    },
+    {
+      "name": "========= ⚙️ =",
+      "path": "⚙️"
     },
     {
       "name": "⚙️ config",
       "path": "./config"
     },
     {
+      "name": "========= 📃 =",
+      "path": "📃"
+    },
+    {
       "name": "📃 docs",
       "path": "./docs"
     },
     {
-      "name": "-------",
-      "path": "a"
+      "name": "========= 📦 =",
+      "path": "📦"
     },
     {
       "name": "📦 core",
@@ -29,8 +37,8 @@
       "path": "packages/variable"
     },
     {
-      "name": "-------",
-      "path": "b"
+      "name": "========= 🎮 =",
+      "path": "🎮"
     },
     {
       "name": "🎮 vue",
@@ -52,14 +60,6 @@
       "name": "🎮 react router",
       "path": "playgrounds/react-router"
     },
-    {
-      "name": "-------",
-      "path": "c"
-    },
-    {
-      "name": "📃 docs",
-      "path": "docs"
-    }
   ],
   "settings": {
     "prettier.enable": false,

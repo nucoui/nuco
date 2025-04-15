@@ -1,7 +1,6 @@
 <script lang="tsx" setup>
 import { useCe } from "@/composables/useCe";
 import clsx from "clsx";
-import { ref } from "vue";
 
 export type Props = {
   type?: "primary" | "secondary" | "tertiary" | "success" | "warning" | "error";
@@ -14,17 +13,15 @@ const definedProps = withDefaults(defineProps<Props>(), {
   type: "primary",
 });
 // const emit = defineEmits<EventEmitHelper<Emits>>();
-const hostRef = ref<HTMLInputElement | null>(null);
 const {
   host: _host,
   shadowRoot: _shadowRoot,
   internals: _internals,
   props,
-} = useCe(hostRef, definedProps, () => {});
+} = useCe(definedProps, () => {});
 
 defineRender(() => (
   <span
-    ref={hostRef}
     class={clsx(
       "n-badge",
       `-${props.value.type}`,

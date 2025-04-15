@@ -18,14 +18,14 @@ const definedProps = withDefaults(defineProps<Props>(), {
   disabled: false,
 });
 const emit = defineEmits<EventEmitHelper<Emits>>();
-const hostRef = ref<HTMLInputElement | null>(null);
+const hostRef = ref<HTMLElement | null>(null);
 const {
   host,
   internals,
   props,
   customEventEmit,
   getSlottedElements,
-} = useCe(hostRef, definedProps, emit);
+} = useCe(definedProps, emit);
 
 const isShowOptions = ref(false);
 const slottedElements = ref<Element[] | null>(null);
@@ -172,7 +172,7 @@ watch(() => host, () => {
 
 defineRender(() => (
   <div
-    ref={hostRef}
+
     class="n-select"
     role="select"
     tabindex={0}

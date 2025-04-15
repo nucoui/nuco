@@ -1,16 +1,14 @@
 <script lang="tsx" setup>
 import { useCe } from "@/composables/useCe";
-import { ref } from "vue";
 
 // eslint-disable-next-line ts/no-empty-object-type
 export type Props = {};
 export type Emits = never;
 
-const hostRef = ref<HTMLInputElement | null>(null);
-useCe(hostRef, {}, () => {});
+useCe({}, () => {});
 
 defineRender(() => (
-  <h2 ref={hostRef} class="n-h2">
+  <h2 class="n-h2">
     <slot />
   </h2>
 ));

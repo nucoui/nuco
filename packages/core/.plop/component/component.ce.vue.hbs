@@ -9,18 +9,18 @@ export type Emits = never;
 
 const definedProps = withDefaults(defineProps<Props>(), {});
 const emit = defineEmits<EventEmitHelper<Emits>>();
-const hostRef = ref<HTMLInputElement | null>(null);
 const {
   host: _host,
   shadowRoot: _shadowRoot,
   internals: _internals,
   props: _props,
-} = useCe(hostRef, definedProps, emit);
+} = useCe(definedProps, emit);
 
 defineRender(() => (
-  <div ref={hostRef}></div>
+  <div class="{{kebabCase name}}"></div>
 ));
 </script>
 
 <style lang="scss">
+.{{kebabCase name}} {}
 </style>

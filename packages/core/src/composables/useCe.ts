@@ -1,9 +1,9 @@
-import type { defineProps, Ref } from "vue";
+import type { defineProps } from "vue";
 import base from "@/styles/base.css?inline";
 import reset from "@/styles/reset.css?inline";
 import { computed, onMounted, ref, useHost, useShadowRoot } from "vue";
 
-export const useCe = <Props extends ReturnType<typeof defineProps>, Emit extends ReturnType<typeof defineEmit>>(mainRef: Ref<HTMLElement | null>, props: Props, emit: Emit) => {
+export const useCe = <Props extends ReturnType<typeof defineProps>, Emit extends ReturnType<typeof defineEmit>>(props: Props, emit: Emit) => {
   const parsedProps = computed(() => {
     const rest = Object.fromEntries(
       Object.entries(props).filter(([_key, value]) => {
@@ -39,11 +39,9 @@ export const useCe = <Props extends ReturnType<typeof defineProps>, Emit extends
   }
 
   onMounted(() => {
-    if (mainRef.value) {
-      const attachedInternals = host?.attachInternals();
-      if (attachedInternals) {
-        internals.value = attachedInternals;
-      }
+    const attachedInternals = host?.attachInternals();
+    if (attachedInternals) {
+      internals.value = attachedInternals;
     }
   });
 

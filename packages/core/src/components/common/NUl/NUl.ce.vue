@@ -1,7 +1,6 @@
 <script lang="tsx" setup>
 import { useCe } from "@/composables/useCe";
 import clsx from "clsx";
-import { ref } from "vue";
 
 export type Props = {
   type: "none" | "disc" | "decimal";
@@ -12,11 +11,10 @@ export type Emits = never;
 const definedProps = withDefaults(defineProps<Props>(), {
   type: "disc",
 });
-const hostRef = ref<HTMLInputElement | null>(null);
-const { props } = useCe(hostRef, definedProps, () => {});
+const { props } = useCe(definedProps, () => {});
 
 defineRender(() => (
-  <ul ref={hostRef} class={clsx("n-ul", `-type-${props.value.type}`)}>
+  <ul class={clsx("n-ul", `-type-${props.value.type}`)}>
     <slot />
   </ul>
 ));

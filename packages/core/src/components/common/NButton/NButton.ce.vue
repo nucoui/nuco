@@ -3,7 +3,7 @@ import type { EventEmitHelper } from "@/types/emit/EventEmit/EventEmits";
 import type { ExtractEventName } from "@/types/emit/EventEmit/EventNames";
 import { useCe } from "@/composables/useCe";
 import clsx from "clsx";
-import { type AnchorHTMLAttributes, type ButtonHTMLAttributes, computed, ref, useId } from "vue";
+import { type AnchorHTMLAttributes, type ButtonHTMLAttributes, computed, useId } from "vue";
 
 export type Props = {
   variant?: "primary" | "secondary" | "tertiary" | "error";
@@ -34,11 +34,9 @@ const definedProps = withDefaults(defineProps<Props>(), {
 });
 
 const emit = defineEmits<EventEmitHelper<Emits>>();
-
-const buttonRef = ref<HTMLButtonElement | null>(null);
+const { host, props, customEventEmit } = useCe(definedProps, emit);
 
 const id = useId();
-const { host, props, customEventEmit } = useCe(buttonRef, definedProps, emit);
 
 const handleClick = (e: Event) => {
   customEventEmit("onClick", e);
@@ -54,7 +52,6 @@ const handleKeydown = (e: KeyboardEvent) => {
 };
 
 const commonAttrs = computed(() => ({
-  "ref": buttonRef,
   "part": id,
   "class": clsx("n-button", `-${props.value.size}`, `-${props.value.variant}`, {
     "-anchor": props.value.type === "anchor",

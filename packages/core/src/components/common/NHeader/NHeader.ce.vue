@@ -1,6 +1,5 @@
 <script lang="tsx" setup>
 import { useCe } from "@/composables/useCe";
-import { ref } from "vue";
 
 export type Props = {
   isLogo?: boolean;
@@ -16,13 +15,12 @@ const definedProps = withDefaults(defineProps<Props>(), {
   isMiddle: true,
 });
 // const emit = defineEmits<EventEmitHelper<Emits>>();
-const hostRef = ref<HTMLInputElement | null>(null);
 const {
   props,
-} = useCe(hostRef, definedProps, () => {});
+} = useCe(definedProps, () => {});
 
 defineRender(() => (
-  <header ref={hostRef}>
+  <header>
     {props.value.isLogo
     && (
       <slot name="left">
