@@ -1,0 +1,11 @@
+:host {
+  box-sizing: border-box;
+  font-family: Poppins, "Noto Sans JP", sans-serif;
+}
+
+.n-h6 {
+  margin-top: var(--n-2);
+  font-size: var(--n-3);
+  font-weight: bold;
+  line-height: 1.5;
+}

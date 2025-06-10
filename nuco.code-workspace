@@ -37,6 +37,10 @@
       "path": "packages/variable"
     },
     {
+      "name": "📦 chatora",
+      "path": "packages/chatora"
+    },
+    {
       "name": "========= 🎮 =",
       "path": "🎮"
     },
@@ -155,6 +159,7 @@
 
     "cSpell.words": [
       "antfu",
+      "Chatora",
       "Nuco"
     ],
 
