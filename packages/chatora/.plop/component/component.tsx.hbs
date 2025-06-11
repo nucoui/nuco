@@ -1,0 +1,16 @@
+import type { CC } from "chatora";
+
+
+export type Props = {};
+
+export type Emits = {};
+
+export const {{pascalCase name}}: CC<Props, Emits> = ({
+  render,
+}) => {
+  render(() => (
+    <div class="{{kebabCase name}}">
+      <slot />
+    </div>
+  ));
+};

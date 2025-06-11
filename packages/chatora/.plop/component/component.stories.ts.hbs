@@ -1,0 +1,34 @@
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
+import type { Props } from "./{{pascalCase name}}";
+
+import resetStyle from "@/styles/reset.css?raw";
+import { renderElement } from "@root/.storybook/utils/renderElement";
+import { functionalCustomElement } from "chatora";
+
+import { {{pascalCase name}} } from "./{{pascalCase name}}";
+import style from "./{{pascalCase name}}.scss?raw";
+
+const meta = {
+  title: "Components/{{pascalCase name}}",
+  tags: ["autodocs"],
+  render: args => renderElement("{{kebabCase name}}", functionalCustomElement({{pascalCase name}}, { styles: [style, resetStyle] }), args.slot, args),
+  argTypes: {
+    slot: {
+      control: { type: "text" },
+      description: "<slot> content",
+      table: {
+        category: "<slot>",
+      },
+    },
+  },
+  args: {
+    slot: "slot",
+  },
+} satisfies Meta<Props & { slot?: string }>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Primary: Story = {
+  args: {},
+};

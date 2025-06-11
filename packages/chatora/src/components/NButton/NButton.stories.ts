@@ -41,9 +41,9 @@ const meta = {
     },
     slot: {
       control: { type: "text" },
-      description: "Content inside the button",
+      description: "\\<slot> content",
       table: {
-        category: "Content",
+        category: "<slot>",
       },
     },
   },

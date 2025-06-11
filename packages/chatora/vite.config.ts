@@ -5,13 +5,7 @@ import dts from "vite-plugin-dts";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 const COMPONENT_PATH = [
-  "src/components/NButton/NButton.tsx",
-  "src/components/NH1/NH1.tsx",
-  "src/components/NH2/NH2.tsx",
-  "src/components/NH3/NH3.tsx",
-  "src/components/NH4/NH4.tsx",
-  "src/components/NH5/NH5.tsx",
-  "src/components/NH6/NH6.tsx",
+  "src/components/NButton/index.ts",
 ];
 
 export default defineConfig({
@@ -32,6 +26,9 @@ export default defineConfig({
     lib: {
       entry: [
         ...COMPONENT_PATH,
+        "src/elements/customElements.ts",
+        "src/elements/declarativeCustomElements.ts",
+        "src/elements/elements.ts",
         "src/main.ts",
       ],
       name: "core",

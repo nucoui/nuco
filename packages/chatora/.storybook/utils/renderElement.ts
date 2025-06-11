@@ -14,10 +14,10 @@ export const renderElement = (tag: string, customElement: CustomElementConstruct
   });
 
   if (slot !== undefined) {
-    element.textContent = slot;
+    element.innerHTML = slot;
   }
   else {
-    element.textContent = "";
+    element.innerHTML = "";
   }
 
   return element.outerHTML;
