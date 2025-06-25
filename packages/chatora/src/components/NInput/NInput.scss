@@ -1,0 +1,80 @@
+.n-label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--n-1);
+  font-size: var(--n-3);
+  color: var(--cs-text-secondary);
+
+  > .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 var(--n-2);
+
+    > .label {
+      display: flex;
+      gap: var(--n-1);
+      color: var(--cs-text-primary);
+
+      > .required {
+        color: var(--p-red-400);
+      }
+    }
+
+    > .options {
+      display: flex;
+    }
+  }
+
+  > .error {
+    margin-top: var(--n-2);
+  }
+}
+
+.n-input {
+  position: relative;
+  box-sizing: border-box;
+  padding: var(--n-3) var(--n-5);
+  font-size: var(--n-4);
+  color: var(--cs-text-primary);
+  background: transparent;
+  border: none;
+  border-radius: var(--n-2);
+  outline: 1px solid var(--cs-neutral-400);
+  outline-offset: -1.5px;
+
+  &:not([value=""], :placeholder-shown) {
+    outline-color: var(--cs-text-primary);
+  }
+
+  &::placeholder {
+    color: var(--cs-neutral-300);
+  }
+
+  &.-invalid {
+    color: var(--p-red-400);
+    background-color: color-mix(in srgb, var(--p-red-400) 20%, transparent);
+    outline-color: var(--p-red-400);
+
+    &::placeholder {
+      color: var(--p-red-300);
+    }
+  }
+
+  &::after {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--n-2);
+    outline: 1px solid var(--cs-neutral-600);
+    outline-offset: 0;
+    opacity: 0;
+    transition: all 0.1s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &:not([disabled]):focus,
+  &:not([disabled]):hover {
+    &::after {
+      outline-offset: 2px;
+      opacity: 1;
+    }
+  }
+}

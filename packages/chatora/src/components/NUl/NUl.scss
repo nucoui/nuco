@@ -1,0 +1,20 @@
+.n-ul {
+  padding-left: 2ch;
+  margin: 1ch 0;
+
+  &.-type-none {
+    list-style-type: none;
+  }
+
+  &.-type-disc {
+    list-style-type: disc;
+  }
+
+  &.-type-decimal {
+    list-style-type: decimal-leading-zero;
+  }
+
+  ::slotted(n-li) {
+    color: var(--cs-text-primary);
+  }
+}

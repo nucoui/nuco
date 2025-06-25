@@ -1,0 +1,42 @@
+.n-option {
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--n-2);
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--n-2) var(--n-5);
+  cursor: pointer;
+  border-radius: var(--n-1);
+
+  &::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    border-radius: var(--n-1);
+    outline: 1px solid var(--cs-neutral-600);
+    outline-offset: 0;
+    opacity: 0;
+    transition: all 0.1s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &[aria-selected="true"] {
+    font-weight: 500;
+    color: var(--cs-background-primary);
+    background: var(--cs-neutral-700);
+  }
+
+  &[aria-disabled="true"] {
+    color: var(--cs-text-secondary);
+    cursor: not-allowed;
+  }
+
+  &:not([aria-disabled="true"]):focus,
+  &:not([aria-disabled="true"]):focus-visible,
+  &:not([aria-disabled="true"]):hover {
+    &::after {
+      outline-offset: 2px;
+      opacity: 1;
+    }
+  }
+}

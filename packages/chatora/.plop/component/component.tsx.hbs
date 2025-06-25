@@ -1,16 +1,18 @@
 import type { CC } from "chatora";
-
+import { Host } from "chatora/jsx-runtime";
+import resetStyle from "../../styles/reset.css?raw";
+import style from "./{{pascalCase name}}.scss?raw";
 
 export type Props = {};
 
 export type Emits = {};
 
-export const {{pascalCase name}}: CC<Props, Emits> = ({
-  render,
-}) => {
-  render(() => (
-    <div class="{{kebabCase name}}">
-      <slot />
-    </div>
-  ));
+export const {{pascalCase name}}: CC<Props, Emits> = ({}) => {
+  return () => (
+    <Host shadowRoot style={[style, resetStyle]}>
+      <div class="{{kebabCase name}}">
+        <slot />
+      </div>
+    </Host>
+  );
 };

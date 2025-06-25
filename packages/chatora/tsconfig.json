@@ -13,6 +13,7 @@
       "@/*": ["src/*"],
       "@root/*": ["./*"]
     },
+    "types": ["unplugin-icons/types/raw"],
     "allowImportingTsExtensions": true,
     "strict": true,
     "noFallthroughCasesInSwitch": true,

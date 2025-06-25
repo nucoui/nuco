@@ -1,11 +1,24 @@
 import { resolve } from "node:path";
 import preserveDirectives from "rollup-preserve-directives";
-import { defineConfig } from "vite";
+import Icons from "unplugin-icons/vite";
+import { defineConfig, type Plugin } from "vite";
 import dts from "vite-plugin-dts";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 const COMPONENT_PATH = [
-  "src/components/NButton/index.ts",
+  "src/components/NButton/NButton.tsx",
+  "src/components/NH1/NH1.tsx",
+  "src/components/NH2/NH2.tsx",
+  "src/components/NH3/NH3.tsx",
+  "src/components/NH4/NH4.tsx",
+  "src/components/NH5/NH5.tsx",
+  "src/components/NH6/NH6.tsx",
+  "src/components/NHeader/NHeader.tsx",
+  "src/components/NInput/NInput.tsx",
+  "src/components/NLi/NLi.tsx",
+  "src/components/NOption/NOption.tsx",
+  "src/components/NSelect/NSelect.tsx",
+  "src/components/NUl/NUl.tsx",
 ];
 
 export default defineConfig({
@@ -14,6 +27,10 @@ export default defineConfig({
       outDir: "./dist/types",
       tsconfigPath: resolve(__dirname, "tsconfig.json"),
     }),
+    Icons({
+      autoInstall: true,
+      compiler: "raw",
+    }) as Plugin,
     tsconfigPaths({
       configNames: ["tsconfig.json"],
     }),

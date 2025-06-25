@@ -1,0 +1,13 @@
+.n-li {
+  &.-marker-none {
+    list-style-type: none;
+  }
+
+  &.-marker-disc {
+    list-style-type: disc;
+  }
+
+  &.-marker-decimal {
+    list-style-type: decimal-leading-zero;
+  }
+}

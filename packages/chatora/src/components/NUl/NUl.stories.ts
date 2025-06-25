@@ -1,20 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
-import type { Props } from "./{{pascalCase name}}";
+import type { Props } from "./NUl";
 
 import { renderElement } from "@root/.storybook/utils/renderElement";
 import { functionalCustomElement } from "chatora";
 
-import { {{pascalCase name}} } from "./{{pascalCase name}}";
+import { NUl } from "./NUl";
 
 const meta = {
-  title: "Components/{{pascalCase name}}",
+  title: "Components/NList/NUl",
   tags: ["autodocs"],
-  render: args => renderElement(
-    "{{kebabCase name}}",
-    functionalCustomElement({{pascalCase name}}),
-    args.slot,
-    args
-  ),
+  render: args => renderElement("n-ul", functionalCustomElement(NUl), args.slot, args),
   argTypes: {
     slot: {
       control: { type: "text" },
@@ -25,7 +20,7 @@ const meta = {
     },
   },
   args: {
-    slot: "slot",
+    slot: "List Content",
   },
 } satisfies Meta<Props & { slot?: string }>;
 

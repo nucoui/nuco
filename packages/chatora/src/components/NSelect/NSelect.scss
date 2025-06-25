@@ -1,0 +1,96 @@
+.n-select {
+  position: relative;
+  box-sizing: border-box;
+  padding: var(--n-3) var(--n-5);
+  font-size: var(--n-4);
+  color: var(--cs-text-primary);
+  cursor: pointer;
+  caret-color: transparent;
+  background: transparent;
+  border: none;
+  border-radius: var(--n-2);
+  outline: 1px solid var(--cs-neutral-400);
+  outline-offset: -1.5px;
+
+  > .selected {
+    display: flex;
+    gap: var(--n-2);
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+
+    > slot > .placeholder {
+      color: var(--cs-neutral-300);
+      user-select: none;
+    }
+
+    > svg {
+      color: var(--cs-text-secondary);
+    }
+
+    ::slotted(n-option) {
+      margin: calc(-1 * var(--n-2)) calc(-1 * var(--n-4));
+    }
+  }
+
+  &[aria-disabled] {
+    color: var(--cs-text-secondary);
+    cursor: not-allowed;
+  }
+
+  &::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    border-radius: var(--n-2);
+    outline: 1px solid var(--cs-neutral-500);
+    outline-offset: 0;
+    opacity: 0;
+    transition: all 0.1s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &:not([aria-disabled]):focus,
+  &:not([aria-disabled]):hover {
+    &::after {
+      outline-offset: 2px;
+      opacity: 1;
+    }
+  }
+}
+
+.n-select-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  display: grid;
+  grid-template-rows: 0fr;
+  width: 100%;
+  margin: var(--n-2) 0;
+  pointer-events: none;
+  cursor: default;
+  background-color: color-mix(in srgb, var(--cs-background-primary) 98%, transparent);
+  backdrop-filter: blur(4px);
+  border-radius: var(--n-2);
+  box-shadow: 0 var(--n-1) var(--n-4) color-mix(in srgb, var(--cs-neutral-400) 25%, transparent);
+  opacity: 0;
+  transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+
+  &:not([data-hidden]) {
+    grid-template-rows: 1fr;
+    outline: 1px solid var(--cs-neutral-300);
+    opacity: 1;
+    transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  > .summary {
+    overflow: hidden;
+
+    > .slot {
+      display: grid;
+      gap: var(--n-2);
+      padding: var(--n-2);
+      pointer-events: auto;
+    }
+  }
+}

@@ -1,6 +1,9 @@
 import type { CC } from "chatora";
 import { toBoolean, toMatched, toString } from "@chatora/util";
+import { Host } from "chatora/jsx-runtime";
 import clsx from "clsx";
+import resetStyle from "../../styles/reset.css?raw";
+import style from "./NButton.scss?raw";
 
 export type Props = {
   variant?: "primary" | "secondary" | "tertiary" | "error";
@@ -21,12 +24,11 @@ export type Emits = {
   "on-click": Event;
 };
 
-export const Button: CC<Props, Emits> = ({
+export const NButton: CC<Props, Emits> = ({
   reactivity: { computed },
   defineEmits,
   defineProps,
   getHost,
-  render,
 }) => {
   const props = defineProps({
     type: v => toMatched(v, ["anchor", "submit", "reset", "button"]) ?? "button",
@@ -68,36 +70,40 @@ export const Button: CC<Props, Emits> = ({
     "onClick": props().disabled ? undefined : handleClick,
   }));
 
-  render(() => {
+  return () => {
     const type = props().type;
 
     switch (type) {
       case "anchor": {
         return (
-          <a
-            {...commonAttrs()}
-            tabindex={props().disabled ? -1 : 0}
-            href={props().disabled ? undefined : props().href}
-            target={props().target}
-          >
-            <span class="contents">
-              <slot />
-            </span>
-          </a>
+          <Host shadowRoot shadowRootMode="open" style={[style, resetStyle]}>
+            <a
+              {...commonAttrs()}
+              tabindex={props().disabled ? -1 : 0}
+              href={props().disabled ? undefined : props().href}
+              target={props().target}
+            >
+              <span class="contents">
+                <slot />
+              </span>
+            </a>
+          </Host>
         );
       }
       default: {
         return (
-          <button
-            {...commonAttrs()}
-            type={type}
-          >
-            <span class="contents">
-              <slot />
-            </span>
-          </button>
+          <Host shadowRoot shadowRootMode="open" style={[style, resetStyle]}>
+            <button
+              {...commonAttrs()}
+              type={type}
+            >
+              <span class="contents">
+                <slot />
+              </span>
+            </button>
+          </Host>
         );
       }
     }
-  });
+  };
 };

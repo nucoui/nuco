@@ -51,9 +51,9 @@ export default (
       const rootPath = "../../";
       const componentDir = `src/components${data.atomic}{{pascalCase name}}/`;
       // const mainPath = `${rootPath}src/main.ts`;
-      const elementsPath = `${rootPath}src/utils/elements.ts`;
-      const customElementsPath = `${rootPath}src/utils/customElements.ts`;
-      const declarativeCustomElementsPath = `${rootPath}src/utils/declarativeCustomElements.ts`;
+      const elementsPath = `${rootPath}src/elements/elements.ts`;
+      const customElementsPath = `${rootPath}src/elements/customElements.ts`;
+      const declarativeCustomElementsPath = `${rootPath}src/elements/declarativeCustomElements.ts`;
       const viteConfigPath = `${rootPath}vite.config.ts`;
 
       return [
@@ -73,11 +73,6 @@ export default (
           templateFile: "./component.stories.ts.hbs",
         },
         {
-          type: "add",
-          path: `${rootPath}${componentDir}index.ts`,
-          templateFile: "./index.ts.hbs",
-        },
-        {
           type: "modify",
           path: elementsPath,
           pattern: /(const Elements = \{)/g,
@@ -87,31 +82,31 @@ export default (
           type: "modify",
           path: elementsPath,
           pattern: /(^\s*)/m, // ファイルの先頭にマッチする正規表現
-          template: `$1import { {{pascalCase name}} } from "@/components{{atomic}}{{pascalCase name}}";\n`,
+          template: `$1import { {{pascalCase name}} } from "@/components{{atomic}}{{pascalCase name}}/{{pascalCase name}}";\n`,
         },
         {
           type: "modify",
           path: customElementsPath,
           pattern: /(const CustomElements = \{)/g,
-          template: `$1\n  "{{kebabCase name}}": functionalCustomElement({{pascalCase name}}, { styles: [{{pascalCase name}}Style] }),`,
+          template: `$1\n  "{{kebabCase name}}": functionalCustomElement({{pascalCase name}}),`,
         },
         {
           type: "modify",
           path: customElementsPath,
           pattern: /(^\s*)/m, // ファイルの先頭にマッチする正規表現
-          template: `$1import { {{pascalCase name}}, {{pascalCase name}}Style } from "@/components{{atomic}}{{pascalCase name}}";\n`,
+          template: `$1import { {{pascalCase name}} } from "@/components{{atomic}}{{pascalCase name}}/{{pascalCase name}}";\n`,
         },
         {
           type: "modify",
           path: declarativeCustomElementsPath,
           pattern: /(const DeclarativeCustomElements = \{)/g,
-          template: `$1\n  "{{kebabCase name}}": (props: ComponentProps<typeof {{pascalCase name}}>) => functionalDeclarativeCustomElement({{pascalCase name}}, { styles: [{{pascalCase name}}Style], props }),`,
+          template: `$1\n  "{{kebabCase name}}": (props: ComponentProps<typeof {{pascalCase name}}>) => functionalDeclarativeCustomElement({{pascalCase name}}, { props }),`,
         },
         {
           type: "modify",
           path: declarativeCustomElementsPath,
           pattern: /(^\s*)/m, // ファイルの先頭にマッチする正規表現
-          template: `$1import { {{pascalCase name}}, {{pascalCase name}}Style } from "@/components{{atomic}}{{pascalCase name}}";\n`,
+          template: `$1import { {{pascalCase name}} } from "@/components{{atomic}}{{pascalCase name}}/{{pascalCase name}}";\n`,
         },
         {
           type: "modify",
@@ -133,7 +128,7 @@ export default (
               .filter(entry => entry); // 空エントリを除去
 
             const componentDir = `src/components${data.atomic}${toPascalCase(data.name)}/`;
-            const newEntry = `${componentDir}index.ts`;
+            const newEntry = `${componentDir}${toPascalCase(data.name)}.tsx`;
 
             entries.push(newEntry);
             entries.sort();
@@ -167,9 +162,9 @@ export default (
             const pascalCaseName = toPascalCase(data.name);
 
             const newExport = {
-              types: `./dist/types/src/components${data.atomic}${pascalCaseName}/index.d.ts`,
-              import: `./dist/packages/chatora/src/components${data.atomic}${pascalCaseName}/index.js`,
-              require: `./dist/packages/chatora/src/components${data.atomic}${pascalCaseName}/index.cjs`,
+              types: `./dist/types/src/components${data.atomic}${pascalCaseName}/${pascalCaseName}.d.ts`,
+              import: `./dist/packages/chatora/src/components${data.atomic}${pascalCaseName}/${pascalCaseName}.js`,
+              require: `./dist/packages/chatora/src/components${data.atomic}${pascalCaseName}/${pascalCaseName}.cjs`,
             };
 
             // エクスポート文を追加

@@ -1,4 +1,4 @@
-export const renderElement = (tag: string, customElement: CustomElementConstructor, slot: string | undefined, args: Record<string, any> = {}) => {
+export const renderElement = (tag: string, customElement: CustomElementConstructor, slot: Node | string | undefined, args: Record<string, any> = {}) => {
   if (!customElements.get(tag)) {
     customElements.define(tag, customElement);
   }
@@ -9,12 +9,26 @@ export const renderElement = (tag: string, customElement: CustomElementConstruct
       element.addEventListener(key.slice(2).toLowerCase(), value);
     }
     else {
-      element.setAttribute(key, value);
+      if (value === null || value === undefined) {
+        element.removeAttribute(key);
+      }
+      else if (typeof value === "boolean") {
+        value ? element.setAttribute(key, "true") : element.removeAttribute(key);
+      }
+      else {
+        element.setAttribute(key, value);
+      }
     }
   });
 
   if (slot !== undefined) {
-    element.innerHTML = slot;
+    if (typeof slot === "string") {
+      element.innerHTML = slot;
+    }
+
+    if (slot instanceof Node) {
+      element.appendChild(slot);
+    }
   }
   else {
     element.innerHTML = "";

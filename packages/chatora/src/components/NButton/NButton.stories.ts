@@ -2,15 +2,18 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import type { Props } from "./NButton";
 import { functionalCustomElement } from "chatora";
 import { renderElement } from "../../../.storybook/utils/renderElement";
-import resetStyle from "../../styles/reset.css?raw";
-import { Button } from "./NButton";
-import style from "./NButton.scss?raw";
+import { NButton } from "./NButton";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta = {
   title: "Components/NButton",
   tags: ["autodocs"],
-  render: args => renderElement("n-button", functionalCustomElement(Button, { styles: [style, resetStyle] }), args.slot, args),
+  render: args => renderElement(
+    "n-button",
+    functionalCustomElement(NButton),
+    args.slot,
+    args,
+  ),
   argTypes: {
     type: {
       control: "select",
@@ -60,11 +63,17 @@ const meta = {
 } satisfies Meta<Props & { slot?: string }>;
 
 export default meta;
-type Story = StoryObj<Props>;
+type Story = StoryObj<Props & { slot?: string }>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
   args: {
     type: "button",
+  },
+};
+
+export const Submit: Story = {
+  args: {
+    type: "submit",
   },
 };

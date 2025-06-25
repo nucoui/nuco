@@ -1,20 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
-import type { Props } from "./{{pascalCase name}}";
+import type { Props } from "./NOption";
 
 import { renderElement } from "@root/.storybook/utils/renderElement";
 import { functionalCustomElement } from "chatora";
 
-import { {{pascalCase name}} } from "./{{pascalCase name}}";
+import { NOption } from "./NOption";
 
 const meta = {
-  title: "Components/{{pascalCase name}}",
+  title: "Components/NSelect/NOption",
   tags: ["autodocs"],
-  render: args => renderElement(
-    "{{kebabCase name}}",
-    functionalCustomElement({{pascalCase name}}),
-    args.slot,
-    args
-  ),
+  render: args => renderElement("n-option", functionalCustomElement(NOption), args.slot, args),
   argTypes: {
     slot: {
       control: { type: "text" },
@@ -25,7 +20,7 @@ const meta = {
     },
   },
   args: {
-    slot: "slot",
+    slot: "Option Item",
   },
 } satisfies Meta<Props & { slot?: string }>;
 
@@ -33,5 +28,7 @@ export default meta;
 type Story = StoryObj<Props & { slot?: string }>;
 
 export const Primary: Story = {
-  args: {},
+  args: {
+    selected: true,
+  },
 };

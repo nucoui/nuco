@@ -1,21 +1,30 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
-import type { Props } from "./{{pascalCase name}}";
+import type { Props } from "./NHeader";
 
 import { renderElement } from "@root/.storybook/utils/renderElement";
 import { functionalCustomElement } from "chatora";
 
-import { {{pascalCase name}} } from "./{{pascalCase name}}";
+import { NHeader } from "./NHeader";
 
 const meta = {
-  title: "Components/{{pascalCase name}}",
+  title: "Components/NHeader",
   tags: ["autodocs"],
   render: args => renderElement(
-    "{{kebabCase name}}",
-    functionalCustomElement({{pascalCase name}}),
+    "n-header",
+    functionalCustomElement(NHeader),
     args.slot,
-    args
+    args,
   ),
   argTypes: {
+    isLogo: {
+      control: { type: "boolean" },
+    },
+    isMiddle: {
+      control: { type: "boolean" },
+    },
+    isNavToggle: {
+      control: { type: "boolean" },
+    },
     slot: {
       control: { type: "text" },
       description: "<slot> content",
@@ -25,7 +34,7 @@ const meta = {
     },
   },
   args: {
-    slot: "slot",
+    slot: "Header Content",
   },
 } satisfies Meta<Props & { slot?: string }>;
 
