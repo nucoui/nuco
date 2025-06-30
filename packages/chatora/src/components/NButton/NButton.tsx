@@ -1,6 +1,7 @@
 import type { CC } from "chatora";
-import { toBoolean, toMatched, toString } from "@chatora/util";
+import { computed, getHost } from "chatora";
 import { Host } from "chatora/jsx-runtime";
+import { toBoolean, toMatched, toString } from "chatora/util";
 import clsx from "clsx";
 import resetStyle from "../../styles/reset.css?raw";
 import style from "./NButton.scss?raw";
@@ -25,10 +26,8 @@ export type Emits = {
 };
 
 export const NButton: CC<Props, Emits> = ({
-  reactivity: { computed },
-  defineEmits,
   defineProps,
-  getHost,
+  defineEmits,
 }) => {
   const props = defineProps({
     type: v => toMatched(v, ["anchor", "submit", "reset", "button"]) ?? "button",
@@ -49,7 +48,7 @@ export const NButton: CC<Props, Emits> = ({
   const handleClick = (e: Event) => {
     emits("on-click", e);
     if (props().type === "submit") {
-      host?.closest("form")?.requestSubmit();
+      host.value?.closest("form")?.requestSubmit();
     }
   };
 
@@ -78,7 +77,7 @@ export const NButton: CC<Props, Emits> = ({
         return (
           <Host shadowRoot shadowRootMode="open" style={[style, resetStyle]}>
             <a
-              {...commonAttrs()}
+              {...commonAttrs.value}
               tabindex={props().disabled ? -1 : 0}
               href={props().disabled ? undefined : props().href}
               target={props().target}
@@ -94,7 +93,7 @@ export const NButton: CC<Props, Emits> = ({
         return (
           <Host shadowRoot shadowRootMode="open" style={[style, resetStyle]}>
             <button
-              {...commonAttrs()}
+              {...commonAttrs.value}
               type={type}
             >
               <span class="contents">

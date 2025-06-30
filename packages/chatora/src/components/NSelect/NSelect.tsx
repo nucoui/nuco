@@ -1,6 +1,9 @@
 import type { CC } from "chatora";
-import { toBoolean, toString } from "@chatora/util";
+
+import { effect, getHost, getInternals, getSlotteds, signal } from "chatora";
 import { Host } from "chatora/jsx-runtime";
+import { toBoolean, toString } from "chatora/util";
+
 import resetStyle from "../../styles/reset.css?raw";
 import style from "./NSelect.scss?raw";
 
@@ -25,9 +28,6 @@ export type Emits = {
 export const NSelect: CC<Props, Emits> = ({
   defineProps,
   defineEmits,
-  getHost,
-  getInternals,
-  reactivity: { signal, effect },
 }) => {
   const props = defineProps({
     name: v => toString(v),
@@ -41,32 +41,92 @@ export const NSelect: CC<Props, Emits> = ({
 
   const host = getHost();
   const internals = getInternals();
+  const slotted = getSlotteds();
+  const selectedValueSlotted = getSlotteds("selected-value");
 
-  const clickHandlerMap = new WeakMap<Element, (event: Event) => void>();
-  const keydownHandlerMap = new WeakMap<Element, (event: KeyboardEvent) => void>();
+  const isShowOptions = signal(false);
+  const isBlurred = signal(false);
+  const focusedOptionIndex = signal(-1);
 
-  const [isShowOptions, setIsShowOptions] = signal(false);
-  const [slottedElements, setSlottedElements] = signal<Element[] | null>(null);
+  /**
+   * Get all N-OPTION elements from slotted content
+   */
+  const getOptions = () => slotted.value?.filter(el => el.tagName === "N-OPTION") || [];
 
-  function preventSpaceScroll(event: KeyboardEvent) {
-    if (event.key === " ") {
-      event.preventDefault();
+  /**
+   * Clear all selected states from options
+   */
+  const clearSelectedStates = () => {
+    slotted.value?.forEach((element) => {
+      if (element.tagName === "N-OPTION") {
+        element.removeAttribute("selected");
+      }
+    });
+  };
+
+  /**
+   * Remove currently selected value from DOM
+   */
+  const removeSelectedValue = () => {
+    selectedValueSlotted.value?.forEach((selectedEl) => {
+      if (selectedEl.tagName === "N-OPTION") {
+        selectedEl.removeAttribute("selected");
+        selectedEl.removeAttribute("slot");
+        host.value?.removeChild(selectedEl);
+      }
+    });
+  };
+
+  /**
+   * Set new selected value in DOM and form
+   */
+  const setSelectedValue = (element: HTMLElement, value: string | null) => {
+    element.setAttribute("selected", "");
+
+    const selectedNode = element.cloneNode(true) as HTMLElement;
+    selectedNode.setAttribute("slot", "selected-value");
+    selectedNode.tabIndex = -1;
+
+    host.value?.appendChild(selectedNode);
+
+    if (internals.value) {
+      internals.value.setFormValue(value);
     }
-  }
+  };
 
-  function allowSpaceScroll() {
-    window.removeEventListener("keydown", preventSpaceScroll);
-  }
+  /**
+   * Handle option selection
+   */
+  const handleSelectOption = (e: Event) => {
+    e.preventDefault();
+    e.stopPropagation();
 
-  function getSlottedElements(slotName?: string, customSelector?: string): Element[] | null {
-    if (!host) {
-      return null;
+    if (props().disabled) {
+      return;
     }
 
-    const selector = customSelector || (slotName ? `[slot='${slotName}']` : "n-option:not([disabled]):not([slot])");
+    const el = e.currentTarget as HTMLElement;
+    const value = el.getAttribute("value");
 
-    return Array.from(host.querySelectorAll(selector));
-  }
+    clearSelectedStates();
+    removeSelectedValue();
+    setSelectedValue(el, value);
+
+    emits("onChange", { value: value ?? null });
+    isShowOptions.set(false);
+    focusedOptionIndex.set(-1);
+  };
+
+  const handleBlur = (e: Event) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (props().disabled) {
+      return;
+    }
+
+    isBlurred.set(true);
+  };
 
   const handleClick = (e: Event) => {
     e.preventDefault();
@@ -75,130 +135,107 @@ export const NSelect: CC<Props, Emits> = ({
       return;
     }
 
-    setIsShowOptions(true);
+    isShowOptions.set(true);
+  };
+
+  /**
+   * Focus on specific option by index
+   */
+  const focusOption = (index: number) => {
+    const options = getOptions();
+    if (options.length === 0)
+      return;
+
+    setTimeout(() => {
+      const targetOption = options[index] as HTMLElement;
+      const focusableElement = targetOption.shadowRoot?.querySelector("[role=\"option\"]") as HTMLElement || targetOption;
+      focusableElement.focus();
+
+      // Add keydown listener only once per focus
+      const handleOptionKeydown = (ke: KeyboardEvent) => {
+        if (ke.key === "Enter" || ke.key === " ") {
+          targetOption.click();
+        }
+      };
+
+      focusableElement.removeEventListener("keydown", handleOptionKeydown);
+      focusableElement.addEventListener("keydown", handleOptionKeydown, { once: true });
+    }, 0);
   };
 
   const handleKeydown = (e: KeyboardEvent) => {
     e.preventDefault();
+
     if (props().disabled) {
       return;
     }
 
-    if (isShowOptions()) {
-      if (e.key === "Escape") {
-        setIsShowOptions(false);
-        return;
+    if (e.key === "Escape") {
+      isShowOptions.set(false);
+      focusedOptionIndex.set(-1);
+    }
+    else if (e.key === "ArrowDown") {
+      const options = getOptions();
+      if (options.length > 0) {
+        if (!isShowOptions.value) {
+          isShowOptions.set(true);
+          focusedOptionIndex.set(0);
+        }
+        else {
+          const nextIndex = focusedOptionIndex.value < options.length - 1 ? focusedOptionIndex.value + 1 : 0;
+          focusedOptionIndex.set(nextIndex);
+        }
+        focusOption(focusedOptionIndex.value);
       }
     }
-
-    if (!isShowOptions() && ["ArrowDown", "ArrowUp", " ", "Enter"].includes(e.key)) {
-      setIsShowOptions(true);
-    }
-
-    if (isShowOptions() && ["ArrowDown", "ArrowUp"].includes(e.key)) {
-      window.addEventListener("keydown", preventSpaceScroll);
-
-      const elements = slottedElements();
-      const idx = elements?.findIndex((node: Element) => node === document.activeElement) ?? 0;
-
-      if (elements && e.key === "ArrowDown") {
-        const nextIndex = (idx + 1) % elements.length;
-        const nextOption = (elements[nextIndex] as HTMLElement).shadowRoot?.querySelector("[part='n-option']") as HTMLElement;
-        nextOption?.focus();
-      }
-      else if (elements && e.key === "ArrowUp") {
-        const prevIndex = (idx - 1 + elements.length) % elements.length;
-        const prevOption = (elements[prevIndex] as HTMLElement).shadowRoot?.querySelector("[part='n-option']") as HTMLElement;
-        prevOption?.focus();
+    else if (e.key === "ArrowUp") {
+      const options = getOptions();
+      if (options.length > 0) {
+        if (!isShowOptions.value) {
+          isShowOptions.set(true);
+          focusedOptionIndex.set(options.length - 1);
+        }
+        else {
+          const prevIndex = focusedOptionIndex.value > 0 ? focusedOptionIndex.value - 1 : options.length - 1;
+          focusedOptionIndex.set(prevIndex);
+        }
+        focusOption(focusedOptionIndex.value);
       }
     }
   };
 
-  const handleSelectOption = (node: Element) => {
-    const slotElement = getSlottedElements();
-    slotElement?.forEach((el: Element) => {
-      if (el instanceof HTMLElement) {
-        el.removeAttribute("selected");
+  /**
+   * Set tabindex for all options based on visibility
+   */
+  const updateOptionTabIndex = (tabIndex: number) => {
+    slotted.value?.forEach((el) => {
+      if (el.tagName === "N-OPTION") {
+        if (tabIndex === -1) {
+          el.setAttribute("tabindex", "-1");
+        }
+        else {
+          el.removeAttribute("tabindex");
+        }
+
+        // Shadow DOM内の要素のtabindexも設定
+        const innerElement = el.shadowRoot?.querySelector("[role=\"option\"]") as HTMLElement;
+        if (innerElement) {
+          innerElement.tabIndex = tabIndex;
+        }
       }
     });
-    node.setAttribute("selected", "");
-
-    const clonedNode = node.cloneNode(true) as HTMLElement;
-    const clonedNodeValue = clonedNode.getAttribute("value");
-
-    if (host) {
-      const existingSelectedValue = getSlottedElements("selected-value")?.[0];
-
-      if (existingSelectedValue) {
-        host.removeChild(existingSelectedValue);
-      }
-
-      clonedNode.setAttribute("slot", "selected-value");
-      clonedNode.tabIndex = -1;
-      clonedNode.removeAttribute("selected");
-
-      host.appendChild(clonedNode);
-      host.focus();
-    }
-
-    if (internals) {
-      internals.setFormValue(clonedNodeValue);
-    }
-
-    emits("onChange", { value: clonedNodeValue });
-
-    setIsShowOptions(false);
-    allowSpaceScroll();
-  };
-
-  const handleBlur = (event: FocusEvent) => {
-    if (props().disabled)
-      return;
-    const relatedTarget = event.relatedTarget as Element;
-    const slotElement = getSlottedElements();
-    const selectedValueElement = getSlottedElements("selected-value");
-    if (relatedTarget && (slotElement?.includes(relatedTarget) || selectedValueElement?.includes(relatedTarget))) {
-      return;
-    }
-    setIsShowOptions(false);
   };
 
   effect(() => {
-    if (!host)
-      return;
-    const selectedSlottedElement = getSlottedElements(undefined, "n-option[selected]:not([disabled]):not([slot])");
-    if (!selectedSlottedElement?.length)
-      return;
-    handleSelectOption(selectedSlottedElement[0]);
+    slotted.value?.forEach((el) => {
+      if (el.tagName === "N-OPTION") {
+        el.addEventListener("click", handleSelectOption);
+      }
+    });
   });
 
   effect(() => {
-    if (!host)
-      return;
-    setSlottedElements(getSlottedElements());
-    const elements = slottedElements();
-    elements?.forEach((node: Element) => {
-      const prevClick = clickHandlerMap.get(node);
-      if (prevClick)
-        node.removeEventListener("click", prevClick);
-      const prevKeydown = keydownHandlerMap.get(node);
-      if (prevKeydown)
-        node.removeEventListener("keydown", prevKeydown as any);
-      const clickHandler = (event: Event) => {
-        event.stopPropagation();
-        handleSelectOption(node);
-      };
-      const keydownHandler = (event: Event) => {
-        if (event instanceof KeyboardEvent && ["Enter", " "].includes(event.key)) {
-          event.stopPropagation();
-          handleSelectOption(node);
-        }
-      };
-      node.addEventListener("click", clickHandler);
-      node.addEventListener("keydown", keydownHandler as any);
-      clickHandlerMap.set(node, clickHandler);
-      keydownHandlerMap.set(node, keydownHandler as any);
-    });
+    updateOptionTabIndex(isShowOptions.value ? 0 : -1);
   });
 
   return () => (
@@ -217,7 +254,7 @@ export const NSelect: CC<Props, Emits> = ({
           </slot>
           <MaterialSymbolsArrowDropDownRounded />
         </div>
-        <div class="n-select-options" data-hidden={!isShowOptions()}>
+        <div class="n-select-options" data-hidden={!isShowOptions.value}>
           <div class="summary">
             <div class="slot">
               <slot />

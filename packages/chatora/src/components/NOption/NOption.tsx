@@ -1,6 +1,6 @@
 import type { CC } from "chatora";
-import { toBoolean, toString } from "@chatora/util";
 import { Host } from "chatora/jsx-runtime";
+import { toBoolean, toString } from "chatora/util";
 import resetStyle from "../../styles/reset.css?raw";
 import style from "./NOption.scss?raw";
 

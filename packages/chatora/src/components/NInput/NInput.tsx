@@ -1,6 +1,7 @@
 import type { CC } from "chatora";
-import { toBoolean, toNumber, toString } from "@chatora/util";
+import { computed, getInternals, signal } from "chatora";
 import { Host } from "chatora/jsx-runtime";
+import { toBoolean, toNumber, toString } from "chatora/util";
 import clsx from "clsx";
 import resetStyle from "../../styles/reset.css?raw";
 import style from "./NInput.scss?raw";
@@ -22,10 +23,8 @@ export type Emits = {
 };
 
 export const NInput: CC<Props, Emits> = ({
-  reactivity: { computed, signal },
   defineProps,
   defineEmits,
-  getInternals,
 }) => {
   const props = defineProps({
     value: v => toString(v) ?? "",
@@ -51,7 +50,7 @@ export const NInput: CC<Props, Emits> = ({
 
   const internals = getInternals();
 
-  const [valueLength, setValueLength] = signal(0);
+  const valueLength = signal(0);
 
   const requiredElement = computed(() => {
     if (!props().required) {
@@ -72,7 +71,7 @@ export const NInput: CC<Props, Emits> = ({
     return (
       <span class="length">
         {isMinlength && <span>{`${props().minlength} <= `}</span>}
-        {valueLength()}
+        {valueLength.value}
         {isMaxlength && <span>{` <= ${props().maxlength}`}</span>}
       </span>
     );
@@ -106,9 +105,10 @@ export const NInput: CC<Props, Emits> = ({
   const handleInput = (e: Event) => {
     const target = e.target as HTMLInputElement;
 
-    setValueLength(getValueLength(target.value));
-    if (internals) {
-      internals.setFormValue(target.value);
+    valueLength.set(getValueLength(target.value));
+
+    if (internals.value) {
+      internals.value.setFormValue(target.value);
     }
 
     emits("on-input", e);
@@ -126,10 +126,10 @@ export const NInput: CC<Props, Emits> = ({
             <slot name="label">
               {props().name}
             </slot>
-            {requiredElement()}
+            {requiredElement.value}
           </span>
           <span class="options">
-            {maxlengthElement()}
+            {maxlengthElement.value}
           </span>
         </div>
         <input

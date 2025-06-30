@@ -199,15 +199,12 @@ importers:
 
   packages/chatora:
     dependencies:
-      '@chatora/util':
-        specifier: 0.0.1-beta.38
-        version: 0.0.1-beta.38
       '@nuco/variable':
         specifier: workspace:*
         version: link:../variable
       chatora:
-        specifier: 0.0.1-beta.38
-        version: 0.0.1-beta.38
+        specifier: ^1.0.5
+        version: 1.0.5
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -1028,14 +1025,14 @@ packages:
   '@bufbuild/protobuf@2.2.0':
     resolution: {integrity: sha512-+imAQkHf7U/Rwvu0wk1XWgsP3WnpCWmK7B48f0XqSNzgk64+grljTKC7pnO/xBiEMUziF7vKRfbBnOQhg126qQ==}
 
-  '@chatora/reactivity@0.0.1-beta.38':
-    resolution: {integrity: sha512-b7Y27tmL/cDw13ZfclENtM5QKLPVKSOcUMk/r6PHn9bJyaHtb1UD5P4y6bH+uZVybZT3lL2bk5gaEc22b9hmjg==}
+  '@chatora/reactivity@1.0.5':
+    resolution: {integrity: sha512-pliWzuSdA6iMHkIsl8B4DTpCbW6gnOt9xMnpTsC6H4N+AWKacbwgONIcLf0OVP19uwWotP7nphGS33b/gyVAdA==}
 
-  '@chatora/runtime@0.0.1-beta.38':
-    resolution: {integrity: sha512-0TKz4RkJxAsIro7pjc9pLYAMxqNCBI+4E3XQug/7MlpjxEbtn5WwMNmW9o1hvM4t8nTMnxJaHXDStH72csGQLQ==}
+  '@chatora/runtime@1.0.5':
+    resolution: {integrity: sha512-gY5z3wDTosGLBTt7yGAus+xdJ0v0KfiUwHeayQCCPT8L7PEj1jPqYtApYL3EG0iAedPNk+2ritg2eKQpO7uOHg==}
 
-  '@chatora/util@0.0.1-beta.38':
-    resolution: {integrity: sha512-2s3zCVL7P6F0Wn6XrQ+EJtlshK3egPXPVk9704c2VW/Gf6fI4mDKINWKqEhvQKLCHMjcCIeuGXcnSdQbtaaw0A==}
+  '@chatora/util@1.0.5':
+    resolution: {integrity: sha512-7pgD5/n/O6Wa76RFrCOZHA7iERhxsaMhc41EyT8xpbrKHFqHD5DqjVdFFwUxJBFGRkoFnTVdvmlQLGl9/8768w==}
 
   '@chromatic-com/storybook@3.2.4':
     resolution: {integrity: sha512-5/bOOYxfwZ2BktXeqcCpOVAoR6UCoeART5t9FVy22hoo8F291zOuX4y3SDgm10B1GVU/ZTtJWPT2X9wZFlxYLg==}
@@ -5329,8 +5326,8 @@ packages:
   chardet@0.7.0:
     resolution: {integrity: sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==}
 
-  chatora@0.0.1-beta.38:
-    resolution: {integrity: sha512-Tk/bHZNvc/KmN4OM6uPaovleDHGuSuLMmKGJHS1mfCd0luNAzj8xMi2N3DG1x8v8fYqLfAXWHvxfVhgGLcOkXw==}
+  chatora@1.0.5:
+    resolution: {integrity: sha512-BSAHxbIkOXyrBUKbbPWW1JOYRUNIb4Ls+cd6RIO0/M8lkU8HgdT2Iw/zldeg8p/r4jTerep/iyXDIc+01g9Z2w==}
 
   check-error@2.1.1:
     resolution: {integrity: sha512-OAlb+T7V4Op9OwdkjmguYRqncdlx5JiofwOAUkmTF+jNdHwzTaTs4sRAGpzLF3oOz5xAyDGrPgeIDFQmDOTiJw==}
@@ -10817,15 +10814,15 @@ snapshots:
   '@bufbuild/protobuf@2.2.0':
     optional: true
 
-  '@chatora/reactivity@0.0.1-beta.38':
+  '@chatora/reactivity@1.0.5':
     dependencies:
       alien-signals: 2.0.5
 
-  '@chatora/runtime@0.0.1-beta.38':
+  '@chatora/runtime@1.0.5':
     dependencies:
       '@types/hast': 3.0.4
 
-  '@chatora/util@0.0.1-beta.38': {}
+  '@chatora/util@1.0.5': {}
 
   '@chromatic-com/storybook@3.2.4(react@19.0.0)(storybook@8.6.0(prettier@3.5.0))':
     dependencies:
@@ -16253,10 +16250,11 @@ snapshots:
 
   chardet@0.7.0: {}
 
-  chatora@0.0.1-beta.38:
+  chatora@1.0.5:
     dependencies:
-      '@chatora/reactivity': 0.0.1-beta.38
-      '@chatora/runtime': 0.0.1-beta.38
+      '@chatora/reactivity': 1.0.5
+      '@chatora/runtime': 1.0.5
+      '@chatora/util': 1.0.5
 
   check-error@2.1.1: {}
 

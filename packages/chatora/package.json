@@ -88,9 +88,8 @@
     "gen:component": "npx plop component --plopfile .plop/component/.mjs"
   },
   "dependencies": {
-    "@chatora/util": "0.0.1-beta.38",
     "@nuco/variable": "workspace:*",
-    "chatora": "0.0.1-beta.38",
+    "chatora": "^1.0.5",
     "clsx": "^2.1.1"
   },
   "devDependencies": {
