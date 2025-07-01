@@ -1,6 +1,7 @@
 import type { StorybookConfig } from "@storybook/web-components-vite";
 import { dirname, join, resolve } from "node:path";
 import Unfonts from "unplugin-fonts/vite";
+import { rawCssPlugin } from "../.plugins/rawCss";
 
 /**
  * This function is used to resolve the absolute path of a package.
@@ -25,6 +26,9 @@ const config: StorybookConfig = {
     options: {},
   },
   viteFinal: (config) => {
+    config.plugins?.push(
+      rawCssPlugin(),
+    );
     config.plugins?.push(Unfonts({
       google: {
         families: [

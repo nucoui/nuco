@@ -1,12 +1,19 @@
 import { resolve } from "node:path";
+import { visualizer } from "rollup-plugin-visualizer";
 import preserveDirectives from "rollup-preserve-directives";
 import Icons from "unplugin-icons/vite";
 import { defineConfig, type Plugin } from "vite";
 import dts from "vite-plugin-dts";
 import tsconfigPaths from "vite-tsconfig-paths";
+import { rawCssPlugin } from "./.plugins/rawCss";
 
 const COMPONENT_PATH = [
+  "src/components/NAnchor/NAnchor.tsx",
+  "src/components/NBadge/NBadge.tsx",
+  "src/components/NBreadcrumb/NBreadcrumb.tsx",
   "src/components/NButton/NButton.tsx",
+  "src/components/NCodeBlock/NCodeBlock.tsx",
+  "src/components/NError/NError.tsx",
   "src/components/NH1/NH1.tsx",
   "src/components/NH2/NH2.tsx",
   "src/components/NH3/NH3.tsx",
@@ -16,13 +23,17 @@ const COMPONENT_PATH = [
   "src/components/NHeader/NHeader.tsx",
   "src/components/NInput/NInput.tsx",
   "src/components/NLi/NLi.tsx",
+  "src/components/NNavAccordion/NNavAccordion.tsx",
   "src/components/NOption/NOption.tsx",
+  "src/components/NPager/NPager.tsx",
+  "src/components/NPagers/NPagers.tsx",
   "src/components/NSelect/NSelect.tsx",
   "src/components/NUl/NUl.tsx",
 ];
 
 export default defineConfig({
   plugins: [
+    rawCssPlugin(),
     dts({
       outDir: "./dist/types",
       tsconfigPath: resolve(__dirname, "tsconfig.json"),
@@ -35,6 +46,12 @@ export default defineConfig({
       configNames: ["tsconfig.json"],
     }),
     preserveDirectives(),
+    visualizer({
+      open: false,
+      filename: "stats.html",
+      gzipSize: true,
+      template: "treemap",
+    }),
   ],
 
   build: {

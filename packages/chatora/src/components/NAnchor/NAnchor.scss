@@ -1,0 +1,54 @@
+.n-anchor {
+  color: var(--cs-link);
+  text-decoration: none;
+  cursor: pointer;
+  display: inline;
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: var(--cs-link-hover);
+  }
+
+  &:active {
+    color: var(--cs-link-active);
+  }
+
+  &:visited {
+    color: var(--cs-link-visited);
+  }
+
+  &:focus {
+    outline: 2px solid var(--cs-focus);
+    outline-offset: 2px;
+  }
+
+  &--underline-always {
+    text-decoration: underline;
+  }
+
+  &--underline-hover {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &--underline-none {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &--disabled {
+    color: var(--cs-text-disabled);
+    cursor: not-allowed;
+    pointer-events: none;
+
+    &:hover {
+      color: var(--cs-text-disabled);
+    }
+  }
+}

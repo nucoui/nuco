@@ -13,7 +13,7 @@
       "@/*": ["src/*"],
       "@root/*": ["./*"]
     },
-    "types": ["unplugin-icons/types/raw"],
+    "types": ["unplugin-icons/types/raw", "./.plugins/rawCss.d.ts"],
     "allowImportingTsExtensions": true,
     "strict": true,
     "noFallthroughCasesInSwitch": true,

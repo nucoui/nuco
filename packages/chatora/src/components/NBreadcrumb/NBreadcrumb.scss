@@ -1,0 +1,33 @@
+.n-breadcrumb {
+  display: flex;
+  gap: var(--n-2);
+  align-items: center;
+
+  ::slotted(n-li) {
+    display: flex;
+    align-items: baseline;
+    font-size: var(--n-3);
+    color: var(--cs-text-secondary);
+
+    &::before {
+      display: inline-block;
+      margin-right: var(--n-2);
+      content: ">";
+    }
+  }
+
+  ::slotted(n-li:first-child) {
+    &::before {
+      content: none;
+    }
+  }
+
+  ::slotted(n-li:last-child) {
+    color: var(--cs-text-primary);
+
+    &::before {
+      font-weight: normal;
+      color: var(--cs-text-secondary);
+    }
+  }
+}

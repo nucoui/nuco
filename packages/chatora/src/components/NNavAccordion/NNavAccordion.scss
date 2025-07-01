@@ -1,0 +1,59 @@
+.summary {
+  > .button {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    width: 100%;
+    padding: var(--n-2) var(--n-5);
+    white-space: pre-wrap;
+    cursor: pointer;
+    border-radius: var(--n-2);
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    &:focus,
+    &:hover {
+      background-color: color-mix(in srgb, var(--cs-neutral-900) 5%, transparent);
+    }
+
+    > .arrow {
+      color: var(--cs-text-secondary);
+      transition: 0.2s;
+      transform: rotate(0deg);
+      transform-origin: center center;
+    }
+
+    &[aria-expanded] > .arrow {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.detail {
+  display: block grid;
+  grid-template-rows: 0fr;
+  padding: 0 var(--n-4);
+  opacity: 0;
+  transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+
+  &:not([data-hidden]) {
+    grid-template-rows: 1fr;
+    padding: var(--n-2) var(--n-4) 0;
+    opacity: 1;
+    transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  > .inner {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--n-2);
+    overflow: hidden;
+
+    > .stroke {
+      width: 2px;
+      height: 100%;
+      margin: 0 var(--n-1);
+      background-color: var(--cs-border-secondary);
+      border-radius: calc(infinity * 1px);
+    }
+  }
+}
