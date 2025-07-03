@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import type { Props } from "./NInput";
 
+import { NButton } from "@/components/NButton/NButton";
+
 import { renderElement } from "@root/.storybook/utils/renderElement";
 import { functionalCustomElement } from "chatora";
-
 import { NInput } from "./NInput";
 
 const meta = {
@@ -93,5 +94,51 @@ export const Primary: Story = {
     type: "text",
     name: "name",
     placeholder: "Placeholder",
+  },
+};
+
+export const Playground: Story = {
+  args: {},
+  render: (_args) => {
+    if (!customElements.get("n-input")) {
+      customElements.define("n-input", class extends functionalCustomElement(NInput) {
+        static formAssociated = true;
+      });
+    }
+    if (!customElements.get("n-button")) {
+      customElements.define("n-button", functionalCustomElement(NButton));
+    }
+
+    const form = document.createElement("form");
+    form.style = "display: flex; flex-direction: column; gap: 1rem;";
+    form.onsubmit = (e: Event) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      const name = formData.get("name")?.toString();
+
+      if (!name) {
+        // eslint-disable-next-line no-alert
+        alert("Please select an option.");
+
+        return;
+      }
+
+      // 確認ダイアログ
+      const confirmationMessage = `name: ${name}\n\nAre you sure you want to submit the form?`;
+
+      // eslint-disable-next-line no-alert
+      if (confirm(confirmationMessage)) {
+        // eslint-disable-next-line no-alert
+        alert("Form submitted successfully!");
+      }
+    };
+    form.innerHTML = `
+      <n-input name="name" type="text"></n-input>
+      <n-button type="submit" width="stretch">Submit</n-button>
+    `;
+
+    return form;
   },
 };

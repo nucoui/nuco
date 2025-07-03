@@ -9,159 +9,10 @@
       "import": "./dist/packages/react/src/main.js",
       "require": "./dist/packages/react/src/main.cjs"
     },
-    "./components/Anchor": {
-      "types": "./dist/types/components/wrapped/Anchor/Anchor.cc.d.ts",
-      "react-server": "./dist/packages/react/src/components/wrapped/Anchor/Anchor.sc.js",
-      "import": "./dist/packages/react/src/components/wrapped/Anchor/Anchor.cc.js",
-      "require": "./dist/packages/react/src/components/wrapped/Anchor/Anchor.cc.cjs",
-      "default": "./dist/packages/react/src/components/wrapped/Anchor/Anchor.cc.js"
-    },
-    "./components/Badge": {
-      "types": "./dist/types/components/wrapped/Badge/Badge.cc.d.ts",
-      "react-server": "./dist/packages/react/src/components/wrapped/Badge/Badge.sc.js",
-      "import": "./dist/packages/react/src/components/wrapped/Badge/Badge.cc.js",
-      "require": "./dist/packages/react/src/components/wrapped/Badge/Badge.cc.cjs",
-      "default": "./dist/packages/react/src/components/wrapped/Badge/Badge.cc.js"
-    },
-    "./components/Breadcrumb": {
-      "types": "./dist/types/components/wrapped/Breadcrumb/Breadcrumb.cc.d.ts",
-      "react-server": "./dist/packages/react/src/components/wrapped/Breadcrumb/Breadcrumb.sc.js",
-      "import": "./dist/packages/react/src/components/wrapped/Breadcrumb/Breadcrumb.cc.js",
-      "require": "./dist/packages/react/src/components/wrapped/Breadcrumb/Breadcrumb.cc.cjs",
-      "default": "./dist/packages/react/src/components/wrapped/Breadcrumb/Breadcrumb.cc.js"
-    },
-    "./components/Button": {
-      "types": "./dist/types/components/wrapped/Button/Button.cc.d.ts",
-      "react-server": "./dist/packages/react/src/components/wrapped/Button/Button.sc.js",
-      "import": "./dist/packages/react/src/components/wrapped/Button/Button.cc.js",
-      "require": "./dist/packages/react/src/components/wrapped/Button/Button.cc.cjs",
-      "default": "./dist/packages/react/src/components/wrapped/Button/Button.cc.js"
-    },
-    "./components/CodeBlock": {
-      "types": "./dist/types/components/wrapped/CodeBlock/CodeBlock.cc.d.ts",
-      "react-server": "./dist/packages/react/src/components/wrapped/CodeBlock/CodeBlock.sc.js",
-      "import": "./dist/packages/react/src/components/wrapped/CodeBlock/CodeBlock.cc.js",
-      "require": "./dist/packages/react/src/components/wrapped/CodeBlock/CodeBlock.cc.cjs",
-      "default": "./dist/packages/react/src/components/wrapped/CodeBlock/CodeBlock.cc.js"
-    },
-    "./components/Divider": {
-      "types": "./dist/types/components/wrapped/Divider/Divider.cc.d.ts",
-      "react-server": "./dist/packages/react/src/components/wrapped/Divider/Divider.sc.js",
-      "import": "./dist/packages/react/src/components/wrapped/Divider/Divider.cc.js",
-      "require": "./dist/packages/react/src/components/wrapped/Divider/Divider.cc.cjs",
-      "default": "./dist/packages/react/src/components/wrapped/Divider/Divider.cc.js"
-    },
-    "./components/Error": {
-      "types": "./dist/types/components/wrapped/Error/Error.cc.d.ts",
-      "react-server": "./dist/packages/react/src/components/wrapped/Error/Error.sc.js",
-      "import": "./dist/packages/react/src/components/wrapped/Error/Error.cc.js",
-      "require": "./dist/packages/react/src/components/wrapped/Error/Error.cc.cjs",
-      "default": "./dist/packages/react/src/components/wrapped/Error/Error.cc.js"
-    },
-    "./components/H1": {
-      "types": "./dist/types/components/wrapped/H1/H1.cc.d.ts",
-      "react-server": "./dist/packages/react/src/components/wrapped/H1/H1.sc.js",
-      "import": "./dist/packages/react/src/components/wrapped/H1/H1.cc.js",
-      "require": "./dist/packages/react/src/components/wrapped/H1/H1.cc.cjs",
-      "default": "./dist/packages/react/src/components/wrapped/H1/H1.cc.js"
-    },
-    "./components/H2": {
-      "types": "./dist/types/components/wrapped/H2/H2.cc.d.ts",
-      "react-server": "./dist/packages/react/src/components/wrapped/H2/H2.sc.js",
-      "import": "./dist/packages/react/src/components/wrapped/H2/H2.cc.js",
-      "require": "./dist/packages/react/src/components/wrapped/H2/H2.cc.cjs",
-      "default": "./dist/packages/react/src/components/wrapped/H2/H2.cc.js"
-    },
-    "./components/H3": {
-      "types": "./dist/types/components/wrapped/H3/H3.cc.d.ts",
-      "react-server": "./dist/packages/react/src/components/wrapped/H3/H3.sc.js",
-      "import": "./dist/packages/react/src/components/wrapped/H3/H3.cc.js",
-      "require": "./dist/packages/react/src/components/wrapped/H3/H3.cc.cjs",
-      "default": "./dist/packages/react/src/components/wrapped/H3/H3.cc.js"
-    },
-    "./components/H4": {
-      "types": "./dist/types/components/wrapped/H4/H4.cc.d.ts",
-      "react-server": "./dist/packages/react/src/components/wrapped/H4/H4.sc.js",
-      "import": "./dist/packages/react/src/components/wrapped/H4/H4.cc.js",
-      "require": "./dist/packages/react/src/components/wrapped/H4/H4.cc.cjs",
-      "default": "./dist/packages/react/src/components/wrapped/H4/H4.cc.js"
-    },
-    "./components/H5": {
-      "types": "./dist/types/components/wrapped/H5/H5.cc.d.ts",
-      "react-server": "./dist/packages/react/src/components/wrapped/H5/H5.sc.js",
-      "import": "./dist/packages/react/src/components/wrapped/H5/H5.cc.js",
-      "require": "./dist/packages/react/src/components/wrapped/H5/H5.cc.cjs",
-      "default": "./dist/packages/react/src/components/wrapped/H5/H5.cc.js"
-    },
-    "./components/H6": {
-      "types": "./dist/types/components/wrapped/H6/H6.cc.d.ts",
-      "react-server": "./dist/packages/react/src/components/wrapped/H6/H6.sc.js",
-      "import": "./dist/packages/react/src/components/wrapped/H6/H6.cc.js",
-      "require": "./dist/packages/react/src/components/wrapped/H6/H6.cc.cjs",
-      "default": "./dist/packages/react/src/components/wrapped/H6/H6.cc.js"
-    },
-    "./components/Header": {
-      "types": "./dist/types/components/wrapped/Header/Header.cc.d.ts",
-      "react-server": "./dist/packages/react/src/components/wrapped/Header/Header.sc.js",
-      "import": "./dist/packages/react/src/components/wrapped/Header/Header.cc.js",
-      "require": "./dist/packages/react/src/components/wrapped/Header/Header.cc.cjs",
-      "default": "./dist/packages/react/src/components/wrapped/Header/Header.cc.js"
-    },
-    "./components/Input": {
-      "types": "./dist/types/components/wrapped/Input/Input.cc.d.ts",
-      "react-server": "./dist/packages/react/src/components/wrapped/Input/Input.sc.js",
-      "import": "./dist/packages/react/src/components/wrapped/Input/Input.cc.js",
-      "require": "./dist/packages/react/src/components/wrapped/Input/Input.cc.cjs",
-      "default": "./dist/packages/react/src/components/wrapped/Input/Input.cc.js"
-    },
-    "./components/Li": {
-      "types": "./dist/types/components/wrapped/Li/Li.cc.d.ts",
-      "react-server": "./dist/packages/react/src/components/wrapped/Li/Li.sc.js",
-      "import": "./dist/packages/react/src/components/wrapped/Li/Li.cc.js",
-      "require": "./dist/packages/react/src/components/wrapped/Li/Li.cc.cjs",
-      "default": "./dist/packages/react/src/components/wrapped/Li/Li.cc.js"
-    },
-    "./components/NavAccordion": {
-      "types": "./dist/types/components/wrapped/NavAccordion/NavAccordion.cc.d.ts",
-      "react-server": "./dist/packages/react/src/components/wrapped/NavAccordion/NavAccordion.sc.js",
-      "import": "./dist/packages/react/src/components/wrapped/NavAccordion/NavAccordion.cc.js",
-      "require": "./dist/packages/react/src/components/wrapped/NavAccordion/NavAccordion.cc.cjs",
-      "default": "./dist/packages/react/src/components/wrapped/NavAccordion/NavAccordion.cc.js"
-    },
-    "./components/Option": {
-      "types": "./dist/types/components/wrapped/Option/Option.cc.d.ts",
-      "react-server": "./dist/packages/react/src/components/wrapped/Option/Option.sc.js",
-      "import": "./dist/packages/react/src/components/wrapped/Option/Option.cc.js",
-      "require": "./dist/packages/react/src/components/wrapped/Option/Option.cc.cjs",
-      "default": "./dist/packages/react/src/components/wrapped/Option/Option.cc.js"
-    },
-    "./components/Pager": {
-      "types": "./dist/types/components/wrapped/Pager/Pager.cc.d.ts",
-      "react-server": "./dist/packages/react/src/components/wrapped/Pager/Pager.sc.js",
-      "import": "./dist/packages/react/src/components/wrapped/Pager/Pager.cc.js",
-      "require": "./dist/packages/react/src/components/wrapped/Pager/Pager.cc.cjs",
-      "default": "./dist/packages/react/src/components/wrapped/Pager/Pager.cc.js"
-    },
-    "./components/Pagers": {
-      "types": "./dist/types/components/wrapped/Pagers/Pagers.cc.d.ts",
-      "react-server": "./dist/packages/react/src/components/wrapped/Pagers/Pagers.sc.js",
-      "import": "./dist/packages/react/src/components/wrapped/Pagers/Pagers.cc.js",
-      "require": "./dist/packages/react/src/components/wrapped/Pagers/Pagers.cc.cjs",
-      "default": "./dist/packages/react/src/components/wrapped/Pagers/Pagers.cc.js"
-    },
-    "./components/Select": {
-      "types": "./dist/types/components/wrapped/Select/Select.cc.d.ts",
-      "react-server": "./dist/packages/react/src/components/wrapped/Select/Select.sc.js",
-      "import": "./dist/packages/react/src/components/wrapped/Select/Select.cc.js",
-      "require": "./dist/packages/react/src/components/wrapped/Select/Select.cc.cjs",
-      "default": "./dist/packages/react/src/components/wrapped/Select/Select.cc.js"
-    },
-    "./components/Ul": {
-      "types": "./dist/types/components/wrapped/Ul/Ul.cc.d.ts",
-      "react-server": "./dist/packages/react/src/components/wrapped/Ul/Ul.sc.js",
-      "import": "./dist/packages/react/src/components/wrapped/Ul/Ul.cc.js",
-      "require": "./dist/packages/react/src/components/wrapped/Ul/Ul.cc.cjs",
-      "default": "./dist/packages/react/src/components/wrapped/Ul/Ul.cc.js"
+    "./components/*": {
+      "types": "./dist/types/components/*.d.ts",
+      "import": "./dist/packages/react/src/components/*.js",
+      "require": "./dist/packages/react/src/components/*.cjs"
     }
   },
   "main": "./dist/packages/react/src/main.js",
@@ -173,18 +24,18 @@
     "dist/*"
   ],
   "scripts": {
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "lint": "eslint .",
-    "gen:component": "plop component --plopfile .plop/component/index.mjs"
+    "gen:component": "npx tsx ./.script/genWrapperComponent.ts"
   },
   "dependencies": {
-    "vue": "^3.5.13"
+    "@chatora/react": "^1.0.8-beta.4",
+    "@nuco/chatora": "workspace:*",
+    "chatora": "^1.0.8-beta.4"
   },
   "devDependencies": {
     "@nuco/config": "workspace:*",
-    "@nuco/core": "workspace:*",
     "@nuco/variable": "workspace:*",
-    "@types/hast": "^3.0.4",
     "@types/node": "^22.7.9",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",

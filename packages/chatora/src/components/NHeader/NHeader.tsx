@@ -10,7 +10,8 @@ export type Props = {
   isMiddle?: boolean;
 };
 
-export type Emits = never;
+// eslint-disable-next-line ts/no-empty-object-type
+export type Emits = {};
 
 export const NHeader: CC<Props, Emits> = ({
   defineProps,
@@ -24,23 +25,29 @@ export const NHeader: CC<Props, Emits> = ({
   return () => (
     <Host style={[style, resetStyle]}>
       <header class="n-header">
-        {props().isLogo && (
-          <slot>
-            {/* <span>@nuco/chatora</span> */}
-          </slot>
-        )}
-        {props().isMiddle && (
-          <div>
-            <slot name="center" />
-          </div>
-        )}
-        {props().isNavToggle && (
-          <div>
-            <div>
-              <slot name="right" />
-            </div>
-          </div>
-        )}
+        {props().isLogo
+          ? (
+              <slot name="left">
+                {/* <span>@nuco/chatora</span> */}
+              </slot>
+            )
+          : null}
+        {props().isMiddle
+          ? (
+              <div>
+                <slot name="center" />
+              </div>
+            )
+          : null}
+        {props().isNavToggle
+          ? (
+              <div>
+                <div>
+                  <slot name="right" />
+                </div>
+              </div>
+            )
+          : null}
       </header>
     </Host>
   );

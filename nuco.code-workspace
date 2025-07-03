@@ -45,6 +45,10 @@
       "path": "🎮"
     },
     {
+      "name": "🎮 vanilla",
+      "path": "playgrounds/vanilla"
+    },
+    {
       "name": "🎮 vue",
       "path": "playgrounds/vue"
     },

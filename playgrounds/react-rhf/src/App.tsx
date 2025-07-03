@@ -1,7 +1,6 @@
-import type { SubmitHandler } from "react-hook-form";
-import { Button, Input } from "@nuco/react";
+import { Button } from "@nuco/react/components/Button";
+import { Input } from "@nuco/react/components/Input";
 import { version } from "react";
-import { Controller, useForm } from "react-hook-form";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 import viteLogo from "/vite.svg";
@@ -12,14 +11,16 @@ interface Inputs {
 };
 
 function App() {
-  const {
-    control,
-    handleSubmit,
-    setValue,
-  } = useForm<Inputs>();
-
-  // eslint-disable-next-line no-alert
-  const onSubmit: SubmitHandler<Inputs> = data => window.confirm(JSON.stringify(data));
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const data: Inputs = {
+      example: formData.get("example") as string,
+      exampleRequired: formData.get("exampleRequired") as string,
+    };
+    // eslint-disable-next-line no-alert
+    window.confirm(JSON.stringify(data));
+  };
 
   return (
     <>
@@ -52,35 +53,8 @@ function App() {
         {version}
       </h1>
       <div className="card">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <Controller
-            name="example"
-            control={control}
-            rules={{
-              required: "This field is required",
-              minLength: {
-                value: 3,
-                message: "Minimum length is 3 characters",
-              },
-              maxLength: {
-                value: 10,
-                message: "Maximum length is 10 characters",
-              },
-            }}
-            render={({ field, fieldState }) => (
-              <div>
-                <Input
-                  {...field}
-                  type="text"
-                  placeholder={field.name}
-                  onInput={(e) => {
-                    setValue("example", (e.target as HTMLInputElement)?.value);
-                  }}
-                />
-                {fieldState.error && <p>{fieldState.error.message}</p>}
-              </div>
-            )}
-          />
+        <form onSubmit={handleSubmit}>
+          <Input name="example" type="text" />
           <Button type="submit">Submit</Button>
         </form>
       </div>

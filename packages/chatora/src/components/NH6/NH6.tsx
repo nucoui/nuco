@@ -5,7 +5,8 @@ import style from "./NH6.scss?raw";
 
 // eslint-disable-next-line ts/no-empty-object-type
 export type Props = {};
-export type Emits = never;
+// eslint-disable-next-line ts/no-empty-object-type
+export type Emits = {};
 
 export const NH6: CC<Props, Emits> = ({
   defineProps,

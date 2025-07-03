@@ -104,7 +104,7 @@ export const Playground: Story = {
     form.innerHTML = `
       <n-select name="name" placeholder="${args.placeholder}" ${args.disabled ? "disabled" : ""}>
         <n-option value="option1">Option 1</n-option>
-        <n-option value="option2">Option 2</n-option>
+        <n-option value="option2" selected>Option 2</n-option>
         <n-option value="option3">Option 3</n-option>
       </n-select>
       <n-button type="submit" width="stretch">Submit</n-button>

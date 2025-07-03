@@ -22,7 +22,7 @@ export type Props = {
 });
 
 export type Emits = {
-  "on-click": Event;
+  "on-click"?: Event;
 };
 
 export const NButton: CC<Props, Emits> = ({

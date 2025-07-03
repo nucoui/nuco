@@ -31,7 +31,7 @@ export type Emits = {
   /**
    * Fired when the link is clicked
    */
-  "on-click": Event;
+  "on-click"?: Event;
 };
 
 export const NAnchor: CC<Props, Emits> = ({

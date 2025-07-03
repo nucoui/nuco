@@ -34,6 +34,11 @@
       "import": "./dist/packages/chatora/src/components/NCodeBlock/NCodeBlock.js",
       "require": "./dist/packages/chatora/src/components/NCodeBlock/NCodeBlock.cjs"
     },
+    "./components/n-divider": {
+      "types": "./dist/types/src/components/NDivider/NDivider.d.ts",
+      "import": "./dist/packages/chatora/src/components/NDivider/NDivider.js",
+      "require": "./dist/packages/chatora/src/components/NDivider/NDivider.cjs"
+    },
     "./components/n-error": {
       "types": "./dist/types/src/components/NError/NError.d.ts",
       "import": "./dist/packages/chatora/src/components/NError/NError.js",
@@ -129,7 +134,7 @@
   },
   "dependencies": {
     "@nuco/variable": "workspace:*",
-    "chatora": "^1.0.7",
+    "chatora": "^1.0.8-beta.4",
     "clsx": "^2.1.1"
   },
   "devDependencies": {

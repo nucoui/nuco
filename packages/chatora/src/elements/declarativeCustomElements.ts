@@ -3,6 +3,7 @@ import { NBadge } from "@/components/NBadge/NBadge";
 import { NBreadcrumb } from "@/components/NBreadcrumb/NBreadcrumb";
 import { NButton } from "@/components/NButton/NButton";
 import { NCodeBlock } from "@/components/NCodeBlock/NCodeBlock";
+import { NDivider } from "@/components/NDivider/NDivider";
 import { NError } from "@/components/NError/NError";
 import { NH1 } from "@/components/NH1/NH1";
 import { NH2 } from "@/components/NH2/NH2";
@@ -21,7 +22,35 @@ import { NSelect } from "@/components/NSelect/NSelect";
 import { NUl } from "@/components/NUl/NUl";
 import { type ComponentProps, functionalDeclarativeCustomElement } from "chatora";
 
-const DeclarativeCustomElements = {
+type DeclarativeElementFunction<T> = (props: ComponentProps<T>) => ReturnType<typeof functionalDeclarativeCustomElement>;
+
+type DeclarativeCustomElementsType = {
+  "n-divider": DeclarativeElementFunction<typeof NDivider>;
+  "n-anchor": DeclarativeElementFunction<typeof NAnchor>;
+  "n-pagers": DeclarativeElementFunction<typeof NPagers>;
+  "n-pager": DeclarativeElementFunction<typeof NPager>;
+  "n-nav-accordion": DeclarativeElementFunction<typeof NNavAccordion>;
+  "n-error": DeclarativeElementFunction<typeof NError>;
+  "n-code-block": DeclarativeElementFunction<typeof NCodeBlock>;
+  "n-breadcrumb": DeclarativeElementFunction<typeof NBreadcrumb>;
+  "n-badge": DeclarativeElementFunction<typeof NBadge>;
+  "n-option": DeclarativeElementFunction<typeof NOption>;
+  "n-select": DeclarativeElementFunction<typeof NSelect>;
+  "n-li": DeclarativeElementFunction<typeof NLi>;
+  "n-ul": DeclarativeElementFunction<typeof NUl>;
+  "n-input": DeclarativeElementFunction<typeof NInput>;
+  "n-header": DeclarativeElementFunction<typeof NHeader>;
+  "n-h6": DeclarativeElementFunction<typeof NH6>;
+  "n-h5": DeclarativeElementFunction<typeof NH5>;
+  "n-h4": DeclarativeElementFunction<typeof NH4>;
+  "n-h3": DeclarativeElementFunction<typeof NH3>;
+  "n-h2": DeclarativeElementFunction<typeof NH2>;
+  "n-h1": DeclarativeElementFunction<typeof NH1>;
+  "n-button": DeclarativeElementFunction<typeof NButton>;
+};
+
+const DeclarativeCustomElements: DeclarativeCustomElementsType = {
+  "n-divider": (props: ComponentProps<typeof NDivider>) => functionalDeclarativeCustomElement(NDivider, { props }),
   "n-anchor": (props: ComponentProps<typeof NAnchor>) => functionalDeclarativeCustomElement(NAnchor, { props }),
   "n-pagers": (props: ComponentProps<typeof NPagers>) => functionalDeclarativeCustomElement(NPagers, { props }),
   "n-pager": (props: ComponentProps<typeof NPager>) => functionalDeclarativeCustomElement(NPager, { props }),
@@ -49,3 +78,5 @@ export {
   DeclarativeCustomElements as default,
   DeclarativeCustomElements,
 };
+
+export type { DeclarativeCustomElementsType };

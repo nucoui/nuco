@@ -13,6 +13,7 @@ const COMPONENT_PATH = [
   "src/components/NBreadcrumb/NBreadcrumb.tsx",
   "src/components/NButton/NButton.tsx",
   "src/components/NCodeBlock/NCodeBlock.tsx",
+  "src/components/NDivider/NDivider.tsx",
   "src/components/NError/NError.tsx",
   "src/components/NH1/NH1.tsx",
   "src/components/NH2/NH2.tsx",
@@ -83,16 +84,23 @@ export default defineConfig({
       ],
     },
     rollupOptions: {
-      external: [
-        "chatora",
-      ],
+      external: (id) => {
+        // shikiを外部依存として扱う
+        if (id === "shiki") {
+          return true;
+        }
+        if (id.startsWith("@chatora/") || id.startsWith("chatora")) {
+          return true;
+        }
+        return false;
+      },
       output: {
         exports: "named",
         preserveModules: true,
         inlineDynamicImports: false,
         manualChunks: undefined,
         globals: {
-          chatora: "Chatora",
+          shiki: "Shiki",
         },
       },
     },

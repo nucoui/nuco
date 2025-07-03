@@ -12,7 +12,7 @@ export type Props = {
 };
 
 export type Emits = {
-  click: Event;
+  "on-click"?: Event;
 };
 
 export const NPager: CC<Props, Emits> = ({ defineProps, defineEmits }) => {
@@ -23,11 +23,11 @@ export const NPager: CC<Props, Emits> = ({ defineProps, defineEmits }) => {
   });
 
   const emit = defineEmits({
-    click: (e: Event) => e,
+    "on-click": () => {},
   });
 
   const handleClick = (e: Event) => {
-    emit("click", e);
+    emit("on-click", e);
   };
 
   return () => (

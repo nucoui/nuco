@@ -32,7 +32,10 @@ export const Nav = ({ links, selectOptions, onChange }: Props) => {
           <Select
             name="type"
             placeholder="Select Framework"
-            onChange={e => onChange?.(e.detail.value)}
+            onChange={(e) => {
+              console.log("[Select] Changed value:", e.detail?.value);
+              onChange?.(e.detail?.value ?? "");
+            }}
           >
             {selectOptions.map(({ children, value, disabled, selected }) => (
               <Option key={value} value={value} disabled={disabled} selected={selected}>

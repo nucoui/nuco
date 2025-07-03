@@ -16,6 +16,7 @@
     "p:variable": "pnpm -C packages/variable",
     "p:chatora": "pnpm -C packages/chatora",
 
+    "pg:vanilla": "pnpm -C playgrounds/vanilla",
     "pg:vue": "pnpm -C playgrounds/vue",
     "pg:react-rhf": "pnpm -C playgrounds/react-rhf",
     "pg:next": "pnpm -C playgrounds/next",

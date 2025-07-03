@@ -10,7 +10,8 @@ export type Props = {
   selected?: boolean;
 };
 
-export type Emits = never;
+// eslint-disable-next-line ts/no-empty-object-type
+export type Emits = {};
 
 export const NOption: CC<Props, Emits> = ({
   defineProps,

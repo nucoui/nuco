@@ -1,6 +1,5 @@
 import type { Route } from "./+types/root";
 import { useColorScheme } from "@nuco/react";
-import { Divider } from "@nuco/react/components/Divider";
 import { Header } from "@nuco/react/components/Header";
 import cssNuco from "@nuco/variable/css.css?url";
 import FileIconsNpm from "~icons/file-icons/npm?width=1.06rem&height=1.26rem";
@@ -93,7 +92,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
       <body id="root">
         <div id="header">
-          <Header>
+          <Header isLogo isNavToggle isMiddle>
             <div slot="left" className={styles["left-container"]}>
               <Link to="/">
                 <img src={scheme === "dark" ? "/nuco-dark.png" : "/nuco-light.png"} alt="logo" />
@@ -123,7 +122,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
 
         <footer>
-          <Divider text="footer" textPosition="center" />
+          {/* <Divider text="footer" textPosition="center" /> */}
           footer
         </footer>
         <ScrollRestoration />

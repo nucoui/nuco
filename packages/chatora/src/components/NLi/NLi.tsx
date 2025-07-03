@@ -9,7 +9,8 @@ export type Props = {
   marker?: "none" | "disc" | "decimal";
 };
 
-export type Emits = never;
+// eslint-disable-next-line ts/no-empty-object-type
+export type Emits = {};
 
 export const NLi: CC<Props, Emits> = ({
   defineProps,

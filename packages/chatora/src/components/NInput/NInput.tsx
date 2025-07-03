@@ -18,8 +18,8 @@ export type Props = {
 };
 
 export type Emits = {
-  "on-input": Event;
-  "on-change": Event;
+  "on-input"?: Event;
+  "on-change"?: Event;
 };
 
 export const NInput: CC<Props, Emits> = ({

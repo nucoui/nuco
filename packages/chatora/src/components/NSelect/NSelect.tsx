@@ -2,8 +2,8 @@ import type { CC } from "chatora";
 
 import { effect, getHost, getInternals, getSlotteds, signal } from "chatora";
 import { Host } from "chatora/jsx-runtime";
-import { toBoolean, toString } from "chatora/util";
 
+import { toBoolean, toString } from "chatora/util";
 import resetStyle from "../../styles/reset.css?raw";
 import style from "./NSelect.scss?raw";
 
@@ -22,7 +22,7 @@ export type Props = {
 };
 
 export type Emits = {
-  onChange: { value: string | null };
+  "on-change"?: { value: string | null };
 };
 
 export const NSelect: CC<Props, Emits> = ({
@@ -36,7 +36,7 @@ export const NSelect: CC<Props, Emits> = ({
   });
 
   const emits = defineEmits({
-    onChange: (_: { value: string | null }) => {},
+    "on-change": () => {},
   });
 
   const host = getHost();
@@ -85,6 +85,7 @@ export const NSelect: CC<Props, Emits> = ({
 
     const selectedNode = element.cloneNode(true) as HTMLElement;
     selectedNode.setAttribute("slot", "selected-value");
+    selectedNode.removeAttribute("selected");
     selectedNode.tabIndex = -1;
 
     host.value?.appendChild(selectedNode);
@@ -112,7 +113,7 @@ export const NSelect: CC<Props, Emits> = ({
     removeSelectedValue();
     setSelectedValue(el, value);
 
-    emits("onChange", { value: value ?? null });
+    emits("on-change", { value: value ?? null });
     isShowOptions.set(false);
     focusedOptionIndex.set(-1);
   };
@@ -237,6 +238,16 @@ export const NSelect: CC<Props, Emits> = ({
   effect(() => {
     updateOptionTabIndex(isShowOptions.value ? 0 : -1);
   });
+
+  // onConnected(() => {
+  //   const selectedSlottedElement = host.value?.querySelector("n-option[selected]:not([disabled]):not([slot])");
+
+  //   if (!selectedSlottedElement) {
+  //     return;
+  //   }
+
+  //   setSelectedValue(selectedSlottedElement as HTMLElement, selectedSlottedElement?.getAttribute("value"));
+  // });
 
   return () => (
     <Host style={[style, resetStyle]}>

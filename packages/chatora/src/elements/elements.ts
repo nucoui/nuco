@@ -3,6 +3,7 @@ import { NBadge } from "@/components/NBadge/NBadge";
 import { NBreadcrumb } from "@/components/NBreadcrumb/NBreadcrumb";
 import { NButton } from "@/components/NButton/NButton";
 import { NCodeBlock } from "@/components/NCodeBlock/NCodeBlock";
+import { NDivider } from "@/components/NDivider/NDivider";
 import { NError } from "@/components/NError/NError";
 import { NH1 } from "@/components/NH1/NH1";
 import { NH2 } from "@/components/NH2/NH2";
@@ -21,6 +22,7 @@ import { NSelect } from "@/components/NSelect/NSelect";
 import { NUl } from "@/components/NUl/NUl";
 
 const Elements = {
+  "n-divider": NDivider,
   "n-anchor": NAnchor,
   "n-pagers": NPagers,
   "n-pager": NPager,
