@@ -1,7 +1,7 @@
 import { hastToJsx } from "@/utils/hastToJsx";
 import { CustomElements } from "@nuco/chatora/elements/customElements";
 import { DeclarativeCustomElements } from "@nuco/chatora/elements/declarativeCustomElements";
-import { type PropsWithChildren, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { type PropsWithChildren, useCallback, useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from "react";
 
 import { jsx } from "react/jsx-runtime";
 
@@ -26,6 +26,8 @@ const splitProps = (props: Record<string, unknown>) => {
 };
 
 export const ChatoraWrapper = <P extends Record<string, unknown>>({ tag, children, props, formAssociated = false }: Props<P>) => {
+  const id = useId();
+
   const { props: filteredProps, emits } = useMemo(() => splitProps(props || {}), [props]);
 
   const hast = DeclarativeCustomElements[tag](filteredProps as any);
@@ -113,6 +115,6 @@ export const ChatoraWrapper = <P extends Record<string, unknown>>({ tag, childre
   return jsx(tag as any, {
     ...filteredProps,
     ref: domRef,
-    children: (isDefined && isWindow) ? children : hastToJsx(tag, hast, children),
+    children: (isDefined && isWindow) ? children : hastToJsx(tag, id, hast, children),
   });
 };

@@ -23,7 +23,7 @@ export const NHeader: CC<Props, Emits> = ({
   });
 
   return () => (
-    <Host style={[style, resetStyle]}>
+    <Host style={[resetStyle, style]}>
       <header class="n-header">
         {props().isLogo
           ? (
