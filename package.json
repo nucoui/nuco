@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "pnpm p:variable build && pnpm p:core build && pnpm p:react build",
+    "build": "pnpm p:variable build && pnpm p:chatora build && pnpm p:react build",
     "dev": "turbo dev",
     "lint": "turbo lint",
 
