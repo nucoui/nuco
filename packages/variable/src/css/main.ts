@@ -48,7 +48,7 @@ const genCssVariables = () => {
 
   fs.writeFileSync(
     path.join(outputDir, `shiki.css`),
-    `[data-color-scheme="dark"] n-code-block::part(pre) { color: var(--shiki-dark) !important; background-color: var(--cs-background-primary) !important; } @media (prefers-color-scheme: dark) { n-code-block::part(pre) { color: var(--shiki-dark) !important; background-color: var(--cs-background-primary) !important; } } [data-color-scheme="light"] n-code-block::part(pre) { color: var(--shiki-light) !important; background-color: var(--cs-background-primary) !important; }\n`,
+    `tora-container { display: contents; } [data-color-scheme="dark"] n-code-block::part(pre) { color: var(--shiki-dark) !important; background-color: var(--cs-background-primary) !important; } @media (prefers-color-scheme: dark) { n-code-block::part(pre) { color: var(--shiki-dark) !important; background-color: var(--cs-background-primary) !important; } } [data-color-scheme="light"] n-code-block::part(pre) { color: var(--shiki-light) !important; background-color: var(--cs-background-primary) !important; }\n`,
   );
 
   fs.writeFileSync(

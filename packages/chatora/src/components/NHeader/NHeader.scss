@@ -18,15 +18,4 @@
   backdrop-filter: blur(4px);
   border: 1px solid var(--cs-border-tertiary);
   border-radius: var(--n-4);
-
-  & > slot {
-    color: red;
-  }
-
-  & > slot:not(:empty) {
-    border: 2px solid blue; /* フォールバックコンテンツがあるスロットに青い実線枠を表示 */
-    background-color: #e0f2fe;
-    display: block;
-    padding: 10px;
-  }
 }
