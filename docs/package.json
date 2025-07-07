@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "@nuco/config": "workspace:*",
-    "@nuco/core": "workspace:*",
     "@nuco/react": "workspace:*",
     "@nuco/variable": "workspace:*",
     "@react-router/fs-routes": "^7.4.1",

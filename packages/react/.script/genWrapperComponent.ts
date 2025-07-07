@@ -39,7 +39,7 @@ export const ${pascalComponentName} = (props: PropsWithChildren<ComponentProps<t
  * @returns Array of component tag names
  */
 const extractComponentsFromChatora = (): string[] => {
-  const chatoraViteConfigPath = join(__dirname, "../../chatora/vite.config.ts");
+  const chatoraViteConfigPath = join(__dirname, "../../core/vite.config.ts");
 
   if (!existsSync(chatoraViteConfigPath)) {
     throw new Error(`@nuco/core vite.config.ts not found at ${chatoraViteConfigPath}`);

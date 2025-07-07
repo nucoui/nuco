@@ -1,0 +1,85 @@
+name: PR Build Check
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'packages/core/**'
+      - 'packages/react/**'
+      - 'packages/variable/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Read package.json to get volta config
+      - name: Get Volta versions
+        id: volta
+        run: |
+          NODE_VERSION=$(node -p "require('./package.json').volta.node")
+          PNPM_VERSION=$(node -p "require('./package.json').volta.pnpm")
+          echo "NODE_VERSION=$NODE_VERSION" >> $GITHUB_OUTPUT
+          echo "PNPM_VERSION=$PNPM_VERSION" >> $GITHUB_OUTPUT
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ steps.volta.outputs.NODE_VERSION }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: ${{ steps.volta.outputs.PNPM_VERSION }}
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      # Detect changed packages
+      - name: Check for changes in packages
+        uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            core:
+              - 'packages/core/**'
+            react:
+              - 'packages/react/**'
+            variable:
+              - 'packages/variable/**'
+
+      # Build all packages sequentially in the correct dependency order
+      - name: Build all packages
+        shell: bash
+        run: |
+          # Check if any of the packages need to be built
+          if [[ "${{ steps.filter.outputs.variable }}" == "true" || "${{ steps.filter.outputs.react }}" == "true" || "${{ steps.filter.outputs.core }}" == "true" ]]; then
+            echo "Building variable package..."
+            pnpm p:variable build
+          fi
+
+          if [[ "${{ steps.filter.outputs.react }}" == "true" || "${{ steps.filter.outputs.core }}" == "true" ]]; then
+            echo "Building core package..."
+            pnpm p:core build
+          fi
+
+          if [[ "${{ steps.filter.outputs.react }}" == "true" ]]; then
+            echo "Building react package..."
+            pnpm p:react build
+          fi
