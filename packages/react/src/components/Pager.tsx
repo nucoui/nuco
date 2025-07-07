@@ -1,7 +1,7 @@
 "use client";
 
 import type { toReactEmits } from "@chatora/react";
-import type { NPager } from "@nuco/chatora/components/n-pager";
+import type { NPager } from "@nuco/core/components/NPager";
 import type { ComponentEmits, ComponentProps } from "chatora";
 import type { PropsWithChildren } from "react";
 import { ChatoraWrapper } from "@/components/wrapper/Wrapper";

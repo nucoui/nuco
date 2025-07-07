@@ -28,7 +28,7 @@ export const NHeader: CC<Props, Emits> = ({
         {props().isLogo
           ? (
               <slot name="left">
-                {/* <span>@nuco/chatora</span> */}
+                {/* <span>@nuco/core</span> */}
               </slot>
             )
           : null}

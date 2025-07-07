@@ -1,7 +1,7 @@
 import "./style.css";
 import "@nuco/variable/css"
 
-import { CustomElements } from"@nuco/chatora/elements/customElements";
+import { CustomElements } from"@nuco/core/elements/customElements";
 
 if(!customElements.get("n-button")) {
   customElements.define("n-button", CustomElements["n-button"]);

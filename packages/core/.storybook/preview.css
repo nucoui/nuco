@@ -1,3 +1,7 @@
 html {
   color: var(--cs-text-primary);
 }
+
+.sb-show-main {
+  background: none !important;
+}

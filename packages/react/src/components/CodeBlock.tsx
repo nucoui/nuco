@@ -1,7 +1,7 @@
 "use client";
 
 import type { toReactEmits } from "@chatora/react";
-import type { NCodeBlock } from "@nuco/chatora/components/n-code-block";
+import type { NCodeBlock } from "@nuco/core/components/NCodeBlock";
 import type { ComponentEmits, ComponentProps } from "chatora";
 import type { PropsWithChildren } from "react";
 import { ChatoraWrapper } from "@/components/wrapper/Wrapper";

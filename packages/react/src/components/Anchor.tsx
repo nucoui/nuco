@@ -1,7 +1,7 @@
 "use client";
 
 import type { toReactEmits } from "@chatora/react";
-import type { NAnchor } from "@nuco/chatora/components/n-anchor";
+import type { NAnchor } from "@nuco/core/components/NAnchor";
 import type { ComponentEmits, ComponentProps } from "chatora";
 import type { PropsWithChildren } from "react";
 import { ChatoraWrapper } from "@/components/wrapper/Wrapper";

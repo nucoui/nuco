@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@nuco/chatora": "workspace:*",
+    "@nuco/core": "workspace:*",
     "@nuco/variable" : "workspace:*"
   },
   "devDependencies": {

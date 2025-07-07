@@ -1,33 +1,38 @@
-import type { ElementsMap, ElementsName } from "../../src/utils/elements";
-import { resisterElement } from "../../src/utils/resisterElement";
-
-function camelToKebabCase(str: string): string {
-  return str.replace(/([a-z0-9]?)([A-Z])/g, "$1-$2").toLowerCase();
-}
-
-export const renderElement = <Name extends ElementsName>(name: Name, elementClass: ElementsMap[Name], attr: Record<string, any>) => {
-  resisterElement(name, elementClass);
-
-  const element = document.createElement(name);
-
-  for (const key in attr) {
-    if (typeof attr[key] === "boolean") {
-      if (attr[key]) {
-        element.setAttribute(camelToKebabCase(key), "");
-      }
-      else {
-        element.removeAttribute(camelToKebabCase(key));
-      }
-      continue;
-    }
-
-    if (typeof attr[key] === "object") {
-      element.setAttribute(camelToKebabCase(key), JSON.stringify(attr[key]));
-      continue;
-    }
-
-    element.setAttribute(camelToKebabCase(key), (attr as Record<string, any>)[key]);
+export const renderElement = (tag: string, customElement: CustomElementConstructor, slot: Node | string | undefined, args: Record<string, any> = {}) => {
+  if (!customElements.get(tag)) {
+    customElements.define(tag, customElement);
   }
 
-  return element;
+  const element = document.createElement(tag);
+  Object.entries(args).forEach(([key, value]) => {
+    if (key.startsWith("on")) {
+      element.addEventListener(key.slice(2).toLowerCase(), value);
+    }
+    else {
+      if (value === null || value === undefined) {
+        element.removeAttribute(key);
+      }
+      else if (typeof value === "boolean") {
+        value ? element.setAttribute(key, "true") : element.removeAttribute(key);
+      }
+      else {
+        element.setAttribute(key, value);
+      }
+    }
+  });
+
+  if (slot !== undefined) {
+    if (typeof slot === "string") {
+      element.innerHTML = slot;
+    }
+
+    if (slot instanceof Node) {
+      element.appendChild(slot);
+    }
+  }
+  else {
+    element.innerHTML = "";
+  }
+
+  return element.outerHTML;
 };

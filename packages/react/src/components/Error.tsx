@@ -1,7 +1,7 @@
 "use client";
 
 import type { toReactEmits } from "@chatora/react";
-import type { NError } from "@nuco/chatora/components/n-error";
+import type { NError } from "@nuco/core/components/NError";
 import type { ComponentEmits, ComponentProps } from "chatora";
 import type { PropsWithChildren } from "react";
 import { ChatoraWrapper } from "@/components/wrapper/Wrapper";

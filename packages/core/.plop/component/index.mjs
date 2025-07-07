@@ -50,20 +50,22 @@ export default (
     actions: (data) => {
       const rootPath = "../../";
       const componentDir = `src/components${data.atomic}{{pascalCase name}}/`;
-      const mainPath = `${rootPath}src/main.ts`;
-      const elementsPath = `${rootPath}src/utils/elements.ts`;
+      // const mainPath = `${rootPath}src/main.ts`;
+      const elementsPath = `${rootPath}src/elements/elements.ts`;
+      const customElementsPath = `${rootPath}src/elements/customElements.ts`;
+      const declarativeCustomElementsPath = `${rootPath}src/elements/declarativeCustomElements.ts`;
       const viteConfigPath = `${rootPath}vite.config.ts`;
 
       return [
         {
           type: "add",
-          path: `${rootPath}${componentDir}{{pascalCase name}}.ce.vue`,
-          templateFile: "./component.ce.vue.hbs",
+          path: `${rootPath}${componentDir}{{pascalCase name}}.tsx`,
+          templateFile: "./component.tsx.hbs",
         },
         {
           type: "add",
-          path: `${rootPath}${componentDir}{{pascalCase name}}.ce.ts`,
-          templateFile: "./component.ce.ts.hbs",
+          path: `${rootPath}${componentDir}{{pascalCase name}}.scss`,
+          templateFile: "./component.scss.hbs",
         },
         {
           type: "add",
@@ -80,13 +82,31 @@ export default (
           type: "modify",
           path: elementsPath,
           pattern: /(^\s*)/m, // ファイルの先頭にマッチする正規表現
-          template: `$1import { {{pascalCase name}} } from "@/components{{atomic}}{{pascalCase name}}/{{pascalCase name}}.ce";\n`,
+          template: `$1import { {{pascalCase name}} } from "@/components{{atomic}}{{pascalCase name}}/{{pascalCase name}}";\n`,
         },
         {
           type: "modify",
-          path: mainPath,
+          path: customElementsPath,
+          pattern: /(const CustomElements = \{)/g,
+          template: `$1\n  "{{kebabCase name}}": functionalCustomElement({{pascalCase name}}),`,
+        },
+        {
+          type: "modify",
+          path: customElementsPath,
           pattern: /(^\s*)/m, // ファイルの先頭にマッチする正規表現
-          template: `$1export * from "@/components{{atomic}}{{pascalCase name}}/{{pascalCase name}}.ce";\n`,
+          template: `$1import { {{pascalCase name}} } from "@/components{{atomic}}{{pascalCase name}}/{{pascalCase name}}";\n`,
+        },
+        {
+          type: "modify",
+          path: declarativeCustomElementsPath,
+          pattern: /(const DeclarativeCustomElements = \{)/g,
+          template: `$1\n  "{{kebabCase name}}": (props: ComponentProps<typeof {{pascalCase name}}>) => functionalDeclarativeCustomElement({{pascalCase name}}, { props }),`,
+        },
+        {
+          type: "modify",
+          path: declarativeCustomElementsPath,
+          pattern: /(^\s*)/m, // ファイルの先頭にマッチする正規表現
+          template: `$1import { {{pascalCase name}} } from "@/components{{atomic}}{{pascalCase name}}/{{pascalCase name}}";\n`,
         },
         {
           type: "modify",
@@ -108,7 +128,7 @@ export default (
               .filter(entry => entry); // 空エントリを除去
 
             const componentDir = `src/components${data.atomic}${toPascalCase(data.name)}/`;
-            const newEntry = `${componentDir}${toPascalCase(data.name)}.ce.ts`;
+            const newEntry = `${componentDir}${toPascalCase(data.name)}.tsx`;
 
             entries.push(newEntry);
             entries.sort();
@@ -142,9 +162,9 @@ export default (
             const pascalCaseName = toPascalCase(data.name);
 
             const newExport = {
-              types: `./dist/types/src/components${data.atomic}${pascalCaseName}/${pascalCaseName}.ce.d.ts`,
-              import: `./dist/packages/core/src/components${data.atomic}${pascalCaseName}/${pascalCaseName}.ce.js`,
-              require: `./dist/packages/core/src/components${data.atomic}${pascalCaseName}/${pascalCaseName}.ce.cjs`,
+              types: `./dist/types/src/components${data.atomic}${pascalCaseName}/${pascalCaseName}.d.ts`,
+              import: `./dist/packages/chatora/src/components${data.atomic}${pascalCaseName}/${pascalCaseName}.js`,
+              require: `./dist/packages/chatora/src/components${data.atomic}${pascalCaseName}/${pascalCaseName}.cjs`,
             };
 
             // エクスポート文を追加

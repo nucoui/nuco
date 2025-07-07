@@ -15,18 +15,21 @@ export const parameters = {
     theme,
   },
   backgrounds: {
-    default: "dark",
-    values: [
-      { name: "light", value: css.semanticColor.light.background.primary },
-      { name: "dark", value: css.semanticColor.dark.background.primary },
-    ],
+    options: {
+      // 👇 Default options
+      dark: { name: "Dark mode", value: css.semanticColor.dark.background.primary },
+      light: { name: "Light mode", value: css.semanticColor.light.background.primary },
+    },
   },
+};
+
+export const initialGlobals = {
+  backgrounds: { value: css.semanticColor.dark.background.primary },
 };
 
 const withTheme = (StoryFn, context) => {
   if (context.globals.backgrounds) {
-    const theme = context.globals.backgrounds.value === css.semanticColor.light.background.primary ? "light" : "dark";
-    document.documentElement.setAttribute("data-color-scheme", theme);
+    document.documentElement.setAttribute("data-color-scheme", context.globals.backgrounds.value);
   }
 
   return StoryFn();

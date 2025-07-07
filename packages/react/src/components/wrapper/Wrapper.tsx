@@ -1,12 +1,12 @@
 "use client";
 
 import type { toReactEmits } from "@chatora/react";
-import type Elements from "@nuco/chatora/elements/elements";
+import type Elements from "@nuco/core/elements/elements";
 import type { ComponentEmits, ComponentProps } from "chatora";
 import type { PropsWithChildren, ReactNode } from "react";
 import { hastToJsx } from "@/utils/hastToJsx";
-import CustomElements from "@nuco/chatora/elements/customElements";
-import DeclarativeCustomElements from "@nuco/chatora/elements/declarativeCustomElements";
+import CustomElements from "@nuco/core/elements/customElements";
+import DeclarativeCustomElements from "@nuco/core/elements/declarativeCustomElements";
 import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { jsx } from "react/jsx-runtime";
 import { renderToString } from "react-dom/server";

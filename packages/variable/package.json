@@ -2,7 +2,24 @@
   "name": "@nuco/variable",
   "type": "module",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
+  "description": "UI library based on the concept of Transcends Framework boundaries (style variables)",
+  "author": "nuco <takuma-ru@takumaru.dev> (https://github.com/takuma-ru/)",
+  "license": "MPL-2.0",
+  "homepage": "https://github.com/nucoui/nuco",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nucoui/nuco"
+  },
+  "bugs": {
+    "url": "https://github.com/nucoui/nuco/issues",
+    "email": "takuma-ru@takumaru.dev"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "provenance": true
+  },
   "exports": {
     ".": {
       "types": "./dist/main.d.ts",
@@ -20,15 +37,21 @@
     }
   },
   "types": "./dist/index.d.ts",
+  "files": [
+    "README.md",
+    "dist",
+    "package.json"
+  ],
   "scripts": {
     "build": "tsup"
   },
   "devDependencies": {
     "@nuco/config": "workspace:*",
+    "@takuma-ru/rlse": "0.0.1-beta.8",
     "@types/node": "^22.7.9",
     "consola": "^3.2.3",
     "ts-morph": "^24.0.0",
-    "tsup": "^8.3.4",
+    "tsup": "catalog:",
     "typescript": "catalog:"
   }
 }

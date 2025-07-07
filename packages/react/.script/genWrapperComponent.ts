@@ -18,7 +18,7 @@ const genComponentFile = (tagName: `n-${string}`) => {
   return `"use client";
 
 import type { toReactEmits } from "@chatora/react";
-import type { N${pascalComponentName} } from "@nuco/chatora/components/${tagName}";
+import type { N${pascalComponentName} } from "@nuco/core/components/N${pascalComponentName}";
 import type { ComponentEmits, ComponentProps } from "chatora";
 import type { PropsWithChildren } from "react";
 import { ChatoraWrapper } from "@/components/wrapper/Wrapper";
@@ -35,24 +35,40 @@ export const ${pascalComponentName} = (props: PropsWithChildren<ComponentProps<t
 };
 
 /**
- * Extracts component tag names from @nuco/chatora package.json exports
+ * Extracts component tag names from @nuco/core vite.config.ts COMPONENT_PATH
  * @returns Array of component tag names
  */
 const extractComponentsFromChatora = (): string[] => {
-  const chatoraPackageJsonPath = join(__dirname, "../../chatora/package.json");
+  const chatoraViteConfigPath = join(__dirname, "../../chatora/vite.config.ts");
 
-  if (!existsSync(chatoraPackageJsonPath)) {
-    throw new Error(`@nuco/chatora package.json not found at ${chatoraPackageJsonPath}`);
+  if (!existsSync(chatoraViteConfigPath)) {
+    throw new Error(`@nuco/core vite.config.ts not found at ${chatoraViteConfigPath}`);
   }
 
-  const packageJson = JSON.parse(readFileSync(chatoraPackageJsonPath, "utf-8"));
-  const exports = packageJson.exports;
+  const viteConfig = readFileSync(chatoraViteConfigPath, "utf-8");
+  const componentPathMatch = viteConfig.match(/const COMPONENT_PATH = \[([\s\S]*?)\];/);
+
+  if (!componentPathMatch) {
+    throw new Error("COMPONENT_PATH not found in vite.config.ts");
+  }
 
   const componentPaths: string[] = [];
 
-  for (const [key] of Object.entries(exports)) {
-    if (key.startsWith("./components/n-")) {
-      const tagName = key.replace("./components/", "");
+  // Extract individual component paths from the COMPONENT_PATH array
+  const pathsString = componentPathMatch[1];
+  const paths = pathsString
+    .split(",")
+    .map(path => path.trim().replace(/['"]/g, ""))
+    .filter(path => path);
+
+  for (const path of paths) {
+    // Extract component name from path like "src/components/NBadge/NBadge.tsx"
+    const match = path.match(/src\/components\/N(.+?)\/N\1\.tsx$/);
+    if (match) {
+      const componentName = match[1];
+      // Convert PascalCase to kebab-case and add 'n-' prefix
+      const tagName = `n-${componentName.replace(/([A-Z])/g, (_, letter) =>
+        componentName.indexOf(letter) === 0 ? letter.toLowerCase() : `-${letter.toLowerCase()}`)}`;
       componentPaths.push(tagName);
     }
   }

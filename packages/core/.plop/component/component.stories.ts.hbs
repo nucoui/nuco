@@ -1,22 +1,36 @@
-import type { Meta, StoryObj } from "@storybook/web-components";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
+import type { Props } from "./{{pascalCase name}}";
+
 import { renderElement } from "@root/.storybook/utils/renderElement";
-import { {{pascalCase name}}, type {{pascalCase name}}Type } from "./{{pascalCase name}}.ce";
+import { functionalCustomElement } from "chatora";
 
-// This default export determines where your story goes in the story list
-const meta: Meta<{{pascalCase name}}Type["Props"]> = {
-  component: "{{kebabCase name}}",
+import { {{pascalCase name}} } from "./{{pascalCase name}}";
+
+const meta = {
+  title: "Components/{{pascalCase name}}",
   tags: ["autodocs"],
-  argTypes: {},
-  args: {},
-  render: (attr) => {
-    const elm = renderElement("{{kebabCase name}}", {{pascalCase name}}, attr);
-
-    return elm;
+  render: args => renderElement(
+    "{{kebabCase name}}",
+    functionalCustomElement({{pascalCase name}}),
+    args.slot,
+    args
+  ),
+  argTypes: {
+    slot: {
+      control: { type: "text" },
+      description: "<slot> content",
+      table: {
+        category: "<slot>",
+      },
+    },
   },
-};
+  args: {
+    slot: "slot",
+  },
+} satisfies Meta<Props & { slot?: string }>;
 
 export default meta;
-type Story = StoryObj<{{pascalCase name}}Type["Props"]>;
+type Story = StoryObj<Props & { slot?: string }>;
 
 export const Primary: Story = {
   args: {},

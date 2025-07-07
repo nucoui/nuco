@@ -1,58 +1,50 @@
-import type { Plugin } from "vite";
 import { resolve } from "node:path";
-import vue from "@vitejs/plugin-vue";
-import VueJsx from "@vitejs/plugin-vue-jsx";
 import { visualizer } from "rollup-plugin-visualizer";
 import preserveDirectives from "rollup-preserve-directives";
 import Icons from "unplugin-icons/vite";
-import VueMacros from "unplugin-vue-macros/vite";
-import { defineConfig } from "vite";
+import { defineConfig, type Plugin } from "vite";
 import dts from "vite-plugin-dts";
 import tsconfigPaths from "vite-tsconfig-paths";
+import { rawCssPlugin } from "./.plugins/rawCss";
 
 const COMPONENT_PATH = [
-  "src/components/common/NAnchor/NAnchor.ce.ts",
-  "src/components/common/NButton/NButton.ce.ts",
-  "src/components/common/NDivider/NDivider.ce.ts",
-  "src/components/common/NH1/NH1.ce.ts",
-  "src/components/common/NH2/NH2.ce.ts",
-  "src/components/common/NH3/NH3.ce.ts",
-  "src/components/common/NH4/NH4.ce.ts",
-  "src/components/common/NH5/NH5.ce.ts",
-  "src/components/common/NH6/NH6.ce.ts",
-  "src/components/common/NHeader/NHeader.ce.ts",
-  "src/components/common/NInput/NInput.ce.ts",
-  "src/components/common/NLi/NLi.ce.ts",
-  "src/components/common/NOption/NOption.ce.ts",
-  "src/components/common/NSelect/NSelect.ce.ts",
-  "src/components/common/NUl/NUl.ce.ts",
-  "src/components/composite/NBadge/NBadge.ce.ts",
-  "src/components/composite/NBreadcrumb/NBreadcrumb.ce.ts",
-  "src/components/composite/NCodeBlock/NCodeBlock.ce.ts",
-  "src/components/composite/NError/NError.ce.ts",
-  "src/components/composite/NNavAccordion/NNavAccordion.ce.ts",
-  "src/components/composite/NPager/NPager.ce.ts",
-  "src/components/composite/NPagers/NPagers.ce.ts",
+  "src/components/NAnchor/NAnchor.tsx",
+  "src/components/NBadge/NBadge.tsx",
+  "src/components/NBreadcrumb/NBreadcrumb.tsx",
+  "src/components/NButton/NButton.tsx",
+  "src/components/NCodeBlock/NCodeBlock.tsx",
+  "src/components/NDivider/NDivider.tsx",
+  "src/components/NError/NError.tsx",
+  "src/components/NH1/NH1.tsx",
+  "src/components/NH2/NH2.tsx",
+  "src/components/NH3/NH3.tsx",
+  "src/components/NH4/NH4.tsx",
+  "src/components/NH5/NH5.tsx",
+  "src/components/NH6/NH6.tsx",
+  "src/components/NHeader/NHeader.tsx",
+  "src/components/NInput/NInput.tsx",
+  "src/components/NLi/NLi.tsx",
+  "src/components/NNavAccordion/NNavAccordion.tsx",
+  "src/components/NOption/NOption.tsx",
+  "src/components/NPager/NPager.tsx",
+  "src/components/NPagers/NPagers.tsx",
+  "src/components/NSelect/NSelect.tsx",
+  "src/components/NUl/NUl.tsx",
 ];
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    VueMacros({
-      plugins: {
-        vue: vue(),
-        vueJsx: VueJsx(),
-      },
+    rawCssPlugin(),
+    dts({
+      outDir: "./dist/types",
+      tsconfigPath: resolve(__dirname, "tsconfig.json"),
     }),
     Icons({
       autoInstall: true,
+      compiler: "raw",
     }) as Plugin,
-    dts({
-      outDir: "./dist/types",
-      tsconfigPath: resolve(__dirname, "tsconfig.app.json"),
-    }),
     tsconfigPaths({
-      configNames: ["tsconfig.app.json"],
+      configNames: ["tsconfig.json"],
     }),
     preserveDirectives(),
     visualizer({
@@ -63,28 +55,15 @@ export default defineConfig({
     }),
   ],
 
-  css: {
-    preprocessorOptions: {
-      scss: {
-        api: "modern-compiler",
-      },
-    },
-  },
-
-  define: {
-    __VUE_OPTIONS_API__: "false",
-    __VUE_PROD_DEVTOOLS__: "false",
-    __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: "false",
-  },
-
   build: {
     outDir: "dist",
     cssCodeSplit: true,
     lib: {
       entry: [
         ...COMPONENT_PATH,
-        "src/utils/elements.ts",
-        "src/utils/resisterElement.ts",
+        "src/elements/customElements.ts",
+        "src/elements/declarativeCustomElements.ts",
+        "src/elements/elements.ts",
         "src/main.ts",
       ],
       name: "core",
@@ -105,20 +84,23 @@ export default defineConfig({
       ],
     },
     rollupOptions: {
-      external: [
-        "vue",
-        "shiki",
-        "@shikijs/twoslash",
-      ],
+      external: (id) => {
+        // shikiを外部依存として扱う
+        if (id === "shiki") {
+          return true;
+        }
+        if (id.startsWith("@chatora/") || id.startsWith("chatora")) {
+          return true;
+        }
+        return false;
+      },
       output: {
         exports: "named",
         preserveModules: true,
         inlineDynamicImports: false,
         manualChunks: undefined,
         globals: {
-          "vue": "Vue",
-          "shiki": "shiki",
-          "@shikijs/twoslash": "@shikijs/twoslash",
+          shiki: "Shiki",
         },
       },
     },

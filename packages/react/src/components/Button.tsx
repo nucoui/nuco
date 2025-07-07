@@ -1,14 +1,12 @@
 "use client";
 
 import type { toReactEmits } from "@chatora/react";
-import type { NButton } from "@nuco/chatora/components/n-button";
+import type { NButton } from "@nuco/core/components/NButton";
 import type { ComponentEmits, ComponentProps } from "chatora";
-import type { FC, PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
 import { ChatoraWrapper } from "@/components/wrapper/Wrapper";
 
-type Props = PropsWithChildren<ComponentProps<typeof NButton> & toReactEmits<ComponentEmits<typeof NButton>>>;
-
-export const Button: FC<Props> = (props) => {
+export const Button = (props: PropsWithChildren<ComponentProps<typeof NButton> & toReactEmits<ComponentEmits<typeof NButton>>>) => {
   const { children, ...rest } = props;
   return ChatoraWrapper({
     tag: "n-button",

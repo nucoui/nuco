@@ -1,7 +1,7 @@
 "use client";
 
 import type { toReactEmits } from "@chatora/react";
-import type { NNavAccordion } from "@nuco/chatora/components/n-nav-accordion";
+import type { NNavAccordion } from "@nuco/core/components/NNavAccordion";
 import type { ComponentEmits, ComponentProps } from "chatora";
 import type { PropsWithChildren } from "react";
 import { ChatoraWrapper } from "@/components/wrapper/Wrapper";

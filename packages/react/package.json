@@ -1,8 +1,25 @@
 {
   "name": "@nuco/react",
   "type": "module",
-  "version": "0.0.0-2025-0331-162540",
+  "version": "0.0.0",
   "private": false,
+  "description": "UI library based on the concept of Transcends Framework boundaries for React",
+  "author": "nuco <takuma-ru@takumaru.dev> (https://github.com/takuma-ru/)",
+  "license": "MPL-2.0",
+  "homepage": "https://github.com/nucoui/nuco",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nucoui/nuco"
+  },
+  "bugs": {
+    "url": "https://github.com/nucoui/nuco/issues",
+    "email": "takuma-ru@takumaru.dev"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "provenance": true
+  },
   "exports": {
     ".": {
       "types": "./dist/types/main.d.ts",
@@ -19,23 +36,26 @@
   "module": "./dist/packages/react/src/main.js",
   "types": "./dist/packages/react/src/main.cjs",
   "files": [
-    "LICENSE.md",
     "README.md",
-    "dist/*"
+    "dist",
+    "package.json"
   ],
   "scripts": {
     "build": "vite build",
     "lint": "eslint .",
-    "gen:component": "npx tsx ./.script/genWrapperComponent.ts"
+    "gen:component": "npx tsx ./.script/genWrapperComponent.ts",
+    "release": "npx rlse",
+    "release:test": "npx rlse -l patch -k config,commit-changes,create-release-branch --dry-run"
   },
   "dependencies": {
     "@chatora/react": "^1.0.8-beta.4",
-    "@nuco/chatora": "workspace:*",
+    "@nuco/core": "workspace:*",
     "chatora": "^1.0.8-beta.4"
   },
   "devDependencies": {
     "@nuco/config": "workspace:*",
     "@nuco/variable": "workspace:*",
+    "@takuma-ru/rlse": "0.0.1-beta.8",
     "@types/node": "^22.7.9",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",

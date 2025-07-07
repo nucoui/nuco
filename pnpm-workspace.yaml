@@ -7,6 +7,8 @@ packages:
 catalog:
   "typescript": "5.7.3" # https://www.npmjs.com/package/typescript
   "vite": "6.2.4" # https://www.npmjs.com/package/vite
+  "tsup": "8.5.0" # https://www.npmjs.com/package/tsup
+  "@takuma-ru/rlse": "0.0.1-beta.8" # https://www.npmjs.com/package/@takuma-ru/rlse
   # == storybook https://storybook.js.org/ ==
   "@chromatic-com/storybook": "^3.2.4"
   "@storybook/addon-essentials": "8.6.0"
