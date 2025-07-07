@@ -43,7 +43,9 @@
     "package.json"
   ],
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "release": "npx rlse",
+    "release:test": "npx rlse -l patch -k config,commit-changes,create-release-branch --dry-run"
   },
   "devDependencies": {
     "@nuco/config": "workspace:*",
