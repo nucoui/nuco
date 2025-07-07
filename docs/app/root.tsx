@@ -7,8 +7,6 @@ import MdiGithub from "~icons/mdi/github?width=1.5rem&height=1.5rem";
 import React, { type AnchorHTMLAttributes, type ComponentProps, useEffect } from "react";
 import {
   isRouteErrorResponse,
-  Link,
-
   Links,
   Meta,
   type MetaFunction,
@@ -94,9 +92,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <div id="header">
           <Header isLogo isNavToggle isMiddle>
             <div slot="left" className={styles["left-container"]}>
-              <Link to="/">
+              <a href="/">
                 <img src={scheme === "dark" ? "/nuco-dark.png" : "/nuco-light.png"} alt="logo" />
-              </Link>
+              </a>
             </div>
             <div slot="center" className={styles["center-container"]}>
               {MIDDLE_ANCHOR_LINKS.map(link => (

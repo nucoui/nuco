@@ -90,6 +90,8 @@ export default defineConfig({
         "react",
         "react/jsx-runtime",
         "react-dom",
+        "react-dom/client",
+        "react-dom/server",
         "shiki",
         "@nuco/variable",
       ],

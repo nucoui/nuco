@@ -29,7 +29,12 @@ export default function Home() {
           <p>
             Playgrounds running @nuco/react on Next.js (App router)
           </p>
-          {/* <Button>Button</Button> */}
+        </div>
+        <hr />
+        <div style={{ display: "flex", flexFlow: "column", gap: "0.5rem" }}>
+          <Button>Button</Button>
+          <Button variant="secondary">Secondary Button</Button>
+          <Button variant="tertiary">Tertiary Button</Button>
         </div>
       </main>
       <footer className={styles.footer}>

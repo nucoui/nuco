@@ -20,20 +20,20 @@
     transition: all 0.1s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  &[aria-selected="true"] {
+  &[aria-selected] {
     font-weight: 500;
     color: var(--cs-background-primary);
     background: var(--cs-neutral-700);
   }
 
-  &[aria-disabled="true"] {
+  &[aria-disabled] {
     color: var(--cs-text-secondary);
     cursor: not-allowed;
   }
 
-  &:not([aria-disabled="true"]):focus,
-  &:not([aria-disabled="true"]):focus-visible,
-  &:not([aria-disabled="true"]):hover {
+  &:not([aria-disabled]):focus,
+  &:not([aria-disabled]):focus-visible,
+  &:not([aria-disabled]):hover {
     &::after {
       outline-offset: 2px;
       opacity: 1;

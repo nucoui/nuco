@@ -230,6 +230,10 @@ export const NSelect: CC<Props, Emits> = ({
   effect(() => {
     slotted.value?.forEach((el) => {
       if (el.tagName === "N-OPTION") {
+        if (el.hasAttribute("disabled")) {
+          return;
+        }
+
         el.addEventListener("click", handleSelectOption);
       }
     });
@@ -239,7 +243,7 @@ export const NSelect: CC<Props, Emits> = ({
     updateOptionTabIndex(isShowOptions.value ? 0 : -1);
   });
 
-  // onConnected(() => {
+  // onConnected(async () => {
   //   const selectedSlottedElement = host.value?.querySelector("n-option[selected]:not([disabled]):not([slot])");
 
   //   if (!selectedSlottedElement) {
@@ -248,6 +252,16 @@ export const NSelect: CC<Props, Emits> = ({
 
   //   setSelectedValue(selectedSlottedElement as HTMLElement, selectedSlottedElement?.getAttribute("value"));
   // });
+
+  effect(() => {
+    const selectedSlottedElement = host.value?.querySelector("n-option[selected]:not([disabled]):not([slot])");
+
+    if (!selectedSlottedElement) {
+      return;
+    }
+
+    setSelectedValue(selectedSlottedElement as HTMLElement, selectedSlottedElement?.getAttribute("value"));
+  });
 
   return () => (
     <Host style={[style, resetStyle]}>

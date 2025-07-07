@@ -1,30 +1,40 @@
 import type { ComponentProps, PropsWithChildren } from "react";
 import { Anchor as NAnchor } from "@nuco/react/components/Anchor";
-import { type Link, useNavigate } from "react-router";
+import { useEffect, useState } from "react";
 
-type Props = PropsWithChildren<
-  Omit<
-    ComponentProps<typeof Link>,
-    "children"
-  > & {
-    target?: ComponentProps<typeof NAnchor>["target"];
-    underline?: ComponentProps<typeof NAnchor>["underline"];
-  }
->;
+type Props = PropsWithChildren<{
+  to: string;
+  target?: ComponentProps<typeof NAnchor>["target"];
+  underline?: ComponentProps<typeof NAnchor>["underline"];
+}>;
 
-export const Anchor = ({ children, ...props }: Props) => {
-  const navigate = useNavigate();
+export const Anchor = ({ children, to, target, underline }: Props) => {
+  const [isClient, setIsClient] = useState(false);
 
-  const handleClick = (e: React.SyntheticEvent<HTMLElement, Event>) => {
-    e.preventDefault();
-    navigate(props.to);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const handleClick = (payload: CustomEvent<Event | undefined>) => {
+    if (!isClient) {
+      // SSR時は標準のリンクとして動作
+      return;
+    }
+
+    // CSR時はプログラマティックなナビゲーション
+    payload.preventDefault?.();
+    window.history.pushState({}, "", to);
+
+    // React Router にナビゲーションイベントを通知
+    const event = new PopStateEvent("popstate", { state: {} });
+    window.dispatchEvent(event);
   };
 
   return (
     <NAnchor
-      href={props.to as string}
-      target={props.target}
-      underline={props.underline}
+      href={to}
+      target={target}
+      underline={underline}
       onClick={handleClick}
     >
       <>

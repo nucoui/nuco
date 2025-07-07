@@ -2,46 +2,6 @@ import type { ReactElement, ReactNode } from "react";
 import { Fragment, jsx } from "react/jsx-runtime";
 
 /**
- * スタイル内のセレクタにID属性を追加する関数
- * @param styleContent - 変換するCSSコンテンツ
- * @param id - 追加するID
- * @returns 変換後のCSSコンテンツ
- */
-/**
- * Add ID attribute to selectors in style content, and convert ::slotted pseudo to slot > selector for tora-container.
- * @param styleContent - CSS content to transform
- * @param id - ID to add
- * @returns Transformed CSS content
- */
-const transformStyleContent = (styleContent: string, id: string): string => {
-  if (!styleContent)
-    return styleContent;
-
-  // 1. ::slotted(selector) → slot > selector
-  let replaced = styleContent.replace(/::slotted\(([^)]+)\)/g, (_m, slottedSel) => {
-    return `slot > ${slottedSel.trim()}`;
-  });
-
-  // 2. 各セレクタの先頭にIDを付与
-  replaced = replaced.replace(/([^{}]+)(\{[^{}]*\})/g, (match, selector, rules) => {
-    // セレクタをカンマで分割して各セレクタにID属性を追加
-    const transformedSelector = selector
-      .split(",")
-      .map((s: string) => {
-        // 既に[id=]が先頭にある場合はそのまま
-        const trimmed = s.trim();
-        if (trimmed.startsWith(`[id="${id}"]`))
-          return trimmed;
-        return `[id="${id}"] ${trimmed}`;
-      })
-      .join(", ");
-    return `${transformedSelector} ${rules}`;
-  });
-
-  return replaced;
-};
-
-/**
  * HAST (Hypertext Abstract Syntax Tree) をReactのJSX要素に変換する関数
  * @param tag - 生成するJSX要素のタグ名
  * @param id - 要素に付与するID
@@ -53,7 +13,7 @@ const transformStyleContent = (styleContent: string, id: string): string => {
 export const hastToJsx = (tag: string, id: string, hast: any, children?: ReactNode, key?: string): ReactElement => {
   // hastがnullまたはundefinedの場合、空の要素を返す
   if (!hast) {
-    return jsx(tag as any, { id, children: [] }, key);
+    return jsx(tag as any, { id, children: [], suppressHydrationWarning: true }, key);
   }
 
   // hastがroot型の場合、子要素を処理
@@ -81,12 +41,13 @@ export const hastToJsx = (tag: string, id: string, hast: any, children?: ReactNo
     return jsx(tag as any, {
       children: hast.value,
       id,
+      suppressHydrationWarning: true,
     }, key);
   }
 
   // element型以外の場合はdivとして処理
   if (hast.type !== "element") {
-    return jsx("div", { id }, key);
+    return jsx("div", { id, suppressHydrationWarning: true }, key);
   }
 
   // HASTノードの属性をReactのpropsに変換
@@ -102,72 +63,15 @@ export const hastToJsx = (tag: string, id: string, hast: any, children?: ReactNo
     });
   }
 
-  let nodeChildren;
-
-  // slotタグの特別処理
-  if (hast.tagName === "slot") {
-    const slotName = hast.properties?.name as string | undefined;
-
-    if (slotName && children) {
-      // 名前付きslotの場合、対応する名前を持つ子要素を探す
-      if (Array.isArray(children)) {
-        const matchedChildren = children.filter((child: any) =>
-          child?.props?.slot === slotName,
-        );
-
-        if (matchedChildren.length > 0) {
-          nodeChildren = matchedChildren;
-        }
+  // 通常の要素の子要素処理
+  const nodeChildren = hast.children.length > 0
+    ? hast.children.map((child: any, index: number) => {
+      if (child.type === "text") {
+        return child.value;
       }
-      else if (children && typeof children === "object" && (children as any)?.props?.slot === slotName) {
-        // 単一の子要素が一致する場合
-        nodeChildren = children;
-      }
-    }
-    else if (children) {
-      // 名前なしslotの場合、name属性のない子要素を使用
-      if (Array.isArray(children)) {
-        const defaultChildren = children.filter((child: any) =>
-          !child?.props?.slot || child?.props?.slot === "",
-        );
-
-        if (defaultChildren.length > 0) {
-          nodeChildren = defaultChildren;
-        }
-      }
-      else if (children && typeof children === "object" && (!(children as any)?.props?.slot || (children as any)?.props?.slot === "")) {
-        // 単一の子要素で名前がない場合
-        nodeChildren = children;
-      }
-      else if (typeof children === "string" || typeof children === "number") {
-        // テキストノードの場合
-        nodeChildren = children;
-      }
-    }
-
-    // slotの子要素がなければ、デフォルトのslotコンテンツを使用
-    if (!nodeChildren) {
-      nodeChildren = hast.children.length > 0
-        ? hast.children.map((child: any, index: number) => {
-          if (child.type === "text") {
-            return child.value;
-          }
-          return hastToJsx(child.tagName, id, child, children, `${key}-child-${index}`);
-        })
-        : undefined;
-    }
-  }
-  else {
-    // 通常の要素の子要素処理
-    nodeChildren = hast.children.length > 0
-      ? hast.children.map((child: any, index: number) => {
-        if (child.type === "text") {
-          return child.value;
-        }
-        return hastToJsx(child.tagName, id, child, children, `${key}-child-${index}`);
-      })
-      : undefined;
-  }
+      return hastToJsx(child.tagName, id, child, children, `${key}-child-${index}`);
+    })
+    : undefined;
 
   // keyを追加
   const keyToUse = key !== undefined ? key : props.key;
@@ -176,12 +80,24 @@ export const hastToJsx = (tag: string, id: string, hast: any, children?: ReactNo
     delete props.key;
   }
 
-  // template要素をcontainerとして処理
+  // template要素をそのままレンダリング（childrenは兄弟要素として配置）
   if (hast.tagName === "template") {
-    return jsx("tora-container" as any, {
+    const templateElement = jsx("template" as any, {
+      ...props,
       children: nodeChildren,
       id,
+      suppressHydrationWarning: true,
     }, keyToUse);
+
+    // childrenがある場合は、templateと兄弟要素として配置
+    if (children) {
+      return jsx(Fragment, {
+        children: [templateElement, children],
+        suppressHydrationWarning: true,
+      }, keyToUse);
+    }
+
+    return templateElement;
   }
 
   // styleタグの特別処理
@@ -195,13 +111,11 @@ export const hastToJsx = (tag: string, id: string, hast: any, children?: ReactNo
         .join("");
     }
 
-    // スタイルコンテンツを変換して、container要素内の要素に適用されるようにする
-    const transformedStyle = transformStyleContent(styleContent, id);
-
     // 変換したスタイルを持つstyle要素を作成
     return jsx("style", {
       ...props,
-      children: transformedStyle,
+      children: styleContent,
+      suppressHydrationWarning: true,
     }, keyToUse);
   }
 
@@ -209,36 +123,6 @@ export const hastToJsx = (tag: string, id: string, hast: any, children?: ReactNo
   return jsx(hast.tagName as any, {
     ...props,
     children: nodeChildren,
+    suppressHydrationWarning: true,
   }, keyToUse);
 };
-
-/*
-
-[id=":R355:"] .n-breadcrumb {
-  display: flex;
-  gap: var(--n-2);
-  align-items: center;
-}
-.n-breadcrumb [id=":R355:"] slot > n-li {
-  display: flex;
-  align-items: baseline;
-  font-size: var(--n-3);
-  color: var(--cs-text-secondary);
-}
-.n-breadcrumb [id=":R355:"] slot > n-li::before {
-  display: inline-block;
-  margin-right: var(--n-2);
-  content: ">";
-}
-.n-breadcrumb [id=":R355:"] slot > n-li:first-child::before {
-  content: none;
-}
-.n-breadcrumb [id=":R355:"] slot > n-li:last-child {
-  color: var(--cs-text-primary);
-}
-.n-breadcrumb [id=":R355:"] slot > n-li:last-child::before {
-  font-weight: normal;
-  color: var(--cs-text-secondary);
-}
-
-*/

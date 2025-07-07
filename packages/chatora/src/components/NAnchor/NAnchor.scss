@@ -1,54 +1,37 @@
 .n-anchor {
-  color: var(--cs-link);
-  text-decoration: none;
+  display: inline-flex;
+  gap: var(--n-1);
+  align-items: last baseline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--cs-border-secondary);
+  text-underline-offset: 4px;
+  white-space: pre-wrap;
   cursor: pointer;
-  display: inline;
-  transition: color 0.2s ease-in-out;
+  transition: 0.1s;
 
-  &:hover {
-    color: var(--cs-link-hover);
+  &.-none {
+    text-decoration: none;
   }
 
-  &:active {
-    color: var(--cs-link-active);
-  }
-
-  &:visited {
-    color: var(--cs-link-visited);
-  }
-
-  &:focus {
-    outline: 2px solid var(--cs-focus);
-    outline-offset: 2px;
-  }
-
-  &--underline-always {
+  &.-solid {
     text-decoration: underline;
   }
 
-  &--underline-hover {
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
+  &.-dashed {
+    text-decoration: underline dashed;
   }
 
-  &--underline-none {
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: none;
-    }
+  &.-dotted {
+    text-decoration: underline dotted;
   }
 
-  &--disabled {
-    color: var(--cs-text-disabled);
-    cursor: not-allowed;
-    pointer-events: none;
+  &:hover {
+    color: var(--p-app-500);
+    text-decoration: underline solid;
+  }
 
-    &:hover {
-      color: var(--cs-text-disabled);
-    }
+  > .blank {
+    position: relative;
+    bottom: -2px;
   }
 }

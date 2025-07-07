@@ -1,13 +1,19 @@
+"use client";
+
+import type { toReactEmits } from "@chatora/react";
+import type Elements from "@nuco/chatora/elements/elements";
+import type { ComponentEmits, ComponentProps } from "chatora";
+import type { PropsWithChildren, ReactNode } from "react";
 import { hastToJsx } from "@/utils/hastToJsx";
-import { CustomElements } from "@nuco/chatora/elements/customElements";
-import { DeclarativeCustomElements } from "@nuco/chatora/elements/declarativeCustomElements";
-import { type PropsWithChildren, useCallback, useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from "react";
-
+import CustomElements from "@nuco/chatora/elements/customElements";
+import DeclarativeCustomElements from "@nuco/chatora/elements/declarativeCustomElements";
+import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { jsx } from "react/jsx-runtime";
+import { renderToString } from "react-dom/server";
 
-export type Props<P extends Record<string, unknown>> = PropsWithChildren<{
-  props: P;
-  tag: keyof typeof CustomElements;
+export type Props<T extends keyof typeof CustomElements = keyof typeof CustomElements> = PropsWithChildren<{
+  props: ComponentProps<typeof Elements[T]> & toReactEmits<ComponentEmits<typeof Elements[T]>>;
+  tag: T;
   formAssociated?: boolean;
 }>;
 
@@ -25,96 +31,52 @@ const splitProps = (props: Record<string, unknown>) => {
   return { props: filteredProps, emits };
 };
 
-export const ChatoraWrapper = <P extends Record<string, unknown>>({ tag, children, props, formAssociated = false }: Props<P>) => {
-  const id = useId();
-
-  const { props: filteredProps, emits } = useMemo(() => splitProps(props || {}), [props]);
-
-  const hast = DeclarativeCustomElements[tag](filteredProps as any);
-
+export const ChatoraWrapper = <T extends keyof typeof CustomElements>({ tag, children, props, formAssociated = false }: Props<T>) => {
   const [isDefined, setIsDefined] = useState(false);
-  const [isWindow, setIsWindow] = useState(false);
+
+  const id = useId();
+  const { props: filteredProps, emits } = useMemo(() => splitProps(props || {}), [props]);
+  const hast = DeclarativeCustomElements[tag](filteredProps as any);
+  const [content, setContent] = useState<ReactNode>(hastToJsx(tag, id, hast, [children]));
   const domRef = useRef<HTMLElement | null>(null);
 
-  const defineElement = useCallback(() => {
-    if (!customElements || customElements.get(tag)) {
+  useEffect(() => {
+    setContent([children]);
+  }, [children]);
+
+  useLayoutEffect(() => {
+    if (!customElements) {
       return;
     }
 
-    customElements.define(
-      tag,
-      class extends (CustomElements[tag]() as typeof HTMLElement) {
-        static formAssociated = formAssociated;
-      },
-    );
-
-    setIsDefined(true);
-  }, [tag, formAssociated]);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setIsWindow(true);
-      if (customElements && customElements.get(tag)) {
-        setIsDefined(true);
-      }
-    }
-  }, [tag]);
-
-  useEffect(() => {
-    defineElement();
-  }, [defineElement]);
-
-  const toKebabEvent = useCallback((event: string) => {
-    return (
-      event
-        .replace(/^on([A-Z])/, (_, c) => `on-${c.toLowerCase()}`)
-        .replace(/([A-Z])/g, "-$1")
-        .toLowerCase()
-    );
-  }, []);
-
-  const emitsRef = useRef(emits);
-  emitsRef.current = emits;
-
-  const handlerMapRef = useRef<Record<string, EventListener>>({});
-  useLayoutEffect(() => {
-    const map: Record<string, EventListener> = {};
-    if (emits) {
-      Object.entries(emits).forEach(([event, handler]) => {
-        if (typeof handler === "function") {
-          map[event] = (e: Event) => handler(e);
-        }
-      });
-    }
-    handlerMapRef.current = map;
-  }, [emits]);
-
-  useLayoutEffect(() => {
-    const node = domRef.current;
-    if (!node || !emitsRef.current)
+    if (customElements.get(tag)) {
+      setIsDefined(true);
       return;
-    const listeners: Array<[string, EventListener]> = [];
-    Object.entries(emitsRef.current).forEach(([event]) => {
-      const kebabEvent = toKebabEvent(event);
-      const stableHandler = handlerMapRef.current[event];
-      if (stableHandler) {
-        node.addEventListener(kebabEvent, stableHandler);
-        listeners.push([kebabEvent, stableHandler]);
-      }
-    });
-    // Cleanup
-    return () => {
-      if (!node)
-        return;
-      listeners.forEach(([kebabEvent, stableHandler]) => {
-        node.removeEventListener(kebabEvent, stableHandler);
-      });
+    }
+
+    class element extends CustomElements[tag]() {
+      static formAssociated = formAssociated;
     };
-  }, [toKebabEvent]);
 
-  return jsx(tag as any, {
-    ...filteredProps,
-    ref: domRef,
-    children: (isDefined && isWindow) ? children : hastToJsx(tag, id, hast, children),
-  });
+    customElements.define(tag, element);
+    setIsDefined(true);
+  }, [formAssociated, tag]);
+
+  if (!isDefined) {
+    return jsx(tag as any, {
+      dangerouslySetInnerHTML: {
+        __html: renderToString(content),
+      },
+      suppressHydrationWarning: true,
+    }, `${id}-ssr`);
+  }
+  else {
+    return jsx(tag as any, {
+      ref: domRef,
+      ...filteredProps,
+      ...emits,
+      children: content,
+      suppressHydrationWarning: true,
+    }, `${id}-hydration`);
+  }
 };
