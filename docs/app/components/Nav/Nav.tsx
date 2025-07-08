@@ -33,7 +33,6 @@ export const Nav = ({ links, selectOptions, onChange }: Props) => {
             name="type"
             placeholder="Select Framework"
             onChange={(e) => {
-              console.log("[Select] Changed value:", e.detail?.value);
               onChange?.(e.detail?.value ?? "");
             }}
           >
