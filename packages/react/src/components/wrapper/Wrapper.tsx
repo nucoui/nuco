@@ -3,7 +3,7 @@
 import type { toReactEmits } from "@chatora/react";
 import type Elements from "@nuco/core/elements/elements";
 import type { ComponentEmits, ComponentProps } from "chatora";
-import type { PropsWithChildren, ReactNode } from "react";
+import type { HTMLAttributes, PropsWithChildren, ReactNode } from "react";
 import { hastToJsx } from "@/utils/hastToJsx";
 import CustomElements from "@nuco/core/elements/customElements";
 import DeclarativeCustomElements from "@nuco/core/elements/declarativeCustomElements";
@@ -12,17 +12,25 @@ import { jsx } from "react/jsx-runtime";
 import { renderToString } from "react-dom/server";
 
 export type Props<T extends keyof typeof CustomElements = keyof typeof CustomElements> = PropsWithChildren<{
-  props: ComponentProps<typeof Elements[T]> & toReactEmits<ComponentEmits<typeof Elements[T]>>;
+  props: ComponentProps<typeof Elements[T]> & toReactEmits<ComponentEmits<typeof Elements[T]>> & {
+    slot?: HTMLAttributes<HTMLElement>["slot"];
+    className?: HTMLAttributes<HTMLElement>["className"];
+  };
   tag: T;
   formAssociated?: boolean;
 }>;
 
 const splitProps = (props: Record<string, unknown>) => {
-  const emits: Record<string, (event: Event) => void> = {};
+  const emits: Record<`on${string}`, (event: Event) => void> = {};
   const filteredProps: Record<string, unknown> = {};
   for (const [key, value] of Object.entries(props)) {
     if (key.startsWith("on") && key.length > 2 && key[2] === key[2].toUpperCase() && typeof value === "function") {
-      emits[key] = value as (event: Event) => void;
+      const sliced = key.slice(2);
+      const normalized = sliced.charAt(0).toLowerCase() + sliced.slice(1);
+      const kebabKey = `onon-${normalized}`
+        .replace(/([A-Z])/g, "-$1")
+        .toLowerCase();
+      emits[kebabKey as `on${string}`] = value as (event: Event) => void;
     }
     else {
       filteredProps[key] = value;

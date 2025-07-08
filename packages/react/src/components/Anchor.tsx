@@ -1,12 +1,10 @@
 "use client";
 
-import type { toReactEmits } from "@chatora/react";
-import type { NAnchor } from "@nuco/core/components/NAnchor";
-import type { ComponentEmits, ComponentProps } from "chatora";
+import type { Props } from "@/components/wrapper/Wrapper";
 import type { PropsWithChildren } from "react";
 import { ChatoraWrapper } from "@/components/wrapper/Wrapper";
 
-export const Anchor = (props: PropsWithChildren<ComponentProps<typeof NAnchor> & toReactEmits<ComponentEmits<typeof NAnchor>>>) => {
+export const Anchor = (props: PropsWithChildren<Props<"n-anchor">["props"]>) => {
   const { children, ...rest } = props;
   return ChatoraWrapper({
     tag: "n-anchor",

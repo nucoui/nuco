@@ -17,13 +17,11 @@ const genComponentFile = (tagName: `n-${string}`) => {
 
   return `"use client";
 
-import type { toReactEmits } from "@chatora/react";
-import type { N${pascalComponentName} } from "@nuco/core/components/N${pascalComponentName}";
-import type { ComponentEmits, ComponentProps } from "chatora";
+import type { Props } from "@/components/wrapper/Wrapper";
 import type { PropsWithChildren } from "react";
 import { ChatoraWrapper } from "@/components/wrapper/Wrapper";
 
-export const ${pascalComponentName} = (props: PropsWithChildren<ComponentProps<typeof N${pascalComponentName}> & toReactEmits<ComponentEmits<typeof N${pascalComponentName}>>>) => {
+export const ${pascalComponentName} = (props: PropsWithChildren<Props<"${tagName}">["props"]>) => {
   const { children, ...rest } = props;
   return ChatoraWrapper({
     tag: "${tagName}",

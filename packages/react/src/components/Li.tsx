@@ -1,12 +1,10 @@
 "use client";
 
-import type { toReactEmits } from "@chatora/react";
-import type { NLi } from "@nuco/core/components/NLi";
-import type { ComponentEmits, ComponentProps } from "chatora";
+import type { Props } from "@/components/wrapper/Wrapper";
 import type { PropsWithChildren } from "react";
 import { ChatoraWrapper } from "@/components/wrapper/Wrapper";
 
-export const Li = (props: PropsWithChildren<ComponentProps<typeof NLi> & toReactEmits<ComponentEmits<typeof NLi>>>) => {
+export const Li = (props: PropsWithChildren<Props<"n-li">["props"]>) => {
   const { children, ...rest } = props;
   return ChatoraWrapper({
     tag: "n-li",

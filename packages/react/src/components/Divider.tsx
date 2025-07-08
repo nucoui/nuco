@@ -1,12 +1,10 @@
 "use client";
 
-import type { toReactEmits } from "@chatora/react";
-import type { NDivider } from "@nuco/core/components/NDivider";
-import type { ComponentEmits, ComponentProps } from "chatora";
+import type { Props } from "@/components/wrapper/Wrapper";
 import type { PropsWithChildren } from "react";
 import { ChatoraWrapper } from "@/components/wrapper/Wrapper";
 
-export const Divider = (props: PropsWithChildren<ComponentProps<typeof NDivider> & toReactEmits<ComponentEmits<typeof NDivider>>>) => {
+export const Divider = (props: PropsWithChildren<Props<"n-divider">["props"]>) => {
   const { children, ...rest } = props;
   return ChatoraWrapper({
     tag: "n-divider",

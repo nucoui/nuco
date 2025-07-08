@@ -1,12 +1,10 @@
 "use client";
 
-import type { toReactEmits } from "@chatora/react";
-import type { NNavAccordion } from "@nuco/core/components/NNavAccordion";
-import type { ComponentEmits, ComponentProps } from "chatora";
+import type { Props } from "@/components/wrapper/Wrapper";
 import type { PropsWithChildren } from "react";
 import { ChatoraWrapper } from "@/components/wrapper/Wrapper";
 
-export const NavAccordion = (props: PropsWithChildren<ComponentProps<typeof NNavAccordion> & toReactEmits<ComponentEmits<typeof NNavAccordion>>>) => {
+export const NavAccordion = (props: PropsWithChildren<Props<"n-nav-accordion">["props"]>) => {
   const { children, ...rest } = props;
   return ChatoraWrapper({
     tag: "n-nav-accordion",

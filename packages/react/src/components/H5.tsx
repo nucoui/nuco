@@ -1,12 +1,10 @@
 "use client";
 
-import type { toReactEmits } from "@chatora/react";
-import type { NH5 } from "@nuco/core/components/NH5";
-import type { ComponentEmits, ComponentProps } from "chatora";
+import type { Props } from "@/components/wrapper/Wrapper";
 import type { PropsWithChildren } from "react";
 import { ChatoraWrapper } from "@/components/wrapper/Wrapper";
 
-export const H5 = (props: PropsWithChildren<ComponentProps<typeof NH5> & toReactEmits<ComponentEmits<typeof NH5>>>) => {
+export const H5 = (props: PropsWithChildren<Props<"n-h5">["props"]>) => {
   const { children, ...rest } = props;
   return ChatoraWrapper({
     tag: "n-h5",
