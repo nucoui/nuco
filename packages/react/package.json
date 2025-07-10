@@ -6,7 +6,7 @@
   "description": "UI library based on the concept of Transcends Framework boundaries for React",
   "author": "nuco <takuma-ru@takumaru.dev> (https://github.com/takuma-ru/)",
   "license": "MPL-2.0",
-  "homepage": "https://github.com/nucoui/nuco",
+  "homepage": "https://nuco.takumaru.dev",
   "repository": {
     "type": "git",
     "url": "https://github.com/nucoui/nuco"
@@ -48,7 +48,7 @@
     "release:test": "npx rlse -l patch -k config,commit-changes,create-release-branch --dry-run"
   },
   "dependencies": {
-    "@chatora/react": "^1.0.8-beta.4",
+    "@chatora/react": "^1.0.9",
     "@nuco/core": "workspace:*",
     "chatora": "^1.0.8-beta.4"
   },
