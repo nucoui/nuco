@@ -1,0 +1,36 @@
+.left-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  a {
+    display: flex;
+    align-items: center;
+
+    > img {
+      max-width: 100%;
+      height: 20px;
+      // width: 64px;
+    }
+  }
+}
+
+.center-container {
+  display: flex;
+  flex: 1;
+  gap: var(--n-2);
+  align-items: center;
+  justify-content: end;
+}
+
+.right-container {
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--n-2);
+
+  > .anchor {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  }
+}

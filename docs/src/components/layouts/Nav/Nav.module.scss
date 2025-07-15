@@ -1,0 +1,19 @@
+.nav {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--n-2);
+}
+
+.children {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--n-4);
+  padding: var(--n-2) 0;
+}
+
+.option {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--n-2);
+  align-items: center;
+}

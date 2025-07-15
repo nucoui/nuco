@@ -2,55 +2,38 @@
   "name": "docs",
   "type": "module",
   "private": true,
-  "contributes": {
-    "css": {
-      "customData": [
-        "./node_modules/@nuco/variable/dist/css/variables.css-data.json"
-      ]
-    }
-  },
+  "sideEffects": false,
   "scripts": {
-    "build": "react-router build",
-    "dev": "react-router dev",
-    "start": "react-router-serve ./build/server/index.js",
-    "typecheck": "react-router typegen && tsc"
+    "dev": "vite dev",
+    "build": "vite build && tsc --noEmit",
+    "start": "wrangler dev --port 5228",
+    "lint": "eslint . && stylelint '**/*.{css,scss}'"
   },
   "dependencies": {
-    "@nuco/config": "workspace:*",
     "@nuco/react": "workspace:*",
     "@nuco/variable": "workspace:*",
-    "@react-router/fs-routes": "^7.4.1",
-    "@react-router/node": "^7.4.1",
-    "@react-router/serve": "^7.4.1",
-    "dedupe": "^4.0.3",
-    "isbot": "^5.1.17",
+    "@svgr/plugin-jsx": "^8.1.0",
+    "@tanstack/react-router": "^1.127.3",
+    "@tanstack/react-router-devtools": "^1.127.3",
+    "@tanstack/react-start": "^1.127.3",
+    "ofetch": "^1.4.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-router": "^7.4.1",
-    "wrangler": "^3.111.0"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250224.0",
     "@iconify-json/famicons": "^1.2.0",
     "@iconify-json/file-icons": "^1.2.1",
-    "@iconify-json/logos": "^1.2.4",
-    "@iconify-json/material-symbols": "^1.2.14",
     "@iconify-json/mdi": "^1.2.3",
-    "@iconify-json/octicon": "^1.2.5",
     "@iconify-json/ri": "^1.2.5",
-    "@react-router/dev": "^7.4.1",
-    "@svgr/core": "^8.1.0",
-    "@svgr/plugin-jsx": "^8.1.0",
-    "@types/node": "^20",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
-    "react-router-devtools": "^1.1.8",
-    "react-scan": "^0.2.8",
-    "shiki": "^3.2.1",
-    "typescript": "^5.7.2",
-    "unplugin-fonts": "^1.3.1",
+    "@nuco/config": "workspace:*",
+    "@types/node": "^22.5.4",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "stylelint": "^16.10.0",
+    "typescript": "catalog:",
     "unplugin-icons": "^22.1.0",
-    "vite": "^6.2.4",
-    "vite-tsconfig-paths": "^5.1.4"
+    "vite": "^6.3.5",
+    "vite-tsconfig-paths": "^5.1.4",
+    "wrangler": "^4.24.0"
   }
 }
