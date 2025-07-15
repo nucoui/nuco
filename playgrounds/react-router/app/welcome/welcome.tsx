@@ -1,4 +1,4 @@
-import { Button } from "@nuco/react";
+import { Button } from "@nuco/react/components/Button";
 import logoDark from "./logo-dark.svg";
 import logoLight from "./logo-light.svg";
 

@@ -1,6 +1,6 @@
 import type { CC } from "chatora";
 
-import { effect, getHost, getInternals, getSlotteds, signal } from "chatora";
+import { effect, getHost, getInternals, getSlotteds, onConnected, signal } from "chatora";
 import { Host } from "chatora/jsx-runtime";
 
 import { toBoolean, toString } from "chatora/util";
@@ -72,7 +72,8 @@ export const NSelect: CC<Props, Emits> = ({
       if (selectedEl.tagName === "N-OPTION") {
         selectedEl.removeAttribute("selected");
         selectedEl.removeAttribute("slot");
-        host.value?.removeChild(selectedEl);
+        // Use remove() method for safer removal
+        selectedEl.remove();
       }
     });
   };
@@ -87,6 +88,16 @@ export const NSelect: CC<Props, Emits> = ({
     selectedNode.setAttribute("slot", "selected-value");
     selectedNode.removeAttribute("selected");
     selectedNode.tabIndex = -1;
+
+    // Remove existing selected value nodes with proper parent check
+    const currentSelected = host.value!.querySelectorAll("n-option[slot=\"selected-value\"]");
+
+    if (currentSelected) {
+      currentSelected.forEach((el) => {
+        // Use remove() method for safer removal
+        el.remove();
+      });
+    }
 
     host.value?.appendChild(selectedNode);
 
@@ -243,17 +254,11 @@ export const NSelect: CC<Props, Emits> = ({
     updateOptionTabIndex(isShowOptions.value ? 0 : -1);
   });
 
-  // onConnected(async () => {
-  //   const selectedSlottedElement = host.value?.querySelector("n-option[selected]:not([disabled]):not([slot])");
+  onConnected(async () => {
+    if (!host.value) {
+      return;
+    }
 
-  //   if (!selectedSlottedElement) {
-  //     return;
-  //   }
-
-  //   setSelectedValue(selectedSlottedElement as HTMLElement, selectedSlottedElement?.getAttribute("value"));
-  // });
-
-  effect(() => {
     const selectedSlottedElement = host.value?.querySelector("n-option[selected]:not([disabled]):not([slot])");
 
     if (!selectedSlottedElement) {
@@ -262,6 +267,20 @@ export const NSelect: CC<Props, Emits> = ({
 
     setSelectedValue(selectedSlottedElement as HTMLElement, selectedSlottedElement?.getAttribute("value"));
   });
+
+  // onConnected(() => {
+  //   console.log("onConnected NSelect", host.value);
+  // });
+
+  // effect(() => {
+  //   const selectedSlottedElement = host.value?.querySelector("n-option[selected]:not([disabled]):not([slot])");
+
+  //   if (!selectedSlottedElement) {
+  //     return;
+  //   }
+
+  //   setSelectedValue(selectedSlottedElement as HTMLElement, selectedSlottedElement?.getAttribute("value"));
+  // });
 
   return () => (
     <Host style={[style, resetStyle]}>

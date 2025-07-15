@@ -1,10 +1,9 @@
 "use client";
 
-import type { Props } from "@/components/wrapper/Wrapper";
-import type { PropsWithChildren } from "react";
+import type { ComponentProps, PropsWithChildren } from "react";
 import { ChatoraWrapper } from "@/components/wrapper/Wrapper";
 
-export const Li = (props: PropsWithChildren<Props<"n-li">["props"]>) => {
+export const Li = (props: PropsWithChildren<ComponentProps<typeof ChatoraWrapper<"n-li">>["props"]>) => {
   const { children, ...rest } = props;
   return ChatoraWrapper({
     tag: "n-li",
