@@ -131,7 +131,7 @@ function RouteComponent() {
 
   const links: ComponentProps<typeof Nav>["links"] = [
     {
-      title: `Getting Started \nwith ${_displayCategory}`,
+      title: `Getting Started`,
       children: [
         { title: "Overview", props: { to: `/$lang/docs/$framework/overview`, params: { lang, framework: category } } },
         { title: "Installation", props: { to: `/$lang/docs/$framework/installation`, params: { lang, framework: category } } },
@@ -142,6 +142,26 @@ function RouteComponent() {
       children: [
         { title: "Anchor", props: { to: `/$lang/docs/$framework/components/anchor`, params: { lang, framework: category } } },
         { title: "Button", props: { to: `/$lang/docs/$framework/components/button`, params: { lang, framework: category } } },
+        { title: "Badge", props: { to: `/$lang/docs/$framework/components/badge`, params: { lang, framework: category } } },
+        { title: "Breadcrumb", props: { to: `/$lang/docs/$framework/components/breadcrumb`, params: { lang, framework: category } } },
+        { title: "CodeBlock", props: { to: `/$lang/docs/$framework/components/codeblock`, params: { lang, framework: category } } },
+        { title: "Divider", props: { to: `/$lang/docs/$framework/components/divider`, params: { lang, framework: category } } },
+        { title: "Error", props: { to: `/$lang/docs/$framework/components/error`, params: { lang, framework: category } } },
+        { title: "H1", props: { to: `/$lang/docs/$framework/components/h1`, params: { lang, framework: category } } },
+        { title: "H2", props: { to: `/$lang/docs/$framework/components/h2`, params: { lang, framework: category } } },
+        { title: "H3", props: { to: `/$lang/docs/$framework/components/h3`, params: { lang, framework: category } } },
+        { title: "H4", props: { to: `/$lang/docs/$framework/components/h4`, params: { lang, framework: category } } },
+        { title: "H5", props: { to: `/$lang/docs/$framework/components/h5`, params: { lang, framework: category } } },
+        { title: "H6", props: { to: `/$lang/docs/$framework/components/h6`, params: { lang, framework: category } } },
+        { title: "Header", props: { to: `/$lang/docs/$framework/components/header`, params: { lang, framework: category } } },
+        { title: "Input", props: { to: `/$lang/docs/$framework/components/input`, params: { lang, framework: category } } },
+        { title: "Li", props: { to: `/$lang/docs/$framework/components/li`, params: { lang, framework: category } } },
+        { title: "NavAccordion", props: { to: `/$lang/docs/$framework/components/navaccordion`, params: { lang, framework: category } } },
+        { title: "Option", props: { to: `/$lang/docs/$framework/components/option`, params: { lang, framework: category } } },
+        { title: "Pager", props: { to: `/$lang/docs/$framework/components/pager`, params: { lang, framework: category } } },
+        { title: "Pagers", props: { to: `/$lang/docs/$framework/components/pagers`, params: { lang, framework: category } } },
+        { title: "Select", props: { to: `/$lang/docs/$framework/components/select`, params: { lang, framework: category } } },
+        { title: "Ul", props: { to: `/$lang/docs/$framework/components/ul`, params: { lang, framework: category } } },
       ],
     },
   ];
@@ -172,7 +192,7 @@ function RouteComponent() {
                   )
                 : (
                     <Li key={path.to}>
-                      <CustomAnchor {...path} underline="none">{shortTitle}</CustomAnchor>
+                      <CustomAnchor {...path as any} underline="dashed">{shortTitle}</CustomAnchor>
                     </Li>
                   );
             })}

@@ -268,20 +268,6 @@ export const NSelect: CC<Props, Emits> = ({
     setSelectedValue(selectedSlottedElement as HTMLElement, selectedSlottedElement?.getAttribute("value"));
   });
 
-  // onConnected(() => {
-  //   console.log("onConnected NSelect", host.value);
-  // });
-
-  // effect(() => {
-  //   const selectedSlottedElement = host.value?.querySelector("n-option[selected]:not([disabled]):not([slot])");
-
-  //   if (!selectedSlottedElement) {
-  //     return;
-  //   }
-
-  //   setSelectedValue(selectedSlottedElement as HTMLElement, selectedSlottedElement?.getAttribute("value"));
-  // });
-
   return () => (
     <Host style={[style, resetStyle]}>
       <div

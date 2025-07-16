@@ -64,7 +64,7 @@ const meta = {
   args: {
     href: "https://example.com",
     target: "_self",
-    underline: "always",
+    underline: "solid",
     disabled: false,
     slot: "Click me",
   },
@@ -75,33 +75,4 @@ type Story = StoryObj<Props & { slot?: string }>;
 
 export const Primary: Story = {
   args: {},
-};
-
-export const WithTarget: Story = {
-  args: {
-    target: "_blank",
-    rel: "noopener noreferrer",
-    slot: "Open in new tab",
-  },
-};
-
-export const UnderlineHover: Story = {
-  args: {
-    underline: "hover",
-    slot: "Underline on hover",
-  },
-};
-
-export const NoUnderline: Story = {
-  args: {
-    underline: "none",
-    slot: "No underline",
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    disabled: true,
-    slot: "Disabled link",
-  },
 };

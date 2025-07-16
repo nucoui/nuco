@@ -1,6 +1,7 @@
 import type { CC } from "chatora";
 import { Host } from "chatora/jsx-runtime";
 import { toBoolean, toMatched, toString } from "chatora/util";
+import clsx from "clsx";
 import resetStyle from "../../styles/reset.css?raw";
 import style from "./NAnchor.scss?raw";
 
@@ -20,7 +21,7 @@ export type Props = {
   /**
    * Whether to show underline decoration
    */
-  underline?: "always" | "hover" | "none";
+  underline?: "none" | "solid" | "dashed" | "dotted";
   /**
    * Whether the link is disabled
    */
@@ -42,7 +43,7 @@ export const NAnchor: CC<Props, Emits> = ({
     href: v => toString(v),
     target: v => toMatched(v, ["_blank", "_self", "_parent", "_top"]),
     rel: v => toString(v),
-    underline: v => toMatched(v, ["always", "hover", "none"]) ?? "always",
+    underline: v => toMatched(v, ["none", "solid", "dashed", "dotted"]) ?? "none",
     disabled: v => toBoolean(v) ?? false,
   });
 
@@ -62,7 +63,11 @@ export const NAnchor: CC<Props, Emits> = ({
   return () => (
     <Host shadowRoot style={[style, resetStyle]}>
       <a
-        class={`n-anchor n-anchor--underline-${props().underline} ${props().disabled ? "n-anchor--disabled" : ""}`}
+        class={clsx(
+          "n-anchor",
+          `-${props().underline}`,
+          props().disabled && "disabled",
+        )}
         href={props().disabled ? undefined : props().href}
         target={props().target}
         rel={props().rel}

@@ -45,41 +45,43 @@ export const Nav = ({ links, selectOptions, onChange }: Props) => {
           <hr />
         </>
       )}
-      {links.map(({ title, children, props }) => (
-        <Fragment key={title}>
-          {props
-            ? (
-                <CustomAnchor
-                  key={title}
-                  underline="none"
-                  to={props.to}
-                  {...(props as React.ComponentProps<typeof CustomAnchor>)}
-                >
-                  {title}
-                </CustomAnchor>
-              )
-            : (
-                <NavAccordion>
-                  <span slot="summary">{title}</span>
-                  <div className={styles.children}>
-                    {children?.map(({ title, props }) =>
-                      props?.to !== undefined
-                        ? (
-                            <CustomAnchor
-                              key={title}
-                              {...(props as React.ComponentProps<typeof CustomAnchor>)}
-                              underline="none"
-                            >
-                              {title}
-                            </CustomAnchor>
-                          )
-                        : null,
-                    )}
-                  </div>
-                </NavAccordion>
-              )}
-        </Fragment>
-      ))}
+      <div className={styles.links}>
+        {links.map(({ title, children, props }) => (
+          <Fragment key={title}>
+            {props
+              ? (
+                  <CustomAnchor
+                    key={title}
+                    underline="none"
+                    to={props.to}
+                    {...(props as React.ComponentProps<typeof CustomAnchor>)}
+                  >
+                    {title}
+                  </CustomAnchor>
+                )
+              : (
+                  <NavAccordion>
+                    <span slot="summary">{title}</span>
+                    <div className={styles.children}>
+                      {children?.map(({ title, props }) =>
+                        props?.to !== undefined
+                          ? (
+                              <CustomAnchor
+                                key={title}
+                                {...(props as React.ComponentProps<typeof CustomAnchor>)}
+                                underline="dashed"
+                              >
+                                {title}
+                              </CustomAnchor>
+                            )
+                          : null,
+                      )}
+                    </div>
+                  </NavAccordion>
+                )}
+          </Fragment>
+        ))}
+      </div>
     </nav>
   );
 };

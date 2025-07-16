@@ -166,7 +166,7 @@ const PAGE_DATA: PageData = {
                       to: "/en/docs/web-components/overview",
                     },
                     next: {
-                      to: "/en/docs/web-components/components/anchor",
+                      to: "/en/docs/web-components/components/badge",
                     },
                   },
                 },
@@ -185,6 +185,44 @@ const PAGE_DATA: PageData = {
                           to: "/en/docs/web-components/overview",
                         },
                         next: {
+                          to: "/en/docs/web-components/components/badge",
+                        },
+                      },
+                    },
+                  },
+                  "/badge": {
+                    shortTitle: "Badge",
+                    head: {
+                      meta: [
+                        { title: "Badge | Components | Web Components | @nuco/core" },
+                        { name: "description", content: "Badge component for Web Components" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/web-components/components/anchor",
+                        },
+                        next: {
+                          to: "/en/docs/web-components/components/breadcrumb",
+                        },
+                      },
+                    },
+                  },
+                  "/breadcrumb": {
+                    shortTitle: "Breadcrumb",
+                    head: {
+                      meta: [
+                        { title: "Breadcrumb | Components | Web Components | @nuco/core" },
+                        { name: "description", content: "Breadcrumb component for Web Components" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/web-components/components/badge",
+                        },
+                        next: {
                           to: "/en/docs/web-components/components/button",
                         },
                       },
@@ -201,7 +239,349 @@ const PAGE_DATA: PageData = {
                     info: {
                       pagers: {
                         prev: {
-                          to: "/en/docs/web-components/components/anchor",
+                          to: "/en/docs/web-components/components/breadcrumb",
+                        },
+                        next: {
+                          to: "/en/docs/web-components/components/codeblock",
+                        },
+                      },
+                    },
+                  },
+                  "/codeblock": {
+                    shortTitle: "CodeBlock",
+                    head: {
+                      meta: [
+                        { title: "CodeBlock | Components | Web Components | @nuco/core" },
+                        { name: "description", content: "CodeBlock component for Web Components" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/web-components/components/button",
+                        },
+                        next: {
+                          to: "/en/docs/web-components/components/divider",
+                        },
+                      },
+                    },
+                  },
+                  "/divider": {
+                    shortTitle: "Divider",
+                    head: {
+                      meta: [
+                        { title: "Divider | Components | Web Components | @nuco/core" },
+                        { name: "description", content: "Divider component for Web Components" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/web-components/components/codeblock",
+                        },
+                        next: {
+                          to: "/en/docs/web-components/components/error",
+                        },
+                      },
+                    },
+                  },
+                  "/error": {
+                    shortTitle: "Error",
+                    head: {
+                      meta: [
+                        { title: "Error | Components | Web Components | @nuco/core" },
+                        { name: "description", content: "Error component for Web Components" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/web-components/components/divider",
+                        },
+                        next: {
+                          to: "/en/docs/web-components/components/h1",
+                        },
+                      },
+                    },
+                  },
+                  "/h1": {
+                    shortTitle: "H1",
+                    head: {
+                      meta: [
+                        { title: "H1 | Components | Web Components | @nuco/core" },
+                        { name: "description", content: "H1 component for Web Components" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/web-components/components/error",
+                        },
+                        next: {
+                          to: "/en/docs/web-components/components/h2",
+                        },
+                      },
+                    },
+                  },
+                  "/h2": {
+                    shortTitle: "H2",
+                    head: {
+                      meta: [
+                        { title: "H2 | Components | Web Components | @nuco/core" },
+                        { name: "description", content: "H2 component for Web Components" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/web-components/components/h1",
+                        },
+                        next: {
+                          to: "/en/docs/web-components/components/h3",
+                        },
+                      },
+                    },
+                  },
+                  "/h3": {
+                    shortTitle: "H3",
+                    head: {
+                      meta: [
+                        { title: "H3 | Components | Web Components | @nuco/core" },
+                        { name: "description", content: "H3 component for Web Components" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/web-components/components/h2",
+                        },
+                        next: {
+                          to: "/en/docs/web-components/components/h4",
+                        },
+                      },
+                    },
+                  },
+                  "/h4": {
+                    shortTitle: "H4",
+                    head: {
+                      meta: [
+                        { title: "H4 | Components | Web Components | @nuco/core" },
+                        { name: "description", content: "H4 component for Web Components" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/web-components/components/h3",
+                        },
+                        next: {
+                          to: "/en/docs/web-components/components/h5",
+                        },
+                      },
+                    },
+                  },
+                  "/h5": {
+                    shortTitle: "H5",
+                    head: {
+                      meta: [
+                        { title: "H5 | Components | Web Components | @nuco/core" },
+                        { name: "description", content: "H5 component for Web Components" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/web-components/components/h4",
+                        },
+                        next: {
+                          to: "/en/docs/web-components/components/h6",
+                        },
+                      },
+                    },
+                  },
+                  "/h6": {
+                    shortTitle: "H6",
+                    head: {
+                      meta: [
+                        { title: "H6 | Components | Web Components | @nuco/core" },
+                        { name: "description", content: "H6 component for Web Components" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/web-components/components/h5",
+                        },
+                        next: {
+                          to: "/en/docs/web-components/components/header",
+                        },
+                      },
+                    },
+                  },
+                  "/header": {
+                    shortTitle: "Header",
+                    head: {
+                      meta: [
+                        { title: "Header | Components | Web Components | @nuco/core" },
+                        { name: "description", content: "Header component for Web Components" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/web-components/components/h6",
+                        },
+                        next: {
+                          to: "/en/docs/web-components/components/input",
+                        },
+                      },
+                    },
+                  },
+                  "/input": {
+                    shortTitle: "Input",
+                    head: {
+                      meta: [
+                        { title: "Input | Components | Web Components | @nuco/core" },
+                        { name: "description", content: "Input component for Web Components" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/web-components/components/header",
+                        },
+                        next: {
+                          to: "/en/docs/web-components/components/li",
+                        },
+                      },
+                    },
+                  },
+                  "/li": {
+                    shortTitle: "Li",
+                    head: {
+                      meta: [
+                        { title: "Li | Components | Web Components | @nuco/core" },
+                        { name: "description", content: "Li component for Web Components" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/web-components/components/input",
+                        },
+                        next: {
+                          to: "/en/docs/web-components/components/navaccordion",
+                        },
+                      },
+                    },
+                  },
+                  "/navaccordion": {
+                    shortTitle: "NavAccordion",
+                    head: {
+                      meta: [
+                        { title: "NavAccordion | Components | Web Components | @nuco/core" },
+                        { name: "description", content: "NavAccordion component for Web Components" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/web-components/components/li",
+                        },
+                        next: {
+                          to: "/en/docs/web-components/components/option",
+                        },
+                      },
+                    },
+                  },
+                  "/option": {
+                    shortTitle: "Option",
+                    head: {
+                      meta: [
+                        { title: "Option | Components | Web Components | @nuco/core" },
+                        { name: "description", content: "Option component for Web Components" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/web-components/components/navaccordion",
+                        },
+                        next: {
+                          to: "/en/docs/web-components/components/pager",
+                        },
+                      },
+                    },
+                  },
+                  "/pager": {
+                    shortTitle: "Pager",
+                    head: {
+                      meta: [
+                        { title: "Pager | Components | Web Components | @nuco/core" },
+                        { name: "description", content: "Pager component for Web Components" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/web-components/components/option",
+                        },
+                        next: {
+                          to: "/en/docs/web-components/components/pagers",
+                        },
+                      },
+                    },
+                  },
+                  "/pagers": {
+                    shortTitle: "Pagers",
+                    head: {
+                      meta: [
+                        { title: "Pagers | Components | Web Components | @nuco/core" },
+                        { name: "description", content: "Pagers component for Web Components" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/web-components/components/pager",
+                        },
+                        next: {
+                          to: "/en/docs/web-components/components/select",
+                        },
+                      },
+                    },
+                  },
+                  "/select": {
+                    shortTitle: "Select",
+                    head: {
+                      meta: [
+                        { title: "Select | Components | Web Components | @nuco/core" },
+                        { name: "description", content: "Select component for Web Components" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/web-components/components/pagers",
+                        },
+                        next: {
+                          to: "/en/docs/web-components/components/ul",
+                        },
+                      },
+                    },
+                  },
+                  "/ul": {
+                    shortTitle: "Ul",
+                    head: {
+                      meta: [
+                        { title: "Ul | Components | Web Components | @nuco/core" },
+                        { name: "description", content: "Ul component for Web Components" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/web-components/components/select",
                         },
                         next: undefined,
                       },
