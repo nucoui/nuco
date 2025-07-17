@@ -1,3 +1,6 @@
+---
+applyTo: '**'
+---
 # List of Instructions
 Below are instructions for you when developing this project. These instructions serve as important guidelines for project progress and development style.
 
