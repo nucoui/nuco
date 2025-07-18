@@ -40,7 +40,7 @@ const meta = {
     },
     underline: {
       control: { type: "select" },
-      options: ["always", "hover", "none"],
+      options: ["none", "solid", "dashed", "dotted"],
       description: "Whether to show underline decoration",
       table: {
         category: "Props",

@@ -70,15 +70,15 @@ export const NCodeBlock: CC<Props, Emits> = ({ defineProps }) => {
         <div class="block">
           {
             codeNode.value
-              ? (
-                  codeNode.value
-                )
+              ? codeNode.value
               : (
-                  <pre class="shiki">
-                    <code>
-                      {props().code}
-                    </code>
-                  </pre>
+                  <span style="display: contents;">
+                    <pre class="shiki">
+                      <code>
+                        {props().code}
+                      </code>
+                    </pre>
+                  </span>
                 )
           }
           <button

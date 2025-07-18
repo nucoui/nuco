@@ -9,25 +9,40 @@
   cursor: pointer;
   transition: 0.1s;
 
+  &[aria-disabled] {
+    color: var(--cs-text-secondary);
+    cursor: default;
+
+    &:hover {
+      color: var(--cs-text-secondary);
+      text-decoration-color: var(--cs-border-secondary);
+      text-decoration-line: underline;
+    }
+  }
+
   &.-none {
-    text-decoration: none;
+    text-decoration-style: none;
   }
 
   &.-solid {
-    text-decoration: underline;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
   }
 
   &.-dashed {
-    text-decoration: underline dashed;
+    text-decoration-line: underline;
+    text-decoration-style: dashed;
   }
 
   &.-dotted {
-    text-decoration: underline dotted;
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
   }
 
   &:hover {
     color: var(--p-app-500);
-    text-decoration: underline solid;
+    text-decoration-color: var(--p-app-500);
+    text-decoration-line: underline;
   }
 
   > .blank {

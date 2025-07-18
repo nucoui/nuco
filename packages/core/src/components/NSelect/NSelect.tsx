@@ -254,7 +254,7 @@ export const NSelect: CC<Props, Emits> = ({
     updateOptionTabIndex(isShowOptions.value ? 0 : -1);
   });
 
-  onConnected(async () => {
+  onConnected(() => {
     if (!host.value) {
       return;
     }
