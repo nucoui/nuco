@@ -29,21 +29,21 @@ function RouteComponent() {
         lang="tsx"
         fileName="page.tsx"
         code={`import { Button } from "@nuco/react/components/Button";
-      
-      const Page = () => {
-        return (
-          <>
-            <Button
-              type="primary"
-              onClick={() => alert("Hello, World!")}
-            >
-              Hello, World!
-            </Button>
-          </>
-        );
-      }
-      
-      export default Page;
+
+const Page = () => {
+  return (
+    <>
+      <Button
+        type="primary"
+        onClick={() => alert("Hello, World!")}
+      >
+        Hello, World!
+      </Button>
+    </>
+  );
+}
+
+export default Page;
       `}
       />
     </>

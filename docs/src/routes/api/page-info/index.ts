@@ -89,8 +89,501 @@ const PAGE_DATA: PageData = {
                 prev: {
                   to: "/en/docs",
                 },
+              },
+            },
+          },
+          "/react": {
+            shortTitle: "React",
+            head: {
+              meta: [
+                { title: "React | @nuco/core" },
+                { name: "description", content: "Using @nuco/core with React" },
+              ],
+            },
+            info: {
+              pagers: {
+                prev: {
+                  to: "/en/docs/getting-started",
+                },
                 next: {
-                  to: "/en/docs/web-components",
+                  to: "/en/docs/react/installation",
+                },
+              },
+            },
+            children: {
+              "/installation": {
+                shortTitle: "Installation",
+                head: {
+                  meta: [
+                    { title: "Installation | React | @nuco/core" },
+                    { name: "description", content: "Installation guide for React" },
+                  ],
+                },
+                info: {
+                  pagers: {
+                    prev: {
+                      to: "/en/docs/react",
+                    },
+                    next: {
+                      to: "/en/docs/react/overview",
+                    },
+                  },
+                },
+              },
+              "/overview": {
+                shortTitle: "Overview",
+                head: {
+                  meta: [
+                    { title: "Overview | React | @nuco/core" },
+                    { name: "description", content: "Overview of React usage" },
+                  ],
+                },
+                info: {
+                  pagers: {
+                    prev: {
+                      to: "/en/docs/react/installation",
+                    },
+                    next: {
+                      to: "/en/docs/react/components/anchor",
+                    },
+                  },
+                },
+              },
+              "/components": {
+                shortTitle: "Components",
+                head: {
+                  meta: [
+                    { title: "Components | React | @nuco/core" },
+                    { name: "description", content: "Components for React" },
+                  ],
+                },
+                info: {
+                  pagers: {
+                    prev: {
+                      to: "/en/docs/react/overview",
+                    },
+                    next: {
+                      to: "/en/docs/react/components/badge",
+                    },
+                  },
+                },
+                children: {
+                  "/anchor": {
+                    shortTitle: "Anchor",
+                    head: {
+                      meta: [
+                        { title: "Anchor | Components | React | @nuco/core" },
+                        { name: "description", content: "Anchor component for React" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/react/overview",
+                        },
+                        next: {
+                          to: "/en/docs/react/components/badge",
+                        },
+                      },
+                    },
+                  },
+                  "/badge": {
+                    shortTitle: "Badge",
+                    head: {
+                      meta: [
+                        { title: "Badge | Components | React | @nuco/core" },
+                        { name: "description", content: "Badge component for React" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/react/components/anchor",
+                        },
+                        next: {
+                          to: "/en/docs/react/components/breadcrumb",
+                        },
+                      },
+                    },
+                  },
+                  "/breadcrumb": {
+                    shortTitle: "Breadcrumb",
+                    head: {
+                      meta: [
+                        { title: "Breadcrumb | Components | React | @nuco/core" },
+                        { name: "description", content: "Breadcrumb component for React" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/react/components/badge",
+                        },
+                        next: {
+                          to: "/en/docs/react/components/button",
+                        },
+                      },
+                    },
+                  },
+                  "/button": {
+                    shortTitle: "Button",
+                    head: {
+                      meta: [
+                        { title: "Button | Components | React | @nuco/core" },
+                        { name: "description", content: "Button component for React" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/react/components/breadcrumb",
+                        },
+                        next: {
+                          to: "/en/docs/react/components/codeblock",
+                        },
+                      },
+                    },
+                  },
+                  "/codeblock": {
+                    shortTitle: "CodeBlock",
+                    head: {
+                      meta: [
+                        { title: "CodeBlock | Components | React | @nuco/core" },
+                        { name: "description", content: "CodeBlock component for React" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/react/components/button",
+                        },
+                        next: {
+                          to: "/en/docs/react/components/divider",
+                        },
+                      },
+                    },
+                  },
+                  "/divider": {
+                    shortTitle: "Divider",
+                    head: {
+                      meta: [
+                        { title: "Divider | Components | React | @nuco/core" },
+                        { name: "description", content: "Divider component for React" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/react/components/codeblock",
+                        },
+                        next: {
+                          to: "/en/docs/react/components/error",
+                        },
+                      },
+                    },
+                  },
+                  "/error": {
+                    shortTitle: "Error",
+                    head: {
+                      meta: [
+                        { title: "Error | Components | React | @nuco/core" },
+                        { name: "description", content: "Error component for React" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/react/components/divider",
+                        },
+                        next: {
+                          to: "/en/docs/react/components/h1",
+                        },
+                      },
+                    },
+                  },
+                  "/h1": {
+                    shortTitle: "H1",
+                    head: {
+                      meta: [
+                        { title: "H1 | Components | React | @nuco/core" },
+                        { name: "description", content: "H1 component for React" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/react/components/error",
+                        },
+                        next: {
+                          to: "/en/docs/react/components/h2",
+                        },
+                      },
+                    },
+                  },
+                  "/h2": {
+                    shortTitle: "H2",
+                    head: {
+                      meta: [
+                        { title: "H2 | Components | React | @nuco/core" },
+                        { name: "description", content: "H2 component for React" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/react/components/h1",
+                        },
+                        next: {
+                          to: "/en/docs/react/components/h3",
+                        },
+                      },
+                    },
+                  },
+                  "/h3": {
+                    shortTitle: "H3",
+                    head: {
+                      meta: [
+                        { title: "H3 | Components | React | @nuco/core" },
+                        { name: "description", content: "H3 component for React" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/react/components/h2",
+                        },
+                        next: {
+                          to: "/en/docs/react/components/h4",
+                        },
+                      },
+                    },
+                  },
+                  "/h4": {
+                    shortTitle: "H4",
+                    head: {
+                      meta: [
+                        { title: "H4 | Components | React | @nuco/core" },
+                        { name: "description", content: "H4 component for React" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/react/components/h3",
+                        },
+                        next: {
+                          to: "/en/docs/react/components/h5",
+                        },
+                      },
+                    },
+                  },
+                  "/h5": {
+                    shortTitle: "H5",
+                    head: {
+                      meta: [
+                        { title: "H5 | Components | React | @nuco/core" },
+                        { name: "description", content: "H5 component for React" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/react/components/h4",
+                        },
+                        next: {
+                          to: "/en/docs/react/components/h6",
+                        },
+                      },
+                    },
+                  },
+                  "/h6": {
+                    shortTitle: "H6",
+                    head: {
+                      meta: [
+                        { title: "H6 | Components | React | @nuco/core" },
+                        { name: "description", content: "H6 component for React" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/react/components/h5",
+                        },
+                        next: {
+                          to: "/en/docs/react/components/header",
+                        },
+                      },
+                    },
+                  },
+                  "/header": {
+                    shortTitle: "Header",
+                    head: {
+                      meta: [
+                        { title: "Header | Components | React | @nuco/core" },
+                        { name: "description", content: "Header component for React" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/react/components/h6",
+                        },
+                        next: {
+                          to: "/en/docs/react/components/input",
+                        },
+                      },
+                    },
+                  },
+                  "/input": {
+                    shortTitle: "Input",
+                    head: {
+                      meta: [
+                        { title: "Input | Components | React | @nuco/core" },
+                        { name: "description", content: "Input component for React" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/react/components/header",
+                        },
+                        next: {
+                          to: "/en/docs/react/components/li",
+                        },
+                      },
+                    },
+                  },
+                  "/li": {
+                    shortTitle: "Li",
+                    head: {
+                      meta: [
+                        { title: "Li | Components | React | @nuco/core" },
+                        { name: "description", content: "Li component for React" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/react/components/input",
+                        },
+                        next: {
+                          to: "/en/docs/react/components/navaccordion",
+                        },
+                      },
+                    },
+                  },
+                  "/navaccordion": {
+                    shortTitle: "NavAccordion",
+                    head: {
+                      meta: [
+                        { title: "NavAccordion | Components | React | @nuco/core" },
+                        { name: "description", content: "NavAccordion component for React" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/react/components/li",
+                        },
+                        next: {
+                          to: "/en/docs/react/components/option",
+                        },
+                      },
+                    },
+                  },
+                  "/option": {
+                    shortTitle: "Option",
+                    head: {
+                      meta: [
+                        { title: "Option | Components | React | @nuco/core" },
+                        { name: "description", content: "Option component for React" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/react/components/navaccordion",
+                        },
+                        next: {
+                          to: "/en/docs/react/components/pager",
+                        },
+                      },
+                    },
+                  },
+                  "/pager": {
+                    shortTitle: "Pager",
+                    head: {
+                      meta: [
+                        { title: "Pager | Components | React | @nuco/core" },
+                        { name: "description", content: "Pager component for React" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/react/components/option",
+                        },
+                        next: {
+                          to: "/en/docs/react/components/pagers",
+                        },
+                      },
+                    },
+                  },
+                  "/pagers": {
+                    shortTitle: "Pagers",
+                    head: {
+                      meta: [
+                        { title: "Pagers | Components | React | @nuco/core" },
+                        { name: "description", content: "Pagers component for React" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/react/components/pager",
+                        },
+                        next: {
+                          to: "/en/docs/react/components/select",
+                        },
+                      },
+                    },
+                  },
+                  "/select": {
+                    shortTitle: "Select",
+                    head: {
+                      meta: [
+                        { title: "Select | Components | React | @nuco/core" },
+                        { name: "description", content: "Select component for React" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/react/components/pagers",
+                        },
+                        next: {
+                          to: "/en/docs/react/components/ul",
+                        },
+                      },
+                    },
+                  },
+                  "/ul": {
+                    shortTitle: "Ul",
+                    head: {
+                      meta: [
+                        { title: "Ul | Components | React | @nuco/core" },
+                        { name: "description", content: "Ul component for React" },
+                      ],
+                    },
+                    info: {
+                      pagers: {
+                        prev: {
+                          to: "/en/docs/react/components/select",
+                        },
+                        next: undefined,
+                      },
+                    },
+                  },
                 },
               },
             },

@@ -4,7 +4,6 @@ import { CustomAnchor } from "@/components/common/CustomAnchor/CustomAnchor";
 import { NavAccordion } from "@nuco/react/components/NavAccordion";
 import { Option } from "@nuco/react/components/Option";
 import { Select } from "@nuco/react/components/Select";
-import { Fragment } from "react/jsx-runtime";
 import styles from "./Nav.module.scss";
 
 type Props = {
@@ -19,6 +18,41 @@ type Props = {
   }))[];
   selectOptions?: ComponentProps<typeof Option>[];
   onChange?: (value: string) => void;
+};
+
+/**
+ * Recursive navigation item component that renders NavAccordion for items with children
+ * and CustomAnchor for items with props
+ */
+const NavItem = ({ link }: { link: Props["links"][0] }) => {
+  const { title, children, props } = link;
+
+  return (
+    <>
+      {
+        children && (
+          <NavAccordion>
+            <span slot="summary">{title}</span>
+            <div className={styles.children}>
+              {children.map(childLink => (
+                <NavItem key={childLink.title} link={childLink} />
+              ))}
+            </div>
+          </NavAccordion>
+        )
+      }
+      {
+        props && (
+          <CustomAnchor
+            {...(props as React.ComponentProps<typeof CustomAnchor>)}
+            underline="dashed"
+          >
+            {title}
+          </CustomAnchor>
+        )
+      }
+    </>
+  );
 };
 
 export const Nav = ({ links, selectOptions, onChange }: Props) => {
@@ -46,40 +80,8 @@ export const Nav = ({ links, selectOptions, onChange }: Props) => {
         </>
       )}
       <div className={styles.links}>
-        {links.map(({ title, children, props }) => (
-          <Fragment key={title}>
-            {props
-              ? (
-                  <CustomAnchor
-                    key={title}
-                    underline="none"
-                    to={props.to}
-                    {...(props as React.ComponentProps<typeof CustomAnchor>)}
-                  >
-                    {title}
-                  </CustomAnchor>
-                )
-              : (
-                  <NavAccordion>
-                    <span slot="summary">{title}</span>
-                    <div className={styles.children}>
-                      {children?.map(({ title, props }) =>
-                        props?.to !== undefined
-                          ? (
-                              <CustomAnchor
-                                key={title}
-                                {...(props as React.ComponentProps<typeof CustomAnchor>)}
-                                underline="dashed"
-                              >
-                                {title}
-                              </CustomAnchor>
-                            )
-                          : null,
-                      )}
-                    </div>
-                  </NavAccordion>
-                )}
-          </Fragment>
+        {links.map(link => (
+          <NavItem key={link.title} link={link} />
         ))}
       </div>
     </nav>

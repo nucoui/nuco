@@ -7,12 +7,4 @@ export const Route = createFileRoute("/")({
       params: { lang: "en" },
     });
   },
-  component: Home,
 });
-
-function Home() {
-  throw redirect({
-    to: "/$lang",
-    params: { lang: "en" },
-  });
-}

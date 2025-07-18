@@ -47,27 +47,27 @@ body {
     content: "";
     background: linear-gradient(
       to top,
-      color-mix(in srgb, var(--cs-background-primary) 0%, transparent) 0%,
-      color-mix(in srgb, var(--cs-background-primary) 4.9%, transparent) 15.5%,
-      color-mix(in srgb, var(--cs-background-primary) 10.4%, transparent) 22.5%,
-      color-mix(in srgb, var(--cs-background-primary) 45%, transparent) 47.1%,
-      color-mix(in srgb, var(--cs-background-primary) 55%, transparent) 52.9%,
-      color-mix(in srgb, var(--cs-background-primary) 89.6%, transparent) 77.5%,
-      color-mix(in srgb, var(--cs-background-primary) 95.1%, transparent) 84.5%,
-      color-mix(in srgb, var(--cs-background-primary) 100%, transparent) 100%
+      color-mix(in hsl, var(--cs-background-primary) 0%, transparent) 0%,
+      color-mix(in hsl, var(--cs-background-primary) 4.9%, transparent) 15.5%,
+      color-mix(in hsl, var(--cs-background-primary) 10.4%, transparent) 22.5%,
+      color-mix(in hsl, var(--cs-background-primary) 45%, transparent) 47.1%,
+      color-mix(in hsl, var(--cs-background-primary) 55%, transparent) 52.9%,
+      color-mix(in hsl, var(--cs-background-primary) 89.6%, transparent) 77.5%,
+      color-mix(in hsl, var(--cs-background-primary) 95.1%, transparent) 84.5%,
+      color-mix(in hsl, var(--cs-background-primary) 100%, transparent) 100%
     );
-    // background: color-mix(in srgb, var(--cs-background-primary) 80%, transparent);background
+    // background: color-mix(in hsl, var(--cs-background-primary) 80%, transparent);background
     backdrop-filter: blur(4px);
     mask-image: linear-gradient(
       to top,
-      rgb(0 0 0 / 0%) 0%,
-      rgb(0 0 0 / 4.9%) 7.75%,
-      rgb(0 0 0 / 10.4%) 11.25%,
-      rgb(0 0 0 / 45%) 23.55%,
-      rgb(0 0 0 / 55%) 26.45%,
-      rgb(0 0 0 / 89.6%) 38.75%,
-      rgb(0 0 0 / 95.1%) 42.25%,
-      rgb(0 0 0 / 100%) 50%
+      hsl(0deg 0% 0% / 0%) 0%,
+      hsl(0deg 0% 0% / 4.9%) 7.75%,
+      hsl(0deg 0% 0% / 10.4%) 11.25%,
+      hsl(0deg 0% 0% / 45%) 23.55%,
+      hsl(0deg 0% 0% / 55%) 26.45%,
+      hsl(0deg 0% 0% / 89.6%) 38.75%,
+      hsl(0deg 0% 0% / 95.1%) 42.25%,
+      hsl(0deg 0% 0% / 100%) 50%
     );
     mask-composite: intersect;
   }
@@ -76,8 +76,42 @@ body {
     padding-top: calc(var(--n-4) * 3);
     padding-bottom: calc(64px + var(--n-4) + var(--n-4));
 
-    &::before {
-      height: calc(var(--n-4) * 3);
+    &::after {
+      position: fixed;
+      bottom: -1px;
+      left: 0;
+      z-index: 8000;
+      width: 100%;
+      height: calc(64px + var(--n-4) * 2);
+      padding: 0;
+      margin: 0;
+      pointer-events: none;
+      content: "";
+      background: linear-gradient(
+        to bottom,
+        color-mix(in hsl, var(--cs-background-primary) 0%, transparent) 0%,
+        color-mix(in hsl, var(--cs-background-primary) 4.9%, transparent) 15.5%,
+        color-mix(in hsl, var(--cs-background-primary) 10.4%, transparent) 22.5%,
+        color-mix(in hsl, var(--cs-background-primary) 45%, transparent) 47.1%,
+        color-mix(in hsl, var(--cs-background-primary) 55%, transparent) 52.9%,
+        color-mix(in hsl, var(--cs-background-primary) 89.6%, transparent) 77.5%,
+        color-mix(in hsl, var(--cs-background-primary) 95.1%, transparent) 84.5%,
+        color-mix(in hsl, var(--cs-background-primary) 100%, transparent) 100%
+      );
+      // background: color-mix(in hsl, var(--cs-background-primary) 80%, transparent);background
+      backdrop-filter: blur(4px);
+      mask-image: linear-gradient(
+        to bottom,
+        hsl(0deg 0% 0% / 0%) 0%,
+        hsl(0deg 0% 0% / 4.9%) 7.75%,
+        hsl(0deg 0% 0% / 10.4%) 11.25%,
+        hsl(0deg 0% 0% / 45%) 23.55%,
+        hsl(0deg 0% 0% / 55%) 26.45%,
+        hsl(0deg 0% 0% / 89.6%) 38.75%,
+        hsl(0deg 0% 0% / 95.1%) 42.25%,
+        hsl(0deg 0% 0% / 100%) 50%
+      );
+      mask-composite: intersect;
     }
   }
 }

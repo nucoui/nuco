@@ -12,6 +12,10 @@
       "name": "⚙️ config",
       "path": "./config"
     },
+{
+      "name": "⚙️ instructions",
+      "path": "./.github/instructions"
+    },
     {
       "name": "⚙️ .github",
       "path": "./.github"
@@ -70,27 +74,7 @@
     },
   ],
   "settings": {
-    "github.copilot.chat.codeGeneration.instructions":[
-      {
-        "file": ".rules/.instructions.md",
-      },
-      {
-        "file": ".rules/missions.instructions.md",
-      },
-      {
-        "file": ".rules/overview.instructions.md",
-      },
-      {
-        "file": ".rules/solid.instructions.md",
-      },
-      {
-        "file": ".rules/technical.instructions.md",
-      },
-      {
-        "file": ".rules/verified-truth-directive.instructions.md",
-      },
-    ],
-    "github.copilot.chat.commitMessageGeneration.instructions": [
+   "github.copilot.chat.commitMessageGeneration.instructions": [
       {
         "file": ".rules/commit-message.instructions.md"
       },
