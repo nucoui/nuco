@@ -41,7 +41,8 @@ import { Route as LangDocsFrameworkComponentsButtonRouteImport } from './routes/
 import { Route as LangDocsFrameworkComponentsBreadcrumbRouteImport } from './routes/$lang/docs/$framework/components/breadcrumb'
 import { Route as LangDocsFrameworkComponentsBadgeRouteImport } from './routes/$lang/docs/$framework/components/badge'
 import { Route as LangDocsFrameworkComponentsAnchorRouteImport } from './routes/$lang/docs/$framework/components/anchor'
-import { ServerRoute as ApiPageInfoIndexServerRouteImport } from './routes/api/page-info/index'
+import { ServerRoute as ApiPageInfoServerRouteImport } from './routes/api/page-info'
+import { ServerRoute as ApiHeartbeatServerRouteImport } from './routes/api/heartbeat'
 
 const rootServerRouteImport = createServerRootRoute()
 
@@ -219,9 +220,14 @@ const LangDocsFrameworkComponentsAnchorRoute =
     path: '/components/anchor',
     getParentRoute: () => LangDocsFrameworkRouteRoute,
   } as any)
-const ApiPageInfoIndexServerRoute = ApiPageInfoIndexServerRouteImport.update({
-  id: '/api/page-info/',
-  path: '/api/page-info/',
+const ApiPageInfoServerRoute = ApiPageInfoServerRouteImport.update({
+  id: '/api/page-info',
+  path: '/api/page-info',
+  getParentRoute: () => rootServerRouteImport,
+} as any)
+const ApiHeartbeatServerRoute = ApiHeartbeatServerRouteImport.update({
+  id: '/api/heartbeat',
+  path: '/api/heartbeat',
   getParentRoute: () => rootServerRouteImport,
 } as any)
 
@@ -422,25 +428,29 @@ export interface RootRouteChildren {
   LangRouteRoute: typeof LangRouteRouteWithChildren
 }
 export interface FileServerRoutesByFullPath {
-  '/api/page-info': typeof ApiPageInfoIndexServerRoute
+  '/api/heartbeat': typeof ApiHeartbeatServerRoute
+  '/api/page-info': typeof ApiPageInfoServerRoute
 }
 export interface FileServerRoutesByTo {
-  '/api/page-info': typeof ApiPageInfoIndexServerRoute
+  '/api/heartbeat': typeof ApiHeartbeatServerRoute
+  '/api/page-info': typeof ApiPageInfoServerRoute
 }
 export interface FileServerRoutesById {
   __root__: typeof rootServerRouteImport
-  '/api/page-info/': typeof ApiPageInfoIndexServerRoute
+  '/api/heartbeat': typeof ApiHeartbeatServerRoute
+  '/api/page-info': typeof ApiPageInfoServerRoute
 }
 export interface FileServerRouteTypes {
   fileServerRoutesByFullPath: FileServerRoutesByFullPath
-  fullPaths: '/api/page-info'
+  fullPaths: '/api/heartbeat' | '/api/page-info'
   fileServerRoutesByTo: FileServerRoutesByTo
-  to: '/api/page-info'
-  id: '__root__' | '/api/page-info/'
+  to: '/api/heartbeat' | '/api/page-info'
+  id: '__root__' | '/api/heartbeat' | '/api/page-info'
   fileServerRoutesById: FileServerRoutesById
 }
 export interface RootServerRouteChildren {
-  ApiPageInfoIndexServerRoute: typeof ApiPageInfoIndexServerRoute
+  ApiHeartbeatServerRoute: typeof ApiHeartbeatServerRoute
+  ApiPageInfoServerRoute: typeof ApiPageInfoServerRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -659,11 +669,18 @@ declare module '@tanstack/react-router' {
 }
 declare module '@tanstack/react-start/server' {
   interface ServerFileRoutesByPath {
-    '/api/page-info/': {
-      id: '/api/page-info/'
+    '/api/page-info': {
+      id: '/api/page-info'
       path: '/api/page-info'
       fullPath: '/api/page-info'
-      preLoaderRoute: typeof ApiPageInfoIndexServerRouteImport
+      preLoaderRoute: typeof ApiPageInfoServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
+    '/api/heartbeat': {
+      id: '/api/heartbeat'
+      path: '/api/heartbeat'
+      fullPath: '/api/heartbeat'
+      preLoaderRoute: typeof ApiHeartbeatServerRouteImport
       parentRoute: typeof rootServerRouteImport
     }
   }
@@ -779,7 +796,8 @@ export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
 const rootServerRouteChildren: RootServerRouteChildren = {
-  ApiPageInfoIndexServerRoute: ApiPageInfoIndexServerRoute,
+  ApiHeartbeatServerRoute: ApiHeartbeatServerRoute,
+  ApiPageInfoServerRoute: ApiPageInfoServerRoute,
 }
 export const serverRouteTree = rootServerRouteImport
   ._addFileChildren(rootServerRouteChildren)

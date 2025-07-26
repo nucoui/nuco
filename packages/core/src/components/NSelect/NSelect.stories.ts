@@ -113,3 +113,56 @@ export const Playground: Story = {
     return form;
   },
 };
+
+export const BottomPosition: Story = {
+  args: {},
+  render: (args) => {
+    if (!customElements.get("n-select")) {
+      customElements.define("n-select", class extends functionalCustomElement(NSelect) {
+        static formAssociated = true;
+      });
+    }
+    if (!customElements.get("n-option")) {
+      customElements.define("n-option", functionalCustomElement(NOption));
+    }
+    if (!customElements.get("n-button")) {
+      customElements.define("n-button", functionalCustomElement(NButton));
+    }
+
+    const form = document.createElement("form");
+    form.style.position = "fixed";
+    form.style.left = "50%";
+    form.style.bottom = "16px";
+    form.style.transform = "translateX(-50%)";
+    form.style.display = "flex";
+    form.style.flexDirection = "column";
+    form.style.gap = "1rem";
+    form.style.zIndex = "100";
+
+    form.onsubmit = (e: Event) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const name = formData.get("name")?.toString();
+      if (!name) {
+        // eslint-disable-next-line no-alert
+        alert("Please select an option.");
+        return;
+      }
+      const confirmationMessage = `name: ${name}\n\nAre you sure you want to submit the form?`;
+      // eslint-disable-next-line no-alert
+      if (confirm(confirmationMessage)) {
+        // eslint-disable-next-line no-alert
+        alert("Form submitted successfully!");
+      }
+    };
+    form.innerHTML = `
+      <n-select name="name" placeholder="${args.placeholder}" ${args.disabled ? "disabled" : ""}>
+        <n-option value="option1">Option 1</n-option>
+        <n-option value="option2" selected>Option 2</n-option>
+        <n-option value="option3">Option 3</n-option>
+      </n-select>
+      <n-button type="submit" width="stretch">Submit</n-button>
+    `;
+    return form;
+  },
+};

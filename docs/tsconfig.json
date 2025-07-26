@@ -10,7 +10,7 @@
       "@/*": ["./src/*"]
     },
     "resolveJsonModule": true,
-    "types": ["unplugin-icons/types/react"],
+    "types": ["unplugin-icons/types/react", "./worker-configuration.d.ts"],
     "allowJs": true,
     "strict": true,
     "noEmit": true,

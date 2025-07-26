@@ -1,8 +1,6 @@
 import type { CC } from "chatora";
-
 import { effect, getHost, getInternals, getSlotteds, onConnected, signal } from "chatora";
 import { Host } from "chatora/jsx-runtime";
-
 import { toBoolean, toString } from "chatora/util";
 import resetStyle from "../../styles/reset.css?raw";
 import style from "./NSelect.scss?raw";
@@ -15,6 +13,12 @@ const MaterialSymbolsArrowDropDownRounded = () => () => {
   );
 };
 
+/**
+ * Props for NSelect
+ * @property name - name attribute for form integration
+ * @property disabled - disables the select
+ * @property placeholder - placeholder text
+ */
 export type Props = {
   name?: string;
   disabled?: boolean;
@@ -47,6 +51,26 @@ export const NSelect: CC<Props, Emits> = ({
   const isShowOptions = signal(false);
   const isBlurred = signal(false);
   const focusedOptionIndex = signal(-1);
+
+  /**
+   * Signal for dropdown direction (true: upwards, false: downwards)
+   */
+  const isOpenUpwards = signal(false);
+
+  /**
+   * Get bounding rect and window size for direction calculation
+   */
+  const getSelectPositionInfo = () => {
+    if (!host.value)
+      return null;
+    const rect = host.value.getBoundingClientRect();
+    return {
+      top: rect.top,
+      bottom: rect.bottom,
+      height: rect.height,
+      windowHeight: window.innerHeight,
+    };
+  };
 
   /**
    * Get all N-OPTION elements from slotted content
@@ -147,6 +171,19 @@ export const NSelect: CC<Props, Emits> = ({
       return;
     }
 
+    // Calculate direction before showing options
+    const pos = getSelectPositionInfo();
+    if (pos) {
+      // Assume dropdown height is 240px (or get actual height if possible)
+      const dropdownHeight = 240;
+      const spaceBelow = pos.windowHeight - pos.bottom;
+      const spaceAbove = pos.top;
+      // Open upwards if not enough space below but enough above
+      isOpenUpwards.set(spaceBelow < dropdownHeight && spaceAbove > dropdownHeight);
+    }
+    else {
+      isOpenUpwards.set(false);
+    }
     isShowOptions.set(true);
   };
 
@@ -190,6 +227,17 @@ export const NSelect: CC<Props, Emits> = ({
       const options = getOptions();
       if (options.length > 0) {
         if (!isShowOptions.value) {
+          // Calculate direction before showing options
+          const pos = getSelectPositionInfo();
+          if (pos) {
+            const dropdownHeight = 240;
+            const spaceBelow = pos.windowHeight - pos.bottom;
+            const spaceAbove = pos.top;
+            isOpenUpwards.set(spaceBelow < dropdownHeight && spaceAbove > dropdownHeight);
+          }
+          else {
+            isOpenUpwards.set(false);
+          }
           isShowOptions.set(true);
           focusedOptionIndex.set(0);
         }
@@ -204,6 +252,17 @@ export const NSelect: CC<Props, Emits> = ({
       const options = getOptions();
       if (options.length > 0) {
         if (!isShowOptions.value) {
+          // Calculate direction before showing options
+          const pos = getSelectPositionInfo();
+          if (pos) {
+            const dropdownHeight = 240;
+            const spaceBelow = pos.windowHeight - pos.bottom;
+            const spaceAbove = pos.top;
+            isOpenUpwards.set(spaceBelow < dropdownHeight && spaceAbove > dropdownHeight);
+          }
+          else {
+            isOpenUpwards.set(false);
+          }
           isShowOptions.set(true);
           focusedOptionIndex.set(options.length - 1);
         }
@@ -214,28 +273,6 @@ export const NSelect: CC<Props, Emits> = ({
         focusOption(focusedOptionIndex.value);
       }
     }
-  };
-
-  /**
-   * Set tabindex for all options based on visibility
-   */
-  const updateOptionTabIndex = (tabIndex: number) => {
-    slotted.value?.forEach((el) => {
-      if (el.tagName === "N-OPTION") {
-        if (tabIndex === -1) {
-          el.setAttribute("tabindex", "-1");
-        }
-        else {
-          el.removeAttribute("tabindex");
-        }
-
-        // Shadow DOM内の要素のtabindexも設定
-        const innerElement = el.shadowRoot?.querySelector("[role=\"option\"]") as HTMLElement;
-        if (innerElement) {
-          innerElement.tabIndex = tabIndex;
-        }
-      }
-    });
   };
 
   effect(() => {
@@ -251,7 +288,7 @@ export const NSelect: CC<Props, Emits> = ({
   });
 
   effect(() => {
-    updateOptionTabIndex(isShowOptions.value ? 0 : -1);
+
   });
 
   onConnected(() => {
@@ -273,7 +310,6 @@ export const NSelect: CC<Props, Emits> = ({
       <div
         class="n-select"
         role="select"
-        tabindex={0}
         onBlur={handleBlur}
         onClick={handleClick}
         onKeyDown={handleKeydown}
@@ -284,7 +320,10 @@ export const NSelect: CC<Props, Emits> = ({
           </slot>
           <MaterialSymbolsArrowDropDownRounded />
         </div>
-        <div class="n-select-options" data-hidden={!isShowOptions.value}>
+        <div
+          class={`n-select-options${isOpenUpwards.value ? " open-upwards" : ""}`}
+          data-hidden={!isShowOptions.value}
+        >
           <div class="summary">
             <div class="slot">
               <slot />

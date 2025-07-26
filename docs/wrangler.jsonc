@@ -9,11 +9,12 @@
   },
   "observability": {
     "enabled": true
-  }
-  // "kv_namespaces": [
-  //   {
-  //     "binding": "CACHE",
-  //     "id": "<Your KV ID>"
-  //   }
-  // ]
+  },
+  "kv_namespaces": [
+    {
+      "binding": "KV_NAMESPACES",
+      "id": "${KV_NAMESPACES_ID}",
+      "preview_id": "${KV_NAMESPACES_PREVIEW_ID}"
+    }
+  ]
 }

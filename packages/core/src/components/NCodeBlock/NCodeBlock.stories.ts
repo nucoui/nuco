@@ -47,9 +47,7 @@ type Story = StoryObj<Props & { slot?: string }>;
 
 export const Primary: Story = {
   args: {
-    code: `const helloWorld = () => {
-  console.log("Hello, World!");
-};`,
+    code: "const helloWorld = () => {\n  console.log(\"Hello, World!aaaaaasdasdasdasdasdasdasdafdgadfghkalsdfkp[ekapsodkfkoesakdolfk;lasdkfl;klsdklf;k;laskdlf;klaskd;fklsak;fkl;askdfl;aksdfk\");\n};",
     lang: "javascript",
     fileName: "helloWorld.js",
   },

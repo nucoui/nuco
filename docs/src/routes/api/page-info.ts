@@ -1228,7 +1228,7 @@ const getValue = (path: string): ResponsePageDataValue | undefined => {
   return convertToResponsePageDataValue(value, fullPath, breadcrumbs);
 };
 
-export const ServerRoute = createServerFileRoute("/api/page-info/").methods({
+export const ServerRoute = createServerFileRoute("/api/page-info").methods({
   GET: async ({ request }) => {
     const pageInfo = getValue(request.url);
 

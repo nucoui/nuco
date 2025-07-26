@@ -18,3 +18,7 @@ yarn.lock
 /blob-report/
 /playwright/.cache/
 .tanstack
+
+worker-configuration.d.ts
+**.vars
+.wrangler

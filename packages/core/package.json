@@ -53,8 +53,7 @@
   },
   "dependencies": {
     "@nuco/variable": "workspace:*",
-    "chatora": "catalog:",
-    "clsx": "^2.1.1"
+    "chatora": "catalog:"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4",
