@@ -1,10 +1,9 @@
 "use client";
 
-import type { Props } from "@/components/wrapper/Wrapper";
-import type { PropsWithChildren } from "react";
+import type { ComponentProps, PropsWithChildren } from "react";
 import { ChatoraWrapper } from "@/components/wrapper/Wrapper";
 
-export const Error = (props: PropsWithChildren<Props<"n-error">["props"]>) => {
+export const Error = (props: PropsWithChildren<ComponentProps<typeof ChatoraWrapper<"n-error">>["props"]>) => {
   const { children, ...rest } = props;
   return ChatoraWrapper({
     tag: "n-error",

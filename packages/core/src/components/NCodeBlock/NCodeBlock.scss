@@ -5,6 +5,21 @@
   border: 2px solid var(--cs-border-tertiary);
   border-radius: var(--n-2);
 
+  ::-webkit-scrollbar {
+    width: var(--n-3);
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: 100px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--cs-border-primary);
+    background-clip: content-box;
+    border: 5px solid transparent;
+    border-radius: 100px;
+  }
+
   > .header {
     display: grid;
     grid-template-columns: auto auto;

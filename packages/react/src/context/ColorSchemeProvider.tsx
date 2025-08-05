@@ -13,6 +13,9 @@ export const ColorSchemeProvider = ({ children }: Props) => {
 
   useLayoutEffect(() => {
     defineColorScheme();
+
+    const initialScheme = getColorScheme();
+    setColorSchemeState(initialScheme);
   }, []);
 
   useEffect(() => {

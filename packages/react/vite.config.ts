@@ -7,7 +7,6 @@ import dts from "vite-plugin-dts";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 const COMPONENT_PATH = [
-  "src/components/Anchor.tsx",
   "src/components/Badge.tsx",
   "src/components/Breadcrumb.tsx",
   "src/components/Button.tsx",
@@ -29,6 +28,7 @@ const COMPONENT_PATH = [
   "src/components/Pagers.tsx",
   "src/components/Select.tsx",
   "src/components/Ul.tsx",
+  "src/components/Anchor.tsx",
 ];
 
 // https://vite.dev/config/

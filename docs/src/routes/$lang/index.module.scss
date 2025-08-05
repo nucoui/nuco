@@ -1,0 +1,169 @@
+.main {
+  min-height: calc(100vh - 64px - var(--n-4) - var(--n-4) - var(--n-4));
+
+  @media (width <= 768px) {
+    min-height: 100vh;
+    padding: var(--n-8) var(--n-6);
+  }
+}
+
+.hero-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 80dvh;
+  padding: 2rem;
+
+  > .gradient1,
+  > .gradient2 {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: -1;
+    grid-area: 1/1;
+    width: 320px;
+    height: 320px;
+    user-select: none;
+    filter: blur(72px);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    animation-duration: 30s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    will-change: filter;
+  }
+
+  > .gradient1 {
+    background-image: linear-gradient(
+        -45deg,
+        hsl(18deg 85% 62%),
+        hsl(327deg 60% 51%),
+        hsl(257deg 60% 50%),
+        hsl(195deg 65% 48%),
+        hsl(168deg 72% 54%)
+      ),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.3'/%3E%3C/svg%3E");
+    background-size:
+      400% 400%,
+      cover;
+    background-blend-mode: normal, multiply;
+    animation-name: gradient1;
+
+    @keyframes gradient1 {
+      0% {
+        top: 50%;
+        left: 10%;
+        background-position: 0% 50%;
+        transform: translateY(-50%) translateX(-10%);
+      }
+
+      25% {
+        top: 55%;
+        left: 5%;
+        transform: translateY(-55%) translateX(-5%);
+      }
+
+      50% {
+        top: 50%;
+        left: 15%;
+        background-position: 100% 50%;
+        transform: translateY(-50%) translateX(-15%);
+      }
+
+      75% {
+        top: 55%;
+        left: 5%;
+        transform: translateY(-55%) translateX(-5%);
+      }
+
+      100% {
+        top: 50%;
+        left: 10%;
+        background-position: 0% 50%;
+        transform: translateY(-50%) translateX(-10%);
+      }
+    }
+  }
+
+  > .gradient2 {
+    background-image: linear-gradient(
+        -45deg,
+        hsl(168deg 72% 54%),
+        hsl(195deg 65% 48%),
+        hsl(257deg 60% 50%),
+        hsl(327deg 60% 51%),
+        hsl(18deg 85% 62%)
+      ),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.3'/%3E%3C/svg%3E");
+    background-size:
+      400% 400%,
+      cover;
+    background-blend-mode: normal, multiply;
+    animation-name: gradient2;
+
+    @keyframes gradient2 {
+      0% {
+        top: 30%;
+        left: 20%;
+        background-position: 0% 50%;
+        transform: translateY(-30%) translateX(-20%);
+      }
+
+      25% {
+        top: 35%;
+        left: 25%;
+        transform: translateY(-35%) translateX(-25%);
+      }
+
+      50% {
+        top: 30%;
+        left: 15%;
+        background-position: 100% 50%;
+        transform: translateY(-30%) translateX(-15%);
+      }
+
+      75% {
+        top: 35%;
+        left: 25%;
+        transform: translateY(-35%) translateX(-25%);
+      }
+
+      100% {
+        top: 30%;
+        left: 20%;
+        background-position: 0% 50%;
+        transform: translateY(-30%) translateX(-20%);
+      }
+    }
+  }
+
+  > .title {
+    margin: 1rem 0;
+  }
+
+  > .links {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: start;
+    width: 100%;
+    margin-top: 2rem;
+
+    > button {
+      width: fit-content;
+      height: 2.5rem;
+      padding: 0 1rem;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+  }
+}
+
+.animated-word {
+  position: relative;
+  display: inline-block;
+  margin-left: 0.25rem;
+  transition: none;
+}

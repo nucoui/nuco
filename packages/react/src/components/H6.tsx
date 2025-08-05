@@ -1,10 +1,9 @@
 "use client";
 
-import type { Props } from "@/components/wrapper/Wrapper";
-import type { PropsWithChildren } from "react";
+import type { ComponentProps, PropsWithChildren } from "react";
 import { ChatoraWrapper } from "@/components/wrapper/Wrapper";
 
-export const H6 = (props: PropsWithChildren<Props<"n-h6">["props"]>) => {
+export const H6 = (props: PropsWithChildren<ComponentProps<typeof ChatoraWrapper<"n-h6">>["props"]>) => {
   const { children, ...rest } = props;
   return ChatoraWrapper({
     tag: "n-h6",

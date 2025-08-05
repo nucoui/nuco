@@ -1,3 +1,6 @@
+---
+applyTo: '**'
+---
 # Project Overview
 
 ## About This Project

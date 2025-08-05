@@ -1,3 +1,6 @@
+---
+applyTo: '**'
+---
 # Technical Knowledge
 
 Please understand the following knowledge. These are assumed to be known when prompts are entered.

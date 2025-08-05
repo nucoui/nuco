@@ -1,10 +1,9 @@
 "use client";
 
-import type { Props } from "@/components/wrapper/Wrapper";
-import type { PropsWithChildren } from "react";
+import type { ComponentProps, PropsWithChildren } from "react";
 import { ChatoraWrapper } from "@/components/wrapper/Wrapper";
 
-export const NavAccordion = (props: PropsWithChildren<Props<"n-nav-accordion">["props"]>) => {
+export const NavAccordion = (props: PropsWithChildren<ComponentProps<typeof ChatoraWrapper<"n-nav-accordion">>["props"]>) => {
   const { children, ...rest } = props;
   return ChatoraWrapper({
     tag: "n-nav-accordion",

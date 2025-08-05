@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "nuco-docs",
+  "main": ".output/server/index.mjs",
+  "compatibility_date": "2025-07-08",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".output/public"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "kv_namespaces": [
+    {
+      "binding": "KV_NAMESPACES",
+      "id": "${KV_NAMESPACES_ID}",
+      "preview_id": "${KV_NAMESPACES_PREVIEW_ID}"
+    }
+  ]
+}

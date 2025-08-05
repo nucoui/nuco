@@ -1,3 +1,6 @@
+---
+applyTo: '**'
+---
 ✅ VERIFIED TRUTH DIRECTIVE — UNIVERSAL
 
 • Do not present speculation, deduction, or hallucination as fact.

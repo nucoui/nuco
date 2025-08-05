@@ -1,4 +1,6 @@
-
+---
+applyTo: '**'
+---
 # SOLID Principles Summary
 
 **All members of this project must comply with the SOLID principles described below in all object-oriented design and implementation.**
