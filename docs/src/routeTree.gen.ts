@@ -14,6 +14,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as LangRouteRouteImport } from './routes/$lang/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LangIndexRouteImport } from './routes/$lang/index'
+import { Route as LangTestRouteRouteImport } from './routes/$lang/test/route'
 import { Route as LangDocsRouteRouteImport } from './routes/$lang/docs/route'
 import { Route as LangDocsIndexRouteImport } from './routes/$lang/docs/index'
 import { Route as LangDocsFrameworkRouteRouteImport } from './routes/$lang/docs/$framework/route'
@@ -59,6 +60,11 @@ const IndexRoute = IndexRouteImport.update({
 const LangIndexRoute = LangIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+const LangTestRouteRoute = LangTestRouteRouteImport.update({
+  id: '/test',
+  path: '/test',
   getParentRoute: () => LangRouteRoute,
 } as any)
 const LangDocsRouteRoute = LangDocsRouteRouteImport.update({
@@ -235,6 +241,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$lang': typeof LangRouteRouteWithChildren
   '/$lang/docs': typeof LangDocsRouteRouteWithChildren
+  '/$lang/test': typeof LangTestRouteRoute
   '/$lang/': typeof LangIndexRoute
   '/$lang/docs/$framework': typeof LangDocsFrameworkRouteRouteWithChildren
   '/$lang/docs/': typeof LangDocsIndexRoute
@@ -265,6 +272,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/$lang/test': typeof LangTestRouteRoute
   '/$lang': typeof LangIndexRoute
   '/$lang/docs/$framework': typeof LangDocsFrameworkRouteRouteWithChildren
   '/$lang/docs': typeof LangDocsIndexRoute
@@ -298,6 +306,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/$lang': typeof LangRouteRouteWithChildren
   '/$lang/docs': typeof LangDocsRouteRouteWithChildren
+  '/$lang/test': typeof LangTestRouteRoute
   '/$lang/': typeof LangIndexRoute
   '/$lang/docs/$framework': typeof LangDocsFrameworkRouteRouteWithChildren
   '/$lang/docs/': typeof LangDocsIndexRoute
@@ -332,6 +341,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$lang'
     | '/$lang/docs'
+    | '/$lang/test'
     | '/$lang/'
     | '/$lang/docs/$framework'
     | '/$lang/docs/'
@@ -362,6 +372,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/$lang/test'
     | '/$lang'
     | '/$lang/docs/$framework'
     | '/$lang/docs'
@@ -394,6 +405,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$lang'
     | '/$lang/docs'
+    | '/$lang/test'
     | '/$lang/'
     | '/$lang/docs/$framework'
     | '/$lang/docs/'
@@ -474,6 +486,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/$lang/'
       preLoaderRoute: typeof LangIndexRouteImport
+      parentRoute: typeof LangRouteRoute
+    }
+    '/$lang/test': {
+      id: '/$lang/test'
+      path: '/test'
+      fullPath: '/$lang/test'
+      preLoaderRoute: typeof LangTestRouteRouteImport
       parentRoute: typeof LangRouteRoute
     }
     '/$lang/docs': {
@@ -776,11 +795,13 @@ const LangDocsRouteRouteWithChildren = LangDocsRouteRoute._addFileChildren(
 
 interface LangRouteRouteChildren {
   LangDocsRouteRoute: typeof LangDocsRouteRouteWithChildren
+  LangTestRouteRoute: typeof LangTestRouteRoute
   LangIndexRoute: typeof LangIndexRoute
 }
 
 const LangRouteRouteChildren: LangRouteRouteChildren = {
   LangDocsRouteRoute: LangDocsRouteRouteWithChildren,
+  LangTestRouteRoute: LangTestRouteRoute,
   LangIndexRoute: LangIndexRoute,
 }
 

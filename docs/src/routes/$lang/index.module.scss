@@ -13,8 +13,10 @@
   flex-direction: column;
   justify-content: center;
   width: 100%;
+  max-width: 1024px;
   height: 80dvh;
   padding: 2rem;
+  margin: 0 auto;
 
   > .gradient1,
   > .gradient2 {
@@ -68,7 +70,7 @@
       50% {
         top: 50%;
         left: 15%;
-        background-position: 100% 50%;
+        background-position: 75% 50%;
         transform: translateY(-50%) translateX(-15%);
       }
 

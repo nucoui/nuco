@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "ES2022",
     "jsx": "react-jsx",
+    "jsxImportSource": "react",
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "baseUrl": ".",
     "module": "ESNext",
@@ -10,7 +11,12 @@
       "@/*": ["./src/*"]
     },
     "resolveJsonModule": true,
-    "types": ["unplugin-icons/types/react", "./worker-configuration.d.ts"],
+    "types": [
+      "unplugin-icons/types/react",
+      "./worker-configuration.d.ts",
+      "@types/mdx",
+      "@types/react"
+    ],
     "allowJs": true,
     "strict": true,
     "noEmit": true,

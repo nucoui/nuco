@@ -3,13 +3,9 @@ import { CodeBlock } from "@nuco/react/components/CodeBlock";
 import { H1 } from "@nuco/react/components/H1";
 import { H3 } from "@nuco/react/components/H3";
 import { createFileRoute, useLoaderData } from "@tanstack/react-router";
-import { ofetch } from "ofetch";
 
 export const Route = createFileRoute("/$lang/docs/$framework/components/anchor")({
   loader: async ({ params }) => {
-    const data = await ofetch("/api/heartbeat/");
-    console.log(data);
-
     const { framework } = params;
     switch (framework) {
       case "react": {

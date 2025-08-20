@@ -59,6 +59,23 @@ const PAGE_DATA: PageData = {
       },
     },
     children: {
+      "/test": {
+        shortTitle: "Test",
+        head: {
+          meta: [
+            { title: "Test | @nuco/core" },
+            { name: "description", content: "Test page for @nuco/core" },
+          ],
+        },
+        info: {
+          pagers: {
+            prev: undefined,
+            next: {
+              to: "/en/test",
+            },
+          },
+        },
+      },
       "/docs": {
         shortTitle: "Documentation",
         head: {

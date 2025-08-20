@@ -1,3 +1,4 @@
+import mdx from "@mdx-js/rollup";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import Icons from "unplugin-icons/vite";
 import { defineConfig } from "vite";
@@ -8,6 +9,7 @@ export default defineConfig({
     port: 5229,
   },
   plugins: [
+    mdx(),
     Icons({
       autoInstall: true,
       compiler: "jsx",
