@@ -16,5 +16,16 @@
       "id": "${KV_NAMESPACES_ID}",
       "preview_id": "${KV_NAMESPACES_PREVIEW_ID}"
     }
-  ]
+  ],
+  "env": {
+    "production": {
+      "kv_namespaces": [
+        {
+          "binding": "KV_NAMESPACES",
+          "id": "${KV_NAMESPACES_ID}",
+          "preview_id": "${KV_NAMESPACES_PREVIEW_ID}"
+        }
+      ]
+    }
+  }
 }
