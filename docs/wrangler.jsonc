@@ -13,8 +13,8 @@
   "kv_namespaces": [
     {
       "binding": "KV_NAMESPACES",
-      "id": "${KV_NAMESPACES_ID}",
-      "preview_id": "${KV_NAMESPACES_PREVIEW_ID}"
+      "id": "bad9e83c3a8c4f7397c4e06d14d35528",
+      "preview_id": "9be4a1dbcf90452599c5259da943db56"
     }
   ]
 }
