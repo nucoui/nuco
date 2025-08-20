@@ -1,7 +1,7 @@
 {
   "name": "@nuco/core",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "description": "UI library based on the concept of Transcends Framework boundaries",
   "author": "nuco <takuma-ru@takumaru.dev> (https://github.com/takuma-ru/)",
