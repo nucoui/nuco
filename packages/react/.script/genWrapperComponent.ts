@@ -17,11 +17,10 @@ const genComponentFile = (tagName: `n-${string}`) => {
 
   return `"use client";
 
-import type { Props } from "@/components/wrapper/Wrapper";
-import type { PropsWithChildren } from "react";
+import type { ComponentProps, PropsWithChildren } from "react";
 import { ChatoraWrapper } from "@/components/wrapper/Wrapper";
 
-export const ${pascalComponentName} = (props: PropsWithChildren<Props<"${tagName}">["props"]>) => {
+export const ${pascalComponentName} = (props: PropsWithChildren<ComponentProps<typeof ChatoraWrapper<"${tagName}">>["props"]>) => {
   const { children, ...rest } = props;
   return ChatoraWrapper({
     tag: "${tagName}",

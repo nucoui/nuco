@@ -2,26 +2,28 @@
   "compilerOptions": {
     "target": "ES2022",
     "jsx": "react-jsx",
+    "jsxImportSource": "react",
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "baseUrl": ".",
-    "rootDirs": [".", "./.react-router/types"],
-    "module": "ES2022",
-    "moduleResolution": "bundler",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "paths": {
-      "~/*": ["./app/*"]
+      "@/*": ["./src/*"]
     },
     "resolveJsonModule": true,
-    "types": ["node", "vite/client", "@cloudflare/workers-types", "unplugin-icons/types/react"],
+    "types": [
+      "unplugin-icons/types/react",
+      "./worker-configuration.d.ts",
+      "@types/mdx",
+      "@types/react"
+    ],
+    "allowJs": true,
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "verbatimModuleSyntax": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
     "skipLibCheck": true
   },
-  "include": [
-    "**/*",
-    "**/.server/**/*",
-    "**/.client/**/*",
-    ".react-router/types/**/*"
-  ]
+  "include": ["**/*.ts", "**/*.tsx"]
 }

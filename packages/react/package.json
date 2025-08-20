@@ -48,9 +48,9 @@
     "release:test": "npx rlse -l patch -k config,commit-changes,create-release-branch --dry-run"
   },
   "dependencies": {
-    "@chatora/react": "^1.0.9",
+    "@chatora/react": "catalog:",
     "@nuco/core": "workspace:*",
-    "chatora": "^1.0.8-beta.4"
+    "chatora": "catalog:"
   },
   "devDependencies": {
     "@nuco/config": "workspace:*",

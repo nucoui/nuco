@@ -76,6 +76,13 @@
   opacity: 0;
   transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
 
+  &.open-upwards {
+    top: unset;
+    bottom: 100%;
+    margin: 0 0 var(--n-2) 0;
+    box-shadow: 0 calc(-1 * var(--n-1)) var(--n-4) color-mix(in srgb, var(--cs-neutral-400) 25%, transparent);
+  }
+
   &:not([data-hidden]) {
     grid-template-rows: 1fr;
     outline: 1px solid var(--cs-neutral-300);

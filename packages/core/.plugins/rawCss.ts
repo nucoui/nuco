@@ -7,6 +7,7 @@ import { compileString } from "sass-embedded";
 /**
  * Vite plugin to process SCSS files with ?raw query parameter.
  * Returns the compiled CSS as a string instead of raw SCSS content.
+ * Includes proper HMR support for file change detection.
  */
 export function rawCssPlugin(): Plugin {
   return {
@@ -42,6 +43,9 @@ export function rawCssPlugin(): Plugin {
       }
 
       try {
+        // Add file as dependency for HMR
+        this.addWatchFile(filePath);
+
         // Read the SCSS file content
         const scssContent = readFileSync(filePath, "utf-8");
 
@@ -59,6 +63,53 @@ export function rawCssPlugin(): Plugin {
         this.error(`Failed to compile SCSS file ${filePath}: ${error}`);
       }
     },
+    handleHotUpdate(ctx) {
+      // Handle HMR updates for SCSS/SASS files
+      if (ctx.file.match(/\.(scss|sass)$/)) {
+        // Find all modules that import this SCSS file with ?raw
+        const affectedModules: any[] = [];
+
+        // Check all modules in the module graph
+        ctx.server.moduleGraph.fileToModulesMap.forEach((modules, _filePath) => {
+          modules.forEach((module) => {
+            if (module.id?.endsWith(".virtual-rawcss")) {
+              const originalPath = module.id.replace(".virtual-rawcss", "");
+              // Check if this virtual module corresponds to the changed file
+              if (originalPath === ctx.file) {
+                affectedModules.push(module);
+              }
+            }
+          });
+        });
+
+        // Also check for modules that might import the file with relative paths
+        const normalizedFile = resolve(ctx.file);
+        ctx.server.moduleGraph.fileToModulesMap.forEach((modules, _filePath) => {
+          modules.forEach((module) => {
+            if (module.id?.endsWith(".virtual-rawcss")) {
+              const originalPath = resolve(module.id.replace(".virtual-rawcss", ""));
+              if (originalPath === normalizedFile) {
+                affectedModules.push(module);
+              }
+            }
+          });
+        });
+
+        if (affectedModules.length > 0) {
+          // Remove duplicates
+          const uniqueModules = [...new Set(affectedModules)];
+
+          // Invalidate the affected modules to trigger re-compilation
+          uniqueModules.forEach((module) => {
+            ctx.server.moduleGraph.invalidateModule(module);
+          });
+
+          // Return the affected modules to trigger HMR update
+          return uniqueModules;
+        }
+      }
+
+      return [];
+    },
   };
 }
-

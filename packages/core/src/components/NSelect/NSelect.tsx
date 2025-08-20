@@ -1,8 +1,6 @@
 import type { CC } from "chatora";
-
-import { effect, getHost, getInternals, getSlotteds, signal } from "chatora";
+import { effect, getHost, getInternals, getSlotteds, onConnected, signal } from "chatora";
 import { Host } from "chatora/jsx-runtime";
-
 import { toBoolean, toString } from "chatora/util";
 import resetStyle from "../../styles/reset.css?raw";
 import style from "./NSelect.scss?raw";
@@ -15,6 +13,12 @@ const MaterialSymbolsArrowDropDownRounded = () => () => {
   );
 };
 
+/**
+ * Props for NSelect
+ * @property name - name attribute for form integration
+ * @property disabled - disables the select
+ * @property placeholder - placeholder text
+ */
 export type Props = {
   name?: string;
   disabled?: boolean;
@@ -49,6 +53,26 @@ export const NSelect: CC<Props, Emits> = ({
   const focusedOptionIndex = signal(-1);
 
   /**
+   * Signal for dropdown direction (true: upwards, false: downwards)
+   */
+  const isOpenUpwards = signal(false);
+
+  /**
+   * Get bounding rect and window size for direction calculation
+   */
+  const getSelectPositionInfo = () => {
+    if (!host.value)
+      return null;
+    const rect = host.value.getBoundingClientRect();
+    return {
+      top: rect.top,
+      bottom: rect.bottom,
+      height: rect.height,
+      windowHeight: window.innerHeight,
+    };
+  };
+
+  /**
    * Get all N-OPTION elements from slotted content
    */
   const getOptions = () => slotted.value?.filter(el => el.tagName === "N-OPTION") || [];
@@ -72,7 +96,8 @@ export const NSelect: CC<Props, Emits> = ({
       if (selectedEl.tagName === "N-OPTION") {
         selectedEl.removeAttribute("selected");
         selectedEl.removeAttribute("slot");
-        host.value?.removeChild(selectedEl);
+        // Use remove() method for safer removal
+        selectedEl.remove();
       }
     });
   };
@@ -87,6 +112,16 @@ export const NSelect: CC<Props, Emits> = ({
     selectedNode.setAttribute("slot", "selected-value");
     selectedNode.removeAttribute("selected");
     selectedNode.tabIndex = -1;
+
+    // Remove existing selected value nodes with proper parent check
+    const currentSelected = host.value!.querySelectorAll("n-option[slot=\"selected-value\"]");
+
+    if (currentSelected) {
+      currentSelected.forEach((el) => {
+        // Use remove() method for safer removal
+        el.remove();
+      });
+    }
 
     host.value?.appendChild(selectedNode);
 
@@ -136,6 +171,19 @@ export const NSelect: CC<Props, Emits> = ({
       return;
     }
 
+    // Calculate direction before showing options
+    const pos = getSelectPositionInfo();
+    if (pos) {
+      // Assume dropdown height is 240px (or get actual height if possible)
+      const dropdownHeight = 240;
+      const spaceBelow = pos.windowHeight - pos.bottom;
+      const spaceAbove = pos.top;
+      // Open upwards if not enough space below but enough above
+      isOpenUpwards.set(spaceBelow < dropdownHeight && spaceAbove > dropdownHeight);
+    }
+    else {
+      isOpenUpwards.set(false);
+    }
     isShowOptions.set(true);
   };
 
@@ -179,6 +227,17 @@ export const NSelect: CC<Props, Emits> = ({
       const options = getOptions();
       if (options.length > 0) {
         if (!isShowOptions.value) {
+          // Calculate direction before showing options
+          const pos = getSelectPositionInfo();
+          if (pos) {
+            const dropdownHeight = 240;
+            const spaceBelow = pos.windowHeight - pos.bottom;
+            const spaceAbove = pos.top;
+            isOpenUpwards.set(spaceBelow < dropdownHeight && spaceAbove > dropdownHeight);
+          }
+          else {
+            isOpenUpwards.set(false);
+          }
           isShowOptions.set(true);
           focusedOptionIndex.set(0);
         }
@@ -193,6 +252,17 @@ export const NSelect: CC<Props, Emits> = ({
       const options = getOptions();
       if (options.length > 0) {
         if (!isShowOptions.value) {
+          // Calculate direction before showing options
+          const pos = getSelectPositionInfo();
+          if (pos) {
+            const dropdownHeight = 240;
+            const spaceBelow = pos.windowHeight - pos.bottom;
+            const spaceAbove = pos.top;
+            isOpenUpwards.set(spaceBelow < dropdownHeight && spaceAbove > dropdownHeight);
+          }
+          else {
+            isOpenUpwards.set(false);
+          }
           isShowOptions.set(true);
           focusedOptionIndex.set(options.length - 1);
         }
@@ -203,28 +273,6 @@ export const NSelect: CC<Props, Emits> = ({
         focusOption(focusedOptionIndex.value);
       }
     }
-  };
-
-  /**
-   * Set tabindex for all options based on visibility
-   */
-  const updateOptionTabIndex = (tabIndex: number) => {
-    slotted.value?.forEach((el) => {
-      if (el.tagName === "N-OPTION") {
-        if (tabIndex === -1) {
-          el.setAttribute("tabindex", "-1");
-        }
-        else {
-          el.removeAttribute("tabindex");
-        }
-
-        // Shadow DOM内の要素のtabindexも設定
-        const innerElement = el.shadowRoot?.querySelector("[role=\"option\"]") as HTMLElement;
-        if (innerElement) {
-          innerElement.tabIndex = tabIndex;
-        }
-      }
-    });
   };
 
   effect(() => {
@@ -240,20 +288,14 @@ export const NSelect: CC<Props, Emits> = ({
   });
 
   effect(() => {
-    updateOptionTabIndex(isShowOptions.value ? 0 : -1);
+
   });
 
-  // onConnected(async () => {
-  //   const selectedSlottedElement = host.value?.querySelector("n-option[selected]:not([disabled]):not([slot])");
+  onConnected(() => {
+    if (!host.value) {
+      return;
+    }
 
-  //   if (!selectedSlottedElement) {
-  //     return;
-  //   }
-
-  //   setSelectedValue(selectedSlottedElement as HTMLElement, selectedSlottedElement?.getAttribute("value"));
-  // });
-
-  effect(() => {
     const selectedSlottedElement = host.value?.querySelector("n-option[selected]:not([disabled]):not([slot])");
 
     if (!selectedSlottedElement) {
@@ -268,7 +310,6 @@ export const NSelect: CC<Props, Emits> = ({
       <div
         class="n-select"
         role="select"
-        tabindex={0}
         onBlur={handleBlur}
         onClick={handleClick}
         onKeyDown={handleKeydown}
@@ -279,7 +320,10 @@ export const NSelect: CC<Props, Emits> = ({
           </slot>
           <MaterialSymbolsArrowDropDownRounded />
         </div>
-        <div class="n-select-options" data-hidden={!isShowOptions.value}>
+        <div
+          class={`n-select-options${isOpenUpwards.value ? " open-upwards" : ""}`}
+          data-hidden={!isShowOptions.value}
+        >
           <div class="summary">
             <div class="slot">
               <slot />

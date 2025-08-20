@@ -20,7 +20,7 @@
     "pg:react-rhf": "pnpm -C playgrounds/react-rhf",
     "pg:next": "pnpm -C playgrounds/next",
     "pg:tanstack": "pnpm -C playgrounds/tanstack",
-    "pg:router": "pnpm -C playgrounds/react-router"
+    "pg:rr": "pnpm -C playgrounds/react-router"
   },
   "devDependencies": {
     "turbo": "^2.4.2"
