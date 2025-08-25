@@ -1,20 +1,32 @@
-import type { CC } from "chatora";
+import { createCC } from "chatora";
 import { Host } from "chatora/jsx-runtime";
 import { toMatched } from "chatora/util";
 import clsx from "clsx";
 import resetStyle from "../../styles/reset.css?raw";
 import style from "./NLi.scss?raw";
 
+/**
+ * Props for NLi component
+ */
 export type Props = {
+  /**
+   * Marker style for list item
+   */
   marker?: "none" | "disc" | "decimal";
 };
 
+/**
+ * NLi does not emit any events
+ */
 // eslint-disable-next-line ts/no-empty-object-type
 export type Emits = {};
 
-export const NLi: CC<Props, Emits> = ({
-  defineProps,
-}) => {
+export const {
+  component: NLi,
+  genSD: genSDNLi,
+  genDSD: genDSDNLi,
+  define: defineNLi,
+} = createCC<Props, Emits>("n-li", ({ defineProps }) => {
   const props = defineProps({
     marker: v => toMatched(v, ["none", "disc", "decimal"]),
   });
@@ -29,4 +41,4 @@ export const NLi: CC<Props, Emits> = ({
       </li>
     </Host>
   );
-};
+});

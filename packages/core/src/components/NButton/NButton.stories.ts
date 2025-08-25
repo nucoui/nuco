@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import type { Props } from "./NButton";
-import { functionalCustomElement } from "chatora";
 import { renderElement } from "../../../.storybook/utils/renderElement";
-import { NButton } from "./NButton";
+import { genSDNButton } from "./NButton";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta = {
@@ -10,7 +9,7 @@ const meta = {
   tags: ["autodocs"],
   render: args => renderElement(
     "n-button",
-    functionalCustomElement(NButton),
+    genSDNButton(),
     args.slot,
     args,
   ),

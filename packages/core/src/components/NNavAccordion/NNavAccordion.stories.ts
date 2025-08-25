@@ -1,17 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import type { Props } from "./NNavAccordion";
 
-import { NAnchor } from "@/components/NAnchor/NAnchor";
-import { defineElement } from "@root/.storybook/utils/defineElement";
+import { defineNAnchor } from "@/components/NAnchor/NAnchor";
 
-import { NNavAccordion } from "./NNavAccordion";
+import { defineNNavAccordion } from "./NNavAccordion";
 
 const meta = {
   title: "Components/NNavAccordion",
   tags: ["autodocs"],
   render: (_args) => {
-    const nNavAccordionName = defineElement(NNavAccordion);
-    const nNavAccordion = document.createElement(nNavAccordionName);
+    defineNNavAccordion();
+    const nNavAccordion = document.createElement("n-nav-accordion");
 
     const div = document.createElement("div");
     div.style.display = "flex";
@@ -19,12 +18,12 @@ const meta = {
     div.style.gap = "1rem";
     div.style.padding = "0.5rem 0";
 
-    const nAnchorName = defineElement(NAnchor);
-    const nAnchor = document.createElement(nAnchorName);
+    defineNAnchor();
+    const nAnchor = document.createElement("n-anchor");
     nAnchor.setAttribute("underline", "none");
     nAnchor.innerHTML = "Detail";
 
-    const nAnchor2 = document.createElement(nAnchorName);
+    const nAnchor2 = document.createElement("n-anchor");
     nAnchor2.setAttribute("underline", "none");
     nAnchor2.innerHTML = "Detail";
 

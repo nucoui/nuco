@@ -1,38 +1,50 @@
-import type { CC } from "chatora";
-import { effect, getHost, getInternals, getSlotteds, onConnected, signal } from "chatora";
+import { createCC, effect, getHost, getInternals, getSlotteds, onConnected, signal } from "chatora";
 import { Host } from "chatora/jsx-runtime";
 import { toBoolean, toString } from "chatora/util";
 import resetStyle from "../../styles/reset.css?raw";
 import style from "./NSelect.scss?raw";
 
-const MaterialSymbolsArrowDropDownRounded = () => () => {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M11.475 14.475L7.85 10.85q-.075-.075-.112-.162T7.7 10.5q0-.2.138-.35T8.2 10h7.6q.225 0 .363.15t.137.35q0 .05-.15.35l-3.625 3.625q-.125.125-.25.175T12 14.7t-.275-.05t-.25-.175" />
-    </svg>
-  );
-};
+const MaterialSymbolsArrowDropDownRounded = () => () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M11.475 14.475L7.85 10.85q-.075-.075-.112-.162T7.7 10.5q0-.2.138-.35T8.2 10h7.6q.225 0 .363.15t.137.35q0 .05-.15.35l-3.625 3.625q-.125.125-.25.175T12 14.7t-.275-.05t-.25-.175" />
+  </svg>
+);
 
 /**
- * Props for NSelect
- * @property name - name attribute for form integration
- * @property disabled - disables the select
- * @property placeholder - placeholder text
+ * Props for NSelect component
  */
 export type Props = {
+  /**
+   * Name attribute for form integration
+   */
   name?: string;
+  /**
+   * Disables the select
+   * @default false
+   */
   disabled?: boolean;
+  /**
+   * Placeholder text
+   */
   placeholder?: string;
 };
 
+/**
+ * Emits for NSelect component
+ */
 export type Emits = {
+  /**
+   * Fired when selected value changes
+   */
   "on-change"?: { value: string | null };
 };
 
-export const NSelect: CC<Props, Emits> = ({
-  defineProps,
-  defineEmits,
-}) => {
+export const {
+  component: NSelect,
+  genSD: genSDNSelect,
+  genDSD: genDSDNSelect,
+  define: defineNSelect,
+} = createCC<Props, Emits>("n-select", ({ defineProps, defineEmits }) => {
   const props = defineProps({
     name: v => toString(v),
     disabled: v => toBoolean(v) ?? false,
@@ -43,23 +55,16 @@ export const NSelect: CC<Props, Emits> = ({
     "on-change": () => {},
   });
 
+  // --- original logic and handlers ---
   const host = getHost();
   const internals = getInternals();
   const slotted = getSlotteds();
   const selectedValueSlotted = getSlotteds("selected-value");
-
   const isShowOptions = signal(false);
   const isBlurred = signal(false);
   const focusedOptionIndex = signal(-1);
-
-  /**
-   * Signal for dropdown direction (true: upwards, false: downwards)
-   */
   const isOpenUpwards = signal(false);
 
-  /**
-   * Get bounding rect and window size for direction calculation
-   */
   const getSelectPositionInfo = () => {
     if (!host.value)
       return null;
@@ -72,14 +77,8 @@ export const NSelect: CC<Props, Emits> = ({
     };
   };
 
-  /**
-   * Get all N-OPTION elements from slotted content
-   */
   const getOptions = () => slotted.value?.filter(el => el.tagName === "N-OPTION") || [];
 
-  /**
-   * Clear all selected states from options
-   */
   const clearSelectedStates = () => {
     slotted.value?.forEach((element) => {
       if (element.tagName === "N-OPTION") {
@@ -88,66 +87,45 @@ export const NSelect: CC<Props, Emits> = ({
     });
   };
 
-  /**
-   * Remove currently selected value from DOM
-   */
   const removeSelectedValue = () => {
     selectedValueSlotted.value?.forEach((selectedEl) => {
       if (selectedEl.tagName === "N-OPTION") {
         selectedEl.removeAttribute("selected");
         selectedEl.removeAttribute("slot");
-        // Use remove() method for safer removal
         selectedEl.remove();
       }
     });
   };
 
-  /**
-   * Set new selected value in DOM and form
-   */
   const setSelectedValue = (element: HTMLElement, value: string | null) => {
     element.setAttribute("selected", "");
-
     const selectedNode = element.cloneNode(true) as HTMLElement;
     selectedNode.setAttribute("slot", "selected-value");
     selectedNode.removeAttribute("selected");
     selectedNode.tabIndex = -1;
-
-    // Remove existing selected value nodes with proper parent check
     const currentSelected = host.value!.querySelectorAll("n-option[slot=\"selected-value\"]");
-
     if (currentSelected) {
       currentSelected.forEach((el) => {
-        // Use remove() method for safer removal
         el.remove();
       });
     }
-
     host.value?.appendChild(selectedNode);
-
     if (internals.value) {
       internals.value.setFormValue(value);
     }
   };
 
-  /**
-   * Handle option selection
-   */
   const handleSelectOption = (e: Event) => {
     e.preventDefault();
     e.stopPropagation();
-
     if (props().disabled) {
       return;
     }
-
     const el = e.currentTarget as HTMLElement;
     const value = el.getAttribute("value");
-
     clearSelectedStates();
     removeSelectedValue();
     setSelectedValue(el, value);
-
     emits("on-change", { value: value ?? null });
     isShowOptions.set(false);
     focusedOptionIndex.set(-1);
@@ -156,29 +134,22 @@ export const NSelect: CC<Props, Emits> = ({
   const handleBlur = (e: Event) => {
     e.preventDefault();
     e.stopPropagation();
-
     if (props().disabled) {
       return;
     }
-
     isBlurred.set(true);
   };
 
   const handleClick = (e: Event) => {
     e.preventDefault();
-
     if (props().disabled) {
       return;
     }
-
-    // Calculate direction before showing options
     const pos = getSelectPositionInfo();
     if (pos) {
-      // Assume dropdown height is 240px (or get actual height if possible)
       const dropdownHeight = 240;
       const spaceBelow = pos.windowHeight - pos.bottom;
       const spaceAbove = pos.top;
-      // Open upwards if not enough space below but enough above
       isOpenUpwards.set(spaceBelow < dropdownHeight && spaceAbove > dropdownHeight);
     }
     else {
@@ -187,26 +158,19 @@ export const NSelect: CC<Props, Emits> = ({
     isShowOptions.set(true);
   };
 
-  /**
-   * Focus on specific option by index
-   */
   const focusOption = (index: number) => {
     const options = getOptions();
     if (options.length === 0)
       return;
-
     setTimeout(() => {
       const targetOption = options[index] as HTMLElement;
       const focusableElement = targetOption.shadowRoot?.querySelector("[role=\"option\"]") as HTMLElement || targetOption;
       focusableElement.focus();
-
-      // Add keydown listener only once per focus
       const handleOptionKeydown = (ke: KeyboardEvent) => {
         if (ke.key === "Enter" || ke.key === " ") {
           targetOption.click();
         }
       };
-
       focusableElement.removeEventListener("keydown", handleOptionKeydown);
       focusableElement.addEventListener("keydown", handleOptionKeydown, { once: true });
     }, 0);
@@ -214,11 +178,9 @@ export const NSelect: CC<Props, Emits> = ({
 
   const handleKeydown = (e: KeyboardEvent) => {
     e.preventDefault();
-
     if (props().disabled) {
       return;
     }
-
     if (e.key === "Escape") {
       isShowOptions.set(false);
       focusedOptionIndex.set(-1);
@@ -227,7 +189,6 @@ export const NSelect: CC<Props, Emits> = ({
       const options = getOptions();
       if (options.length > 0) {
         if (!isShowOptions.value) {
-          // Calculate direction before showing options
           const pos = getSelectPositionInfo();
           if (pos) {
             const dropdownHeight = 240;
@@ -252,7 +213,6 @@ export const NSelect: CC<Props, Emits> = ({
       const options = getOptions();
       if (options.length > 0) {
         if (!isShowOptions.value) {
-          // Calculate direction before showing options
           const pos = getSelectPositionInfo();
           if (pos) {
             const dropdownHeight = 240;
@@ -281,27 +241,19 @@ export const NSelect: CC<Props, Emits> = ({
         if (el.hasAttribute("disabled")) {
           return;
         }
-
         el.addEventListener("click", handleSelectOption);
       }
     });
-  });
-
-  effect(() => {
-
   });
 
   onConnected(() => {
     if (!host.value) {
       return;
     }
-
     const selectedSlottedElement = host.value?.querySelector("n-option[selected]:not([disabled]):not([slot])");
-
     if (!selectedSlottedElement) {
       return;
     }
-
     setSelectedValue(selectedSlottedElement as HTMLElement, selectedSlottedElement?.getAttribute("value"));
   });
 
@@ -333,4 +285,6 @@ export const NSelect: CC<Props, Emits> = ({
       </div>
     </Host>
   );
-};
+}, {
+  formAssociated: true,
+});

@@ -2,16 +2,16 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import type { Props } from "./NPager";
 
 import { renderElement } from "@root/.storybook/utils/renderElement";
-import { functionalCustomElement } from "chatora";
+import { genSDNPager } from "./NPager";
 
-import { NPager } from "./NPager";
+// ...existing code...
 
 const meta = {
   title: "Components/NPager",
   tags: ["autodocs"],
   render: args => renderElement(
     "n-pager",
-    functionalCustomElement(NPager),
+    genSDNPager(),
     args.slot,
     args,
   ),

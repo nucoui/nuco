@@ -1,9 +1,9 @@
-import { functionalCustomElement } from "chatora";
+import { genSD } from "chatora";
 
-export const defineElement = (chatoraComponent: Parameters<typeof functionalCustomElement>[0]) => {
+export const defineElement = (chatoraComponent: Parameters<typeof genSD>[0]) => {
   const tagName = chatoraComponent.name.replace(/([A-Z])/g, match => `-${match.toLowerCase()}`).replace(/^-/, "");
   if (!customElements.get(tagName)) {
-    customElements.define(tagName, functionalCustomElement(chatoraComponent));
+    customElements.define(tagName, genSD(chatoraComponent));
   }
   return tagName;
 };

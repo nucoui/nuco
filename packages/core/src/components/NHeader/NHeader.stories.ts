@@ -2,16 +2,14 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import type { Props } from "./NHeader";
 
 import { renderElement } from "@root/.storybook/utils/renderElement";
-import { functionalCustomElement } from "chatora";
-
-import { NHeader } from "./NHeader";
+import { genSDNHeader } from "./NHeader";
 
 const meta = {
   title: "Components/NHeader",
   tags: ["autodocs"],
   render: args => renderElement(
     "n-header",
-    functionalCustomElement(NHeader),
+    genSDNHeader(),
     args.slot,
     args,
   ),

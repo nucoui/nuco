@@ -1,4 +1,4 @@
-import type { CC } from "chatora";
+import { createCC } from "chatora";
 import { Host } from "chatora/jsx-runtime";
 import { toBoolean, toMatched, toString } from "chatora/util";
 import clsx from "clsx";
@@ -38,7 +38,12 @@ export type Emits = {
   "on-click"?: Event;
 };
 
-export const NAnchor: CC<Props, Emits> = ({
+export const {
+  component: NAnchor,
+  genSD: genSDNAnchor,
+  genDSD: genDSDNAnchor,
+  define: defineNAnchor,
+} = createCC<Props, Emits>("n-anchor", ({
   defineProps,
   defineEmits,
 }) => {
@@ -83,4 +88,4 @@ export const NAnchor: CC<Props, Emits> = ({
       </a>
     </Host>
   );
-};
+});

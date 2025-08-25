@@ -2,16 +2,16 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import type { Props } from "./NError";
 
 import { renderElement } from "@root/.storybook/utils/renderElement";
-import { functionalCustomElement } from "chatora";
+import { genSDNError } from "./NError";
 
-import { NError } from "./NError";
+// ...existing code...
 
 const meta = {
   title: "Components/NError",
   tags: ["autodocs"],
   render: args => renderElement(
     "n-error",
-    functionalCustomElement(NError),
+    genSDNError(),
     args.slot,
     args,
   ),
@@ -24,9 +24,7 @@ const meta = {
       },
     },
   },
-  args: {
-    slot: "slot",
-  },
+  args: {},
 } satisfies Meta<Props & { slot?: string }>;
 
 export default meta;

@@ -2,16 +2,15 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import type { Props } from "./NAnchor";
 
 import { renderElement } from "@root/.storybook/utils/renderElement";
-import { functionalCustomElement } from "chatora";
 
-import { NAnchor } from "./NAnchor";
+import { genSDNAnchor } from "./NAnchor";
 
 const meta = {
   title: "Components/NAnchor",
   tags: ["autodocs"],
   render: args => renderElement(
     "n-anchor",
-    functionalCustomElement(NAnchor),
+    genSDNAnchor(),
     args.slot,
     args,
   ),

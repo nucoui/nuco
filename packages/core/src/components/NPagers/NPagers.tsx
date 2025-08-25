@@ -1,15 +1,26 @@
-import type { CC } from "chatora";
+import { createCC } from "chatora";
 import { Host } from "chatora/jsx-runtime";
 import resetStyle from "../../styles/reset.css?raw";
 import style from "./NPagers.scss?raw";
 
+/**
+ * NPagers props (no props)
+ */
 // eslint-disable-next-line ts/no-empty-object-type
 export type Props = {};
 
+/**
+ * NPagers does not emit any events
+ */
 // eslint-disable-next-line ts/no-empty-object-type
 export type Emits = {};
 
-export const NPagers: CC<Props, Emits> = () => {
+export const {
+  component: NPagers,
+  genSD: genSDNPagers,
+  genDSD: genDSDNPagers,
+  define: defineNPagers,
+} = createCC<Props, Emits>("n-pagers", () => {
   return () => (
     <Host shadowRoot style={[style, resetStyle]}>
       <div>
@@ -25,4 +36,4 @@ export const NPagers: CC<Props, Emits> = () => {
       </div>
     </Host>
   );
-};
+});

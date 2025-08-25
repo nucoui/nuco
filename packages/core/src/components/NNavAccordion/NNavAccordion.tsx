@@ -1,28 +1,46 @@
-import { type CC, signal } from "chatora";
+import { createCC, signal } from "chatora";
 import { Host } from "chatora/jsx-runtime";
 import { toBoolean } from "chatora/util";
 import resetStyle from "../../styles/reset.css?raw";
 import style from "./NNavAccordion.scss?inline";
 
+/**
+ * Props for NNavAccordion component
+ */
 export type Props = {
+  /**
+   * Whether the accordion is open by default
+   * @default false
+   */
   isDefaultOpen?: boolean;
 };
 
+/**
+ * NNavAccordion does not emit any events
+ */
 // eslint-disable-next-line ts/no-empty-object-type
 export type Emits = {};
 
 let idCounter = 0;
 const generateId = () => `nnavaccordion-${++idCounter}`;
 
-export const NNavAccordion: CC<Props, Emits> = ({ defineProps }) => {
+export const {
+  component: NNavAccordion,
+  genSD: genSDNNavAccordion,
+  genDSD: genDSDNNavAccordion,
+  define: defineNNavAccordion,
+} = createCC<Props, Emits>("n-nav-accordion", ({ defineProps }) => {
   const props = defineProps({
-    isDefaultOpen: (v: string | undefined) => toBoolean(v) ?? false,
+    isDefaultOpen: v => toBoolean(v) ?? false,
   });
 
   const isOpen = signal(props().isDefaultOpen);
   const id = generateId();
   const buttonId = generateId();
 
+  /**
+   * Handle accordion toggle
+   */
   const handleClick = () => {
     isOpen.set(!isOpen.value);
   };
@@ -60,4 +78,4 @@ export const NNavAccordion: CC<Props, Emits> = ({ defineProps }) => {
       </div>
     </Host>
   );
-};
+});

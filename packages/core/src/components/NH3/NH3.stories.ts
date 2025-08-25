@@ -2,14 +2,14 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import type { Props } from "./NH3";
 
 import { renderElement } from "@root/.storybook/utils/renderElement";
-import { functionalCustomElement } from "chatora";
+import { genSDNH3 } from "./NH3";
 
-import { NH3 } from "./NH3";
+// ...existing code...
 
 const meta = {
   title: "Components/NH1~6/NH3",
   tags: ["autodocs"],
-  render: args => renderElement("n-h3", functionalCustomElement(NH3), args.slot, args),
+  render: args => renderElement("n-h3", genSDNH3(), args.slot, args),
   argTypes: {
     slot: {
       control: { type: "text" },

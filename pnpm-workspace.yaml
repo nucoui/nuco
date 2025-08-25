@@ -9,8 +9,8 @@ catalog:
   "vite": "6.2.4" # https://www.npmjs.com/package/vite
   "tsup": "8.5.0" # https://www.npmjs.com/package/tsup
   "@takuma-ru/rlse": "0.0.1-beta.8" # https://www.npmjs.com/package/@takuma-ru/rlse
-  "chatora": "^1.0.15" # https://www.npmjs.com/package/chatora
-  "@chatora/react": "^1.0.15" # https://www.npmjs.com/package/@chatora/react
+  "chatora": "^1.1.2" # https://www.npmjs.com/package/chatora
+  "@chatora/react": "^1.1.2" # https://www.npmjs.com/package/@chatora/react
   # == storybook https://storybook.js.org/ ==
   "@chromatic-com/storybook": "^3.2.4"
   "@storybook/addon-essentials": "8.6.0"

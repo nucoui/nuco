@@ -1,21 +1,20 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import type { Props } from "./NPagers";
 
-import { NPager } from "@/components/NPager/NPager";
-import { renderElement } from "@root/.storybook/utils/renderElement";
+import { genSDNPager } from "@/components/NPager/NPager";
 
-import { functionalCustomElement } from "chatora";
-import { NPagers } from "./NPagers";
+import { renderElement } from "@root/.storybook/utils/renderElement";
+import { genSDNPagers } from "./NPagers";
 
 const meta = {
   title: "Components/NPagers",
   tags: ["autodocs"],
   render: args => renderElement(
     "n-pagers",
-    functionalCustomElement(NPagers),
+    genSDNPagers(),
     (() => {
-      const pager1 = renderElement("n-pager", functionalCustomElement(NPager), "Prev", { type: "prev", slot: "prev" });
-      const pager2 = renderElement("n-pager", functionalCustomElement(NPager), "Next", { type: "next", slot: "next" });
+      const pager1 = renderElement("n-pager", genSDNPager(), "Prev", { type: "prev", slot: "prev" });
+      const pager2 = renderElement("n-pager", genSDNPager(), "Next", { type: "next", slot: "next" });
 
       return `${pager1}${pager2}`;
     })(),

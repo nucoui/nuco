@@ -2,18 +2,16 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import type { Props } from "./NDivider";
 
 import { renderElement } from "@root/.storybook/utils/renderElement";
-import { functionalCustomElement } from "chatora";
-
-import { NDivider } from "./NDivider";
+import { genSDNDivider } from "./NDivider";
 
 const meta = {
   title: "Components/NDivider",
   tags: ["autodocs"],
   render: args => renderElement(
     "n-divider",
-    functionalCustomElement(NDivider),
+    genSDNDivider(),
     args.slot,
-    args
+    args,
   ),
   argTypes: {
     vertical: {

@@ -2,16 +2,14 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import type { Props } from "./NCodeBlock";
 
 import { renderElement } from "@root/.storybook/utils/renderElement";
-import { functionalCustomElement } from "chatora";
-
-import { NCodeBlock } from "./NCodeBlock";
+import { genSDNCodeBlock } from "./NCodeBlock";
 
 const meta = {
   title: "Components/NCodeBlock",
   tags: ["autodocs"],
   render: args => renderElement(
     "n-code-block",
-    functionalCustomElement(NCodeBlock),
+    genSDNCodeBlock(),
     args.slot,
     args,
   ),
@@ -52,4 +50,3 @@ export const Primary: Story = {
     fileName: "helloWorld.js",
   },
 };
-

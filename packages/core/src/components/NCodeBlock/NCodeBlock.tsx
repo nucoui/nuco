@@ -1,29 +1,54 @@
-import { type CC, effect, onConnected, signal } from "chatora";
+import { createCC, effect, onConnected, signal } from "chatora";
 import { Host } from "chatora/jsx-runtime";
 import { hastToJsx, toString } from "chatora/util";
 import { codeToHast, type CodeToHastOptionsCommon } from "shiki";
 import resetStyle from "../../styles/reset.css?raw";
 import style from "./NCodeBlock.scss?raw";
 
+/**
+ * Props for NCodeBlock component
+ */
 export type Props = {
+  /**
+   * Language for syntax highlighting
+   * @default "plaintext"
+   */
   lang?: CodeToHastOptionsCommon["lang"];
+  /**
+   * File name to display
+   */
   fileName?: string;
+  /**
+   * Code string to display
+   */
   code: string;
 };
 
+/**
+ * NCodeBlock does not emit any events
+ */
 // eslint-disable-next-line ts/no-empty-object-type
 export type Emits = {};
 
-export const NCodeBlock: CC<Props, Emits> = ({ defineProps }) => {
+export const {
+  component: NCodeBlock,
+  genSD: genSDNCodeBlock,
+  genDSD: genDSDNCodeBlock,
+  define: defineNCodeBlock,
+} = createCC<Props, Emits>("n-code-block", ({ defineProps }) => {
   const props = defineProps({
     lang: v => (toString(v) ?? "plaintext") as CodeToHastOptionsCommon["lang"],
     fileName: v => toString(v),
     code: v => toString(v) ?? "",
   });
 
-  const codeNode = signal<JSX.Element | null>(null);
+  // Use 'any' for codeNode to avoid JSX namespace error
+  const codeNode = signal<any>(null);
   const isCopied = signal(false);
 
+  /**
+   * Handle copy button click
+   */
   const handleClick = () => {
     return navigator.clipboard.writeText(props().code).then(() => {
       isCopied.set(true);
@@ -33,6 +58,9 @@ export const NCodeBlock: CC<Props, Emits> = ({ defineProps }) => {
     });
   };
 
+  /**
+   * Set code node for syntax highlighting
+   */
   const setNodeNode = async (code: Props["code"]) => {
     const hasted = await codeToHast(code, {
       lang: props().lang as CodeToHastOptionsCommon["lang"],
@@ -54,7 +82,6 @@ export const NCodeBlock: CC<Props, Emits> = ({ defineProps }) => {
         },
       ],
     });
-
     codeNode.set(hastToJsx(hasted));
   };
 
@@ -101,4 +128,4 @@ export const NCodeBlock: CC<Props, Emits> = ({ defineProps }) => {
       </div>
     </Host>
   );
-};
+});

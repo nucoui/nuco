@@ -1,27 +1,26 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import type { Props } from "./NBreadcrumb";
-import { NLi } from "@/components/NLi/NLi";
+import { defineNLi } from "@/components/NLi/NLi";
 
-import { defineElement } from "@root/.storybook/utils/defineElement";
-import { NBreadcrumb } from "./NBreadcrumb";
+import { defineNBreadcrumb } from "./NBreadcrumb";
 
 const meta = {
   title: "Components/NBreadcrumb",
   tags: ["autodocs"],
   render: (_args) => {
-    const nBreadcrumbName = defineElement(NBreadcrumb);
-    const nBreadcrumb = document.createElement(nBreadcrumbName);
+    defineNBreadcrumb();
+    const nBreadcrumb = document.createElement("n-breadcrumb");
 
-    const nLiName = defineElement(NLi);
-    const nLi = document.createElement(nLiName);
+    defineNLi();
+    const nLi = document.createElement("n-li");
     nLi.innerHTML = "Home";
     nBreadcrumb.appendChild(nLi);
 
-    const nLi2 = document.createElement(nLiName);
+    const nLi2 = document.createElement("n-li");
     nLi2.innerHTML = "About";
     nBreadcrumb.appendChild(nLi2);
 
-    const nLi3 = document.createElement(nLiName);
+    const nLi3 = document.createElement("n-li");
     nLi3.innerHTML = "Contact";
     nBreadcrumb.appendChild(nLi3);
 

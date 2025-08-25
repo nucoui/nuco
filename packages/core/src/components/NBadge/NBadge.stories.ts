@@ -2,16 +2,14 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import type { Props } from "./NBadge";
 
 import { renderElement } from "@root/.storybook/utils/renderElement";
-import { functionalCustomElement } from "chatora";
-
-import { NBadge } from "./NBadge";
+import { genSDNBadge } from "./NBadge";
 
 const meta = {
   title: "Components/NBadge",
   tags: ["autodocs"],
   render: args => renderElement(
     "n-badge",
-    functionalCustomElement(NBadge),
+    genSDNBadge(),
     args.slot,
     args,
   ),
@@ -33,9 +31,7 @@ const meta = {
       },
     },
   },
-  args: {
-    slot: "slot",
-  },
+  args: {},
 } satisfies Meta<Props & { slot?: string }>;
 
 export default meta;

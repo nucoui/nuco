@@ -1,22 +1,21 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import type { Props } from "./NSelect";
 
-import { NButton } from "@/components/NButton/NButton";
-import { NOption } from "@/components/NOption/NOption";
+import { genSDNButton } from "@/components/NButton/NButton";
 
+import { genSDNOption } from "@/components/NOption/NOption";
 import { renderElement } from "@root/.storybook/utils/renderElement";
-import { functionalCustomElement } from "chatora";
-import { NSelect } from "./NSelect";
+import { genSDNSelect } from "./NSelect";
 
 const meta = {
   title: "Components/NSelect/NSelect",
   tags: ["autodocs"],
   render: args => renderElement(
     "n-select",
-    functionalCustomElement(NSelect),
+    genSDNSelect(),
     renderElement(
       "n-option",
-      functionalCustomElement(NOption),
+      genSDNOption(),
       document.createTextNode(args.slot || ""),
       {},
     ),
@@ -65,15 +64,15 @@ export const Playground: Story = {
   args: {},
   render: (args) => {
     if (!customElements.get("n-select")) {
-      customElements.define("n-select", class extends functionalCustomElement(NSelect) {
+      customElements.define("n-select", class extends genSDNSelect() {
         static formAssociated = true;
       });
     }
     if (!customElements.get("n-option")) {
-      customElements.define("n-option", functionalCustomElement(NOption));
+      customElements.define("n-option", genSDNOption());
     }
     if (!customElements.get("n-button")) {
-      customElements.define("n-button", functionalCustomElement(NButton));
+      customElements.define("n-button", genSDNButton());
     }
 
     const form = document.createElement("form");
@@ -118,15 +117,15 @@ export const BottomPosition: Story = {
   args: {},
   render: (args) => {
     if (!customElements.get("n-select")) {
-      customElements.define("n-select", class extends functionalCustomElement(NSelect) {
+      customElements.define("n-select", class extends genSDNSelect() {
         static formAssociated = true;
       });
     }
     if (!customElements.get("n-option")) {
-      customElements.define("n-option", functionalCustomElement(NOption));
+      customElements.define("n-option", genSDNOption());
     }
     if (!customElements.get("n-button")) {
-      customElements.define("n-button", functionalCustomElement(NButton));
+      customElements.define("n-button", genSDNButton());
     }
 
     const form = document.createElement("form");

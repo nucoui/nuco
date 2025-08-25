@@ -1,8 +1,7 @@
 "use client";
 
-import type { toReactEmits } from "@chatora/react";
 import type Elements from "@nuco/core/elements/elements";
-import type { ComponentEmits, ComponentProps } from "chatora";
+import type { ComponentProps } from "chatora";
 import type { HTMLAttributes, Key, PropsWithChildren, ReactNode, Ref } from "react";
 import { disableError, hastToJsx, splitProps, useIsClient } from "@chatora/react";
 import CustomElements from "@nuco/core/elements/customElements";
@@ -17,7 +16,7 @@ const isServer = typeof document === "undefined";
 const supportsDSD = !isServer && "shadowRootMode" in HTMLTemplateElement.prototype;
 
 export type Props<T extends keyof typeof CustomElements = keyof typeof CustomElements> = PropsWithChildren<{
-  props: ComponentProps<typeof Elements[T]> & toReactEmits<ComponentEmits<typeof Elements[T]>> & {
+  props: Omit<ComponentProps<typeof Elements[T]>, "children"> & {
     "slot"?: HTMLAttributes<HTMLElement>["slot"];
     "className"?: HTMLAttributes<HTMLElement>["className"];
     "ref"?: Ref<HTMLElement>;

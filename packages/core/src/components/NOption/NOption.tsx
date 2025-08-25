@@ -1,21 +1,41 @@
-import type { CC } from "chatora";
+import { createCC } from "chatora";
 import { Host } from "chatora/jsx-runtime";
 import { toBoolean, toString } from "chatora/util";
 import resetStyle from "../../styles/reset.css?raw";
 import style from "./NOption.scss?raw";
 
+/**
+ * Props for NOption component
+ */
 export type Props = {
+  /**
+   * Option value
+   */
   value?: string;
+  /**
+   * Whether option is disabled
+   * @default false
+   */
   disabled?: boolean;
+  /**
+   * Whether option is selected
+   * @default false
+   */
   selected?: boolean;
 };
 
+/**
+ * NOption does not emit any events
+ */
 // eslint-disable-next-line ts/no-empty-object-type
 export type Emits = {};
 
-export const NOption: CC<Props, Emits> = ({
-  defineProps,
-}) => {
+export const {
+  component: NOption,
+  genSD: genSDNOption,
+  genDSD: genDSDNOption,
+  define: defineNOption,
+} = createCC<Props, Emits>("n-option", ({ defineProps }) => {
   const props = defineProps({
     value: v => toString(v),
     disabled: v => toBoolean(v) ?? false,
@@ -39,4 +59,4 @@ export const NOption: CC<Props, Emits> = ({
       </div>
     </Host>
   );
-};
+});

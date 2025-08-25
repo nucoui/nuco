@@ -1,21 +1,42 @@
-import type { CC } from "chatora";
+import { createCC } from "chatora";
 import { Host } from "chatora/jsx-runtime";
 import { toBoolean } from "chatora/util";
 import resetStyle from "../../styles/reset.css?raw";
 import style from "./NHeader.scss?raw";
 
+/**
+ * Props for NHeader component
+ */
 export type Props = {
+  /**
+   * Show logo slot
+   * @default true
+   */
   isLogo?: boolean;
+  /**
+   * Show navigation toggle slot
+   * @default true
+   */
   isNavToggle?: boolean;
+  /**
+   * Show center slot
+   * @default true
+   */
   isMiddle?: boolean;
 };
 
+/**
+ * NHeader does not emit any events
+ */
 // eslint-disable-next-line ts/no-empty-object-type
 export type Emits = {};
 
-export const NHeader: CC<Props, Emits> = ({
-  defineProps,
-}) => {
+export const {
+  component: NHeader,
+  genSD: genSDNHeader,
+  genDSD: genDSDNHeader,
+  define: defineNHeader,
+} = createCC<Props, Emits>("n-header", ({ defineProps }) => {
   const props = defineProps({
     isLogo: v => toBoolean(v) ?? true,
     isNavToggle: v => toBoolean(v) ?? true,
@@ -51,4 +72,4 @@ export const NHeader: CC<Props, Emits> = ({
       </header>
     </Host>
   );
-};
+});

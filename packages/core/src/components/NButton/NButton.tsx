@@ -1,34 +1,73 @@
-import type { CC } from "chatora";
-import { computed, getHost } from "chatora";
+import { computed, createCC, getHost } from "chatora";
 import { Host } from "chatora/jsx-runtime";
 import { toBoolean, toMatched, toString } from "chatora/util";
 import clsx from "clsx";
 import resetStyle from "../../styles/reset.css?raw";
 import style from "./NButton.scss?raw";
 
+/**
+ * Props for NButton component
+ */
 export type Props = {
+  /**
+   * Button variant (color theme)
+   * @default "primary"
+   */
   variant?: "primary" | "secondary" | "tertiary" | "error";
+  /**
+   * Whether the button is disabled
+   * @default false
+   */
   disabled?: boolean;
+  /**
+   * Button width style
+   * @default "auto"
+   */
   width?: "auto" | "stretch";
+  /**
+   * Button size
+   * @default "medium"
+   */
   size?: "small" | "medium" | "large";
 } & ({
+  /**
+   * Use anchor element
+   */
   type?: "anchor";
+  /**
+   * Anchor href
+   */
   href?: string;
+  /**
+   * Anchor target
+   */
   target?: string;
 } | {
+  /**
+   * Button type
+   * @default "button"
+   */
   type?: "submit" | "reset" | "button";
   href?: never;
   target?: never;
 });
 
+/**
+ * Emits for NButton component
+ */
 export type Emits = {
+  /**
+   * Fired when the button is clicked
+   */
   "on-click"?: Event;
 };
 
-export const NButton: CC<Props, Emits> = ({
-  defineProps,
-  defineEmits,
-}) => {
+export const {
+  component: NButton,
+  genSD: genSDNButton,
+  genDSD: genDSDNButton,
+  define: defineNButton,
+} = createCC<Props, Emits>("n-button", ({ defineProps, defineEmits }) => {
   const props = defineProps({
     type: v => toMatched(v, ["anchor", "submit", "reset", "button"]) ?? "button",
     variant: v => toMatched(v, ["primary", "secondary", "tertiary", "error"]) ?? "primary",
@@ -45,6 +84,9 @@ export const NButton: CC<Props, Emits> = ({
 
   const host = getHost();
 
+  /**
+   * Handle click event for button and anchor
+   */
   const handleClick = (e: Event) => {
     emits("on-click", e);
     if (props().type === "submit") {
@@ -52,6 +94,9 @@ export const NButton: CC<Props, Emits> = ({
     }
   };
 
+  /**
+   * Handle keydown event for accessibility
+   */
   const handleKeydown = (e: KeyboardEvent) => {
     if (e.key === "Enter") {
       handleClick(e);
@@ -59,10 +104,15 @@ export const NButton: CC<Props, Emits> = ({
   };
 
   const commonAttrs = computed(() => ({
-    "class": clsx("n-button", `-${props().size}`, `-${props().variant}`, {
-      "-anchor": props().type === "anchor",
-      "-auto": props().width === "auto",
-    }),
+    "class": clsx(
+      "n-button",
+      `-${props().size}`,
+      `-${props().variant}`,
+      {
+        "-anchor": props().type === "anchor",
+        "-auto": props().width === "auto",
+      },
+    ),
     "disabled": props().disabled,
     "aria-disabled": props().disabled,
     "onKeydown": props().disabled ? undefined : handleKeydown,
@@ -105,4 +155,4 @@ export const NButton: CC<Props, Emits> = ({
       }
     }
   };
-};
+});

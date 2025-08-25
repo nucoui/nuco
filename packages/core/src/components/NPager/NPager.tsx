@@ -1,33 +1,61 @@
-import type { CC } from "chatora";
+import { createCC } from "chatora";
 import { Host } from "chatora/jsx-runtime";
 import { toMatched, toString } from "chatora/util";
 import clsx from "clsx";
 import resetStyle from "../../styles/reset.css?raw";
 import style from "./NPager.scss?inline";
 
+/**
+ * Props for NPager component
+ */
 export type Props = {
+  /**
+   * Link href
+   */
   href: string;
+  /**
+   * Link target
+   * @default "_self"
+   */
   target?: "_self" | "_blank" | "_parent" | "_top" | "_unfencedTop";
+  /**
+   * Pager type
+   * @default "prev"
+   */
   type: "prev" | "next";
 };
 
+/**
+ * Emits for NPager component
+ */
 export type Emits = {
+  /**
+   * Fired when pager is clicked
+   */
   "on-click"?: Event;
 };
 
-export const NPager: CC<Props, Emits> = ({ defineProps, defineEmits }) => {
+export const {
+  component: NPager,
+  genSD: genSDNPager,
+  genDSD: genDSDNPager,
+  define: defineNPager,
+} = createCC<Props, Emits>("n-pager", ({ defineProps, defineEmits }) => {
   const props = defineProps({
-    href: (v: string | undefined) => toString(v) ?? "",
-    target: (v: string | undefined) => toMatched(v, ["_self", "_blank", "_parent", "_top", "_unfencedTop"] as const) ?? "_self",
-    type: (v: string | undefined) => toMatched(v, ["prev", "next"] as const) ?? "prev",
+    href: v => toString(v) ?? "",
+    target: v => toMatched(v, ["_self", "_blank", "_parent", "_top", "_unfencedTop"]) ?? "_self",
+    type: v => toMatched(v, ["prev", "next"]) ?? "prev",
   });
 
-  const emit = defineEmits({
+  const emits = defineEmits({
     "on-click": () => {},
   });
 
+  /**
+   * Handle click event
+   */
   const handleClick = (e: Event) => {
-    emit("on-click", e);
+    emits("on-click", e);
   };
 
   return () => (
@@ -64,4 +92,4 @@ export const NPager: CC<Props, Emits> = ({ defineProps, defineEmits }) => {
       </a>
     </Host>
   );
-};
+});

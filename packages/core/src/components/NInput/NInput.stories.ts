@@ -1,20 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import type { Props } from "./NInput";
 
-import { NButton } from "@/components/NButton/NButton";
-
+import { genSDNButton } from "@/components/NButton/NButton";
 import { renderElement } from "@root/.storybook/utils/renderElement";
-import { functionalCustomElement } from "chatora";
-import { NInput } from "./NInput";
+import { genSDNInput } from "./NInput";
 
 const meta = {
   title: "Components/NInput",
   tags: ["autodocs"],
   render: args => renderElement(
     "n-input",
-    class Input extends functionalCustomElement(NInput) {
-      static formAssociated = true;
-    },
+    genSDNInput(),
     document.createTextNode(args.slot || ""),
     args,
   ),
@@ -101,12 +97,12 @@ export const Playground: Story = {
   args: {},
   render: (_args) => {
     if (!customElements.get("n-input")) {
-      customElements.define("n-input", class extends functionalCustomElement(NInput) {
+      customElements.define("n-input", class extends genSDNInput() {
         static formAssociated = true;
       });
     }
     if (!customElements.get("n-button")) {
-      customElements.define("n-button", functionalCustomElement(NButton));
+      customElements.define("n-button", genSDNButton());
     }
 
     const form = document.createElement("form");
